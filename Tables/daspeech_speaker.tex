@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace CVSS-T Fr$\rightarrow$En测试集上各模型的平均说话人相似度对比。}{\enspace Average speaker similarity on CVSS-T Fr$\rightarrow$En \texttt{test} set.}
+    \label{tab:daspeech_speaker}
+    \centering
+    \small
+    \begin{tabular}{ll|c}
+        \toprule
+        \textbf{模型}  &   & \textbf{说话人相似度} \\
+        \midrule
+        \multicolumn{2}{l|}{真实语音}      & 0.48 \\
+        \midrule
+        \multicolumn{3}{c}{\emph{基于离散单元的S2ST模型}} \\
+        \midrule
+        \multicolumn{2}{l|}{S2UT \citep{s2ut}} & 0.03 \\
+        \multicolumn{2}{l|}{UnitY \citep{inaguma-etal-2023-unity}} & 0.03 \\
+        \multicolumn{2}{l|}{TranSpeech \citep{huang2023transpeech}} & 0.03 \\
+        \midrule
+        \multicolumn{3}{c}{\emph{基于梅尔谱的S2ST模型}} \\
+        \midrule
+        \multicolumn{2}{l|}{Translatotron \citep{translatotron}} & 0.04 \\
+        \multicolumn{2}{l|}{Translatotron 2 \citep{translatotron2}} & 0.05 \\
+        \midrule
+        \multicolumn{1}{c|}{\textbf{DASpeech}} & + Lookahead & \textbf{0.14} \\
+        \multicolumn{1}{c|}{($\lambda=0.5$)}   & + Joint-Viterbi & 0.10 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

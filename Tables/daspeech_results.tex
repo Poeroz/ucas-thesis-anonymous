@@ -1,0 +1,44 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace CVSS法语$\rightarrow$英语数据集上的实验结果。$^\clubsuit$表示引用自\citet{huang2023transpeech}的结果，$^\spadesuit$表示本章复现的结果。$^\dag$：目标长度束=15并行噪声解码（NPD）。$^{**}$表示相对于S2UT的提升具有统计显著性（$p<0.01$）。}{\enspace Results on CVSS Fr$\rightarrow$En datasets. $^\clubsuit$: results from \citet{huang2023transpeech}. $^\spadesuit$: our re-implementation. $^\dag$: target length beam=15 and noisy parallel decoding. $^{**}$: statistically significant over S2UT ($p<0.01$).}
+    \label{tab:daspeech_main}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{l|c|c|cc|c}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \multirow{2}{*}{\textbf{解码方式}} & \multirow{2}{*}{\textbf{参数量}} & \multicolumn{2}{c|}{\textbf{ASR-BLEU}} & \multirow{2}{*}{\textbf{加速比}} \\
+         & & & \textbf{CVSS-C} & \textbf{CVSS-T} & \\
+        \midrule
+        \multicolumn{6}{c}{\textit{一阶段自回归模型}} \\
+        \midrule
+        S2UT \citep{s2ut}                        & Beam=10         & 73M  & 22.23          & 22.28          & 1.00$\times$  \\
+        Translatotron \citep{translatotron}       & 自回归          & 79M  & 16.96          & 11.25          & 2.32$\times$  \\
+        \midrule
+        \multicolumn{6}{c}{\textit{二阶段自回归模型}} \\
+        \midrule
+        UnitY \citep{inaguma-etal-2023-unity}     & Beam=(10, 1)    & 64M  & 24.09          & 24.29          & 1.43$\times$  \\
+        Translatotron 2 \citep{translatotron2}    & Beam=10         & 87M  & \textbf{25.21} & 24.39          & 1.42$\times$  \\
+        \midrule
+        \multicolumn{6}{c}{\textit{非自回归模型}} \\
+        \midrule
+        TranSpeech$^\clubsuit$ \citep{huang2023transpeech}       & 迭代5次         & 67M  & 17.24 & /     & 11.04$\times$ \\
+        \quad + b=15 + NPD$^{\dag,\clubsuit}$                    & 迭代15次        & 67M  & 18.39 & /     & 2.53$\times$  \\
+        \midrule
+        TranSpeech$^\spadesuit$ \citep{huang2023transpeech}      & 迭代5次         & 67M  & 16.38 & 16.49 & 12.45$\times$ \\
+        \quad + b=15 + NPD$^{\dag,\spadesuit}$                   & 迭代15次        & 67M  & 19.05 & 18.60 & 3.35$\times$  \\
+        \midrule
+        DASpeech ($\lambda=0.5$) & Lookahead       & 93M  & 24.71$^{**}$          & 24.45$^{**}$          & \textbf{18.53$\times$}   \\
+        DASpeech ($\lambda=0.5$) & Joint-Viterbi   & 93M  & \textbf{25.03}$^{**}$ & \textbf{25.26}$^{**}$ & 16.29$\times$            \\
+        DASpeech ($\lambda=1.0$) & Lookahead       & 93M  & 24.41$^{**}$          & 24.17$^{**}$          & 18.45$\times$            \\
+        DASpeech ($\lambda=1.0$) & Joint-Viterbi   & 93M  & 24.80$^{**}$          & 24.48$^{**}$          & 15.65$\times$            \\
+        \midrule
+        \multicolumn{6}{c}{\textit{级联系统}} \\
+        \midrule
+        S2T + FastSpeech 2                        & Beam=10         & 49M+41M & 24.71 & 24.49 & /  \\
+        DAT + FastSpeech 2 ($\lambda=0.5$)        & Lookahead       & 51M+41M & 22.19 & 22.10 & /  \\
+        DAT + FastSpeech 2 ($\lambda=0.5$)        & Joint-Viterbi   & 51M+41M & 22.80 & 22.75 & /  \\
+        DAT + FastSpeech 2 ($\lambda=1.0$)        & Lookahead       & 51M+41M & 22.68 & 22.57 & /  \\
+        DAT + FastSpeech 2 ($\lambda=1.0$)        & Joint-Viterbi   & 51M+41M & 23.20 & 23.15 & /  \\
+        \bottomrule
+    \end{tabular}}
+\end{table}

@@ -1,2 +1,243 @@
-\chapter{DASpeech}\label{chap:daspeech}
+\chapter{基于有向无环图的语音到语音翻译模型}\label{chap:daspeech}
 
+\section{引言}
+
+语音到语音翻译（Speech-to-Speech Translation, S2ST）旨在将源语言的语音直接翻译为目标语言的语音，是打破不同语言群体交流壁垒的关键技术，在国际会议、跨国交流、影视译制等领域具有广阔的应用前景。传统的语音到语音翻译系统通常由自动语音识别（Automatic Speech Recognition, ASR）、机器翻译（Machine Translation, MT）和语音合成（Text-to-Speech, TTS）三个独立模块级联而成\citep{599557, 1597243}。然而，这种级联方式存在诸多问题：一方面，各模块之间的错误会逐级传播和累积\citep{jia2022cvss}；另一方面，级联系统无法保留源语音中的非语言信息（如说话人音色），且多模块串行处理导致解码延迟较高\citep{s2ut}。为此，研究者们提出了端到端的语音到语音翻译方法，通过单一模型实现从源语音到目标语音的直接转换\citep{translatotron}，不仅可以避免级联系统中的错误传播问题，还具有降低解码延迟和保留说话人音色的潜力\citep{translatotron2}。近年来的研究表明，端到端的语音到语音翻译模型已经能够取得与级联系统相当甚至更优的性能\citep{inaguma2022unity, DBLP:conf/interspeech/PopuriCWPAGHL22}。
+
+尽管端到端语音到语音翻译具有诸多理论优势，但在实践中训练高质量的端到端模型仍面临巨大挑战。核心难点在于目标语音服从复杂的多模态分布。这种多模态性来源于两个方面：其一是\textbf{语言多样性}，即同一源语句可能对应多种合理的翻译结果；其二是\textbf{声学多样性}，即同一文本内容在语音层面也存在时长、音高、能量、说话人特征等多方面的变化。为应对这一挑战，现有工作从模型结构上可以分为两类：一阶段解码模型以S2UT\citep{s2ut}和Translatotron\citep{translatotron}为代表，直接从源语音生成目标语音的离散单元或梅尔谱（Mel-spectrogram）；二阶段解码模型以UnitY\citep{inaguma-etal-2023-unity}和Translatotron 2\citep{translatotron2}为代表，首先生成目标文本（如音素序列），然后基于文本的隐状态生成目标语音。二阶段架构通过将生成过程分解为内容翻译和语音合成两个步骤，有效降低了建模目标语音复杂分布的难度，在翻译质量上取得了显著提升。
+
+然而，上述模型均采用自回归解码器，按从左到右的顺序逐步生成目标序列。由于语音序列通常较长，自回归解码的计算开销很大，导致解码延迟较高。特别是二阶段模型需要进行两次自回归解码，延迟问题更为突出。为了降低解码延迟，研究者们开始探索非自回归的语音到语音翻译方法。TranSpeech\citep{huang2023transpeech}是首个非自回归S2ST模型，通过并行生成目标语音的离散单元来加速解码。DiffS2UT\citep{diffs2ut}则采用扩散模型进行非自回归语音生成。虽然这些非自回归模型在解码速度上取得了显著进步，但由于非自回归模型固有的条件独立假设，在面对目标语音的多模态分布时建模能力受限，导致翻译质量仍逊色于一阶段的自回归模型，与二阶段自回归模型更是差距明显。这种多模态建模能力的不足在非自回归序列生成领域被称为多峰性问题（Multi-modality Problem）\citep{gu2018nat}。因此，\textbf{如何在非自回归框架下有效建模目标语音的多模态分布，实现高质量与高效率兼备的语音到语音翻译}，是本章需要解决的关键科学问题。
+
+针对上述问题，本章提出了DASpeech，一个非自回归的二阶段端到端语音到语音翻译模型。DASpeech同时实现了高翻译质量和快解码速度。在模型设计上，DASpeech包含语音编码器、非自回归语言解码器和非自回归声学解码器三个组件。其中，语言解码器采用有向无环图Transformer（Directed Acyclic Transformer, DA-Transformer）\citep{huang2022DATransformer}的解码器结构，其将解码器最后一层的隐状态组织为一个有向无环图（Directed Acyclic Graph, DAG），通过DAG中的不同路径来建模不同的翻译候选，有效缓解非自回归翻译中的语言多峰性问题。声学解码器采用FastSpeech 2\citep{ren2021fastspeech2}的结构，通过显式建模时长、音高和能量等变化信息来缓解声学多模态问题，实现快速且高质量的语音合成。为了实现整个模型的端到端训练，本章提出了期望路径训练算法（Expect-Path Training），采用隐马尔科夫模型中的前向-后向算法计算目标序列每个位置对应的期望隐状态，将其作为声学解码器的输入。在推理阶段，首先在DAG中选择一条概率最大的路径，并将该路径上的隐状态输入声学解码器，通过两次并行解码生成目标语音。
+
+本章在CVSS法语到英语数据集上进行了实验验证。实验结果表明：（1）DASpeech在翻译质量上明显超越S2UT和Translatotron等一阶段自回归模型，与二阶段自回归模型Translatotron 2的性能持平甚至更优，同时解码速度相较于S2UT取得了最高18.53倍的加速；（2）与先前的非自回归模型TranSpeech相比，DASpeech无需知识蒸馏和迭代解码，在翻译质量和解码速度两方面均取得了显著优势；（3）DASpeech在包含多说话人目标语音的数据集上展现出声纹保持能力，证明了其在处理复杂声学条件下的潜力。
+
+
+\section{方法介绍}
+
+本节介绍DASpeech的模型架构和训练方法。形式化地，源语音序列表示为$X=(x_1, ..., x_N)$，其中$N$为源语音的帧数；目标音素序列表示为$Y=(y_1,...,y_M)$；目标梅尔谱序列表示为$S=(s_1,...,s_T)$。DASpeech首先通过语音到文本翻译（S2TT）的DA-Transformer从$X$生成$Y$，随后基于DA-Transformer最后一层的隐状态，使用FastSpeech 2风格的解码器生成$S$。
+
+\subsection{相关技术}
+
+\subsubsection{DA-Transformer}
+
+有向无环图Transformer（DA-Transformer）\citep{huang2022DATransformer, huang2022PDAT}是一种面向非自回归机器翻译（Non-Autoregressive Translation, NAT）的模型，其在不依赖知识蒸馏的条件下取得了与自回归Transformer\citep{transformer}相当的翻译性能。DA-Transformer由一个Transformer编码器和一个非自回归解码器组成。解码器最后一层的隐状态被组织为一个有向无环图（DAG），其中隐状态对应图中的结点，编号小的结点到编号大的结点之间有一条有向边相连。DA-Transformer通过DAG中的不同路径同时编码多种翻译候选，有效缓解了非自回归翻译中的语言多峰性问题。
+
+形式化地，对于源端输入序列$X=(x_1,...,x_N)$和目标序列$Y=(y_1,...,y_M)$，编码器以$X$为输入，解码器以可学习的位置编码$\mathbf{G}=(\mathbf{g}_1,...,\mathbf{g}_L)$为输入，其中$L=\lambda\cdot N$为图的大小，$\lambda$是超参数。DA-Transformer通过边际化DAG中所有可能的路径来建模翻译概率：
+\begin{equation}
+    P_\theta(Y|X)=\sum_{A\in\Gamma}P_\theta(Y|A, X)P_\theta(A|X),
+\end{equation}
+其中，$A=(a_1,...,a_M)$表示一条路径，满足$1=a_1<\cdots<a_M=L$，$\Gamma$是包含所有长度为$M$的路径的集合。路径$A$的概率定义为：
+\begin{equation}
+    P_\theta(A|X)=\prod_{i=1}^{M-1}P_\theta(a_{i+1}|a_i, X)=\prod_{i=1}^{M-1}\mathbf{E}_{a_i,a_{i+1}},
+\end{equation}
+其中，$\mathbf{E}\in\mathbb{R}^{L\times L}$是转移概率矩阵，添加下三角掩码以保证只能从编号小的结点向编号大的结点转移。当路径$A$确定后，所有目标词根据路径上的结点并行预测：
+\begin{equation}
+    P_\theta(Y|A, X)=\prod_{i=1}^M P_\theta(y_i|a_i, X)=\prod_{i=1}^M \mathbf{P}_{a_i, y_i},
+\end{equation}
+其中，$\mathbf{P}\in\mathbb{R}^{L\times|\mathbb{V}|}$是预测概率矩阵，$\mathbb{V}$为目标语言词表。DA-Transformer的训练目标为最小化负对数似然：
+\begin{equation}
+    \mathcal{L}_{\mathrm{DAT}}=-\log P_\theta(Y|X) = -\log \sum_{A\in\Gamma}P_\theta(Y|A, X)P_\theta(A|X),
+    \label{eq:dat}
+\end{equation}
+此处的求和可通过动态规划高效求解。
+
+\subsubsection{FastSpeech 2}
+
+FastSpeech 2\citep{ren2021fastspeech2}是一种非自回归语音合成模型，能够从输入的音素序列并行生成语音的梅尔谱。它由三个堆叠的模块组成：编码器、方差适配器（Variance Adaptor）和梅尔谱解码器。编码器和梅尔谱解码器包含若干个前馈Transformer块（Feed-Forward Transformer Block），每个块由一个自注意力层和一个一维卷积层组成。方差适配器包含三个方差预测器，分别为时长预测器（Duration Predictor）、音高预测器（Pitch Predictor）和能量预测器（Energy Predictor），用于弥合输入音素序列和输出梅尔谱之间的信息差距。在训练过程中，使用真实的时长、音高和能量来训练这些方差预测器，并将其作为条件输入以生成梅尔谱；在推理过程中，则使用这些预测器的预测值。变化信息的显式引入极大地缓解了声学多模态问题，从而提高了语音质量。FastSpeech 2的训练目标由以下四项组成：
+\begin{equation}
+    \mathcal{L}_{\mathrm{TTS}}=\mathcal{L}_{\mathrm{L1}}+\mathcal{L}_{\mathrm{dur}}+\mathcal{L}_{\mathrm{pitch}}+\mathcal{L}_{\mathrm{energy}},
+    \label{eq:tts}
+\end{equation}
+其中$\mathcal{L}_{\mathrm{L1}}$衡量预测梅尔谱与真实梅尔谱之间的L1距离，$\mathcal{L}_{\mathrm{dur}}$、$\mathcal{L}_{\mathrm{pitch}}$和$\mathcal{L}_{\mathrm{energy}}$分别计算时长、音高和能量的预测值与真实值之间的均方误差（MSE）。
+
+
+\subsection{模型架构}\label{sec:daspeech_arch}
+
+如图\ref{fig:daspeech}所示，DASpeech包含三个部分：语音编码器、非自回归语言解码器和非自回归声学解码器。以下分别介绍各组件的详细设计。
+
+\textbf{语音编码器}\quad 由于DASpeech以语音特征作为输入，本章将DA-Transformer原始的Transformer编码器替换为语音编码器。语音编码器首先包含一个基于CNN的下采样模块（Subsampler），由两个一维卷积层组成，将输入序列长度缩减为原来的四分之一。随后是若干个Conformer\citep{conformer}块，Conformer结合了多头注意力机制和卷积层的优势，能够同时捕捉全局特征和局部特征。多头注意力模块采用相对位置编码\citep{dai-etal-2019-transformer}。
+
+\textbf{非自回归语言解码器}\quad 语言解码器与DA-Transformer的解码器结构相同，用于从源语音并行生成目标音素序列。解码器的每一层包含自注意力层、交叉注意力层和前馈层。解码器以可学习的位置编码作为输入，最后一层的隐状态被组织为DAG来建模翻译。
+
+\textbf{非自回归声学解码器}\quad 声学解码器采用FastSpeech 2的设计，从DA-Transformer最后一层的隐状态并行生成目标梅尔谱。其模型结构与前文介绍的FastSpeech 2相同，但移除了输入音素的嵌入矩阵，因为输入已从音素序列变为隐状态序列。在两个解码器之间插入一个两层前馈网络（FFN），用于将语言解码器的输出维度转换到声学解码器的输入维度。
+
+\input{Img/figure_daspeech}
+
+
+\subsection{期望路径训练}\label{sec:daspeech_train}
+
+DASpeech可以利用预训练的S2TT DA-Transformer模型初始化语音编码器和语言解码器，利用预训练的FastSpeech 2模型初始化声学解码器，然后端到端微调整个模型。这种预训练-微调范式简化了模型训练过程，并允许模型利用额外的语音到文本翻译数据和语音合成数据。然而，端到端微调面临一个核心挑战——语言解码器输出与声学解码器输入之间的长度不匹配问题。具体来说，语言解码器的隐状态序列长度为$L=\lambda \cdot N$，包含DAG中所有结点的表示，而声学解码器要求的输入序列长度为$M$，即目标音素序列的长度。因此，需要确定如何从语言解码器最后一层的隐状态$\mathbf{V}=(\mathbf{v}_1, ..., \mathbf{v}_L)$中获得声学解码器的输入序列$\mathbf{Z}=(\mathbf{z}_1, ..., \mathbf{z}_M)$。
+
+直观地讲，输入声学解码器的第$i$个元素$\mathbf{z}_i$应当是负责生成$y_i$的结点的隐状态表示。然而，DAG中存在多条可能的路径，对于每个$y_i$，可能有多个不同的结点负责生成它。为了在训练时同时考虑所有路径，本章将$\mathbf{z}_i$定义为后验分布$P_\theta(a_i|X,Y)$下的期望隐状态：
+\begin{equation}
+    \mathbf{z}_i=\sum_{j=1}^L P_\theta(a_i=j|X,Y)\cdot \mathbf{v}_j,\label{eq:expect}
+\end{equation}
+其中$P_\theta(a_i=j|X,Y)$表示路径$A$上第$i$个结点为结点$j$的概率，即结点$j$负责生成$y_i$的概率。具体地，$P_\theta(a_i=j|X,Y)$的计算方式如下：
+\begin{align}
+    P_\theta(a_i=j|X, Y) &= \sum_{A\in\Gamma} \mathbb{1}(a_i=j)\cdot P_\theta(A|X,Y) \nonumber \\
+                         &= \frac{\sum_{A\in\Gamma} \mathbb{1}(a_i=j)\cdot P_\theta(Y, A|X)}{\sum_{A\in\Gamma} P_\theta(Y, A|X)}, \label{eq:posterior}
+\end{align}
+其中$\mathbb{1}(a_i=j)$是指示函数，用于判断路径$A$的第$i$个顶点是否为顶点$j$。
+
+为了高效计算公式(\ref{eq:posterior})中的分子和分母，本章采用前向-后向算法\citep{hiddenmarkovmodel}，即两次动态规划过程。
+
+\textbf{前向算法}\quad 前向概率定义为$\alpha_i(j) = P_\theta(y_1, ..., y_i, a_i=j | X)$，表示生成部分目标序列$(y_1, ..., y_i)$并在第$i$步结束于顶点$j$的概率。根据定义，初始条件为$\alpha_1(1)=\mathbf{P}_{1, y_1}$以及$\alpha_1(1<j\leq L)=0$。由马尔可夫性质，可按顺序从前一步$\alpha_{i-1}(\cdot)$递推计算$\alpha_i(\cdot)$：
+\begin{equation}
+    \alpha_i(j) = \mathbf{P}_{j,y_i} \sum_{k=1}^{j-1} \alpha_{i-1}(k)\cdot \mathbf{E}_{k,j}.
+\end{equation}
+
+\textbf{后向算法}\quad 后向概率定义为$\beta_i(j) = P_\theta(y_{i+1}, ..., y_M | a_i=j, X)$，表示从第$i$步起始于顶点$j$并生成目标序列剩余部分$(y_{i+1}, ..., y_M)$的概率。初始条件为$\beta_M(L)=1$以及$\beta_M(1\leq j<L)=0$。类似于前向算法，可从下一步$\beta_{i+1}(\cdot)$递推计算$\beta_i(\cdot)$：
+\begin{equation}
+    \beta_i(j) = \sum_{k=j+1}^L \mathbf{E}_{j,k} \cdot \beta_{i+1}(k) \cdot \mathbf{P}_{k, y_{i+1}}.
+\end{equation}
+
+回顾公式(\ref{eq:posterior})，分母为所有有效路径概率之和，等于$\alpha_{M}(L)$；分子为所有满足$a_i=j$的路径概率之和，等于$\alpha_i(j)\cdot \beta_i(j)$。因此，公式(\ref{eq:expect})可以计算为：
+\begin{equation}
+    \mathbf{z}_i = \sum_{j=1}^L P_\theta(a_i=j|X,Y)\cdot \mathbf{v}_j = \sum_{j=1}^L \frac{\alpha_i(j)\cdot \beta_i(j)}{\alpha_M(L)}\cdot \mathbf{v}_j.
+\end{equation}
+前向-后向算法的时间复杂度为$\mathcal{O}(ML^2)$。
+
+除期望路径训练外，本章也实验了一种更简单的训练方法——\textbf{最优路径训练}（Best-Path Training），其核心思想是通过Viterbi算法\citep{viterbi}选择概率最大的路径$\hat{A}=\arg\max_{A\in\Gamma} P_\theta(Y,A|X)$，将该路径上的隐状态$\mathbf{z}_i=\mathbf{v}_{\hat{a}_i}$作为声学解码器的输入。具体来说，$\delta_i(j)$表示以顶点$j$结束的最优部分路径$(\hat{a}_1, ..., \hat{a}_i)$生成$(y_1, ..., y_i)$的概率。初始条件为$\delta_1(1)=\mathbf{P}_{1, y_1}$，$\delta_1(1<j\leq L)=0$。对于$i>1$，可递推计算：
+\begin{equation}
+    \delta_i(j) = \max_{k<j} (\delta_{i-1}(k)\cdot \mathbf{E}_{k, j} \cdot \mathbf{P}_{j, y_i}),
+\end{equation}
+经过$M$步迭代后，通过从$\hat{a}_M=L$回溯即可得到最优路径。最优路径训练虽然简单直接，但仅有最优路径上的隐状态参与TTS训练，可能导致其余隐状态训练不充分。相比之下，期望路径训练让所有隐状态都参与TTS训练，能够取得更好的性能。
+
+\textbf{训练目标}\quad DASpeech的总体训练目标为：
+\begin{equation}
+    \mathcal{L}_{\mathrm{DASpeech}}=\mathcal{L}_{\mathrm{DAT}} + \mu\cdot \mathcal{L}_{\mathrm{TTS}},\label{eq:daspeech}
+\end{equation}
+其中$\mu$为语音合成损失的权重系数，$\mathcal{L}_{\mathrm{DAT}}$和$\mathcal{L}_{\mathrm{TTS}}$分别如公式(\ref{eq:dat})和公式(\ref{eq:tts})所定义。
+
+\textbf{训练流程}\quad DASpeech采用预训练-微调范式：
+\begin{enumerate}
+    \item \textbf{S2TT预训练}：语音编码器和语言解码器在语音到音素翻译任务上进行预训练。在多语言场景下，由于低资源语言数据有限，从源语音到目标音素的映射较难学习，为此本章采用由粗到细的预训练策略——先在语音到子词翻译任务上预训练，再在语音到音素翻译任务上预训练。
+    \item \textbf{TTS预训练}：声学解码器在语音合成任务上进行预训练。
+    \item \textbf{端到端微调}：使用上述预训练参数初始化后，整个模型在语音到语音翻译数据上进行端到端微调。
+\end{enumerate}
+训练期间还引入了Glancing策略\citep{qian-etal-2021-glancing}以缓解多峰性问题。该策略首先根据最优路径将目标词分配到对应的顶点，然后遮蔽部分词，让模型学习在部分信息缺失的情况下进行预测。遮蔽率$\tau$在预训练阶段从0.5线性退火至0.1，在微调阶段固定为0.1。
+
+
+\subsection{解码策略}\label{sec:daspeech_infer}
+
+在推理阶段，DASpeech执行两次并行解码。首先，使用DA-Transformer的解码策略在DAG中找到最可能的路径$A^*$；然后，将该路径上的最后一层隐状态输入声学解码器，并行生成目标梅尔谱；最后，预测的梅尔谱通过预训练的HiFi-GAN声码器\citep{hifigan}转换为语音波形。由于DAG解码和TTS解码均为完全并行，因此DASpeech在解码效率上相比依赖两次自回归解码的模型取得了显著提升。本章采用以下两种DA-Transformer解码策略：
+
+\textbf{Lookahead解码}\quad Lookahead以贪心方式逐步选择$a_i$和$y_i$。在每个解码步骤中，同时考虑转移概率和预测概率：
+\begin{equation}
+    a_i^*, y_i^* = \mathop{\arg\max}_{a_i, y_i} P_\theta(y_i|a_i, X)P_\theta(a_i | a_{i-1}, X).
+\end{equation}
+
+\textbf{Joint-Viterbi解码}\quad Joint-Viterbi解码\citep{shao2022viterbi}通过Viterbi解码\citep{viterbi}找到翻译和解码路径的全局联合最优解：
+\begin{equation}
+    A^*, Y^* = \mathop{\arg\max}_{A,Y} P_\theta(Y, A | X).
+\end{equation}
+解码完成后，先确定目标长度$M$，然后从$a^*_M=L$回溯得到最优路径。Joint-Viterbi解码在翻译质量上通常优于Lookahead，但解码速度略慢。
+
+
+\section{实验结果与分析}
+
+\subsection{实验设置}
+
+\subsubsection{数据集}
+
+本章在CVSS\citep{jia2022cvss}数据集上进行实验。CVSS是一个大规模的语音到语音翻译语料库，包含从21种语言到英语的语音翻译对。该数据集由CoVoST 2\citep{wang2020covost2}语音到文本翻译语料库扩展而来，利用先进的TTS模型将目标文本合成为语音。CVSS包含两个版本：CVSS-C和CVSS-T。CVSS-C中所有目标语音均为同一说话人的声音；CVSS-T中目标语音克隆了对应源语音说话人的声音。
+
+本章在CVSS-C和CVSS-T的法语到英语（Fr$\rightarrow$En）数据集上进行主实验，其训练集、验证集、测试集分别包含207364、14759、14759条平行数据。此外，本章还进行了多语言实验，将CVSS-C中所有21个语言方向的数据合并，训练一个多对英语的S2ST模型。
+
+\subsubsection{数据预处理}
+
+源语音转换为16000Hz采样率，目标语音采用22050Hz采样率。对源语音计算80维的梅尔滤波器组特征（Mel-filterbank Features），对目标语音按照FastSpeech 2\citep{ren2021fastspeech2}的方法提取梅尔谱。源语音采用句级倒谱均值方差归一化（CMVN），目标语音采用全局级CMVN。目标语音的时长、音高和能量信息同样按照FastSpeech 2的方法提取。
+
+\subsubsection{模型配置}
+
+DASpeech的语音编码器包含12层Conformer，隐层维度256，注意力头数4，前馈网络隐层维度2048，深度卷积核大小为31。语言解码器包含4层Transformer解码器，隐层维度512，注意力头数8，前馈网络隐层维度2048。声学解码器包含8层前馈Transformer块（4层编码器和4层解码器），隐层维度256，注意力头数4，前馈网络隐层维度1024。声学解码器的三个方差预测器各包含两个一维卷积层，隐层维度256，卷积核大小3，Dropout率0.5。两个解码器之间插入一个两层前馈网络，将维度从512转换为256。模型总参数量约为93M。
+
+正则化方面，Dropout设置为0.1，权重衰减为0.01，不使用标签平滑。使用在VCTK数据集\citep{Veaux2017CSTRVC}上预训练的HiFi-GAN声码器将梅尔谱转换为波形。
+
+\subsubsection{训练细节}
+
+在S2TT预训练阶段，语音编码器和语言解码器在语音到音素翻译任务上训练100k步，每批320k音频帧，学习率在10k步内预热至5e-4。在TTS预训练阶段，声学解码器在语音合成任务上训练100k步，批大小512，学习率在4k步内预热至5e-4。在端到端微调阶段，整个模型训练50k步，每批320k音频帧，学习率在4k步内预热至1e-3。预训练和微调均使用Adam优化器\citep{adam}。TTS损失权重$\mu$在$\{1.0, 2.0, 5.0, 10.0\}$中实验后选定为$\mu=5.0$。
+
+在多语言实验中，采用由粗到细的预训练策略。首先在语音到子词翻译任务上预训练（子词词表大小6K，使用SentencePiece工具学习），随后在语音到音素翻译任务上预训练。第二阶段预训练时，解码器的嵌入矩阵和输出投影矩阵被替换并从头训练。
+
+所有模型均基于fairseq\citep{ott2019fairseq}工具包实现，使用4块NVIDIA RTX 3090 GPU进行训练。微调阶段每2000步保存检查点，最终平均最后5个检查点用于评估。
+
+\subsubsection{评价指标}
+
+\textbf{翻译质量}采用ASR-BLEU指标评估。该方法首先使用预训练的ASR模型将翻译后的语音转录为文本，然后使用SacreBLEU\citep{post-2018-call}工具计算转录文本与参考文本之间的BLEU分数\citep{papineni-etal-2002-bleu}。统计显著性通过配对自助采样法（Paired Bootstrap Resampling）计算。\textbf{解码速度}以测试集上的解码加速比（Speedup）衡量，在单块RTX 3090 GPU上以批大小1测试。\textbf{声纹保持能力}通过说话人相似度衡量，使用预训练的d-vector说话人验证模型\citep{dvector}提取源语音和生成目标语音的说话人嵌入，计算两者之间的余弦相似度。
+
+\subsubsection{基线系统}
+
+本章与以下基线系统进行对比：
+
+\begin{itemize}
+    \item \textbf{S2UT}\citep{s2ut}：一阶段自回归S2ST模型，以目标语音的离散单元（来自预训练mHuBERT模型第11层的K-means聚类单元，K=1000）作为生成目标。引入预测目标音素的辅助任务帮助模型收敛。参数量73M，束搜索大小10。
+    \item \textbf{Translatotron}\citep{translatotron}：一阶段自回归S2ST模型，以目标梅尔谱作为生成目标。声学解码器的压缩因子为5。参数量79M。
+    \item \textbf{UnitY}\citep{inaguma2022unity}：二阶段自回归S2ST模型，先生成目标音素再生成离散单元。第一阶段和第二阶段束搜索大小分别为10和1。参数量64M。
+    \item \textbf{Translatotron 2}\citep{translatotron2}：二阶段自回归S2ST模型，先生成目标音素再生成梅尔谱。本章使用Transformer替换原始的LSTM，并在两个解码器之间引入额外的编码器。束搜索大小10。参数量87M。
+    \item \textbf{TranSpeech}\citep{huang2023transpeech}：首个非自回归S2ST模型，并行生成目标离散单元。引入双边扰动（BiP）来解耦离散单元中的声学变化信息。参数量67M。
+    \item \textbf{S2T + FastSpeech 2}：由自回归语音到文本翻译模型和FastSpeech 2组成的级联系统。参数量49M+41M。
+    \item \textbf{DAT + FastSpeech 2}：由S2TT DA-Transformer和FastSpeech 2组成的级联系统。参数量51M+41M。
+\end{itemize}
+
+
+\subsection{主要结果}
+
+\subsubsection{法语到英语翻译结果}
+
+\input{Tables/daspeech_results}
+
+表\ref{tab:daspeech_main}展示了在CVSS-C Fr$\rightarrow$En和CVSS-T Fr$\rightarrow$En数据集上的实验结果。可以得到以下发现：
+
+（1）\textbf{DASpeech在翻译质量上比肩二阶段自回归模型，同时大幅提升解码速度}。与之前的自回归模型相比，DASpeech在翻译质量上明显超越一阶段模型S2UT（25.03 vs 22.23 ASR-BLEU on CVSS-C）和Translatotron（25.03 vs 16.96），并与二阶段模型Translatotron 2的性能持平甚至更优（CVSS-T上25.26 vs 24.39）。在解码速度方面，DASpeech相较于S2UT取得了最高18.53倍的加速。
+
+（2）\textbf{DASpeech全面超越先前的非自回归模型TranSpeech}。DASpeech无需知识蒸馏和迭代解码，在翻译质量上以显著优势超越TranSpeech（25.03 vs 19.05 with NPD），在解码速度上也更快（16.29$\times$ vs 3.35$\times$）。
+
+（3）\textbf{端到端训练的有效性}。DASpeech性能明显优于相应的级联系统DAT + FastSpeech 2（$\lambda=0.5$下25.03 vs 22.80），证明了本章提出的期望路径训练方法的有效性。同时观察到一个现象：级联系统在较大的图尺寸下（$\lambda=1.0$）表现更好，而DASpeech在较小的图尺寸下（$\lambda=0.5$）效果更优。原因在于较大的图尺寸虽然能提升语音到文本翻译的性能，但同时也给端到端训练带来了更大的挑战。
+
+（4）\textbf{DASpeech在多说话人场景下表现优异}。在包含多说话人目标语音的CVSS-T数据集上，Translatotron和Translatotron 2因目标梅尔谱更难预测而出现性能下降（如Translatotron从16.96降至11.25）。相比之下，DASpeech的声学解码器通过显式引入音高、能量等变化信息来缓解声学多模态问题，因此在CVSS-T上的性能依然出色（Joint-Viterbi解码下达到25.26），甚至优于CVSS-C上的结果。
+
+\subsubsection{多语言翻译结果}
+
+本章还在CVSS-C数据集上训练了多语言的多对英语S2ST模型，结果如表\ref{tab:daspeech_multilingual}所示。本章报告了所有语言的平均ASR-BLEU分数以及高/中/低资源语言的平均分数。结果表明，DASpeech在多语言环境下仍然明显优于S2UT，但与Translatotron 2和UnitY相比性能略有差距，平均BLEU落后Translatotron 2约1.3分。然而，DASpeech的解码速度是Translatotron 2的约13倍，在翻译质量和解码速度之间实现了更好的权衡。
+
+\input{Tables/daspeech_multilingual}
+
+
+\subsection{分析实验}
+
+\subsubsection{期望路径训练与最优路径训练的比较}
+
+\input{Tables/daspeech_path_ablation}
+
+表\ref{tab:daspeech_path}展示了期望路径训练和最优路径训练在CVSS-C Fr$\rightarrow$En测试集上的对比结果。在所有配置下，期望路径训练均优于最优路径训练，提升幅度为0.19至0.34 ASR-BLEU。这一结果验证了本章的分析：最优路径训练仅让最优路径上的隐状态参与TTS训练，可能导致其余隐状态训练不充分；而期望路径训练让所有隐状态都参与TTS训练，充分利用了DAG中的信息，从而取得了更好的性能。两种训练方法的时间复杂度均为$\mathcal{O}(ML^2)$。
+
+\subsubsection{解码速度分析}
+
+\input{Img/figure_daspeech_decoding}
+
+图\ref{fig:daspeech_decoding}展示了不同模型针对不同长度源语音的翻译延迟。结果表明，自回归模型（S2UT、Translatotron、UnitY和Translatotron 2）的翻译延迟随源语音长度的增加而显著增长。相比之下，非自回归模型（TranSpeech和DASpeech）的翻译延迟几乎不受源语音长度的影响。在翻译较长的语音输入时，DASpeech的解码速度可以达到S2UT的20倍以上。
+
+图\ref{fig:daspeech_tradeoff}展示了不同模型的质量-速度权衡。通过调整超参数$\lambda$，可以改变DASpeech的翻译质量和解码延迟。具体来说，随着$\lambda$的增加，模型的解码延迟会增大，而在$\lambda=0.5$时翻译质量达到最佳。从图中可以看出，DASpeech在所有模型中实现了翻译质量和解码延迟之间的最佳权衡。
+
+此外，批量解码场景下非自回归模型的加速优势可能减弱。本章在不同批量大小下测试了DASpeech的解码加速比。结果表明，随着批量大小的增加，加速比逐步降低，但DASpeech（$\lambda=0.5$, Joint-Viterbi）在批量大小为64时仍可达到6倍以上的加速，且翻译质量与Translatotron 2持平。
+
+\subsubsection{图尺寸的影响}
+
+DAG的图尺寸由超参数$\lambda$控制（$L=\lambda\cdot N$）。本章在$\lambda\in\{0.25, 0.5, 0.75, 1.0, 1.25, 1.5\}$范围内研究了图尺寸对性能的影响。对于S2TT DA-Transformer模型，其翻译性能随图尺寸的增大而持续提升，这与机器翻译中的观察一致\citep{huang2022DATransformer}。然而，DASpeech在$\lambda=0.5$时取得最佳性能，更大的图尺寸反而导致性能下降。原因在于较大的图尺寸增加了端到端训练的难度，影响了语言解码器与声学解码器之间的协同优化。
+
+\subsubsection{声纹保持能力分析}
+
+\input{Tables/daspeech_speaker}
+
+本章在CVSS-T Fr$\rightarrow$En数据集上研究了各模型的声纹保持能力。CVSS-T中目标语音的声纹来自对应的源语音。表\ref{tab:daspeech_speaker}展示了各模型翻译结果的平均说话人相似度。可以发现：（1）基于离散单元的S2ST模型（S2UT、UnitY、TranSpeech）几乎无法保持源说话人的声纹（相似度仅约0.03），因为离散单元中包含的说话人信息很少；（2）DASpeech的声纹保持能力（相似度0.14）明显优于Translatotron（0.04）和Translatotron 2（0.05），因为其声学解码器通过显式引入目标语音的变化信息，能够学习更复杂的目标分布，从而自发地展现出一定的声纹保持能力。
+
+
+\section{本章小结}
+
+本章围绕语音到语音翻译任务中翻译质量与解码效率的矛盾，针对非自回归框架下如何有效建模目标语音的多模态分布这一关键科学问题，提出了DASpeech——首个非自回归二阶段端到端语音到语音翻译模型。DASpeech通过有向无环图Transformer建模语言多样性、通过FastSpeech 2建模声学多样性，并提出了期望路径训练算法实现端到端训练。
+
+在CVSS法语到英语数据集上的实验结果表明，DASpeech在翻译质量上与Translatotron 2相当甚至更优，同时解码速度提升最高达18.53倍；相比先前的非自回归模型TranSpeech，DASpeech在翻译质量和解码速度上均取得了显著优势。分析实验进一步验证了期望路径训练优于最优路径训练、DASpeech在复杂声学条件下的鲁棒性以及其自发涌现的声纹保持能力。
+
+DASpeech的主要不足在于：其语言解码器和声学解码器需要共享音素词表，这限制了各自选用最优的预训练模型。此外，DASpeech的训练依赖于平行语音数据，而这类数据在实际中较为稀缺。这些问题将在下一章的工作中得到解决。
