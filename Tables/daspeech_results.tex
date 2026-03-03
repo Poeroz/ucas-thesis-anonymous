@@ -1,5 +1,5 @@
 \begin{table}[!htbp]
-    \bicaption{\enspace CVSS法语$\rightarrow$英语数据集上的实验结果。$^\clubsuit$表示引用自\citet{huang2023transpeech}的结果，$^\spadesuit$表示本章复现的结果。$^\dag$：目标长度束=15并行噪声解码（NPD）。$^{**}$表示相对于S2UT的提升具有统计显著性（$p<0.01$）。}{\enspace Results on CVSS Fr$\rightarrow$En datasets. $^\clubsuit$: results from \citet{huang2023transpeech}. $^\spadesuit$: our re-implementation. $^\dag$: target length beam=15 and noisy parallel decoding. $^{**}$: statistically significant over S2UT ($p<0.01$).}
+    \bicaption{\enspace CVSS法语到英语数据集上的语音翻译结果}{\enspace Speech translation results on CVSS Fr$\rightarrow$En datasets}
     \label{tab:daspeech_main}
     \centering
     \small
@@ -40,5 +40,6 @@
         DAT + FastSpeech 2 ($\lambda=1.0$)        & Lookahead       & 51M+41M & 22.68 & 22.57 & /  \\
         DAT + FastSpeech 2 ($\lambda=1.0$)        & Joint-Viterbi   & 51M+41M & 23.20 & 23.15 & /  \\
         \bottomrule
+        \multicolumn{6}{l}{\scriptsize $^\clubsuit$引用自\citet{huang2023transpeech}，$^\spadesuit$本章复现，$^\dag$目标长度束=15并行噪声解码，$^{**}$相对S2UT统计显著（$p<0.01$）}
     \end{tabular}}
 \end{table}
