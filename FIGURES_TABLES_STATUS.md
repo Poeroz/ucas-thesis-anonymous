@@ -20,7 +20,7 @@
 
 | 论文文件 | label | 图片文件 | 原论文来源 | 图片语言 | 检查状态 |
 |---------|-------|---------|-----------|---------|---------|
-| `Img/figure_daspeech.tex` | `fig:daspeech` | `Img/DASpeech.pdf` | DASpeech论文 Figure 1 (`Figures/figure_model.tex`, `Figures/DASpeech.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_daspeech.tex` | `fig:daspeech` | `Img/DASpeech.pdf` | DASpeech论文 Figure 1 (`Figures/figure_model.tex`)，已替换为中期报告中文版 | 中文 | 待检查 |
 | `Img/figure_daspeech_decoding.tex` (左) | `fig:daspeech_decoding` | `Img/decode_time.pdf` | DASpeech论文 Figure 2 左 (`Figures/figure_decoding_speed.tex`, `Figures/decode_time.pdf`) | **英文，需转中文**（坐标轴: Decoding Time, Length of Source Speech） | 待检查 |
 | `Img/figure_daspeech_decoding.tex` (右) | `fig:daspeech_tradeoff` | `Img/tradeoff.pdf` | DASpeech论文 Figure 2 右 (`Figures/figure_speedup.tex` 相关, `Figures/tradeoff.pdf`) | **英文，需转中文**（坐标轴: ASR-BLEU, Speedup Ratio；图例全英文） | 待检查 |
 
@@ -77,3 +77,4 @@
 
 - 2026-03-03：创建文件，录入第二章 DASpeech 全部图表（4表3图）
 - 2026-03-04：所有图表标题改为简短风格（参照师兄论文），表格符号注释移至表格底部脚注
+- 2026-03-04：DASpeech模型架构图替换为中期报告中文版
