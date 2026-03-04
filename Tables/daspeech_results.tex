@@ -21,11 +21,8 @@
         \midrule
         \multicolumn{6}{c}{\textit{非自回归模型}} \\
         \midrule
-        TranSpeech$^\clubsuit$ \citep{huang2023transpeech}       & 迭代5次         & 67M  & 17.24 & /     & 11.04$\times$ \\
-        \quad + b=15 + NPD$^{\dag,\clubsuit}$                    & 迭代15次        & 67M  & 18.39 & /     & 2.53$\times$  \\
-        \midrule
-        TranSpeech$^\spadesuit$ \citep{huang2023transpeech}      & 迭代5次         & 67M  & 16.38 & 16.49 & 12.45$\times$ \\
-        \quad + b=15 + NPD$^{\dag,\spadesuit}$                   & 迭代15次        & 67M  & 19.05 & 18.60 & 3.35$\times$  \\
+        TranSpeech \citep{huang2023transpeech}      & 迭代5次         & 67M  & 16.38 & 16.49 & 12.45$\times$ \\
+        \quad + b=15 + NPD$^{\dag}$                   & 迭代15次        & 67M  & 19.05 & 18.60 & 3.35$\times$  \\
         \midrule
         DASpeech ($\lambda=0.5$) & Lookahead       & 93M  & 24.71$^{**}$          & 24.45$^{**}$          & \textbf{18.53$\times$}   \\
         DASpeech ($\lambda=0.5$) & Joint-Viterbi   & 93M  & \textbf{25.03}$^{**}$ & \textbf{25.26}$^{**}$ & 16.29$\times$            \\
@@ -40,6 +37,6 @@
         DAT + FastSpeech 2 ($\lambda=1.0$)        & Lookahead       & 51M+41M & 22.68 & 22.57 & /  \\
         DAT + FastSpeech 2 ($\lambda=1.0$)        & Joint-Viterbi   & 51M+41M & 23.20 & 23.15 & /  \\
         \bottomrule
-        \multicolumn{6}{l}{\scriptsize $^\clubsuit$引用自\citet{huang2023transpeech}，$^\spadesuit$本章复现，$^\dag$目标长度束$=15$ + 并行噪声解码，$^{**}$相较于S2UT的提升在$p<0.01$水平下统计显著}
+        \multicolumn{6}{l}{\scriptsize $^\dag$目标长度束$=15$ + 并行噪声解码，$^{**}$相较于S2UT的提升在$p<0.01$水平下统计显著}
     \end{tabular}}
 \end{table}

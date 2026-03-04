@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1948,25 +1948,25 @@ File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
  (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
-[16] [17] [18
-
-]
+[16]
 第3章
-) (./Tex/Chap_LLaMA_Omni.tex [19] [20
+) (./Tex/Chap_LLaMA_Omni.tex [17
+
+] [18
 
 ]
 第4章
-) (./Tex/Chap_LLaMA_Omni2.tex [21] [22
+) (./Tex/Chap_LLaMA_Omni2.tex [19] [20
 
 ]
 第5章
-) (./Tex/Chap_Conclusion.tex [23] [24
+) (./Tex/Chap_Conclusion.tex [21] [22
 
 ]
 第6章
-)) [25] [26
+)) [23] [24
 
-] (Tmp/Thesis.bbl [27
+] (Tmp/Thesis.bbl [25
 
 ]
 Underfull \hbox (badness 1635) in paragraph at lines 176--184
@@ -1986,27 +1986,27 @@ Underfull \hbox (badness 4132) in paragraph at lines 176--184
 lume 33.  Curran Asso-
  []
 
-[28]) [29] [30
+[26]) [27] [28
 
-] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [31
+] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [29
 
 
-] [32
+] [30
 
-] [33]
-[34
+] [31]
+[32
 
 ]) (Tmp/Thesis.aux)
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 937CD85B0D6636518A77846C57D941A2;2922.
  ) 
 Here is how much of TeX's memory you used:
- 40256 strings out of 478671
- 828002 string characters out of 5848460
+ 40254 strings out of 478671
+ 827920 string characters out of 5848460
  1876018 words of memory out of 6000000
- 59592 multiletter control sequences out of 15000+600000
- 523617 words of font info for 158 fonts, out of 8000000 for 9000
+ 59591 multiletter control sequences out of 15000+600000
+ 523609 words of font info for 157 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (50 pages).
+Output written on Tmp/Thesis.pdf (48 pages).
