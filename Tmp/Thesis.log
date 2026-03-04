@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1933,41 +1933,40 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
-) [11] (./Tables/daspeech_multilingual.tex) [12]
-(./Tables/daspeech_path_ablation.tex) (./Img/figure_daspeech_decoding.tex
+) [11] (./Tables/daspeech_multilingual.tex)
+(./Tables/daspeech_path_ablation.tex) [12] (./Img/figure_daspeech_decoding.tex
 File: Img/decode_time.pdf Graphic file (type pdf)
 <use Img/decode_time.pdf>
 )
-[13]
 File: Img/tradeoff.pdf Graphic file (type pdf)
 <use Img/tradeoff.pdf>
 File: Img/daspeech_batch_speedup.pdf Graphic file (type pdf)
 <use Img/daspeech_batch_speedup.pdf>
+[13] [14]
 File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2t.pdf>
- [14]
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
  (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
-[16]
-第3章
-) (./Tex/Chap_LLaMA_Omni.tex [17
+[16] [17] [18
 
-] [18
+]
+第3章
+) (./Tex/Chap_LLaMA_Omni.tex [19] [20
 
 ]
 第4章
-) (./Tex/Chap_LLaMA_Omni2.tex [19] [20
+) (./Tex/Chap_LLaMA_Omni2.tex [21] [22
 
 ]
 第5章
-) (./Tex/Chap_Conclusion.tex [21] [22
+) (./Tex/Chap_Conclusion.tex [23] [24
 
 ]
 第6章
-)) [23] [24
+)) [25] [26
 
-] (Tmp/Thesis.bbl [25
+] (Tmp/Thesis.bbl [27
 
 ]
 Underfull \hbox (badness 1635) in paragraph at lines 176--184
@@ -1987,15 +1986,15 @@ Underfull \hbox (badness 4132) in paragraph at lines 176--184
 lume 33.  Curran Asso-
  []
 
-[26]) [27] [28
+[28]) [29] [30
 
-] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [29
+] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [31
 
 
-] [30
+] [32
 
-] [31]
-[32
+] [33]
+[34
 
 ]) (Tmp/Thesis.aux)
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
@@ -2004,10 +2003,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  40256 strings out of 478671
  828002 string characters out of 5848460
- 1877018 words of memory out of 6000000
+ 1876018 words of memory out of 6000000
  59592 multiletter control sequences out of 15000+600000
  523617 words of font info for 158 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (48 pages).
+Output written on Tmp/Thesis.pdf (50 pages).
