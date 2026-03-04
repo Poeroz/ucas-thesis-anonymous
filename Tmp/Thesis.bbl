@@ -1,4 +1,4 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{27}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -12,5 +12,262 @@
   \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
   \let\eprint\href
 \fi
+
+\bibitem[Lee {\bibetal}(2022)Lee, Chen, Wang, Gu, Popuri, Ma, Polyak, Adi, He,
+  Tang, Pino, and Hsu]{s2ut}
+Lee~A, Chen~P~J, Wang~C, et~al.
+\newblock Direct speech-to-speech translation with discrete units
+  [C/OL]//\allowbreak
+Proceedings of the 60th Annual Meeting of the Association for Computational
+  Linguistics (Volume 1: Long Papers).
+\newblock Dublin, Ireland: Association for Computational Linguistics, 2022:
+  3327-3339.
+\newblock \url{https://aclanthology.org/2022.acl-long.235}.
+\newblock DOI: \doi{10.18653/v1/2022.acl-long.235}.
+
+\bibitem[Jia {\bibetal}(2019)Jia, Weiss, Biadsy, Macherey, Johnson, Chen, and
+  Wu]{translatotron}
+Jia~Y, Weiss~R~J, Biadsy~F, et~al.
+\newblock Direct speech-to-speech translation with a sequence-to-sequence model
+  [C/OL]//\allowbreak
+Kubin~G, Kacic~Z.
+\newblock Interspeech 2019, 20th Annual Conference of the International Speech
+  Communication Association, Graz, Austria, 15-19 September 2019.
+\newblock {ISCA}, 2019: 1123-1127.
+\newblock \url{https://doi.org/10.21437/Interspeech.2019-1951}.
+
+\bibitem[Inaguma {\bibetal}(2023{\natexlab{a}})Inaguma, Popuri, Kulikov, Chen,
+  Wang, Chung, Tang, Lee, Watanabe, and Pino]{inaguma-etal-2023-unity}
+Inaguma~H, Popuri~S, Kulikov~I, et~al.
+\newblock {U}nit{Y}: Two-pass direct speech-to-speech translation with discrete
+  units [C/OL]//\allowbreak
+Rogers~A, Boyd-Graber~J, Okazaki~N.
+\newblock Proceedings of the 61st Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers).
+\newblock Toronto, Canada: Association for Computational Linguistics,
+  2023{\natexlab{a}}: 15655-15680.
+\newblock \url{https://aclanthology.org/2023.acl-long.872}.
+\newblock DOI: \doi{10.18653/v1/2023.acl-long.872}.
+
+\bibitem[Jia {\bibetal}(2022{\natexlab{a}})Jia, Ramanovich, Remez, and
+  Pomerantz]{translatotron2}
+Jia~Y, Ramanovich~M~T, Remez~T, et~al.
+\newblock Translatotron 2: High-quality direct speech-to-speech translation
+  with voice preservation [C/OL]//\allowbreak
+Chaudhuri~K, Jegelka~S, Song~L, et~al.
+\newblock Proceedings of Machine Learning Research: volume 162\quad Proceedings
+  of the 39th International Conference on Machine Learning.
+\newblock PMLR, 2022{\natexlab{a}}: 10120-10134.
+\newblock \url{https://proceedings.mlr.press/v162/jia22b.html}.
+
+\bibitem[Huang {\bibetal}(2023{\natexlab{a}})Huang, Liu, Liu, Ren, Zhang, He,
+  and Zhao]{huang2023transpeech}
+Huang~R, Liu~J, Liu~H, et~al.
+\newblock Transpeech: Speech-to-speech translation with bilateral perturbation
+  [C/OL]//\allowbreak
+The Eleventh International Conference on Learning Representations.
+\newblock 2023{\natexlab{a}}.
+\newblock \url{https://openreview.net/forum?id=UVAmFAtC5ye}.
+
+\bibitem[Zhu {\bibetal}(2023)Zhu, Gao, Zhou, Zhongyi, and Xu]{diffs2ut}
+Zhu~Y, Gao~Z, Zhou~X, et~al.
+\newblock {D}iff{S}2{UT}: A semantic preserving diffusion model for textless
+  direct speech-to-speech translation [C/OL]//\allowbreak
+Bouamor~H, Pino~J, Bali~K.
+\newblock Proceedings of the 2023 Conference on Empirical Methods in Natural
+  Language Processing.
+\newblock Singapore: Association for Computational Linguistics, 2023:
+  11573-11583.
+\newblock \url{https://aclanthology.org/2023.emnlp-main.709}.
+\newblock DOI: \doi{10.18653/v1/2023.emnlp-main.709}.
+
+\bibitem[Gu {\bibetal}(2018)Gu, Bradbury, Xiong, Li, and Socher]{gu2018nat}
+Gu~J, Bradbury~J, Xiong~C, et~al.
+\newblock Non-autoregressive neural machine translation [C/OL]//\allowbreak
+6th International Conference on Learning Representations, {ICLR} 2018,
+  Vancouver, BC, Canada, April 30 - May 3, 2018, Conference Track Proceedings.
+\newblock OpenReview.net, 2018.
+\newblock \url{https://openreview.net/forum?id=B1l8BtlCb}.
+
+\bibitem[Huang {\bibetal}(2022)Huang, Zhou, Liu, Li, and
+  Huang]{huang2022DATransformer}
+Huang~F, Zhou~H, Liu~Y, et~al.
+\newblock Directed acyclic transformer for non-autoregressive machine
+  translation [C]//\allowbreak
+Proceedings of the 39th International Conference on Machine Learning, {ICML}
+  2022.
+\newblock 2022.
+
+\bibitem[Ren {\bibetal}(2021)Ren, Hu, Tan, Qin, Zhao, Zhao, and
+  Liu]{ren2021fastspeech2}
+Ren~Y, Hu~C, Tan~X, et~al.
+\newblock Fastspeech 2: Fast and high-quality end-to-end text to speech
+  [C/OL]//\allowbreak
+International Conference on Learning Representations.
+\newblock 2021.
+\newblock \url{https://openreview.net/forum?id=piLPYqxtWuA}.
+
+\bibitem[Huang {\bibetal}(2023{\natexlab{b}})Huang, Ke, and
+  Huang]{huang2022PDAT}
+Huang~F, Ke~P, Huang~M.
+\newblock Directed acyclic transformer pre-training for high-quality
+  non-autoregressive text generation [J].
+\newblock Transactions of the Association for Computational Linguistics, 2023.
+
+\bibitem[Vaswani {\bibetal}(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones,
+  Gomez, Kaiser, and Polosukhin]{transformer}
+Vaswani~A, Shazeer~N, Parmar~N, et~al.
+\newblock Attention is all you need [C/OL]//\allowbreak
+Guyon~I, Luxburg~U~V, Bengio~S, et~al.
+\newblock Advances in Neural Information Processing Systems: volume~30.
+\newblock Curran Associates, Inc., 2017.
+\newblock
+  \url{https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf}.
+
+\bibitem[Gulati {\bibetal}(2020)Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han,
+  Wang, Zhang, Wu, and Pang]{conformer}
+Gulati~A, Qin~J, Chiu~C~C, et~al.
+\newblock {Conformer: Convolution-augmented Transformer for Speech Recognition}
+  [C/OL]//\allowbreak
+Proc. Interspeech 2020.
+\newblock 2020: 5036-5040.
+\newblock DOI: \doi{10.21437/Interspeech.2020-3015}.
+
+\bibitem[Dai {\bibetal}(2019)Dai, Yang, Yang, Carbonell, Le, and
+  Salakhutdinov]{dai-etal-2019-transformer}
+Dai~Z, Yang~Z, Yang~Y, et~al.
+\newblock Transformer-{XL}: Attentive language models beyond a fixed-length
+  context [C/OL]//\allowbreak
+Proceedings of the 57th Annual Meeting of the Association for Computational
+  Linguistics.
+\newblock Florence, Italy: Association for Computational Linguistics, 2019:
+  2978-2988.
+\newblock \url{https://aclanthology.org/P19-1285}.
+\newblock DOI: \doi{10.18653/v1/P19-1285}.
+
+\bibitem[Rabiner(1989)]{hiddenmarkovmodel}
+Rabiner~L.
+\newblock A tutorial on hidden markov models and selected applications in
+  speech recognition [J/OL].
+\newblock Proceedings of the IEEE, 1989, 77\penalty0 (2): 257-286.
+\newblock DOI: \doi{10.1109/5.18626}.
+
+\bibitem[Viterbi(1967)]{viterbi}
+Viterbi~A.
+\newblock Error bounds for convolutional codes and an asymptotically optimum
+  decoding algorithm [J/OL].
+\newblock IEEE Transactions on Information Theory, 1967, 13\penalty0 (2):
+  260-269.
+\newblock DOI: \doi{10.1109/TIT.1967.1054010}.
+
+\bibitem[Qian {\bibetal}(2021)Qian, Zhou, Bao, Wang, Qiu, Zhang, Yu, and
+  Li]{qian-etal-2021-glancing}
+Qian~L, Zhou~H, Bao~Y, et~al.
+\newblock Glancing transformer for non-autoregressive neural machine
+  translation [C/OL]//\allowbreak
+Proceedings of the 59th Annual Meeting of the Association for Computational
+  Linguistics and the 11th International Joint Conference on Natural Language
+  Processing (Volume 1: Long Papers).
+\newblock Online: Association for Computational Linguistics, 2021: 1993-2003.
+\newblock \url{https://aclanthology.org/2021.acl-long.155}.
+\newblock DOI: \doi{10.18653/v1/2021.acl-long.155}.
+
+\bibitem[Kong {\bibetal}(2020)Kong, Kim, and Bae]{hifigan}
+Kong~J, Kim~J, Bae~J.
+\newblock Hifi-gan: Generative adversarial networks for efficient and high
+  fidelity speech synthesis [C/OL]//\allowbreak
+Larochelle~H, Ranzato~M, Hadsell~R, et~al.
+\newblock Advances in Neural Information Processing Systems: volume~33.
+\newblock Curran Associates, Inc., 2020: 17022-17033.
+\newblock
+  \url{https://proceedings.neurips.cc/paper_files/paper/2020/file/c5d736809766d46260d816d8dbc9eb44-Paper.pdf}.
+
+\bibitem[Shao {\bibetal}(2022)Shao, Ma, and Feng]{shao2022viterbi}
+Shao~C, Ma~Z, Feng~Y.
+\newblock Viterbi decoding of directed acyclic transformer for
+  non-autoregressive machine translation [C]//\allowbreak
+Findings of EMNLP 2022.
+\newblock 2022.
+
+\bibitem[Jia {\bibetal}(2022{\natexlab{b}})Jia, Tadmor~Ramanovich, Wang, and
+  Zen]{jia2022cvss}
+Jia~Y, Tadmor~Ramanovich~M, Wang~Q, et~al.
+\newblock {CVSS} corpus and massively multilingual speech-to-speech translation
+  [C]//\allowbreak
+Proceedings of Language Resources and Evaluation Conference (LREC).
+\newblock 2022{\natexlab{b}}: 6691-6703.
+
+\bibitem[Wang {\bibetal}(2020)Wang, Wu, and Pino]{wang2020covost2}
+Wang~C, Wu~A, Pino~J.
+\newblock Covost 2: A massively multilingual speech-to-text translation corpus
+  [Z].
+\newblock 2020.
+
+\bibitem[Veaux {\bibetal}(2017)Veaux, Yamagishi, and
+  MacDonald]{Veaux2017CSTRVC}
+Veaux~C, Yamagishi~J, MacDonald~K.
+\newblock Cstr vctk corpus: English multi-speaker corpus for cstr voice cloning
+  toolkit [C]//\allowbreak
+2017.
+
+\bibitem[Kingma {\bibetal}(2015)Kingma and Ba]{adam}
+Kingma~D~P, Ba~J.
+\newblock Adam: {A} method for stochastic optimization [C/OL]//\allowbreak
+Bengio~Y, LeCun~Y.
+\newblock 3rd International Conference on Learning Representations, {ICLR}
+  2015, San Diego, CA, USA, May 7-9, 2015, Conference Track Proceedings.
+\newblock 2015.
+\newblock \url{http://arxiv.org/abs/1412.6980}.
+
+\bibitem[Ott {\bibetal}(2019)Ott, Edunov, Baevski, Fan, Gross, Ng, Grangier,
+  and Auli]{ott2019fairseq}
+Ott~M, Edunov~S, Baevski~A, et~al.
+\newblock fairseq: A fast, extensible toolkit for sequence modeling
+  [C]//\allowbreak
+Proceedings of NAACL-HLT 2019: Demonstrations.
+\newblock 2019.
+
+\bibitem[Post(2018)]{post-2018-call}
+Post~M.
+\newblock A call for clarity in reporting {BLEU} scores [C/OL]//\allowbreak
+Proceedings of the Third Conference on Machine Translation: Research Papers.
+\newblock Brussels, Belgium: Association for Computational Linguistics, 2018:
+  186-191.
+\newblock \url{https://www.aclweb.org/anthology/W18-6319}.
+\newblock DOI: \doi{10.18653/v1/W18-6319}.
+
+\bibitem[Papineni {\bibetal}(2002)Papineni, Roukos, Ward, and
+  Zhu]{papineni-etal-2002-bleu}
+Papineni~K, Roukos~S, Ward~T, et~al.
+\newblock {B}leu: a method for automatic evaluation of machine translation
+  [C/OL]//\allowbreak
+Proceedings of the 40th Annual Meeting of the Association for Computational
+  Linguistics.
+\newblock Philadelphia, Pennsylvania, USA: Association for Computational
+  Linguistics, 2002: 311-318.
+\newblock \url{https://www.aclweb.org/anthology/P02-1040}.
+\newblock DOI: \doi{10.3115/1073083.1073135}.
+
+\bibitem[Wan {\bibetal}(2018)Wan, Wang, Papir, and Moreno]{dvector}
+Wan~L, Wang~Q, Papir~A, et~al.
+\newblock Generalized end-to-end loss for speaker verification
+  [C/OL]//\allowbreak
+2018 IEEE International Conference on Acoustics, Speech and Signal Processing
+  (ICASSP).
+\newblock Calgary, AB, Canada: IEEE Press, 2018: 4879–4883.
+\newblock \url{https://doi.org/10.1109/ICASSP.2018.8462665}.
+
+\bibitem[Inaguma {\bibetal}(2023{\natexlab{b}})Inaguma, Popuri, Kulikov, Chen,
+  Wang, Chung, Tang, Lee, Watanabe, and Pino]{inaguma2022unity}
+Inaguma~H, Popuri~S, Kulikov~I, et~al.
+\newblock {U}nit{Y}: Two-pass direct speech-to-speech translation with discrete
+  units [C/OL]//\allowbreak
+Rogers~A, Boyd-Graber~J, Okazaki~N.
+\newblock Proceedings of the 61st Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers).
+\newblock Toronto, Canada: Association for Computational Linguistics,
+  2023{\natexlab{b}}: 15655-15680.
+\newblock \url{https://aclanthology.org/2023.acl-long.872}.
+\newblock DOI: \doi{10.18653/v1/2023.acl-long.872}.
 
 \end{thebibliography}

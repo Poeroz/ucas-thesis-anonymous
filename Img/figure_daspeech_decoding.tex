@@ -1,15 +1,16 @@
 \begin{figure}[!htbp]
-  \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{Img/decode_time.pdf}
-    \bicaption{\enspace 不同源语音长度下的翻译延迟对比}{\enspace Translation latency across different source speech lengths}
-    \label{fig:daspeech_decoding}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Img/tradeoff.pdf}
-    \bicaption{\enspace 翻译质量与解码速度的权衡}{\enspace Trade-off between translation quality and decoding speed}
-    \label{fig:daspeech_tradeoff}
-  \end{minipage}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{Img/decode_time.pdf}
+      \bicaption{\enspace 不同源语音长度下的翻译延迟对比}{\enspace Translation latency across different source speech lengths}
+      \label{fig:daspeech_decoding}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{Img/tradeoff.pdf}
+      \bicaption{\enspace 翻译质量与解码速度的权衡}{\enspace Trade-off between translation quality and decoding speed}
+      \label{fig:daspeech_tradeoff}
+    \end{subfigure}
 \end{figure}

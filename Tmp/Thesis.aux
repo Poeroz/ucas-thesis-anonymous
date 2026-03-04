@@ -22,46 +22,174 @@
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
 \newlabel{chap:introduction}{{1}{1}{绪论}{chapter.1}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第2章\hspace  {.3em}}DASpeech}{3}{chapter.2}\protected@file@percent }
+\citation{s2ut}
+\citation{translatotron}
+\citation{inaguma-etal-2023-unity}
+\citation{translatotron2}
+\citation{huang2023transpeech}
+\citation{diffs2ut}
+\citation{gu2018nat}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第2章\hspace  {.3em}}基于有向无环图的语音到语音翻译模型}{3}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:daspeech}{{2}{3}{DASpeech}{chapter.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}ComSpeech}{5}{chapter.3}\protected@file@percent }
+\newlabel{chap:daspeech}{{2}{3}{基于有向无环图的语音到语音翻译模型}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}引言}{3}{section.2.1}\protected@file@percent }
+\citation{huang2022DATransformer}
+\citation{ren2021fastspeech2}
+\citation{huang2022DATransformer,huang2022PDAT}
+\citation{transformer}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}方法介绍}{4}{section.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}相关技术}{4}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1.1}DA-Transformer}{4}{subsubsection.2.2.1.1}\protected@file@percent }
+\citation{ren2021fastspeech2}
+\newlabel{eq:dat}{{2-4}{5}{DA-Transformer}{equation.2.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1.2}FastSpeech 2}{5}{subsubsection.2.2.1.2}\protected@file@percent }
+\newlabel{eq:tts}{{2-5}{5}{FastSpeech 2}{equation.2.2.5}{}}
+\citation{conformer}
+\citation{dai-etal-2019-transformer}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}模型架构}{6}{subsection.2.2.2}\protected@file@percent }
+\newlabel{sec:daspeech_arch}{{2.2.2}{6}{模型架构}{subsection.2.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace  DASpeech模型架构\relax }}{6}{figure.caption.14}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:daspeech}{{2-1}{6}{\enspace DASpeech模型架构\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}期望路径训练}{6}{subsection.2.2.3}\protected@file@percent }
+\newlabel{sec:daspeech_train}{{2.2.3}{6}{期望路径训练}{subsection.2.2.3}{}}
+\citation{hiddenmarkovmodel}
+\newlabel{eq:expect}{{2-6}{7}{期望路径训练}{equation.2.2.6}{}}
+\newlabel{eq:posterior}{{2-7}{7}{期望路径训练}{equation.2.2.7}{}}
+\citation{viterbi}
+\citation{qian-etal-2021-glancing}
+\citation{hifigan}
+\newlabel{eq:daspeech}{{2-12}{8}{期望路径训练}{equation.2.2.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}解码策略}{8}{subsection.2.2.4}\protected@file@percent }
+\newlabel{sec:daspeech_infer}{{2.2.4}{8}{解码策略}{subsection.2.2.4}{}}
+\citation{shao2022viterbi}
+\citation{viterbi}
+\citation{jia2022cvss}
+\citation{wang2020covost2}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}实验结果与分析}{9}{section.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}实验设置}{9}{subsection.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.1}数据集}{9}{subsubsection.2.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.2}数据预处理}{9}{subsubsection.2.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.3}模型配置}{9}{subsubsection.2.3.1.3}\protected@file@percent }
+\citation{Veaux2017CSTRVC}
+\citation{adam}
+\citation{ott2019fairseq}
+\citation{post-2018-call}
+\citation{papineni-etal-2002-bleu}
+\citation{dvector}
+\citation{s2ut}
+\citation{translatotron}
+\citation{inaguma2022unity}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.4}训练细节}{10}{subsubsection.2.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.5}评价指标}{10}{subsubsection.2.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1.6}基线系统}{10}{subsubsection.2.3.1.6}\protected@file@percent }
+\citation{translatotron2}
+\citation{huang2023transpeech}
+\citation{s2ut}
+\citation{translatotron}
+\citation{inaguma-etal-2023-unity}
+\citation{translatotron2}
+\citation{huang2023transpeech}
+\citation{huang2023transpeech}
+\citation{huang2023transpeech}
+\@writefile{lot}{\contentsline {table}{\numberline {2-1}{\ignorespaces \enspace  CVSS法语到英语数据集上的语音翻译结果\relax }}{11}{table.caption.15}\protected@file@percent }
+\newlabel{tab:daspeech_main}{{2-1}{11}{\enspace CVSS法语到英语数据集上的语音翻译结果\relax }{table.caption.15}{}}
+\citation{translatotron2}
+\citation{inaguma-etal-2023-unity}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}主要结果}{12}{subsection.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.1}法语到英语翻译结果}{12}{subsubsection.2.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.2}多语言翻译结果}{12}{subsubsection.2.3.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2-2}{\ignorespaces \enspace  CVSS-C多语言数据集上的语音翻译结果\relax }}{12}{table.caption.16}\protected@file@percent }
+\newlabel{tab:daspeech_multilingual}{{2-2}{12}{\enspace CVSS-C多语言数据集上的语音翻译结果\relax }{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}分析实验}{13}{subsection.2.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.1}期望路径训练与最优路径训练的比较}{13}{subsubsection.2.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2-3}{\ignorespaces \enspace  期望路径训练与最优路径训练的对比\relax }}{13}{table.caption.17}\protected@file@percent }
+\newlabel{tab:daspeech_path}{{2-3}{13}{\enspace 期望路径训练与最优路径训练的对比\relax }{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.2}解码速度分析}{13}{subsubsection.2.3.3.2}\protected@file@percent }
+\newlabel{fig:daspeech_decoding}{{2-2a}{13}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:daspeech_decoding}{{a}{13}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.18}{}}
+\newlabel{fig:daspeech_tradeoff}{{2-2b}{13}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:daspeech_tradeoff}{{b}{13}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace  不同批量大小下的解码加速比与翻译质量\relax }}{14}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:daspeech_batch}{{2-3}{14}{\enspace 不同批量大小下的解码加速比与翻译质量\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.3}图尺寸的影响}{14}{subsubsection.2.3.3.3}\protected@file@percent }
+\newlabel{fig:daspeech_graph_size_s2t}{{2-4a}{14}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:daspeech_graph_size_s2t}{{a}{14}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.20}{}}
+\newlabel{fig:daspeech_graph_size_s2s}{{2-4b}{14}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:daspeech_graph_size_s2s}{{b}{14}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.20}{}}
+\citation{s2ut}
+\citation{inaguma-etal-2023-unity}
+\citation{huang2023transpeech}
+\citation{translatotron}
+\citation{translatotron2}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.4}音色保持能力分析}{15}{subsubsection.2.3.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2-4}{\ignorespaces \enspace  各模型的说话人相似度对比\relax }}{15}{table.caption.21}\protected@file@percent }
+\newlabel{tab:daspeech_speaker}{{2-4}{15}{\enspace 各模型的说话人相似度对比\relax }{table.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}本章小结}{15}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}ComSpeech}{17}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:comspeech}{{3}{5}{ComSpeech}{chapter.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}LLaMA-Omni}{7}{chapter.4}\protected@file@percent }
+\newlabel{chap:comspeech}{{3}{17}{ComSpeech}{chapter.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}LLaMA-Omni}{19}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni}{{4}{7}{LLaMA-Omni}{chapter.4}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}LLaMA-Omni 2}{9}{chapter.5}\protected@file@percent }
+\newlabel{chap:llama-omni}{{4}{19}{LLaMA-Omni}{chapter.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}LLaMA-Omni 2}{21}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni2}{{5}{9}{LLaMA-Omni 2}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}总结与展望}{11}{chapter.6}\protected@file@percent }
+\newlabel{chap:llama-omni2}{{5}{21}{LLaMA-Omni 2}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}总结与展望}{23}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{6}{11}{总结与展望}{chapter.6}{}}
+\newlabel{chap:conclusion}{{6}{23}{总结与展望}{chapter.6}{}}
 \bibdata{Biblio/ref}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{13}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{致谢}{13}{appendix*.15}\protected@file@percent }
+\bibcite{s2ut}{{1}{2022}{{Lee {等}}}{{Lee, Chen, Wang, Gu, Popuri, Ma, Polyak, Adi, He, Tang, Pino, and Hsu}}}
+\bibcite{translatotron}{{2}{2019}{{Jia {等}}}{{Jia, Weiss, Biadsy, Macherey, Johnson, Chen, and Wu}}}
+\bibcite{inaguma-etal-2023-unity}{{3}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
+\bibcite{translatotron2}{{4}{2022{}}{{Jia {等}}}{{Jia, Ramanovich, Remez, and Pomerantz}}}
+\bibcite{huang2023transpeech}{{5}{2023{}}{{Huang {等}}}{{Huang, Liu, Liu, Ren, Zhang, He, and Zhao}}}
+\bibcite{diffs2ut}{{6}{2023}{{Zhu {等}}}{{Zhu, Gao, Zhou, Zhongyi, and Xu}}}
+\bibcite{gu2018nat}{{7}{2018}{{Gu {等}}}{{Gu, Bradbury, Xiong, Li, and Socher}}}
+\bibcite{huang2022DATransformer}{{8}{2022}{{Huang {等}}}{{Huang, Zhou, Liu, Li, and Huang}}}
+\bibcite{ren2021fastspeech2}{{9}{2021}{{Ren {等}}}{{Ren, Hu, Tan, Qin, Zhao, Zhao, and Liu}}}
+\bibcite{huang2022PDAT}{{10}{2023{}}{{Huang {等}}}{{Huang, Ke, and Huang}}}
+\bibcite{transformer}{{11}{2017}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{25}{section*.22}\protected@file@percent }
+\bibcite{conformer}{{12}{2020}{{Gulati {等}}}{{Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han, Wang, Zhang, Wu, and Pang}}}
+\bibcite{dai-etal-2019-transformer}{{13}{2019}{{Dai {等}}}{{Dai, Yang, Yang, Carbonell, Le, and Salakhutdinov}}}
+\bibcite{hiddenmarkovmodel}{{14}{1989}{{Rabiner}}{{}}}
+\bibcite{viterbi}{{15}{1967}{{Viterbi}}{{}}}
+\bibcite{qian-etal-2021-glancing}{{16}{2021}{{Qian {等}}}{{Qian, Zhou, Bao, Wang, Qiu, Zhang, Yu, and Li}}}
+\bibcite{hifigan}{{17}{2020}{{Kong {等}}}{{Kong, Kim, and Bae}}}
+\bibcite{shao2022viterbi}{{18}{2022}{{Shao {等}}}{{Shao, Ma, and Feng}}}
+\bibcite{jia2022cvss}{{19}{2022{}}{{Jia {等}}}{{Jia, Tadmor~Ramanovich, Wang, and Zen}}}
+\bibcite{wang2020covost2}{{20}{2020}{{Wang {等}}}{{Wang, Wu, and Pino}}}
+\bibcite{Veaux2017CSTRVC}{{21}{2017}{{Veaux {等}}}{{Veaux, Yamagishi, and MacDonald}}}
+\bibcite{adam}{{22}{2015}{{Kingma {等}}}{{Kingma and Ba}}}
+\bibcite{ott2019fairseq}{{23}{2019}{{Ott {等}}}{{Ott, Edunov, Baevski, Fan, Gross, Ng, Grangier, and Auli}}}
+\bibcite{post-2018-call}{{24}{2018}{{Post}}{{}}}
+\bibcite{papineni-etal-2002-bleu}{{25}{2002}{{Papineni {等}}}{{Papineni, Roukos, Ward, and Zhu}}}
+\bibcite{dvector}{{26}{2018}{{Wan {等}}}{{Wan, Wang, Papir, and Moreno}}}
+\bibcite{inaguma2022unity}{{27}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
+\@writefile{toc}{\contentsline {chapter}{致谢}{29}{appendix*.24}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{15}{appendix*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{31}{appendix*.25}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\gdef \@abspage@last{32}
+\gdef \@abspage@last{48}

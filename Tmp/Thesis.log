@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  3 MAR 2026 01:36
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  4 MAR 2026 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1716,7 +1716,7 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 Package hyperref Info: Option `pdffitwindow' set `false' on input line 57.
 Package hyperref Info: Option `colorlinks' set `true' on input line 57.
 
-No file Thesis.aux.
+(Tmp/Thesis.aux)
 \openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -1747,6 +1747,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
+
 Package unicode-math Warning: Using \overbracket and \underbracket from
 (unicode-math)                `mathtools' package.
 (unicode-math)                 
@@ -1772,13 +1773,11 @@ Package chemgreek Info: Activating mapping `fontspec' on line 57.
 Package newfloat Info: Trying Plan B...
 Package newfloat Info: `float' package detected.
 Package hyperref Info: Link coloring ON on input line 57.
+(Tmp/Thesis.out) (Tmp/Thesis.out)
 \@outlinefile=\write4
 \openout4 = `Thesis.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
-(./Tex/Frontmatter.tex
+ (./Tex/Frontmatter.tex
 File: ucas_logo.pdf Graphic file (type pdf)
 <use ucas_logo.pdf>
 
@@ -1858,33 +1857,47 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.045pt
 (hyperref)                replaced by space on input line 68.
 
-No file Thesis.toc.
+(Tmp/Thesis.toc
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 12.04628pt on input line 3.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 9.03471pt on input line 3.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.22777pt on input line 3.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 12.0437pt on input line 3.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.03278pt on input line 3.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 7.22623pt on input line 3.
+)
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
-[5
+ [5
 
 
 ] [6
 
-] (./Tex/figuretable.tex
-No file Thesis.lof.
+] (./Tex/figuretable.tex (Tmp/Thesis.lof)
 \tf@lof=\write6
 \openout6 = `Thesis.lof'.
 
-No file Thesis.loappfig.
+
+(Tmp/Thesis.loappfig)
 \tf@loappfig=\write7
 \openout7 = `Thesis.loappfig'.
 
-No file Thesis.lot.
+ (Tmp/Thesis.lot)
 \tf@lot=\write8
 \openout8 = `Thesis.lot'.
 
-No file Thesis.loapptab.
+ (Tmp/Thesis.loapptab)
 \tf@loapptab=\write9
 \openout9 = `Thesis.loapptab'.
 
-) (./Tex/Prematter.tex [7
+)
+(./Tex/Prematter.tex [7
 
 ] [8
 
@@ -1901,54 +1914,103 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 
 ]
 第2章
-) (./Tex/Chap_ComSpeech.tex [3] [4
+[3] [4] [5]
+Overfull \hbox (13.97916pt too wide) in paragraph at lines 63--64
+[]\TU/FandolSong-Regular(0)/b/n/12.045 非 自 回 归 声 学 解 码 器 \TU/FandolSong-Regular
+(0)/m/n/12.045 声 学 解 码 器 采 用 \TU/entextsf/m/n/12.045 FastSpeech 2 \TU/FandolSon
+g-Regular(0)/m/n/12.045 的 设 计，|  从 \TU/entextsf/m/n/12.045 DA-Transformer
+ []
 
-]
+(./Img/figure_daspeech.tex
+File: Img/DASpeech.pdf Graphic file (type pdf)
+<use Img/DASpeech.pdf>
+) [6] [7] [8] [9] [10] (./Tables/daspeech_results.tex
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 2.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 2.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 2.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 2.
+) [11] (./Tables/daspeech_multilingual.tex) [12]
+(./Tables/daspeech_path_ablation.tex) (./Img/figure_daspeech_decoding.tex
+File: Img/decode_time.pdf Graphic file (type pdf)
+<use Img/decode_time.pdf>
+
+Underfull \hbox (badness 4217) in paragraph at lines 6--6
+[]\TU/entextrm/b/n/9.03374 (a) |Translation latency across different source
+ []
+
+File: Img/tradeoff.pdf Graphic file (type pdf)
+<use Img/tradeoff.pdf>
+) [13]
+File: Img/daspeech_batch_speedup.pdf Graphic file (type pdf)
+<use Img/daspeech_batch_speedup.pdf>
+File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
+<use Img/daspeech_graph_size_s2t.pdf>
+File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
+<use Img/daspeech_graph_size_s2s.pdf>
+ [14] (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
+[16]
 第3章
-) (./Tex/Chap_LLaMA_Omni.tex [5] [6
+) (./Tex/Chap_LLaMA_Omni.tex [17
+
+] [18
 
 ]
 第4章
-) (./Tex/Chap_LLaMA_Omni2.tex [7] [8
+) (./Tex/Chap_LLaMA_Omni2.tex [19] [20
 
 ]
 第5章
-) (./Tex/Chap_Conclusion.tex [9] [10
+) (./Tex/Chap_Conclusion.tex [21] [22
 
 ]
 第6章
-)) [11] [12
+)) [23] [24
+
+] (Tmp/Thesis.bbl [25
 
 ]
-No file Thesis.bbl.
-(./Tex/Appendix.tex) (./Tex/Backmatter.tex [13
+Underfull \hbox (badness 1635) in paragraph at lines 176--184
+[]\TU/entextrm/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
+rial networks for efficient and
+ []
 
 
+Underfull \hbox (badness 4254) in paragraph at lines 176--184
+\TU/entextrm/m/n/10.53937 high fidelity speech synthesis [C/OL]//Larochelle H, 
+Ranzato M, Hadsell R, et al.
+ []
 
-] [14
 
-] [15] [16
+Underfull \hbox (badness 4132) in paragraph at lines 176--184
+\TU/entextrm/m/n/10.53937 Advances in Neural Information Processing Systems: vo
+lume 33.  Curran Asso-
+ []
+
+[26]) [27] [28
+
+] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [29
+
+
+] [30
+
+] [31]
+[32
 
 ]) (Tmp/Thesis.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D7C094509883A50019990B86A9A75D77;1473.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 6BC202FA617A1044D4A97B20F16FC04E;2922.
  ) 
 Here is how much of TeX's memory you used:
- 39791 strings out of 478671
- 807734 string characters out of 5848460
- 1856018 words of memory out of 6000000
- 59221 multiletter control sequences out of 15000+600000
- 518294 words of font info for 101 fonts, out of 8000000 for 9000
+ 40296 strings out of 478671
+ 830322 string characters out of 5848460
+ 1877018 words of memory out of 6000000
+ 59630 multiletter control sequences out of 15000+600000
+ 523633 words of font info for 160 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 118i,11n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (32 pages).
+Output written on Tmp/Thesis.pdf (48 pages).

@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Tmp/Thesis.aux
 The style file: Biblio/gbt7714-numerical.bst
-I found no \citation commands---while reading file Tmp/Thesis.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 150 items from 100.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
@@ -11,45 +10,46 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Biblio/ref.bib
-You've used 0 entries,
+Warning--empty booktitle in Veaux2017CSTRVC
+You've used 27 entries,
             4948 wiz_defined-function locations,
-            980 strings with 7226 characters,
-and the built_in function-call counts, 84 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 44
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 2
-int.to.chr$ -- 1
-int.to.str$ -- 1
+            1168 strings with 15397 characters,
+and the built_in function-call counts, 270309 in all, are:
+= -- 5778
+> -- 31479
+< -- 38722
++ -- 10596
+- -- 2281
+* -- 1849
+:= -- 37726
+add.period$ -- 116
+call.type$ -- 27
+change.case$ -- 54
+chr.to.int$ -- 9554
+cite$ -- 28
+duplicate$ -- 644
+empty$ -- 2548
+format.name$ -- 1085
+if$ -- 70037
+int.to.chr$ -- 4
+int.to.str$ -- 28
 missing$ -- 0
-newline$ -- 16
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 209
+num.names$ -- 89
+pop$ -- 13420
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 27
 quote$ -- 0
-skip$ -- 1
+skip$ -- 28809
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 13154
+swap$ -- 38
+text.length$ -- 571
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 303
+warning$ -- 1
+while$ -- 689
 width$ -- 0
-write$ -- 15
-(There was 1 error message)
+write$ -- 442
+(There was 1 warning)
