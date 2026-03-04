@@ -1,7 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{6}{figure.caption.14}%
-\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace 不同批量大小下的解码加速比与翻译质量\relax }}{14}{figure.caption.19}%
+\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{13}{figure.caption.18}%
+\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{14}{figure.caption.19}%
+\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 不同批量大小下的解码加速比与翻译质量\relax }}{14}{figure.caption.20}%
+\contentsline {figure}{\numberline {2-5}{\ignorespaces \enspace 不同图尺寸下的翻译质量\relax }}{15}{figure.caption.21}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
