@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1924,7 +1924,7 @@ g-Regular(0)/m/n/12.045 的 设 计，|  从 \TU/entextsf/m/n/12.045 DA-Transfor
 (./Img/figure_daspeech.tex
 File: Img/DASpeech.pdf Graphic file (type pdf)
 <use Img/DASpeech.pdf>
-) [6] [7] [8] [9] [10] (./Tables/daspeech_results.tex
+) [6] [7] [8] [9] (./Tables/daspeech_results.tex
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 7.00075pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
@@ -1933,21 +1933,33 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
-) [11] (./Tables/daspeech_multilingual.tex)
-(./Tables/daspeech_path_ablation.tex) [12] (./Img/figure_daspeech_decoding.tex
+
+[10]) [11] (./Tables/daspeech_multilingual.tex)
+(./Tables/daspeech_path_ablation.tex) (./Img/figure_daspeech_decoding.tex
 File: Img/decode_time.pdf Graphic file (type pdf)
 <use Img/decode_time.pdf>
-)
+
+[12])
 File: Img/tradeoff.pdf Graphic file (type pdf)
 <use Img/tradeoff.pdf>
+
+Underfull \hbox (badness 1454) in paragraph at lines 224--224
+[]\TU/entextrm/b/n/10.53937 Figure 2-3 |Trade-off between translation
+ []
+
 File: Img/daspeech_batch_speedup.pdf Graphic file (type pdf)
 <use Img/daspeech_batch_speedup.pdf>
-[13] [14]
+
+Underfull \hbox (badness 2503) in paragraph at lines 231--231
+[]\TU/entextrm/b/n/10.53937 Figure 2-4 |Speedup ratio with different
+ []
+
+[13]
 File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2t.pdf>
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
- (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
+ (./Tables/daspeech_speaker.tex) [14] [15]) (./Tex/Chap_ComSpeech.tex
 [16]
 第3章
 ) (./Tex/Chap_LLaMA_Omni.tex [17
@@ -1998,12 +2010,12 @@ lume 33.  Curran Asso-
 
 ]) (Tmp/Thesis.aux)
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 937CD85B0D6636518A77846C57D941A2;2922.
+(rerunfilecheck)             Checksum: 187B509C73785EC9E02827FCF773A11A;2922.
  ) 
 Here is how much of TeX's memory you used:
  40254 strings out of 478671
  827920 string characters out of 5848460
- 1876018 words of memory out of 6000000
+ 1883018 words of memory out of 6000000
  59591 multiletter control sequences out of 15000+600000
  523609 words of font info for 157 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

@@ -21,13 +21,13 @@
 \contentsline {subsection}{\numberline {2.3.3}分析实验}{12}{subsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.3.1}期望路径训练与最优路径训练的比较}{12}{subsubsection.2.3.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.3.2}解码速度分析}{13}{subsubsection.2.3.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3.3}图尺寸的影响}{15}{subsubsection.2.3.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.3.4}音色保持能力分析}{15}{subsubsection.2.3.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.3.3}图尺寸的影响}{14}{subsubsection.2.3.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3.4}音色保持能力分析}{14}{subsubsection.2.3.3.4}%
 \contentsline {section}{\numberline {2.4}本章小结}{16}{section.2.4}%
 \contentsline {chapter}{\numberline {第3章\hspace {.3em}}ComSpeech}{17}{chapter.3}%
 \contentsline {chapter}{\numberline {第4章\hspace {.3em}}LLaMA-Omni}{19}{chapter.4}%
 \contentsline {chapter}{\numberline {第5章\hspace {.3em}}LLaMA-Omni 2}{21}{chapter.5}%
 \contentsline {chapter}{\numberline {第6章\hspace {.3em}}总结与展望}{23}{chapter.6}%
-\contentsline {chapter}{参考文献}{25}{section*.24}%
-\contentsline {chapter}{致谢}{29}{appendix*.26}%
-\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{31}{appendix*.27}%
+\contentsline {chapter}{参考文献}{25}{section*.23}%
+\contentsline {chapter}{致谢}{29}{appendix*.25}%
+\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{31}{appendix*.26}%
