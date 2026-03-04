@@ -1,0 +1,23 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace BLASER 2.0评估结果}{{\enspace BLASER 2.0 evaluation results}}
+    \label{tab:comspeech_blaser}
+    \centering
+    \small
+    \begin{tabular}{l|ccc}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \multicolumn{3}{c}{\textbf{BLASER 2.0}} \\
+        & \textbf{Fr$\rightarrow$En} & \textbf{De$\rightarrow$En} & \textbf{Es$\rightarrow$En} \\
+        \midrule
+        \multicolumn{4}{c}{{有监督学习}} \\
+        \midrule
+        Translatotron 2 \citep{translatotron2} & 3.1801 & 2.9034 & 3.2592 \\
+        UnitY \citep{inaguma-etal-2023-unity} & 3.1749 & 2.8278 & 3.2310 \\
+        \textbf{ComSpeech} w/ pretrain & \textbf{3.1890} & \textbf{2.9281} & \textbf{3.2785} \\
+        \midrule
+        \multicolumn{4}{c}{{零样本学习}} \\
+        \midrule
+        S2TT + G2P + TTS & \textbf{3.1716} & 2.8680 & 3.2172 \\
+        \textbf{ComSpeech-ZS} & 3.1681 & \textbf{2.9242} & \textbf{3.2555} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

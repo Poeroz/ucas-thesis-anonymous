@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 词表适配器超参数实验结果}{{\enspace Results with different hyperparameters of the vocabulary adaptor}}
+    \label{tab:comspeech_adaptor}
+    \centering
+    \small
+    \begin{tabular}{cc|cc}
+        \toprule
+        \textbf{$L$} & \textbf{ASR-BLEU} & \textbf{$\lambda$} & \textbf{ASR-BLEU} \\
+        \midrule
+        2 & 27.58 & 2 & 11.94 \\
+        4 & \textbf{28.04} & 5 & \textbf{28.04} \\
+        6 & 28.02 & 8 & 27.75 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

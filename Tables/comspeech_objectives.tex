@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 不同对齐训练目标的实验结果}{{\enspace Results with different alignment training objectives}}
+    \label{tab:comspeech_objectives}
+    \centering
+    \small
+    \begin{tabular}{c|c|ccc}
+        \toprule
+        \textbf{MSE} & \textbf{对比学习} ($s(\mathbf{x}, \mathbf{y})$) & \textbf{ASR-BLEU$\uparrow$} & \textbf{Alignment$\downarrow$} & \textbf{Uniformity$\downarrow$} \\
+        \midrule
+        $\times$ & $\times$ & 0.01 & 101.55 & \textbf{-56.75} \\
+        $\checkmark$ & $\times$ & 13.33 & 1.05 & -2.01 \\
+        $\times$ & $-\|\mathbf{x} - \mathbf{y}\|_1$ & 25.14 & 4.29 & -14.19 \\
+        $\times$ & $-\|\mathbf{x} - \mathbf{y}\|_2^2$ & 25.40 & 10.14 & -23.38 \\
+        $\times$ & $\mathbf{x}\cdot\mathbf{y}$ & 24.35 & 18.56 & -32.87 \\
+        $\checkmark$ & $-\|\mathbf{x} - \mathbf{y}\|_1$ & \textbf{27.55} & \textbf{0.85} & -3.97 \\
+        $\checkmark$ & $-\|\mathbf{x} - \mathbf{y}\|_2^2$ & 27.11 & 0.98 & -8.22 \\
+        $\checkmark$ & $\mathbf{x}\cdot\mathbf{y}$ & 27.13 & 0.92 & -9.30 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

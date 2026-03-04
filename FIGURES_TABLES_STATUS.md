@@ -61,7 +61,43 @@
 
 ## 第三章 ComSpeech
 
-（待写作时补充）
+### 表格
+
+| 论文文件 | label | 原论文来源 | 中文化 | 布局 | 检查状态 |
+|---------|-------|-----------|--------|------|---------|
+| `Tables/comspeech_results.tex` | `tab:comspeech_main` | ComSpeech论文 Table 1 (`Tables/table_main_results.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
+| `Tables/comspeech_blaser.tex` | `tab:comspeech_blaser` | ComSpeech论文 Table 3 (`Tables/table_blaser.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/comspeech_objectives.tex` | `tab:comspeech_objectives` | ComSpeech论文 Table 4 (`Tables/table_objectives.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/comspeech_pretrain.tex` | `tab:comspeech_pretrain` | ComSpeech论文 Table 5 (`Tables/table_pretrain.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/comspeech_adaptor.tex` | `tab:comspeech_adaptor` | ComSpeech论文 Table 6 (`Tables/table_adaptor.tex`) | 已完成 | 原始宽度 | 待检查 |
+
+### 图片
+
+| 论文文件 | label | 图片文件 | 原论文来源 | 图片语言 | 检查状态 |
+|---------|-------|---------|-----------|---------|---------|
+| `Img/figure_comspeech.tex` | `fig:comspeech` | `Img/ComSpeech.pdf` | ComSpeech论文 Figure 2 (`Figures/merge.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_comspeech_training.tex` | `fig:comspeech_training` | `Img/ComSpeech_training.pdf` | ComSpeech论文 Figure 3 (`Figures/training_new.pdf`) | **英文，需转中文** | 待检查 |
+| 内嵌于 `Tex/Chap_ComSpeech.tex` | `fig:comspeech_tts_data` | `Img/comspeech_tts_data_size.pdf` | ComSpeech论文 Figure 4 (`Figures/figure_data_size.crop.pdf`) | **英文，需转中文**（坐标轴: ASR-BLEU, TTS Data Size） | 待检查 |
+| 内嵌于 `Tex/Chap_ComSpeech.tex` | `fig:comspeech_s2tt_data` | `Img/comspeech_s2tt_data_size.pdf` | ComSpeech论文 Figure 5 (`Figures/figure_st_data_size.crop.pdf`) | **英文，需转中文**（坐标轴: ASR-BLEU, S2TT Data Size） | 待检查 |
+
+### 英文图片翻译清单
+
+需要你手动将以下图片中的英文转为中文：
+
+1. **ComSpeech.pdf**（模型架构图）：
+   - "S2TT Model" → "S2TT模型"
+   - "Vocabulary Adaptor" → "词表适配器"
+   - "TTS Model" → "TTS模型"
+   - 其他标注根据实际内容翻译
+
+2. **ComSpeech_training.pdf**（训练与推理流程图）：
+   - 各阶段标签翻译为中文
+
+3. **comspeech_tts_data_size.pdf**（TTS数据规模影响）：
+   - 坐标轴和图例翻译为中文
+
+4. **comspeech_s2tt_data_size.pdf**（S2TT数据规模影响）：
+   - 坐标轴和图例翻译为中文
 
 ---
 
@@ -84,3 +120,4 @@
 - 2026-03-04：DASpeech模型架构图替换为中期报告中文版
 - 2026-03-04：新增3张图（批量解码加速比、图尺寸对S2TT的影响、图尺寸对DASpeech的影响），均为英文待转中文；speaker表去掉分类标签斜体
 - 2026-03-04：解码速度3图拆为独立图（不再合并为subfigure）；图尺寸2图改为正确subfigure结构（子图用caption，总图用bicaption）
+- 2026-03-05：录入第三章 ComSpeech 全部图表（5表4图）

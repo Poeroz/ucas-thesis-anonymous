@@ -1,0 +1,18 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 不同预训练和微调策略的实验结果}{{\enspace Results with different pretraining and finetuning strategies}}
+    \label{tab:comspeech_pretrain}
+    \centering
+    \small
+    \begin{tabular}{cc|c|cc}
+        \toprule
+        \multicolumn{2}{c|}{\textbf{预训练}} & \multirow{2}{*}{\textbf{两阶段微调}} & \multicolumn{2}{c}{\textbf{ASR-BLEU}} \\
+        \textbf{S2TT} & \textbf{TTS} & & \textbf{ComSpeech} & \textbf{ComSpeech-ZS} \\
+        \midrule
+        $\times$ & $\times$ & $\times$ & 27.58 & 23.43 \\
+        $\times$ & $\checkmark$ & $\times$ & 27.43 & 0.19 \\
+        $\checkmark$ & $\times$ & $\times$ & 28.03 & 25.67 \\
+        $\checkmark$ & $\checkmark$ & $\times$ & \textbf{28.15} & 27.10 \\
+        $\checkmark$ & $\checkmark$ & $\checkmark$ & / & \textbf{27.55} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

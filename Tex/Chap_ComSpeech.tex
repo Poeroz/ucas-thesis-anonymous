@@ -1,2 +1,246 @@
-\chapter{ComSpeech}\label{chap:comspeech}
+\chapter{基于词表转换的组合式语音到语音翻译模型}\label{chap:comspeech}
 
+\section{引言}
+
+上一章提出的DASpeech通过有向无环图和FastSpeech 2的二阶段架构，在语音到语音翻译任务上实现了翻译质量与解码效率的良好平衡。然而，DASpeech的一个主要局限在于其语言解码器和声学解码器需要共享音素词表。这一约束的原因是：DA-Transformer最后一层的隐状态需要直接输入FastSpeech 2的声学解码器，而FastSpeech 2采用音素词表，因此DA-Transformer也必须采用音素词表进行解码。但在语音到文本翻译领域，子词（Subword）词表由于具有更好的开放词汇覆盖能力和更短的目标序列长度，通常能取得优于音素词表的翻译性能。DASpeech被迫使用音素词表进行翻译，限制了其翻译质量的进一步提升。此外，DASpeech的训练依赖于平行语音数据，即同时包含源语音和目标语音的成对数据，而这类数据在实际中较为稀缺。
+
+从更广泛的视角来看，二阶段端到端语音到语音翻译模型通常将语音到文本翻译模型和语音合成模型整合在一个统一的框架内。语音到文本翻译和语音合成各自已有大量高质量的预训练模型和训练数据，但由于不同模型采用不同的目标语言词表，无法直接组合使用。语音到文本翻译模型通常使用子词词表，而语音合成模型通常使用音素词表，两者在词表粒度和序列长度上都存在显著差异。这种词表不匹配的问题制约了预训练模型的复用，也是导致DASpeech等模型必须共享词表的根本原因。
+
+针对上述问题，本章提出了ComSpeech，一个组合式的语音到语音翻译框架。ComSpeech的核心思想是：通过引入一个基于连接时序分类（Connectionist Temporal Classification, CTC）\citep{ctc}的词表适配器，在语音到文本翻译模型和语音合成模型之间建立桥梁，实现不同词表之间的表示转换，从而允许两个模型各自使用最优的词表和预训练参数。在有监督学习场景下，ComSpeech使用平行语音数据对整个模型进行端到端微调。在零样本学习场景下，本章进一步提出ComSpeech-ZS，通过在语音合成模型的编码器输出空间中进行表示对齐，仅使用语音到文本翻译数据和语音合成数据进行训练，无需任何平行语音数据即可实现高质量的语音到语音翻译。
+
+本章在CVSS数据集的法语到英语、德语到英语、西班牙语到英语三个语言方向上进行了实验验证。实验结果表明：（1）在有监督学习场景下，ComSpeech在所有语言方向上均超越了Translatotron 2、UnitY等先前的二阶段模型，平均ASR-BLEU达到23.70，相比DASpeech提升了3.12分，同时保持了3.40倍的解码加速；（2）在零样本学习场景下，ComSpeech-ZS在不使用任何平行语音数据的条件下，仍然超越了所有有监督基线模型，与有监督的ComSpeech仅差0.7个ASR-BLEU；（3）消融实验验证了MSE损失和对比学习损失的互补性、预训练策略和两阶段微调策略的有效性。
+
+
+\section{方法介绍}
+
+本节介绍ComSpeech的模型架构和训练方法。ComSpeech由三个可替换的模块组成：语音到文本翻译模型$\mathcal{F}$、词表适配器$\mathcal{A}$和语音合成模型$\mathcal{G}$。其中，$\mathcal{F}$可以是任意的S2TT模型，$\mathcal{G}$可以是任意的TTS模型，$\mathcal{A}$是本章提出的核心组件，用于连接两个采用不同词表的模型。$\mathcal{F}$采用子词词表$\mathbb{W}$，$\mathcal{G}$采用音素词表$\mathbb{V}$。目标文本$Y$在两种词表下的分词结果分别表示为$Y^{\mathbb{W}} = (y^{\mathbb{W}}_1, ..., y^{\mathbb{W}}_N)$和$Y^{\mathbb{V}} = (y^{\mathbb{V}}_1, ..., y^{\mathbb{V}}_M)$。
+
+\subsection{模型架构}\label{sec:comspeech_arch}
+
+如图\ref{fig:comspeech}所示，ComSpeech的整体架构包含S2TT模型、CTC词表适配器和TTS模型三个部分。以下分别介绍各组件的详细设计。
+
+\input{Img/figure_comspeech}
+
+\textbf{语音到文本翻译模型}\quad 本章采用基于Conformer\citep{conformer}编码器和Transformer\citep{transformer}解码器的自回归S2TT模型作为$\mathcal{F}$。编码器以源语音的梅尔滤波器组特征作为输入，解码器采用子词词表$\mathbb{W}$自回归地生成目标文本。解码器的输出隐状态表示为$\mathbf{H}^{\mathbb{W}}=(\mathbf{h}^{\mathbb{W}}_1, ..., \mathbf{h}^{\mathbb{W}}_N)$，其中$\mathbf{h}^{\mathbb{W}}_i = \mathcal{F}(S, Y^{\mathbb{W}}_{<i})$。S2TT模型的训练目标为最小化交叉熵损失：
+\begin{equation}
+    \mathcal{L}_{\text{S2TT}} = -\sum_{i=1}^{N}\log P(y^{\mathbb{W}}_i | \mathcal{F}(S, Y^{\mathbb{W}}_{<i})).
+\end{equation}
+
+\textbf{语音合成模型}\quad 本章采用FastSpeech 2\citep{ren2021fastspeech2}作为TTS模型$\mathcal{G}$，其结构与上一章中DASpeech的声学解码器类似，由编码器、方差适配器和梅尔谱解码器组成。FastSpeech 2采用音素词表$\mathbb{V}$。在独立的TTS模型中，编码器以目标文本的音素嵌入$\textsc{Emb}(Y^{\mathbb{V}})$作为输入。在ComSpeech框架中，TTS编码器不再接收音素嵌入，而是接收词表适配器的输出表示$\mathbf{H}^{\mathbb{V}}$。FastSpeech 2的训练目标为：
+\begin{equation}
+    \mathcal{L}_{\text{TTS}} = \mathcal{L}_{\text{L1}} + \mathcal{L}_{\text{dur}} + \mathcal{L}_{\text{pitch}} + \mathcal{L}_{\text{energy}},
+\end{equation}
+其中$\mathcal{L}_{\text{L1}}$衡量预测梅尔谱与真实梅尔谱之间的L1距离，$\mathcal{L}_{\text{dur}}$、$\mathcal{L}_{\text{pitch}}$和$\mathcal{L}_{\text{energy}}$分别计算时长、音高和能量的预测值与真实值之间的均方误差。
+
+\textbf{CTC词表适配器}\quad 当S2TT模型与TTS模型组合时，S2TT解码器的输出隐状态$\mathbf{H}^{\mathbb{W}}$对应子词序列$Y^{\mathbb{W}}$，而TTS编码器期望接收的是对应音素序列$Y^{\mathbb{V}}$的表示。由于子词序列和音素序列在长度和粒度上都不同，两者无法直接对接。因此，本章引入基于CTC的词表适配器$\mathcal{A}$来实现变长序列的跨词表转换。词表适配器的转换过程包含以下四个步骤：
+
+（1）上采样：将S2TT解码器输出$\mathbf{H}^{\mathbb{W}}$中的每个隐状态重复$\lambda$次，得到长度为$\lambda\cdot N$的上采样序列$\widehat{\mathbf{H}}^{\mathbb{W}}=(\widehat{\mathbf{h}}^{\mathbb{W}}_1, ..., \widehat{\mathbf{h}}^{\mathbb{W}}_{\lambda\cdot N})$，其中$\widehat{\mathbf{h}}^{\mathbb{W}}_i = \mathbf{h}^{\mathbb{W}}_{\lfloor i/\lambda\rfloor}$。
+
+（2）Transformer编码：对上采样序列加入正弦位置编码后，使用$L$层Transformer编码器$\mathcal{E}$进行编码，得到输出隐状态序列$\mathbf{O} = (\mathbf{o}_1, \ldots, \mathbf{o}_{\lambda \cdot N})$：
+\begin{equation}
+    \mathbf{O} = \mathcal{E} (\widehat{\mathbf{H}}^{\mathbb{W}} + \textsc{Pos} (\widehat{\mathbf{H}}^{\mathbb{W}})),
+\end{equation}
+其中$\textsc{Pos}(\cdot)$表示正弦位置编码。
+
+（3）CTC对齐：在扩展词表$\mathbb{V}\cup\{\epsilon\}$（$\epsilon$为空白标记）上建模对齐概率。对于序列$\mathbf{O}$中的每个元素，计算其在扩展词表上的概率分布：
+\begin{equation}
+    P(a_i | \mathbf{O}) = \text{softmax} (\mathbf{W}\mathbf{o}_i + \mathbf{b})[a_i]\quad \forall a_i\in \mathbb{V}\cup\{\epsilon\},
+\end{equation}
+其中$\mathbf{W}\in\mathbb{R}^{(|\mathbb{V}| + 1)\times d}$和$\mathbf{b}\in\mathbb{R}^{|\mathbb{V}| + 1}$分别为线性层的权重和偏置，$A=(a_1, ..., a_{\lambda\cdot N})$表示一条对齐路径。CTC引入折叠函数$\beta(A)$，依次合并对齐中的连续重复标记并移除空白标记。CTC的训练目标为边际化所有可能的对齐路径：
+\begin{equation}
+\begin{aligned}
+    \mathcal{L}_{\text{CTC}} &= -\log P(Y^{\mathbb{V}} | \mathbf{O}) \\
+    &= -\log \sum_{A\in\beta^{-1}(Y^{\mathbb{V}})} \prod_{i=1}^{\lambda\cdot N} P(a_i|\mathbf{O}),
+\end{aligned}
+\end{equation}
+其中$\beta^{-1}(Y^{\mathbb{V}})$表示所有长度为$\lambda\cdot N$且经折叠后等于$Y^{\mathbb{V}}$的对齐路径集合。
+
+（4）压缩：通过CTC学习到的对齐将长度为$\lambda\cdot N$的序列$\mathbf{O}$压缩为长度为$M$的序列$\mathbf{H}^{\mathbb{V}}$。在训练阶段，使用Viterbi算法\citep{viterbi}找到最优强制对齐$A^* = \mathop{\arg\max}_{A} P(A|\mathbf{O}, Y^{\mathbb{V}})$，将对齐中每个非空白标记的连续重复划分为一个片段。每个目标音素$y^{\mathbb{V}}_i$对应一个片段$[a^*_{l_i}, ..., a^*_{r_i}]$，片段内的表示按CTC预测置信度进行加权平均：
+\begin{equation}
+    \mathbf{h}^{\mathbb{V}}_i = \sum_{j=l_i}^{r_i} p_j\cdot \mathbf{o}_j,
+\end{equation}
+\begin{equation}
+    p_j = \frac{\exp(P(a^*_j | \mathbf{O}))}{\sum_{k=l_i}^{r_i} \exp(P(a^*_{k} | \mathbf{O}))}.
+\end{equation}
+空白标记对应的表示被丢弃。最终得到的表示序列$\mathbf{H}^{\mathbb{V}} = (\mathbf{h}^{\mathbb{V}}_1, ..., \mathbf{h}^{\mathbb{V}}_M)$被输入TTS编码器进行后续的语音合成。在推理阶段，使用Argmax解码$a^*_i = \mathop{\arg\max}_{a_i} P(a_i | \mathbf{O})$替代Viterbi强制对齐，压缩方式与训练时相同。
+
+
+\subsection{有监督训练}\label{sec:comspeech_supervised}
+
+当平行语音数据可用时，ComSpeech可以利用S2TT和TTS的预训练模型进行初始化，然后使用平行语音数据进行端到端微调。微调阶段的训练目标为：
+\begin{equation}
+    \mathcal{L}_{\text{ComSpeech}} = \mathcal{L}_{\text{S2TT}} + \mathcal{L}_{\text{CTC}} + \mathcal{L}_{\text{TTS}}.
+\end{equation}
+由于词表适配器可以建立任意S2TT和TTS模型之间的连接，理论上可以利用任何预训练的S2TT和TTS模型进行语音到语音翻译的微调。
+
+
+\subsection{零样本训练}\label{sec:comspeech_zeroshot}
+
+收集平行语音数据在实际中面临很大困难。本节探索仅使用S2TT和TTS数据来训练ComSpeech，在不使用任何平行语音数据的条件下实现零样本语音到语音翻译。
+
+\input{Img/figure_comspeech_training}
+
+\subsubsection{表示对齐}
+
+零样本训练的核心思想是：在TTS编码器的输出空间中进行表示对齐，使得通过词表适配器输入TTS编码器产生的表示与通过音素嵌入输入TTS编码器产生的表示尽可能一致，如图\ref{fig:comspeech_training}所示。这样，TTS模型在语音合成数据上学到的合成能力就可以迁移到语音到语音翻译的推理过程中。
+
+形式化地，$\mathbf{C}^H = (\mathbf{c}^H_1, ..., \mathbf{c}^H_M)$和$\mathbf{C}^E = (\mathbf{c}^E_1, ..., \mathbf{c}^E_M)$分别表示TTS编码器以词表适配器输出和音素嵌入为输入时的输出表示：
+\begin{equation}
+    \mathbf{C}^H = \mathcal{G}_{\text{enc}} (\mathbf{H}^{\mathbb{V}}), \quad \mathbf{C}^E = \mathcal{G}_{\text{enc}} (\textsc{Emb}(Y^{\mathbb{V}})).
+\end{equation}
+本章使用MSE损失和对比学习损失来对齐这两组表示。MSE损失直接最小化对应位置表示之间的距离：
+\begin{equation}
+    \mathcal{L}_{\text{MSE}} = \sum_{i=1}^M \| \mathbf{c}^H_i - \mathbf{c}^E_i \|^2_2.
+\end{equation}
+对比学习损失最大化同一输入对的表示相似度，同时最小化不同输入对之间的相似度：
+\begin{equation}
+\begin{aligned}
+    \mathcal{L}_{\text{CTR}} = &-\frac{1}{2}\sum_{i=1}^M \log \frac{\exp(s(\mathbf{c}^H_i, \mathbf{c}^E_i) / \tau)}{\sum_{j=1}^M \exp (s(\mathbf{c}^H_i, \mathbf{c}^E_j) / \tau)} \\
+    &-\frac{1}{2}\sum_{i=1}^M \log \frac{\exp(s(\mathbf{c}^H_i, \mathbf{c}^E_i) / \tau)}{\sum_{j=1}^M \exp (s(\mathbf{c}^H_j, \mathbf{c}^E_i) / \tau)},
+\end{aligned}
+\end{equation}
+其中$s(\mathbf{x}, \mathbf{y}) = -\|\mathbf{x} - \mathbf{y}\|_1$为基于L1距离的相似度函数，$\tau$为温度超参数。最终的表示对齐损失为：
+\begin{equation}
+    \mathcal{L}_{\text{Align}} = \mathcal{L}_{\text{MSE}} + \mathcal{L}_{\text{CTR}}.
+\end{equation}
+
+\subsubsection{两阶段微调策略}
+
+在零样本学习场景下，本章采用两阶段微调策略。第一阶段仅使用S2TT数据$\mathcal{D}_{\text{S2TT}}$训练S2TT模型$\mathcal{F}$和词表适配器$\mathcal{A}$，训练目标为$\mathcal{L}_{\text{S2TT}} + \mathcal{L}_{\text{CTC}}$。第二阶段同时使用S2TT数据和TTS数据$\mathcal{D}_{\text{TTS}}$进行交替训练，总体训练目标为：
+\begin{equation}
+    \begin{aligned}
+        &\mathcal{L}_{\text{ComSpeech-ZS}} = \mathbb{E}_{\mathcal{D}_{\text{TTS}}} \left[\mathcal{L}_{\text{TTS}}\right] \\
+        &\quad \quad \quad +\mathbb{E}_{\mathcal{D}_{\text{S2TT}}} \left[\mathcal{L}_{\text{S2TT}} + \mathcal{L}_{\text{CTC}} + \mathcal{L}_{\text{Align}}\right].
+    \end{aligned}
+\end{equation}
+在整个训练过程中不使用任何平行语音数据。推理时，源语音经过S2TT模型、词表适配器和TTS模型的级联处理，直接生成目标语音。
+
+
+\section{实验结果与分析}
+
+\subsection{实验设置}
+
+\subsubsection{数据集}
+
+本章在CVSS\citep{jia2022cvss}数据集上进行实验，选择法语到英语（Fr$\rightarrow$En）、德语到英语（De$\rightarrow$En）和西班牙语到英语（Es$\rightarrow$En）三个语言方向。各语言方向的数据统计如下：Fr$\rightarrow$En包含264小时源语音和174小时目标语音，De$\rightarrow$En包含184小时源语音和112小时目标语音，Es$\rightarrow$En包含113小时源语音和70小时目标语音。
+
+在有监督学习场景下，训练数据为S2ST三元组数据，即同时包含源语音、目标文本和目标语音的平行数据。在零样本学习场景下，S2TT训练数据为各语言方向的源语音-目标文本对，TTS训练数据来自CVSS中其他语言方向的英文语音，共计191小时，与三个实验语言方向的目标文本无重叠，以确保零样本设定的严格性。
+
+\subsubsection{模型配置}
+
+ComSpeech各组件的具体配置如下。S2TT模型的编码器由12层Conformer组成，其隐层维度为256，注意力头数为4，前馈网络维度为2048。S2TT模型的解码器由4层Transformer组成，其隐层维度为512，注意力头数为8，前馈网络维度为2048。词表适配器包含4层Transformer编码器，其隐层维度为512，注意力头数为8，前馈网络维度为2048，上采样因子$\lambda$设置为5。TTS模型采用FastSpeech 2的标准配置，其编码器和解码器各由4层前馈Transformer块组成，隐层维度为256，注意力头数为4，前馈网络维度为1024。方差预测器的隐层维度为256，卷积核大小为3，Dropout率为0.5。
+
+S2TT模型的子词词表大小为6000，由SentencePiece工具在CVSS目标文本上学习得到。TTS模型的音素词表大小为70。Dropout设置为0.3，S2TT模型的标签平滑系数为0.1。使用在VCTK数据集\citep{Veaux2017CSTRVC}上预训练的HiFi-GAN\citep{hifigan}声码器将梅尔谱转换为波形。
+
+\subsubsection{训练细节}
+
+S2TT和S2ST数据的批大小为320000源语音帧，TTS数据的批大小为512。在有监督学习场景下，模型先在S2TT和TTS数据上进行预训练，然后使用S2ST数据进行微调。在零样本学习场景下，采用两阶段微调策略。每个训练阶段的学习率在4000步内预热至$1\times 10^{-3}$，当验证集损失连续10次未下降时停止训练。所有训练阶段均使用Adam优化器\citep{adam}。对比学习的温度$\tau$设置为0.1。所有模型均使用4块NVIDIA RTX 3090 GPU进行训练。最终评估时，平均验证集上最优的5个检查点。
+
+\subsubsection{评价指标}
+
+\textbf{ASR-BLEU}\quad 首先使用预训练的ASR模型将翻译后的语音转录为文本，然后使用SacreBLEU\citep{post-2018-call}工具计算转录文本与参考文本之间的BLEU分数\citep{papineni-etal-2002-bleu}。统计显著性通过配对自助采样法计算。
+
+\textbf{BLASER 2.0}\quad 使用BLASER 2.0模型\citep{communication2023seamlessm4t}直接基于语音评估跨语言语义相似度，无需先将语音转录为文本。
+
+\textbf{解码速度}\quad 解码速度以CVSS-C Fr$\rightarrow$En测试集上的解码加速比衡量，在单块RTX 3090 GPU上以批大小1测试，以Translatotron 2的解码速度作为基准。
+
+\subsubsection{基线系统}
+
+本章与以下基线系统进行对比：
+
+\begin{itemize}
+    \item \textbf{Translatotron 2}\citep{translatotron2}：二阶段自回归S2ST模型，其S2TT部分与ComSpeech相同，在S2TT解码器之上使用2层Transformer编码器和6层解码器生成目标梅尔谱。
+    \item \textbf{UnitY}\citep{inaguma2022unity}：二阶段自回归S2ST模型，其S2TT部分与ComSpeech相同，在S2TT解码器之上使用2层Transformer编码器和2层解码器生成目标离散单元。
+    \item \textbf{S2UT}\citep{s2ut}：一阶段自回归S2ST模型，直接从源语音生成目标离散单元。
+    \item \textbf{DASpeech}\citep{fang-etal-2023-daspeech}：非自回归二阶段S2ST模型，采用音素词表以兼容FastSpeech 2。
+    \item \textbf{S2TT + G2P + TTS}：级联系统，由S2TT模型、字素到音素转换（Grapheme-to-Phoneme, G2P）模块和TTS模型组成。其中S2TT和TTS模型与ComSpeech-ZS的初始化模型相同。
+\end{itemize}
+
+
+\subsection{主要结果}
+
+\subsubsection{有监督学习结果}
+
+\input{Tables/comspeech_results}
+
+表\ref{tab:comspeech_main}展示了CVSS测试集上的ASR-BLEU分数。在有监督学习场景下，可以得到以下发现：
+
+（1）ComSpeech在所有三个语言方向上均超越了Translatotron 2和UnitY。由于这三个模型的S2TT部分完全相同，ComSpeech的性能提升主要归功于采用了更强大的TTS模型进行语音合成。在不使用预训练的条件下，ComSpeech相较Translatotron 2在Fr$\rightarrow$En上提升了1.46个ASR-BLEU，在De$\rightarrow$En上提升了0.43个ASR-BLEU，在Es$\rightarrow$En上提升了1.31个ASR-BLEU。使用S2TT和TTS预训练后，ComSpeech的平均ASR-BLEU进一步提升至23.70。
+
+（2）得益于FastSpeech 2的并行解码能力，ComSpeech相较Translatotron 2取得了3.40倍的解码加速。
+
+（3）与同样采用FastSpeech 2作为TTS模块的DASpeech相比，ComSpeech在Fr$\rightarrow$En上取得了3.12个ASR-BLEU的提升。这主要是因为DASpeech为了与FastSpeech 2的词表兼容而使用音素词表进行翻译，降低了翻译质量，而ComSpeech通过词表适配器解耦了两个模型的词表，允许S2TT模型使用更优的子词词表。
+
+\subsubsection{零样本学习结果}
+
+在零样本学习场景下，可以观察到：
+
+（1）ComSpeech-ZS在不使用任何平行语音数据的条件下，翻译质量与有监督的ComSpeech非常接近，两者仅有0.7个ASR-BLEU的差距。
+
+（2）ComSpeech-ZS超越了所有有监督基线模型的性能，包括Translatotron 2、UnitY、S2UT和DASpeech，进一步验证了本章提出的模型架构和训练方法的有效性。
+
+（3）ComSpeech-ZS的翻译质量超越了级联系统S2TT + G2P + TTS，在Fr$\rightarrow$En上提升0.51个ASR-BLEU，在De$\rightarrow$En上提升0.70个ASR-BLEU，在Es$\rightarrow$En上提升0.54个ASR-BLEU。相比级联系统在各模块之间传递离散文本信息，ComSpeech-ZS通过端到端的表示传递避免了信息损失，并且在部署时只需一个统一的模型。
+
+\subsubsection{BLASER 2.0评估结果}
+
+\input{Tables/comspeech_blaser}
+
+表\ref{tab:comspeech_blaser}展示了CVSS测试集上的BLASER 2.0分数。ComSpeech和ComSpeech-ZS在大多数语言方向上均优于对应的基线系统。由于BLASER 2.0直接基于语音而非转录文本进行评估，该结果进一步验证了ComSpeech生成的语音不仅翻译准确，而且语音质量可靠。
+
+
+\subsection{分析实验}
+
+\subsubsection{对齐训练目标的消融}
+
+\input{Tables/comspeech_objectives}
+
+在零样本学习场景下，表示对齐对最终的翻译质量至关重要。表\ref{tab:comspeech_objectives}展示了CVSS Fr$\rightarrow$En测试集上不同对齐训练目标的对比结果。
+
+不使用任何对齐损失时，ASR-BLEU仅为0.01，模型完全无法完成翻译任务。仅使用MSE损失时，ASR-BLEU提升至13.33，对齐分数（Alignment）从101.55大幅降低至1.05。仅使用对比学习损失时，ASR-BLEU可达25.14左右，但对齐分数相对较高。将MSE损失与对比学习损失结合后，模型在保持良好的表示空间均匀性的同时取得了最低的对齐分数，ASR-BLEU达到27.55。在相似度函数的选择上，基于L1距离的相似度函数$s(\mathbf{x}, \mathbf{y}) = -\|\mathbf{x} - \mathbf{y}\|_1$优于L2距离和点积，这说明表示空间的对齐程度对零样本迁移性能起着关键作用。
+
+\subsubsection{预训练和微调策略的消融}
+
+\input{Tables/comspeech_pretrain}
+
+表\ref{tab:comspeech_pretrain}展示了不同预训练和微调策略在CVSS Fr$\rightarrow$En测试集上的对比结果。在有监督学习场景下，S2TT预训练带来了显著的性能提升，将ASR-BLEU从27.58提升至28.03。在此基础上进一步加入TTS预训练，ASR-BLEU达到28.15。
+
+在零样本学习场景下，预训练策略的影响更为显著。仅使用TTS预训练反而导致ASR-BLEU骤降至0.19，这是因为预训练的TTS编码器的表示空间与未经预训练的词表适配器的输出形成了较大的分布差异，阻碍了有效的表示对齐。S2TT预训练将零样本ASR-BLEU从23.43提升至25.67。同时使用S2TT和TTS预训练时，ASR-BLEU进一步提升至27.10。在此基础上，本章提出的两阶段微调策略带来了0.45个ASR-BLEU的额外提升，最终达到27.55。
+
+\subsubsection{词表适配器超参数分析}
+
+\input{Tables/comspeech_adaptor}
+
+表\ref{tab:comspeech_adaptor}展示了CVSS Fr$\rightarrow$En验证集上词表适配器不同超参数配置的实验结果。对于Transformer编码器层数$L$，当$L=4$时取得最佳的28.04 ASR-BLEU，$L=2$时性能略低，$L=6$时与$L=4$持平。对于上采样因子$\lambda$，$\lambda=2$时ASR-BLEU仅为11.94，性能严重不足，这是因为音素序列的长度通常远大于子词序列，过小的上采样因子无法提供足够的序列长度来编码所有音素。$\lambda=5$时取得最佳性能，$\lambda=8$时性能略有下降。最终本章选择$L=4$、$\lambda=5$作为默认配置。
+
+\subsubsection{数据规模的影响}
+
+\begin{figure}[!htbp]
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/comspeech_tts_data_size.pdf}
+        \bicaption{\enspace TTS数据规模对翻译质量的影响}{\enspace Effect of TTS data size on translation quality}
+        \label{fig:comspeech_tts_data}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/comspeech_s2tt_data_size.pdf}
+        \bicaption{\enspace S2TT数据规模对翻译质量的影响}{\enspace Effect of S2TT data size on translation quality}
+        \label{fig:comspeech_s2tt_data}
+    \end{minipage}
+\end{figure}
+
+本章研究了S2TT和TTS数据规模对ComSpeech-ZS和级联系统翻译质量的影响，结果如图\ref{fig:comspeech_tts_data}和图\ref{fig:comspeech_s2tt_data}所示。
+
+在TTS数据规模方面，级联系统的性能随TTS数据量的增加基本保持稳定，而ComSpeech-ZS的性能随TTS数据量的增加而逐步提升。当TTS数据不足50小时时，ComSpeech-ZS的翻译质量低于级联系统，这可能是由于S2TT数据和TTS数据规模不平衡导致训练不充分。当TTS数据超过50小时后，ComSpeech-ZS超越级联系统，且两者的差距随数据量增加而持续扩大，表明ComSpeech-ZS具有更高的性能上限。
+
+在S2TT数据规模方面，两个系统的性能均随S2TT数据量的增加而显著提升。在各个数据量级下，ComSpeech-ZS均优于级联系统，体现了端到端建模的优势。
+
+
+\section{本章小结}
+
+本章围绕语音到语音翻译中预训练模型复用困难和平行语音数据稀缺的问题，提出了ComSpeech——一个组合式的语音到语音翻译框架。ComSpeech通过基于CTC的词表适配器实现了不同词表之间的表示转换，使任意的语音到文本翻译模型和语音合成模型可以自由组合。在零样本学习场景下，ComSpeech-ZS通过表示对齐技术，仅使用语音到文本翻译数据和语音合成数据即可实现高质量的语音到语音翻译。
+
+在CVSS数据集上的实验结果表明，ComSpeech在有监督学习场景下超越了所有基线模型，平均ASR-BLEU达到23.70；ComSpeech-ZS在零样本场景下仍然超越了所有有监督基线，与有监督的ComSpeech仅差0.7个ASR-BLEU。消融实验验证了MSE损失与对比学习损失的互补性、预训练和两阶段微调策略的有效性，以及词表适配器超参数的合理选择。
+
+本章工作虽然在翻译质量和模型通用性上取得了显著进步，但仍存在一些局限。ComSpeech的语音到文本翻译组件采用自回归解码，解码速度不如DASpeech。此外，ComSpeech和DASpeech所面向的语音到语音翻译是一个相对封闭的任务，随着大语言模型的快速发展，研究重心正转向更通用的语音交互场景。本章中CTC用于跨词表序列转换的技术思想，将在下一章中被迁移到大语言模型的语音解码器设计中，以实现实时的语音交互能力。
