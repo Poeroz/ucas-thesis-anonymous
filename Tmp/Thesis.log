@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  4 MAR 2026 20:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  5 MAR 2026 01:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1938,17 +1938,17 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 File: Img/decode_time.pdf Graphic file (type pdf)
 <use Img/decode_time.pdf>
 )
+[13]
 File: Img/tradeoff.pdf Graphic file (type pdf)
 <use Img/tradeoff.pdf>
-
-[13]
 File: Img/daspeech_batch_speedup.pdf Graphic file (type pdf)
 <use Img/daspeech_batch_speedup.pdf>
 File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2t.pdf>
+ [14]
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
- [14] (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
+ (./Tables/daspeech_speaker.tex) [15]) (./Tex/Chap_ComSpeech.tex
 [16]
 第3章
 ) (./Tex/Chap_LLaMA_Omni.tex [17
@@ -1999,14 +1999,14 @@ lume 33.  Curran Asso-
 
 ]) (Tmp/Thesis.aux)
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 187B509C73785EC9E02827FCF773A11A;2922.
+(rerunfilecheck)             Checksum: 937CD85B0D6636518A77846C57D941A2;2922.
  ) 
 Here is how much of TeX's memory you used:
- 40295 strings out of 478671
- 830293 string characters out of 5848460
+ 40256 strings out of 478671
+ 828002 string characters out of 5848460
  1877018 words of memory out of 6000000
- 59629 multiletter control sequences out of 15000+600000
- 523633 words of font info for 160 fonts, out of 8000000 for 9000
+ 59592 multiletter control sequences out of 15000+600000
+ 523617 words of font info for 158 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

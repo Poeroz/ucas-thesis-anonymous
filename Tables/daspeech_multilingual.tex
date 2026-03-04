@@ -8,11 +8,12 @@
         \multirow{2}{*}{\textbf{模型}} & & \multicolumn{4}{c|}{\textbf{ASR-BLEU (X$\rightarrow$En)}} & \multirow{2}{*}{\textbf{加速比}} \\
          & & \textbf{平均} & \textbf{高资源} & \textbf{中资源} & \textbf{低资源} & \\
         \midrule
-        \multicolumn{2}{l|}{Translatotron 2 \citep{translatotron2}} & \textbf{8.73} & \textbf{25.96} & \textbf{11.06} & \textbf{2.03} & 1.00$\times$ \\
+        \multicolumn{2}{l|}{S2UT \citep{s2ut}} & 5.15 & 16.74 & 6.24 & 0.84 & / \\
         \multicolumn{2}{l|}{UnitY \citep{inaguma-etal-2023-unity}} & 8.15 & 24.97 & 9.78 & 1.86 & 1.01$\times$ \\
+        \multicolumn{2}{l|}{Translatotron 2 \citep{translatotron2}} & \textbf{8.74} & \textbf{25.92} & \textbf{11.07} & \textbf{2.04} & 1.00$\times$ \\
         \midrule
-        \multicolumn{1}{c|}{\textbf{DASpeech}} & + Lookahead & 7.22 & 22.70 & 8.63 & 1.48 & \textbf{12.96$\times$} \\
-        \multicolumn{1}{c|}{($\lambda=1.0$)} & + Joint-Viterbi & 7.21 & 22.55 & 8.68 & 1.48 & 10.99$\times$ \\
+        \multicolumn{1}{c|}{\textbf{DASpeech}} & + Lookahead & 7.42 & 22.84 & 9.51 & 1.41 & \textbf{12.96$\times$} \\
+        \multicolumn{1}{c|}{($\lambda=0.5$)} & + Joint-Viterbi & 7.43 & 22.80 & 9.49 & 1.45 & 10.99$\times$ \\
         \bottomrule
     \end{tabular}
 \end{table}
