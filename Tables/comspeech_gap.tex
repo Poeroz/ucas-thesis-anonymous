@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace S2TT与S2ST的性能差距对比}{{\enspace Performance gap between S2TT and S2ST}}
+    \label{tab:comspeech_gap}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{l|ccc|ccc|ccc}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \multicolumn{3}{c|}{\textbf{Fr$\rightarrow$En}} & \multicolumn{3}{c|}{\textbf{De$\rightarrow$En}} & \multicolumn{3}{c}{\textbf{Es$\rightarrow$En}} \\
+        & \textbf{S2TT} & \textbf{S2ST} & \textbf{$\Delta$} & \textbf{S2TT} & \textbf{S2ST} & \textbf{$\Delta$} & \textbf{S2TT} & \textbf{S2ST} & \textbf{$\Delta$} \\
+        \midrule
+        S2TT Baseline & 30.49 & / & / & 18.54 & / & / & 25.39 & / & / \\
+        \midrule
+        Translatotron 2 & 28.82 & 26.12 & 2.70 & 18.66 & 16.92 & 1.74 & 25.82 & 22.98 & 2.84 \\
+        UnitY & 30.37 & 26.90 & 3.47 & 17.95 & 16.36 & 1.59 & 26.59 & 24.06 & 2.53 \\
+        ComSpeech w/o pretrain & 29.98 & 27.58 & \textbf{2.40} & 18.44 & 17.35 & \textbf{1.09} & 25.73 & 24.29 & \textbf{1.44} \\
+        ComSpeech w/ pretrain & \textbf{30.72} & \textbf{28.15} & 2.57 & \textbf{19.41} & \textbf{18.16} & 1.25 & 26.51 & \textbf{24.80} & 1.71 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
