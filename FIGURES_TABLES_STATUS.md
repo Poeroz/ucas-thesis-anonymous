@@ -69,6 +69,7 @@
 | `Tables/comspeech_blaser.tex` | `tab:comspeech_blaser` | ComSpeech论文 Table 3 (`Tables/table_blaser.tex`) | 已完成 | 原始宽度 | 待检查 |
 | `Tables/comspeech_objectives.tex` | `tab:comspeech_objectives` | ComSpeech论文 Table 4 (`Tables/table_objectives.tex`) | 已完成 | 原始宽度 | 待检查 |
 | `Tables/comspeech_pretrain.tex` | `tab:comspeech_pretrain` | ComSpeech论文 Table 5 (`Tables/table_pretrain.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/comspeech_gap.tex` | `tab:comspeech_gap` | ComSpeech论文 Table 2 (`Tables/table_gap.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
 | `Tables/comspeech_adaptor.tex` | `tab:comspeech_adaptor` | ComSpeech论文 Table 6 (`Tables/table_adaptor.tex`) | 已完成 | 原始宽度 | 待检查 |
 
 ### 图片
