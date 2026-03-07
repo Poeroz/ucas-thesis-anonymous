@@ -76,8 +76,8 @@
 
 | 论文文件 | label | 图片文件 | 原论文来源 | 图片语言 | 检查状态 |
 |---------|-------|---------|-----------|---------|---------|
-| `Img/figure_comspeech.tex` | `fig:comspeech` | `Img/ComSpeech.pdf` | ComSpeech论文 Figure 2 (`Figures/merge.pdf`) | **英文，需转中文** | 待检查 |
-| `Img/figure_comspeech_training.tex` | `fig:comspeech_training` | `Img/ComSpeech_training.pdf` | ComSpeech论文 Figure 3 (`Figures/training_new.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_comspeech.tex` | `fig:comspeech` | `Img/ComSpeech.pdf` | 已替换为中期报告中文版 | 中文 | 通过 |
+| `Img/figure_comspeech_training.tex` | `fig:comspeech_training` | `Img/ComSpeech_training.pdf` | 已替换为中期报告中文版，宽度调为0.9 | 中文 | 通过 |
 | 内嵌于 `Tex/Chap_ComSpeech.tex` | `fig:comspeech_tts_data` | `Img/comspeech_tts_data_size.pdf` | ComSpeech论文 Figure 4 (`Figures/figure_data_size.crop.pdf`) | **英文，需转中文**（坐标轴: ASR-BLEU, TTS Data Size） | 待检查 |
 | 内嵌于 `Tex/Chap_ComSpeech.tex` | `fig:comspeech_s2tt_data` | `Img/comspeech_s2tt_data_size.pdf` | ComSpeech论文 Figure 5 (`Figures/figure_st_data_size.crop.pdf`) | **英文，需转中文**（坐标轴: ASR-BLEU, S2TT Data Size） | 待检查 |
 
@@ -122,3 +122,4 @@
 - 2026-03-04：新增3张图（批量解码加速比、图尺寸对S2TT的影响、图尺寸对DASpeech的影响），均为英文待转中文；speaker表去掉分类标签斜体
 - 2026-03-04：解码速度3图拆为独立图（不再合并为subfigure）；图尺寸2图改为正确subfigure结构（子图用caption，总图用bicaption）
 - 2026-03-05：录入第三章 ComSpeech 全部图表（5表4图）
+- 2026-03-07：图3-1/3-2替换为中期报告中文版；删除主结果表dagger脚注；图3-2宽度调为0.9
