@@ -11,45 +11,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Biblio/ref.bib
 Warning--empty booktitle in Veaux2017CSTRVC
-You've used 27 entries,
+You've used 49 entries,
             4948 wiz_defined-function locations,
-            1168 strings with 15397 characters,
-and the built_in function-call counts, 270309 in all, are:
-= -- 5778
-> -- 31479
-< -- 38722
-+ -- 10596
-- -- 2281
-* -- 1849
-:= -- 37726
-add.period$ -- 116
-call.type$ -- 27
-change.case$ -- 54
-chr.to.int$ -- 9554
-cite$ -- 28
-duplicate$ -- 644
-empty$ -- 2548
-format.name$ -- 1085
-if$ -- 70037
-int.to.chr$ -- 4
-int.to.str$ -- 28
+            1286 strings with 22321 characters,
+and the built_in function-call counts, 556882 in all, are:
+= -- 10420
+> -- 66330
+< -- 81684
++ -- 22176
+- -- 4677
+* -- 3196
+:= -- 77400
+add.period$ -- 198
+call.type$ -- 49
+change.case$ -- 98
+chr.to.int$ -- 20180
+cite$ -- 50
+duplicate$ -- 1112
+empty$ -- 4151
+format.name$ -- 2077
+if$ -- 144153
+int.to.chr$ -- 5
+int.to.str$ -- 50
 missing$ -- 0
-newline$ -- 209
-num.names$ -- 89
-pop$ -- 13420
+newline$ -- 345
+num.names$ -- 158
+pop$ -- 28625
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 49
 quote$ -- 0
-skip$ -- 28809
+skip$ -- 59432
 stack$ -- 0
-substring$ -- 13154
-swap$ -- 38
-text.length$ -- 571
+substring$ -- 26533
+swap$ -- 63
+text.length$ -- 1076
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 303
+type$ -- 567
 warning$ -- 1
-while$ -- 689
+while$ -- 1277
 width$ -- 0
-write$ -- 442
+write$ -- 749
 (There was 1 warning)

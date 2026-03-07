@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{49}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -197,11 +197,12 @@ Jia~Y, Tadmor~Ramanovich~M, Wang~Q, et~al.
 Proceedings of Language Resources and Evaluation Conference (LREC).
 \newblock 2022{\natexlab{b}}: 6691-6703.
 
-\bibitem[Wang {\bibetal}(2020)Wang, Wu, and Pino]{wang2020covost2}
+\bibitem[Wang {\bibetal}(2020{\natexlab{a}})Wang, Wu, and
+  Pino]{wang2020covost2}
 Wang~C, Wu~A, Pino~J.
 \newblock Covost 2: A massively multilingual speech-to-text translation corpus
   [Z].
-\newblock 2020.
+\newblock 2020{\natexlab{a}}.
 
 \bibitem[Veaux {\bibetal}(2017)Veaux, Yamagishi, and
   MacDonald]{Veaux2017CSTRVC}
@@ -269,5 +270,185 @@ Rogers~A, Boyd-Graber~J, Okazaki~N.
   2023{\natexlab{b}}: 15655-15680.
 \newblock \url{https://aclanthology.org/2023.acl-long.872}.
 \newblock DOI: \doi{10.18653/v1/2023.acl-long.872}.
+
+\bibitem[Graves {\bibetal}(2006)Graves, Fern\'{a}ndez, Gomez, and
+  Schmidhuber]{ctc}
+Graves~A, Fern\'{a}ndez~S, Gomez~F, et~al.
+\newblock Connectionist temporal classification: Labelling unsegmented sequence
+  data with recurrent neural networks [C/OL]//\allowbreak
+ICML '06: Proceedings of the 23rd International Conference on Machine Learning.
+\newblock New York, NY, USA: Association for Computing Machinery, 2006:
+  369–376.
+\newblock \url{https://doi.org/10.1145/1143844.1143891}.
+
+\bibitem[Communication {\bibetal}(2023)Communication, Barrault, Chung,
+  Meglioli, Dale, Dong, Duquenne, Elsahar, Gong, Heffernan, Hoffman, Klaiber,
+  Li, Licht, Maillard, Rakotoarison, Sadagopan, Wenzek, Ye, Akula, Chen,
+  Hachem, Ellis, Gonzalez, Haaheim, Hansanti, Howes, Huang, Hwang, Inaguma,
+  Jain, Kalbassi, Kallet, Kulikov, Lam, Li, Ma, Mavlyutov, Peloquin, Ramadan,
+  Ramakrishnan, Sun, Tran, Tran, Tufanov, Vogeti, Wood, Yang, Yu, Andrews,
+  Balioglu, Costa-jussà, Celebi, Elbayad, Gao, Guzmán, Kao, Lee, Mourachko,
+  Pino, Popuri, Ropers, Saleem, Schwenk, Tomasello, Wang, Wang, and
+  Wang]{communication2023seamlessm4t}
+Communication~S, Barrault~L, Chung~Y~A, et~al.
+\newblock Seamlessm4t: Massively multilingual \& multimodal machine translation
+  [Z].
+\newblock 2023.
+
+\bibitem[Fang {\bibetal}(2023)Fang, Zhou, and Feng]{fang-etal-2023-daspeech}
+Fang~Q, Zhou~Y, Feng~Y.
+\newblock {DAS}peech: Directed acyclic transformer for fast and high-quality
+  speech-to-speech translation [C]//\allowbreak
+Advances in Neural Information Processing Systems.
+\newblock 2023.
+
+\bibitem[Wang {\bibetal}(2020{\natexlab{b}})Wang and Isola]{pmlr-v119-wang20k}
+Wang~T, Isola~P.
+\newblock Understanding contrastive representation learning through alignment
+  and uniformity on the hypersphere [C/OL]//\allowbreak
+III~H~D, Singh~A.
+\newblock Proceedings of Machine Learning Research: volume 119\quad Proceedings
+  of the 37th International Conference on Machine Learning.
+\newblock PMLR, 2020{\natexlab{b}}: 9929-9939.
+\newblock \url{https://proceedings.mlr.press/v119/wang20k.html}.
+
+\bibitem[OpenAI(2022)]{chatgpt}
+OpenAI.
+\newblock Introducing chatgpt [EB/OL].
+\newblock 2022.
+\newblock \url{https://openai.com/blog/chatgpt}.
+
+\bibitem[Zhang {\bibetal}(2023)Zhang, Li, Zhang, Zhan, Wang, Zhou, and
+  Qiu]{zhang-etal-2023-speechgpt}
+Zhang~D, Li~S, Zhang~X, et~al.
+\newblock {S}peech{GPT}: Empowering large language models with intrinsic
+  cross-modal conversational abilities [C/OL]//\allowbreak
+Bouamor~H, Pino~J, Bali~K.
+\newblock Findings of the Association for Computational Linguistics: EMNLP
+  2023.
+\newblock Singapore: Association for Computational Linguistics, 2023:
+  15757-15773.
+\newblock \url{https://aclanthology.org/2023.findings-emnlp.1055}.
+\newblock DOI: \doi{10.18653/v1/2023.findings-emnlp.1055}.
+
+\bibitem[Rubenstein {\bibetal}(2023)Rubenstein, Asawaroengchai, Nguyen, Bapna,
+  Borsos, Quitry, Chen, Badawy, Han, Kharitonov,
+  et~al.]{rubenstein2023audiopalm}
+Rubenstein~P~K, Asawaroengchai~C, Nguyen~D~D, et~al.
+\newblock Audiopalm: A large language model that can speak and listen [J].
+\newblock arXiv preprint arXiv:2306.12925, 2023.
+
+\bibitem[Radford {\bibetal}(2023)Radford, Kim, Xu, Brockman, McLeavey, and
+  Sutskever]{whisper}
+Radford~A, Kim~J~W, Xu~T, et~al.
+\newblock Robust speech recognition via large-scale weak supervision
+  [C]//\allowbreak
+International conference on machine learning.
+\newblock PMLR, 2023: 28492-28518.
+
+\bibitem[Dubey {\bibetal}(2024)Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman,
+  Mathur, Schelten, Yang, Fan, et~al.]{dubey2024llama3}
+Dubey~A, Jauhri~A, Pandey~A, et~al.
+\newblock The llama 3 herd of models [J].
+\newblock arXiv preprint arXiv:2407.21783, 2024.
+
+\bibitem[OpenAI(2024)]{gpt4o}
+OpenAI.
+\newblock Hello gpt-4o [EB/OL].
+\newblock 2024.
+\newblock \url{https://openai.com/index/hello-gpt-4o/}.
+
+\bibitem[Tang {\bibetal}(2024)Tang, Yu, Sun, Chen, Tan, Li, Lu, MA, and
+  Zhang]{tang2024salmonn}
+Tang~C, Yu~W, Sun~G, et~al.
+\newblock {SALMONN}: Towards generic hearing abilities for large language
+  models [C/OL]//\allowbreak
+The Twelfth International Conference on Learning Representations.
+\newblock 2024.
+\newblock \url{https://openreview.net/forum?id=14rn7HpKVk}.
+
+\bibitem[Chu {\bibetal}(2024)Chu, Xu, Yang, Wei, Wei, Guo, Leng, Lv, He, Lin,
+  Zhou, and Zhou]{Qwen2-Audio}
+Chu~Y, Xu~J, Yang~Q, et~al.
+\newblock Qwen2-audio technical report [J].
+\newblock arXiv preprint arXiv:2407.10759, 2024.
+
+\bibitem[Hsu {\bibetal}(2021)Hsu, Bolte, Tsai, Lakhotia, Salakhutdinov, and
+  Mohamed]{hubert}
+Hsu~W~N, Bolte~B, Tsai~Y~H~H, et~al.
+\newblock Hubert: Self-supervised speech representation learning by masked
+  prediction of hidden units [J/OL].
+\newblock IEEE/ACM Trans. Audio, Speech and Lang. Proc., 2021, 29: 3451–3460.
+\newblock \url{https://doi.org/10.1109/TASLP.2021.3122291}.
+
+\bibitem[Polyak {\bibetal}(2021)Polyak, Adi, Copet, Kharitonov, Lakhotia, Hsu,
+  Mohamed, and Dupoux]{polyak21_interspeech}
+Polyak~A, Adi~Y, Copet~J, et~al.
+\newblock {Speech Resynthesis from Discrete Disentangled Self-Supervised
+  Representations} [C]//\allowbreak
+Proc. Interspeech 2021.
+\newblock 2021.
+
+\bibitem[Cho {\bibetal}(2024)Cho, Jedema, Ribeiro, Sharma, Szekely, Moschitti,
+  Janssen, and May]{cho-etal-2024-speechworthy}
+Cho~H~J, Jedema~N~P, Ribeiro~L~F~R, et~al.
+\newblock Speechworthy instruction-tuned language models [C/OL]//\allowbreak
+Al-Onaizan~Y, Bansal~M, Chen~Y~N.
+\newblock Proceedings of the 2024 Conference on Empirical Methods in Natural
+  Language Processing.
+\newblock Miami, Florida, USA: Association for Computational Linguistics, 2024:
+  10652-10670.
+\newblock \url{https://aclanthology.org/2024.emnlp-main.595}.
+
+\bibitem[Du {\bibetal}(2024)Du, Chen, Zhang, Hu, Lu, Yang, Hu, Zheng, Gu, Ma,
+  et~al.]{du2024cosyvoice}
+Du~Z, Chen~Q, Zhang~S, et~al.
+\newblock Cosyvoice: A scalable multilingual zero-shot text-to-speech
+  synthesizer based on supervised semantic tokens [J].
+\newblock arXiv preprint arXiv:2407.05407, 2024.
+
+\bibitem[Ito {\bibetal}(2017)Ito and Johnson]{ljspeech17}
+Ito~K, Johnson~L.
+\newblock The lj speech dataset [EB/OL].
+\newblock 2017.
+\newblock \url{https://keithito.com/LJ-Speech-Dataset/}.
+
+\bibitem[Kim {\bibetal}(2021)Kim, Kong, and Son]{kim2021conditional}
+Kim~J, Kong~J, Son~J.
+\newblock Conditional variational autoencoder with adversarial learning for
+  end-to-end text-to-speech [C]//\allowbreak
+International Conference on Machine Learning.
+\newblock PMLR, 2021: 5530-5540.
+
+\bibitem[Taori {\bibetal}(2023)Taori, Gulrajani, Zhang, Dubois, Li, Guestrin,
+  Liang, and Hashimoto]{alpaca}
+Taori~R, Gulrajani~I, Zhang~T, et~al.
+\newblock Stanford alpaca: An instruction-following llama model [J/OL].
+\newblock GitHub repository, 2023.
+\newblock \url{https://github.com/tatsu-lab/stanford_alpaca}.
+
+\bibitem[Ding {\bibetal}(2023)Ding, Chen, Xu, Qin, Zheng, Hu, Liu, Sun, and
+  Zhou]{ultrachat}
+Ding~N, Chen~Y, Xu~B, et~al.
+\newblock Enhancing chat language models by scaling high-quality instructional
+  conversations [J].
+\newblock arXiv preprint arXiv:2305.14233, 2023.
+
+\bibitem[Li {\bibetal}(2023)Li, Zhang, Dubois, Taori, Gulrajani, Guestrin,
+  Liang, and Hashimoto]{alpacaeval}
+Li~X, Zhang~T, Dubois~Y, et~al.
+\newblock Alpacaeval: An automatic evaluator of instruction-following models
+  [J/OL].
+\newblock GitHub repository, 2023.
+\newblock \url{https://github.com/tatsu-lab/alpaca_eval}.
+
+\bibitem[Saeki {\bibetal}(2022)Saeki, Xin, Nakata, Koriyama, Takamichi, and
+  Saruwatari]{saeki22c_interspeech}
+Saeki~T, Xin~D, Nakata~W, et~al.
+\newblock Utmos: Utokyo-sarulab system for voicemos challenge 2022
+  [C/OL]//\allowbreak
+Interspeech 2022.
+\newblock 2022: 4521-4525.
+\newblock DOI: \doi{10.21437/Interspeech.2022-439}.
 
 \end{thebibliography}

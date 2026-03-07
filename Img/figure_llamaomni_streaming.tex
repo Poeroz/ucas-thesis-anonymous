@@ -1,0 +1,28 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/llamaomni_score.pdf}
+        \caption{ChatGPT分数与延迟}
+    \end{subfigure}%
+    \hspace{4pt}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/llamaomni_asr-wer.pdf}
+        \caption{ASR-WER与延迟}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/llamaomni_mos.pdf}
+        \caption{UTMOS与延迟}
+    \end{subfigure}%
+    \hspace{4pt}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Img/llamaomni_wps.pdf}
+        \caption{WPS与延迟}
+    \end{subfigure}
+    \bicaption{\enspace 流式场景下各模型在不同延迟条件下的实验结果}{\enspace Results of all models under different latency conditions in the streaming scenario}
+    \label{fig:llamaomni_streaming}
+\end{figure}

@@ -1,0 +1,17 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 离线场景下的实验结果}{\enspace Experiment results in the offline scenario}
+    \label{tab:llamaomni_offline}
+    \centering
+    \small
+    \begin{tabular}{l|cc|c|cc}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \multicolumn{2}{c|}{\textbf{ChatGPT分数}} & \multirow{2}{*}{\textbf{$\Delta$}} & \multirow{2}{*}{\textbf{ASR-WER$\downarrow$}} & \multirow{2}{*}{\textbf{UTMOS$\uparrow$}} \\
+        & \textbf{S2TIF} & \textbf{S2SIF} & & & \\
+        \midrule
+        SpeechGPT & 2.98 & 2.19 & 0.79 & 45.00 & 3.8958 \\
+        SALMONN + Orca & 3.44 & 3.40 & \textbf{0.04} & \textbf{3.78} & 3.8286 \\
+        Qwen2-Audio + Orca & 3.47 & 3.38 & 0.09 & 6.77 & 3.6119 \\
+        \textbf{LLaMA-Omni} & \textbf{3.99} & \textbf{3.47} & 0.52 & 10.82 & \textbf{3.9296} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

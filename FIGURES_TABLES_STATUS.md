@@ -104,7 +104,62 @@
 
 ## 第四章 LLaMA-Omni
 
-（待写作时补充）
+### 表格
+
+| 论文文件 | label | 原论文来源 | 中文化 | 布局 | 检查状态 |
+|---------|-------|-----------|--------|------|---------|
+| `Tables/llamaomni_data.tex` | `tab:llamaomni_data` | LLaMA-Omni论文 Table 2 (`Tables/table_data.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/llamaomni_offline.tex` | `tab:llamaomni_offline` | LLaMA-Omni论文 Table 1 (`Tables/table_offline_result.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/llamaomni_streaming.tex` | `tab:llamaomni_streaming` | LLaMA-Omni论文 Appendix Table (`Tables/table_num_llama_omni.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/llamaomni_decode_time.tex` | `tab:llamaomni_decode_time` | LLaMA-Omni论文 Table 3 (`Tables/table_decode_time.tex`) | 已完成 | 原始宽度 | 待检查 |
+
+### 图片
+
+| 论文文件 | label | 图片文件 | 原论文来源 | 图片语言 | 检查状态 |
+|---------|-------|---------|-----------|---------|---------|
+| `Img/figure_llamaomni.tex` | `fig:llamaomni` | `Img/LLaMA_Omni.pdf` | LLaMA-Omni论文 Figure 1 左 (`Figures/figure_model.tex`, `Figures/llamas2s.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_llamaomni_training.tex` | `fig:llamaomni_training` | `Img/LLaMA_Omni_training.pdf` | LLaMA-Omni论文 Figure 1 右 (`Figures/figure_model.tex`, `Figures/llamas2s_training.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_llamaomni_streaming.tex` (subfigure) | `fig:llamaomni_streaming` | 总图，含4个子图 | LLaMA-Omni论文 Figure 3 (`Figures/figure_streaming.tex`) | **英文，需转中文** | 待检查 |
+| 　└ 子图(a) | — | `Img/llamaomni_score.pdf` | ChatGPT Score vs Latency (`Figures/score.pdf`) | **英文，需转中文**（坐标轴、图例） | 待检查 |
+| 　└ 子图(b) | — | `Img/llamaomni_asr-wer.pdf` | ASR-WER vs Latency (`Figures/asr-wer.pdf`) | **英文，需转中文** | 待检查 |
+| 　└ 子图(c) | — | `Img/llamaomni_mos.pdf` | UTMOS vs Latency (`Figures/mos.pdf`) | **英文，需转中文** | 待检查 |
+| 　└ 子图(d) | — | `Img/llamaomni_wps.pdf` | WPS vs Latency (`Figures/wps.pdf`) | **英文，需转中文** | 待检查 |
+| `Img/figure_llamaomni_humaneval.tex` (两个minipage) | `fig:llamaomni_humaneval_helpful` / `fig:llamaomni_humaneval_natural` | 2张独立图 | LLaMA-Omni论文 Figure 5 (`Figures/figure_human_eval.tex`) | **英文，需转中文** | 待检查 |
+| 　└ 帮助性 | `fig:llamaomni_humaneval_helpful` | `Img/llamaomni_humaneval_helpful.pdf` | Helpfulness (`Figures/humaneval_helpful.pdf`) | **英文，需转中文** | 待检查 |
+| 　└ 自然性 | `fig:llamaomni_humaneval_natural` | `Img/llamaomni_humaneval_natural.pdf` | Naturalness (`Figures/humaneval_natural.pdf`) | **英文，需转中文** | 待检查 |
+
+### 英文图片翻译清单
+
+需要你手动将以下图片中的英文转为中文：
+
+1. **LLaMA_Omni.pdf**（模型架构图）：
+   - "Speech Encoder" → "语音编码器"
+   - "Speech Adaptor" → "语音适配器"
+   - "LLM" → 可保留
+   - "Speech Decoder" → "语音解码器"
+   - "Vocoder" → "声码器"
+   - "Discrete Units" → "离散单元"
+   - "Text Response" → "文本响应"
+   - "Speech Response" → "语音响应"
+   - 其他标注根据实际内容翻译
+
+2. **LLaMA_Omni_training.pdf**（两阶段训练示意图）：
+   - "Stage 1" → "第一阶段"
+   - "Stage 2" → "第二阶段"
+   - "Frozen" → "冻结"
+   - "Trainable" → "可训练"
+   - 其他标注根据实际内容翻译
+
+3. **llamaomni_score.pdf / llamaomni_asr-wer.pdf / llamaomni_mos.pdf / llamaomni_wps.pdf**（流式结果4子图）：
+   - X轴 "Latency (ms)" → "延迟（毫秒）"
+   - Y轴分别为 "ChatGPT Score" / "ASR-WER" / "UTMOS" / "WPS" → 可保留英文指标名
+   - 图例中模型名可保留英文
+
+4. **llamaomni_humaneval_helpful.pdf / llamaomni_humaneval_natural.pdf**（人工评估）：
+   - "Win" → "胜出"
+   - "Tie" → "平局"
+   - "Lose" → "败北"
+   - 模型名可保留英文
 
 ---
 
@@ -123,3 +178,4 @@
 - 2026-03-04：解码速度3图拆为独立图（不再合并为subfigure）；图尺寸2图改为正确subfigure结构（子图用caption，总图用bicaption）
 - 2026-03-05：录入第三章 ComSpeech 全部图表（5表4图）
 - 2026-03-07：图3-1/3-2替换为中期报告中文版；删除主结果表dagger脚注；图3-2宽度调为0.9
+- 2026-03-08：录入第四章 LLaMA-Omni 全部图表（4表3图组）
