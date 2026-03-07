@@ -1,22 +1,22 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{6}{figure.caption.14}%
-\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{13}{figure.caption.18}%
-\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{14}{figure.caption.19}%
-\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{14}{figure.caption.19}%
-\contentsline {figure}{\numberline {2-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{14}{figure.caption.20}%
-\contentsline {figure}{\numberline {2-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{14}{figure.caption.20}%
+\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{5}{figure.caption.14}%
+\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{12}{figure.caption.18}%
+\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{13}{figure.caption.19}%
+\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{13}{figure.caption.19}%
+\contentsline {figure}{\numberline {2-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{13}{figure.caption.20}%
+\contentsline {figure}{\numberline {2-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{13}{figure.caption.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{19}{figure.caption.22}%
-\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{21}{figure.caption.23}%
-\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{28}{figure.caption.30}%
-\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{28}{figure.caption.30}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{18}{figure.caption.22}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{20}{figure.caption.23}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{27}{figure.caption.30}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{27}{figure.caption.30}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace LLaMA-Omni模型架构\relax }}{32}{figure.caption.31}%
-\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace LLaMA-Omni的两阶段训练策略\relax }}{34}{figure.caption.32}%
-\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{38}{figure.caption.35}%
-\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{40}{figure.caption.38}%
-\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace 自然性人工评估结果\relax }}{40}{figure.caption.38}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace LLaMA-Omni模型架构\relax }}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace LLaMA-Omni的两阶段训练策略\relax }}{32}{figure.caption.32}%
+\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{37}{figure.caption.35}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{39}{figure.caption.38}%
+\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace 自然性人工评估结果\relax }}{39}{figure.caption.38}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

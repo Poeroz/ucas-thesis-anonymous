@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 00:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 01:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1909,11 +1909,11 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 1.
 ) (./Tex/Chap_DASpeech.tex [1
 
-] [2
-
 ]
 第2章
-[3] [4] [5]
+[2
+
+] [3] [4]
 Overfull \hbox (13.97916pt too wide) in paragraph at lines 63--64
 []\TU/FandolSong-Regular(0)/b/n/12.045 非 自 回 归 声 学 解 码 器 \TU/FandolSong-Regular
 (0)/m/n/12.045 声 学 解 码 器 采 用 \TU/entextsf/m/n/12.045 FastSpeech 2 \TU/FandolSon
@@ -1923,7 +1923,7 @@ g-Regular(0)/m/n/12.045 的 设 计，|  从 \TU/entextsf/m/n/12.045 DA-Transfor
 (./Img/figure_daspeech.tex
 File: Img/DASpeech.pdf Graphic file (type pdf)
 <use Img/DASpeech.pdf>
-) [6] [7] [8] [9] (./Tables/daspeech_results.tex
+) [5] [6] [7] [8] (./Tables/daspeech_results.tex
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 7.00075pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
@@ -1933,12 +1933,12 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
 
-[10]) [11] (./Tables/daspeech_multilingual.tex)
+[9]) [10] (./Tables/daspeech_multilingual.tex)
 (./Tables/daspeech_path_ablation.tex) (./Img/figure_daspeech_decoding.tex
 File: Img/decode_time.pdf Graphic file (type pdf)
 <use Img/decode_time.pdf>
 
-[12])
+[11])
 File: Img/tradeoff.pdf Graphic file (type pdf)
 <use Img/tradeoff.pdf>
 
@@ -1953,20 +1953,20 @@ Underfull \hbox (badness 2503) in paragraph at lines 231--231
 []\TU/entextrm/b/n/10.53937 Figure 2-4 |Speedup ratio with different
  []
 
-[13]
+[12]
 File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2t.pdf>
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
- (./Tables/daspeech_speaker.tex) [14]) (./Tex/Chap_ComSpeech.tex [15]
-[16]
+ (./Tables/daspeech_speaker.tex) [13]) (./Tex/Chap_ComSpeech.tex [14]
+[15]
 第3章
-[17
+[16
 
 ] (./Img/figure_comspeech.tex
 File: Img/ComSpeech.pdf Graphic file (type pdf)
 <use Img/ComSpeech.pdf>
-) [18] [19]
+) [17] [18]
 Overfull \hbox (7.59578pt too wide) in paragraph at lines 66--68
 \TU/FandolSong-Regular(0)/m/n/12.045 编 码 器 进 行 后 续 的 语 音 合 成。|  在 推 理 阶 段，|  使 
 用 \TU/entextsf/m/n/12.045 Argmax \TU/FandolSong-Regular(0)/m/n/12.045 解 码 $[][]
@@ -1976,8 +1976,8 @@ Overfull \hbox (7.59578pt too wide) in paragraph at lines 66--68
 (./Img/figure_comspeech_training.tex
 File: Img/ComSpeech_training.pdf Graphic file (type pdf)
 <use Img/ComSpeech_training.pdf>
-) [20] [21] [22]
-(./Tables/comspeech_results.tex) [23] (./Tables/comspeech_gap.tex) [24]
+) [19] [20] [21]
+(./Tables/comspeech_results.tex) [22] (./Tables/comspeech_gap.tex) [23]
 (./Tables/comspeech_blaser.tex)
 Overfull \hbox (7.40758pt too wide) in paragraph at lines 192--193
 \TU/FandolSong-Regular(0)/m/n/12.045 升 \TU/entextsf/m/n/12.045 0.54 \TU/FandolS
@@ -1986,13 +1986,13 @@ lar(0)/m/n/12.045 。|  相 比 级 联 系 统 在 各 模 块 之 间 传 递 
 n/12.045 ComSpeech-
  []
 
-[25] (./Tables/comspeech_objectives.tex) (./Tables/comspeech_pretrain.tex)
-[26] (./Tables/comspeech_adaptor.tex)
+[24] (./Tables/comspeech_objectives.tex) (./Tables/comspeech_pretrain.tex)
+[25] (./Tables/comspeech_adaptor.tex)
 File: Img/comspeech_tts_data_size.pdf Graphic file (type pdf)
 <use Img/comspeech_tts_data_size.pdf>
 File: Img/comspeech_s2tt_data_size.pdf Graphic file (type pdf)
 <use Img/comspeech_s2tt_data_size.pdf>
- [27]) (./Tex/Chap_LLaMA_Omni.tex
+ [26]) (./Tex/Chap_LLaMA_Omni.tex
 Overfull \hbox (5.55264pt too wide) in paragraph at lines 259--1
 \TU/entextsf/m/n/12.045 DASpeech\TU/FandolSong-Regular(0)/m/n/12.045 。|  此 外，| 
 \TU/entextsf/m/n/12.045 ComSpeech \TU/FandolSong-Regular(0)/m/n/12.045 和 \TU/en
@@ -2001,24 +2001,24 @@ entextsf/m/n/12.045 -\TU/FandolSong-Regular(0)/m/n/12.045 解 码 器  |（\TU/e
 /m/n/12.045 Encoder-Decoder\TU/FandolSong-Regular(0)/m/n/12.045 ）|
  []
 
-[28] [29] [30
-
-]
+[27] [28]
 第4章
-[31] (./Img/figure_llamaomni.tex
+[29
+
+] (./Img/figure_llamaomni.tex
 File: Img/LLaMA_Omni.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni.pdf>
-) [32]
+) [30]
 Overfull \hbox (36.33556pt too wide) in paragraph at lines 50--52
 \TU/FandolSong-Regular(0)/m/n/12.045 函 数 先 合 并 $[]$ 中 所 有 连 续 重 复 的 词 元，|  再 消 
 除 所 有 空 白 符 号 $[]$，|  例 如 $[][][][][] [][] [][] [][] [][] [][] [][][] []
  []
 
-[33] (./Img/figure_llamaomni_training.tex
+[31] (./Img/figure_llamaomni_training.tex
 File: Img/LLaMA_Omni_training.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni_training.pdf>
-) [34] (./Tables/llamaomni_data.tex)
-[35] [36] (./Tables/llamaomni_offline.tex)
+) [32] (./Tables/llamaomni_data.tex)
+[33] [34] (./Tables/llamaomni_offline.tex) [35]
 (./Img/figure_llamaomni_streaming.tex
 File: Img/llamaomni_score.pdf Graphic file (type pdf)
 <use Img/llamaomni_score.pdf>
@@ -2029,7 +2029,7 @@ File: Img/llamaomni_mos.pdf Graphic file (type pdf)
 File: Img/llamaomni_wps.pdf Graphic file (type pdf)
 <use Img/llamaomni_wps.pdf>
 ) (./Tables/llamaomni_streaming.tex)
-[37] [38] (./Tables/llamaomni_decode_time.tex)
+[36] [37] (./Tables/llamaomni_decode_time.tex)
 (./Img/figure_llamaomni_humaneval.tex
 File: Img/llamaomni_humaneval_helpful.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_helpful.pdf>
@@ -2040,17 +2040,16 @@ Underfull \hbox (badness 1609) in paragraph at lines 6--6
 
 File: Img/llamaomni_humaneval_natural.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_natural.pdf>
-) [39]) (./Tex/Chap_LLaMA_Omni2.tex [40]
+) [38]) (./Tex/Chap_LLaMA_Omni2.tex [39] [40]
 第5章
 ) (./Tex/Chap_Conclusion.tex [41
 
-] [42
-
 ]
 第6章
-)) [43] [44
+)) [42
 
-] (Tmp/Thesis.bbl [45
+] (Tmp/Thesis.bbl [43
+
 
 ]
 Underfull \hbox (badness 1635) in paragraph at lines 176--184
@@ -2070,19 +2069,19 @@ Underfull \hbox (badness 4132) in paragraph at lines 176--184
 lume 33.  Curran Asso-
  []
 
-[46] [47]
+[44] [45]
 Underfull \hbox (badness 2521) in paragraph at lines 411--415
 []\TU/entextrm/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-) [48] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [49
+) [46] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [47
 
 
 
-] [50
+] [48
 
-] [51] [52
+] [49] [50
 
 ])
 (Tmp/Thesis.aux)
@@ -2090,12 +2089,12 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: EDF60DD724A1DEE079A2CF0107835E51;5868.
  ) 
 Here is how much of TeX's memory you used:
- 40655 strings out of 478671
- 843901 string characters out of 5848460
+ 40656 strings out of 478671
+ 843920 string characters out of 5848460
  1883018 words of memory out of 6000000
- 59925 multiletter control sequences out of 15000+600000
+ 59926 multiletter control sequences out of 15000+600000
  523657 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (68 pages).
+Output written on Tmp/Thesis.pdf (66 pages).
