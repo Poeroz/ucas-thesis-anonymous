@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 01:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 01:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2009,17 +2009,36 @@ entextsf/m/n/12.045 -\TU/FandolSong-Regular(0)/m/n/12.045 解 码 器  |（\TU/e
 File: Img/LLaMA_Omni.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni.pdf>
 ) [30]
-Overfull \hbox (36.33556pt too wide) in paragraph at lines 50--52
-\TU/FandolSong-Regular(0)/m/n/12.045 函 数 先 合 并 $[]$ 中 所 有 连 续 重 复 的 词 元，|  再 消 
-除 所 有 空 白 符 号 $[]$，|  例 如 $[][][][][] [][] [][] [][] [][] [][] [][][] []
- []
+
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+
+LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
+45.
 
 [31] (./Img/figure_llamaomni_training.tex
 File: Img/LLaMA_Omni_training.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni_training.pdf>
-) [32] (./Tables/llamaomni_data.tex)
-[33] [34] (./Tables/llamaomni_offline.tex) [35]
-(./Img/figure_llamaomni_streaming.tex
+) [32]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 88.
+ [33] [34]
+(./Tables/llamaomni_data.tex) [35] [36] (./Tables/llamaomni_offline.tex)
+[37] (./Img/figure_llamaomni_streaming.tex
 File: Img/llamaomni_score.pdf Graphic file (type pdf)
 <use Img/llamaomni_score.pdf>
 File: Img/llamaomni_asr-wer.pdf Graphic file (type pdf)
@@ -2029,72 +2048,75 @@ File: Img/llamaomni_mos.pdf Graphic file (type pdf)
 File: Img/llamaomni_wps.pdf Graphic file (type pdf)
 <use Img/llamaomni_wps.pdf>
 ) (./Tables/llamaomni_streaming.tex)
-[36] [37] (./Tables/llamaomni_decode_time.tex)
+[38] [39] (./Tables/llamaomni_decode_time.tex)
 (./Img/figure_llamaomni_humaneval.tex
 File: Img/llamaomni_humaneval_helpful.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_helpful.pdf>
 
 Underfull \hbox (badness 1609) in paragraph at lines 6--6
-[]\TU/entextrm/b/n/10.53937 Figure 4-4 |Human evaluation results on
+[]\TU/entexttt/b/n/10.53937 Figure 4-4 |Human evaluation results on
  []
 
 File: Img/llamaomni_humaneval_natural.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_natural.pdf>
-) [38]) (./Tex/Chap_LLaMA_Omni2.tex [39] [40]
+) [40]) (./Tex/Chap_LLaMA_Omni2.tex [41] [42]
 第5章
-) (./Tex/Chap_Conclusion.tex [41
+) (./Tex/Chap_Conclusion.tex [43
 
 ]
 第6章
-)) [42
+)) [44
 
-] (Tmp/Thesis.bbl [43
+] (Tmp/Thesis.bbl [45
 
 
 ]
 Underfull \hbox (badness 1635) in paragraph at lines 176--184
-[]\TU/entextrm/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
+[]\TU/entexttt/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
 rial networks for efficient and
  []
 
 
 Underfull \hbox (badness 4254) in paragraph at lines 176--184
-\TU/entextrm/m/n/10.53937 high fidelity speech synthesis [C/OL]//Larochelle H, 
+\TU/entexttt/m/n/10.53937 high fidelity speech synthesis [C/OL]//Larochelle H, 
 Ranzato M, Hadsell R, et al.
  []
 
 
 Underfull \hbox (badness 4132) in paragraph at lines 176--184
-\TU/entextrm/m/n/10.53937 Advances in Neural Information Processing Systems: vo
+\TU/entexttt/m/n/10.53937 Advances in Neural Information Processing Systems: vo
 lume 33.  Curran Asso-
  []
 
-[44] [45]
+[46] [47]
 Underfull \hbox (badness 2521) in paragraph at lines 411--415
-[]\TU/entextrm/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
+[]\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-) [46] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [47
+) [48] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [49
 
 
 
-] [48
+] [50
 
-] [49] [50
+] [51] [52
 
 ])
 (Tmp/Thesis.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: EDF60DD724A1DEE079A2CF0107835E51;5868.
  ) 
 Here is how much of TeX's memory you used:
- 40656 strings out of 478671
- 843920 string characters out of 5848460
+ 40718 strings out of 478671
+ 846186 string characters out of 5848460
  1883018 words of memory out of 6000000
- 59926 multiletter control sequences out of 15000+600000
- 523657 words of font info for 163 fonts, out of 8000000 for 9000
+ 59983 multiletter control sequences out of 15000+600000
+ 523689 words of font info for 167 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (66 pages).
+Output written on Tmp/Thesis.pdf (68 pages).

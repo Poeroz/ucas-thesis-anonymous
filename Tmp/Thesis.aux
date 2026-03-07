@@ -229,59 +229,66 @@
 \citation{hifigan}
 \citation{polyak21_interspeech}
 \citation{transformer}
-\citation{ctc}
 \newlabel{eq:llm_loss}{{4-3}{31}{模型架构}{equation.4.2.3}{}}
+\citation{ctc}
 \newlabel{eq:ctc_loss}{{4-5}{32}{模型架构}{equation.4.2.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}训练策略}{32}{subsection.4.2.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace  LLaMA-Omni的两阶段训练策略\relax }}{32}{figure.caption.32}\protected@file@percent }
 \newlabel{fig:llamaomni_training}{{4-2}{32}{\enspace LLaMA-Omni的两阶段训练策略\relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}流式推理}{32}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}流式推理}{33}{subsection.4.2.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces LLaMA-Omni流式推理过程\relax }}{34}{algorithm.1}\protected@file@percent }
+\newlabel{algo:llamaomni_infer}{{1}{34}{LLaMA-Omni流式推理过程\relax }{algorithm.1}{}}
 \citation{cho-etal-2024-speechworthy}
 \citation{du2024cosyvoice}
 \citation{ljspeech17}
 \citation{kim2021conditional}
 \citation{alpaca}
 \citation{ultrachat}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}语音指令数据集构建}{33}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}语音指令数据集构建}{35}{section.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{35}{table.caption.33}\protected@file@percent }
+\newlabel{tab:llamaomni_data}{{4-1}{35}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.33}{}}
 \citation{hifigan,polyak21_interspeech}
 \citation{alpacaeval}
-\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{34}{table.caption.33}\protected@file@percent }
-\newlabel{tab:llamaomni_data}{{4-1}{34}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.33}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}实验结果与分析}{34}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}实验设置}{34}{subsection.4.4.1}\protected@file@percent }
 \citation{gpt4o}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}实验结果与分析}{36}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}实验设置}{36}{subsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.1}数据集}{36}{subsubsection.4.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.2}模型配置}{36}{subsubsection.4.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.3}训练细节}{36}{subsubsection.4.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.4}评价指标}{36}{subsubsection.4.4.1.4}\protected@file@percent }
 \citation{saeki22c_interspeech}
 \citation{zhang-etal-2023-speechgpt}
 \citation{tang2024salmonn}
 \citation{Qwen2-Audio}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}离线场景结果}{35}{subsection.4.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{35}{table.caption.34}\protected@file@percent }
-\newlabel{tab:llamaomni_offline}{{4-2}{35}{\enspace 离线场景下的实验结果\relax }{table.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}流式场景结果}{36}{subsection.4.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{36}{table.caption.36}\protected@file@percent }
-\newlabel{tab:llamaomni_streaming}{{4-3}{36}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{37}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:llamaomni_streaming}{{4-3}{37}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{38}{table.caption.37}\protected@file@percent }
-\newlabel{tab:llamaomni_decode_time}{{4-4}{38}{\enspace 平均解码时间对比\relax }{table.caption.37}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}人工评估}{38}{subsection.4.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{39}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_helpful}{{4-4}{39}{\enspace 帮助性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{39}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_natural}{{4-5}{39}{\enspace 自然性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}本章小结}{39}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}LLaMA-Omni 2}{41}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.5}基线系统}{37}{subsubsection.4.4.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}离线场景结果}{37}{subsection.4.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{37}{table.caption.34}\protected@file@percent }
+\newlabel{tab:llamaomni_offline}{{4-2}{37}{\enspace 离线场景下的实验结果\relax }{table.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}流式场景结果}{38}{subsection.4.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{38}{table.caption.36}\protected@file@percent }
+\newlabel{tab:llamaomni_streaming}{{4-3}{38}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{39}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:llamaomni_streaming}{{4-3}{39}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{40}{table.caption.37}\protected@file@percent }
+\newlabel{tab:llamaomni_decode_time}{{4-4}{40}{\enspace 平均解码时间对比\relax }{table.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{41}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_helpful}{{4-4}{41}{\enspace 帮助性人工评估结果\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{41}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_natural}{{4-5}{41}{\enspace 自然性人工评估结果\relax }{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}人工评估}{41}{subsection.4.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}本章小结}{41}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}LLaMA-Omni 2}{43}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni2}{{5}{41}{LLaMA-Omni 2}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}总结与展望}{42}{chapter.6}\protected@file@percent }
+\newlabel{chap:llama-omni2}{{5}{43}{LLaMA-Omni 2}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}总结与展望}{44}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{6}{42}{总结与展望}{chapter.6}{}}
+\newlabel{chap:conclusion}{{6}{44}{总结与展望}{chapter.6}{}}
 \bibdata{Biblio/ref}
 \bibcite{s2ut}{{1}{2022}{{Lee {等}}}{{Lee, Chen, Wang, Gu, Popuri, Ma, Polyak, Adi, He, Tang, Pino, and Hsu}}}
 \bibcite{translatotron}{{2}{2019}{{Jia {等}}}{{Jia, Weiss, Biadsy, Macherey, Johnson, Chen, and Wu}}}
@@ -294,7 +301,7 @@
 \bibcite{ren2021fastspeech2}{{9}{2021}{{Ren {等}}}{{Ren, Hu, Tan, Qin, Zhao, Zhao, and Liu}}}
 \bibcite{huang2022PDAT}{{10}{2023{}}{{Huang {等}}}{{Huang, Ke, and Huang}}}
 \bibcite{transformer}{{11}{2017}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{43}{section*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{参考文献}{45}{section*.39}\protected@file@percent }
 \bibcite{conformer}{{12}{2020}{{Gulati {等}}}{{Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han, Wang, Zhang, Wu, and Pang}}}
 \bibcite{dai-etal-2019-transformer}{{13}{2019}{{Dai {等}}}{{Dai, Yang, Yang, Carbonell, Le, and Salakhutdinov}}}
 \bibcite{hiddenmarkovmodel}{{14}{1989}{{Rabiner}}{{}}}
@@ -333,14 +340,14 @@
 \bibcite{ultrachat}{{47}{2023}{{Ding {等}}}{{Ding, Chen, Xu, Qin, Zheng, Hu, Liu, Sun, and Zhou}}}
 \bibcite{alpacaeval}{{48}{2023}{{Li {等}}}{{Li, Zhang, Dubois, Taori, Gulrajani, Guestrin, Liang, and Hashimoto}}}
 \bibcite{saeki22c_interspeech}{{49}{2022}{{Saeki {等}}}{{Saeki, Xin, Nakata, Koriyama, Takamichi, and Saruwatari}}}
-\@writefile{toc}{\contentsline {chapter}{致谢}{47}{appendix*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{致谢}{49}{appendix*.41}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{49}{appendix*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{51}{appendix*.42}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\gdef \@abspage@last{66}
+\gdef \@abspage@last{68}

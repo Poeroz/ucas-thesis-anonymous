@@ -34,7 +34,18 @@
     \mathbf{S} = \mathcal{A}(\mathbf{H}) = \text{Linear}(\text{ReLU}(\text{Linear}(\text{DownSample}(\mathbf{H}))))
 \end{equation}
 
-\textbf{大语言模型}\quad 本章采用Llama-3.1-8B-Instruct\citep{dubey2024llama3}作为大语言模型$\mathcal{M}$。语音表示序列$\mathbf{S}$被填入提示模板$\mathcal{P}(\cdot)$中对应语音的位置，完整的输入序列$\mathcal{P}(\mathbf{S})$被送入大语言模型。大语言模型基于语音指令自回归地生成文本响应$Y^T = [y^T_1, \ldots, y^T_M]$，训练时采用交叉熵损失：
+\textbf{大语言模型}\quad 本章采用Llama-3.1-8B-Instruct\citep{dubey2024llama3}作为大语言模型$\mathcal{M}$。语音表示序列$\mathbf{S}$被填入提示模板$\mathcal{P}(\cdot)$中\texttt{<speech>}标记对应的位置，完整的输入序列$\mathcal{P}(\mathbf{S})$被送入大语言模型。提示模板的具体格式如下：
+
+\begin{quote}
+\small\ttfamily
+\textbf{[System]} You are a helpful language and speech assistant. You are able to understand the speech content that the user provides, and assist the user with a variety of tasks using natural language.
+
+\textbf{[User]} <speech> Please answer the questions in the user's input speech.
+
+\textbf{[Assistant]} \textit{（模型自回归生成）}
+\end{quote}
+
+\noindent 大语言模型基于语音指令自回归地生成文本响应$Y^T = [y^T_1, \ldots, y^T_M]$，训练时采用交叉熵损失：
 \begin{equation}
     \mathcal{L}_{\text{LLM}} = -\sum_{i=1}^{M} \log P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i})
     \label{eq:llm_loss}
@@ -44,16 +55,16 @@
 
 为了在生成文本响应的同时生成语音响应，本章在大语言模型之后添加了一个流式语音解码器$\mathcal{D}$。该解码器由若干标准Transformer\citep{transformer}层组成，每层包含因果自注意力模块和前馈网络，与LLaMA的架构相同。语音解码器以非自回归方式运行，将大语言模型的输出隐状态作为输入，生成与语音响应对应的离散单元序列。具体地，大语言模型在生成文本响应时的输出隐状态记为$\mathbf{C} = [\mathbf{c}_1, \ldots, \mathbf{c}_M]$，其中$\mathbf{c}_i = \mathcal{M}(\mathcal{P}(\mathbf{S}), Y^T_{<i})$。本章首先将每个隐状态上采样$\lambda$倍，得到上采样后的隐状态序列$\widehat{\mathbf{C}} = [\widehat{\mathbf{c}}_1, \ldots, \widehat{\mathbf{c}}_{\lambda \cdot M}]$，其中$\widehat{\mathbf{c}}_i = \mathbf{c}_{\lfloor i/\lambda \rfloor}$。上采样后的序列$\widehat{\mathbf{C}}$输入语音解码器$\mathcal{D}$，输出隐状态序列记为$\mathbf{O} = [\mathbf{o}_1, \ldots, \mathbf{o}_{\lambda \cdot M}]$。
 
-本章使用连接时序分类（CTC）\citep{ctc}将$\mathbf{O}$与离散单元序列$Y^U$进行对齐。CTC在输出空间中引入一个特殊的空白符号$\epsilon$：
+本章使用连接时序分类（CTC）\citep{ctc}将$\mathbf{O}$与离散单元序列$Y^U$进行对齐。在扩展词表$\{0, 1, \ldots, K-1\} \cup \{\epsilon\}$（$\epsilon$为空白标记）上建模对齐概率。对于序列$\mathbf{O}$中的每个元素，计算其在扩展词表上的概率分布：
 \begin{equation}
     P(a_i \mid \mathbf{O}) = \text{softmax}(\mathbf{W}\mathbf{o}_i + \mathbf{b})[a_i], \quad \forall a_i \in \{0, 1, \ldots, K-1, \epsilon\}
 \end{equation}
-其中$\mathbf{W} \in \mathbb{R}^{(K+1) \times d}$和$\mathbf{b} \in \mathbb{R}^{K+1}$为线性层的权重和偏置，序列$A = [a_1, \ldots, a_{\lambda \cdot M}]$称为对齐。为了建模输入与输出之间的变长映射，CTC引入了折叠函数$\beta(A)$，该函数先合并$A$中所有连续重复的词元，再消除所有空白符号$\epsilon$，例如$\beta([1,1,2,\epsilon,\epsilon,2,3]) = [1,2,2,3]$。训练时，CTC对所有可能的对齐进行边际化：
+其中$\mathbf{W} \in \mathbb{R}^{(K+1) \times d}$和$\mathbf{b} \in \mathbb{R}^{K+1}$分别为线性层的权重和偏置，$A = [a_1, \ldots, a_{\lambda \cdot M}]$表示一条对齐路径。CTC引入折叠函数$\beta(A)$，依次合并对齐中的连续重复标记并移除空白标记。CTC的训练目标为边际化所有可能的对齐路径：
 \begin{equation}
     \mathcal{L}_{\text{CTC}} = -\log P(Y^U \mid \mathbf{O}) = -\log \sum_{A \in \beta^{-1}(Y^U)} \prod_{i=1}^{\lambda \cdot M} P(a_i \mid \mathbf{O})
     \label{eq:ctc_loss}
 \end{equation}
-其中$\beta^{-1}(Y^U)$表示所有长度为$\lambda \cdot M$且折叠后等于$Y^U$的对齐。由于对齐以非自回归方式建模，推理时选择最优对齐$A^* = \arg\max_A P(A \mid \mathbf{O})$，并应用折叠函数得到离散单元序列$\beta(A^*)$，再送入声码器合成语音波形。
+其中$\beta^{-1}(Y^U)$表示所有长度为$\lambda \cdot M$且经折叠后等于$Y^U$的对齐路径集合。由于对齐以非自回归方式建模，推理时选择最优对齐$A^* = \arg\max_A P(A \mid \mathbf{O})$，并应用折叠函数得到离散单元序列$\beta(A^*)$，再送入声码器合成语音波形。
 
 \subsection{训练策略}
 
@@ -71,14 +82,56 @@ $\Omega$的取值直接影响系统的延迟与语音质量之间的平衡。较
 
 此外，由于语音解码器采用非自回归建模，每个文本词元$y^T_i$对应的对齐$A_{\lambda \cdot (i-1)+1 : \lambda \cdot i}$在块内是并行生成的，因此同时生成文本和语音响应的解码速度与仅生成文本响应的速度差异不大。
 
+LLaMA-Omni的完整推理流程如算法\ref{algo:llamaomni_infer}所示。模型首先通过语音编码器和语音适配器将语音指令编码为语音表示$\mathbf{S}$，随后进入自回归解码循环：每生成一个文本词元，大语言模型同时输出对应的隐状态，该隐状态经上采样后送入语音解码器，通过贪心解码获取最优对齐路径并折叠为离散单元序列。当新增的离散单元数量达到块大小$\Omega$时，立即将该片段送入声码器合成语音波形。解码循环结束后，剩余的离散单元同样被送入声码器完成最后一段语音的合成。
+
+\begin{algorithm}[!htbp]
+\caption{LLaMA-Omni流式推理过程}
+\label{algo:llamaomni_infer}
+\begin{algorithmic}[1]
+\Require 语音指令$X^S$，最小单元块大小$\Omega$
+\Ensure 文本响应$Y^T$，离散单元序列$Y^U$，语音波形$Y^S$
+\State 初始化 $i=1$，$j=0$，$Y^T=[]$，$Y^U=[]$，$Y^S=[]$，$\widehat{\mathbf{C}} = []$
+\State $\mathbf{S} \leftarrow \mathcal{A}(\mathcal{E}(X^S))$ \Comment{语音编码与适配}
+\While{$y^T_{i-1}\neq\left\langle\mathrm{EOS}\right\rangle$}
+    \State $\mathbf{c}_i \leftarrow \mathcal{M}(\mathcal{P}(\mathbf{S}), Y^T_{<i})$ \Comment{大语言模型生成隐状态}
+    \State $y^T_i \leftarrow \arg\max_{y^T_i} P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i})$ \Comment{贪心解码文本词元}
+    \State $Y^T \leftarrow Y^T + y^T_i$
+    \State $\widehat{\mathbf{C}} \leftarrow \widehat{\mathbf{C}} + \text{UpSample}(\mathbf{c}_i)$ \Comment{上采样隐状态}
+    \State $\mathbf{O} \leftarrow \mathcal{D}(\widehat{\mathbf{C}})$ \Comment{语音解码器前向传播}
+    \State $A^* \leftarrow \arg\max_A P(A \mid \mathbf{O})$ \Comment{CTC贪心解码}
+    \State $Y^U \leftarrow \beta(A^*)$ \Comment{折叠得到离散单元}
+    \If{$|Y^U| - j \geq \Omega$} \Comment{新增单元数达到块大小}
+        \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$ \Comment{声码器合成语音片段}
+        \State $Y^S \leftarrow Y^S + y^S$
+        \State $j \leftarrow |Y^U|$
+    \EndIf
+    \State $i \leftarrow i + 1$
+\EndWhile
+\If{$j<|Y^U|$} \Comment{合成剩余语音}
+    \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$
+    \State $Y^S \leftarrow Y^S + y^S$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
 
 \section{语音指令数据集构建}
 
 训练LLaMA-Omni需要由语音指令、文本响应和语音响应组成的三元组数据。然而，现有公开的指令数据大多为文本形式，直接将其转换为语音并不可行，原因有二：一方面，文本形式的指令中可能包含数学符号、特殊字符等语音合成模型无法正确处理的内容；另一方面，文本交互场景中的响应风格往往不适合语音交互，文本响应通常较为冗长，包含有序列表、括号、格式化内容等难以通过语音自然表达的元素。为此，本章基于现有的文本指令数据，通过以下三个步骤进行改写和合成，构建适用于语音交互的指令数据。
 
-\textbf{指令改写}\quad 由于语音输入与文本输入具有不同的特点，本章首先对文本指令进行改写：（1）在指令中添加适当的填充词以模拟自然的语音模式；（2）将指令中的非文本符号转换为对应的口语形式，以确保语音合成模型能够正确合成；（3）将指令修改为相对简短的形式，避免冗长的表述。本章使用Llama-3-70B-Instruct模型按照上述规则对指令进行改写。
+\textbf{指令改写}\quad 由于语音输入与文本输入具有不同的特点，本章首先使用Llama-3-70B-Instruct模型对文本指令进行改写，改写规则如下：
 
-\textbf{响应生成}\quad 在语音交互中，文本指令的已有响应通常不适合直接用作语音指令的响应。这是因为在文本交互中，模型倾向于生成冗长的响应，使用复杂句式，甚至包含有序列表、括号等非语音元素。而在语音交互场景中，简洁而有信息量的响应更为合适\citep{cho-etal-2024-speechworthy}。因此，本章使用Llama-3-70B-Instruct模型按照以下规则生成响应：（1）响应中不包含语音合成模型无法合成的内容；（2）响应应简洁扼要，避免冗长的解释。
+（1）在指令中添加适当的填充词（如"hey"、"so"、"uh"等）以模拟自然的语音模式；
+
+（2）将指令中的非文本符号（如数字）转换为对应的口语形式，以确保语音合成模型能够正确合成；
+
+（3）将指令修改为相对简短的形式，避免冗长的表述。
+
+\textbf{响应生成}\quad 在语音交互中，文本指令的已有响应通常不适合直接用作语音指令的响应。这是因为在文本交互中，模型倾向于生成冗长的响应，使用复杂句式，甚至包含有序列表、括号等非语音元素。而在语音交互场景中，简洁而有信息量的响应更为合适\citep{cho-etal-2024-speechworthy}。因此，本章使用Llama-3-70B-Instruct模型按照以下规则重新生成响应：
+
+（1）响应中不包含语音合成模型无法合成的内容，如括号、有序列表等；
+
+（2）响应应简洁扼要，避免冗长的解释。
 
 \textbf{语音合成}\quad 获得适合语音交互的指令和响应后，本章使用TTS模型将其转换为语音。对于指令，为使合成语音更加自然，采用CosyVoice-300M-SFT\citep{du2024cosyvoice}模型，每条指令随机选择男声或女声进行合成。对于响应，使用在LJSpeech\citep{ljspeech17}数据集上训练的VITS\citep{kim2021conditional}模型合成为标准女声。
 
@@ -91,21 +144,42 @@ $\Omega$的取值直接影响系统的延迟与语音质量之间的平衡。较
 
 \subsection{实验设置}
 
-\textbf{数据集}\quad 训练数据使用上节介绍的InstructS2S-200K数据集。离散单元的提取使用预训练的K-means量化器，该量化器在HuBERT特征上学习了1000个聚类中心。语音波形的合成使用预训练的HiFi-GAN\citep{hifigan, polyak21_interspeech}声码器。评测数据方面，本章从Alpaca-Eval\citep{alpacaeval}中选取helpful\_base和vicuna两个子集，去除数学和代码相关的问题，共得到199条指令。使用CosyVoice-300M-SFT模型将这些指令合成为语音，构成测试集InstructS2S-Eval。
+\subsubsection{数据集}
 
-\textbf{模型配置}\quad 语音编码器采用Whisper-large-v3，大语言模型采用Llama-3.1-8B-Instruct。语音适配器对语音表示进行5倍下采样。语音解码器由2层Transformer组成，与LLaMA架构相同，隐层维度为4096，注意力头数为32，前馈网络维度为11008，共包含425M参数。上采样因子$\lambda$设为25。对于声码器输入的最小单元块大小$\Omega$，离线场景下设为$+\infty$，即等待完整单元序列生成后再送入声码器合成语音；流式场景下在$[10, 20, 40, 60, 80, 100]$范围内调节$\Omega$的值以控制响应延迟。
+训练数据使用上节介绍的InstructS2S-200K数据集。离散单元的提取使用预训练的K-means量化器，该量化器在HuBERT特征上学习了1000个聚类中心。语音波形的合成使用预训练的HiFi-GAN\citep{hifigan, polyak21_interspeech}声码器。评测数据方面，本章从Alpaca-Eval\citep{alpacaeval}中选取helpful\_base和vicuna两个子集，去除数学和代码相关的问题，共得到199条指令。使用CosyVoice-300M-SFT模型将这些指令合成为语音，构成测试集InstructS2S-Eval。
 
-\textbf{训练细节}\quad LLaMA-Omni采用两阶段训练。第一阶段训练语音适配器和大语言模型，批次大小为32，训练3个轮次，使用余弦学习率调度器，前3\%的步数用于预热，峰值学习率为$2 \times 10^{-5}$。第二阶段训练语音解码器，批次大小、轮次数和学习率调度器与第一阶段相同，峰值学习率为$2 \times 10^{-4}$。整个训练过程在4块NVIDIA L40 GPU上耗时约65小时。
+\subsubsection{模型配置}
 
-\textbf{评价指标}\quad 由于LLaMA-Omni能够同时生成文本和语音响应，本章在两个任务上进行评测：语音到文本指令遵循（S2TIF）和语音到语音指令遵循（S2SIF）。S2SIF任务在离线和流式两个场景下分别评测。本章采用以下评价指标：（1）ChatGPT分数：使用GPT-4o\citep{gpt4o}对模型响应进行1到5分的评分，评估指令遵循能力。S2SIF任务中，先使用Whisper-large-v3将语音响应转录为文本再进行评分。（2）ASR-WER：使用Whisper-large-v3将语音响应转录为文本，计算其与文本响应之间的词错误率，衡量文本与语音响应的一致性。（3）UTMOS\citep{saeki22c_interspeech}：使用MOS预测模型评估生成语音的自然度。（4）延迟：从语音指令输入到语音响应开始播放的时间间隔，在1块NVIDIA L40 GPU上测量。（5）语速：使用每秒词数（Words Per Second, WPS）衡量生成语音的语速。
+语音编码器采用Whisper-large-v3，大语言模型采用Llama-3.1-8B-Instruct。语音适配器对语音表示进行5倍下采样。语音解码器由2层Transformer组成，与LLaMA架构相同，隐层维度为4096，注意力头数为32，前馈网络维度为11008，共包含425M参数。上采样因子$\lambda$设为25。对于声码器输入的最小单元块大小$\Omega$，离线场景下设为$+\infty$，即等待完整单元序列生成后再送入声码器合成语音；流式场景下在$[10, 20, 40, 60, 80, 100]$范围内调节$\Omega$的值以控制响应延迟。
 
-\textbf{基线系统}\quad 本章选取以下语音-语言模型作为基线系统：
+\subsubsection{训练细节}
+
+LLaMA-Omni采用两阶段训练。第一阶段训练语音适配器和大语言模型，批次大小为32，训练3个轮次，使用余弦学习率调度器，前3\%的步数用于预热，峰值学习率为$2 \times 10^{-5}$。第二阶段训练语音解码器，批次大小、轮次数和学习率调度器与第一阶段相同，峰值学习率为$2 \times 10^{-4}$。整个训练过程在4块NVIDIA L40 GPU上耗时约65小时。
+
+\subsubsection{评价指标}
+
+由于LLaMA-Omni能够同时生成文本和语音响应，本章在两个任务上进行评测：语音到文本指令遵循（S2TIF）和语音到语音指令遵循（S2SIF）。S2SIF任务在离线和流式两个场景下分别评测。本章采用以下评价指标：
+
+\textbf{ChatGPT分数}\quad 使用GPT-4o\citep{gpt4o}对模型响应进行1到5分的评分，综合考虑帮助性、相关性、流畅性和语音交互适用性等因素，评估模型的指令遵循能力。对于S2SIF任务，先使用Whisper-large-v3将语音响应转录为文本，再进行评分。
+
+\textbf{ASR-WER}\quad 使用Whisper-large-v3将语音响应转录为文本，计算转录文本与模型生成的文本响应之间的词错误率（Word Error Rate），衡量文本响应与语音响应之间的一致性。
+
+\textbf{UTMOS}\quad 使用MOS预测模型UTMOS\citep{saeki22c_interspeech}评估生成语音的自然度，该模型能够预测语音的主观听感质量分数。
+
+\textbf{延迟}\quad 响应延迟指从语音指令输入完毕到语音响应开始播放的时间间隔，是语音交互模型的关键指标，直接影响用户体验。本章在1块NVIDIA L40 GPU上测量延迟。
+
+\textbf{语速}\quad 使用每秒词数（Words Per Second, WPS）衡量生成语音的语速，反映语音的流畅程度和自然性。
+
+\subsubsection{基线系统}
+
+本章选取以下语音-语言模型作为基线系统：
 \begin{itemize}
-    \item SpeechGPT\citep{zhang-etal-2023-speechgpt}：一个支持语音输入和输出的语音-语言模型，采用模态链提示（Chain-of-Modality Prompting）进行解码，依次输出文本指令、文本响应和语音响应。
-    \item SALMONN + Orca\citep{tang2024salmonn}：SALMONN是一个能够接受语音和音频输入并以文本响应的大语言模型。为完成S2SIF任务，在SALMONN之后添加工业级TTS模型Orca，实现语音合成与文本生成的并行。
-    \item Qwen2-Audio + Orca\citep{Qwen2-Audio}：Qwen2-Audio是一个通用的音频理解模型，同样通过级联Orca TTS模型完成S2SIF任务。
+    \item \textbf{SpeechGPT}\citep{zhang-etal-2023-speechgpt}：一个支持语音输入和输出的语音-语言模型，采用模态链提示（Chain-of-Modality Prompting）进行解码，依次输出文本指令、文本响应和语音响应。
+    \item \textbf{SALMONN + Orca}\citep{tang2024salmonn}：SALMONN是一个能够接受语音和音频输入并以文本响应的大语言模型。为完成S2SIF任务，在SALMONN之后添加工业级TTS模型Orca，实现语音合成与文本生成的并行。
+    \item \textbf{Qwen2-Audio + Orca}\citep{Qwen2-Audio}：Qwen2-Audio是一个通用的音频理解模型，同样通过级联Orca TTS模型完成S2SIF任务。
 \end{itemize}
-对于使用Orca进行流式语音合成的级联系统，需要设置词块大小$\Theta$，即每生成$\Theta$个新词就触发一次语音合成。实验中将$\Theta$在$[1, 3, 5, 7, 9]$范围内调节以控制响应延迟。
+
+\indent 对于使用Orca进行流式语音合成的级联系统，需要设置词块大小$\Theta$，即每生成$\Theta$个新词就触发一次语音合成。实验中将$\Theta$在$[1, 3, 5, 7, 9]$范围内调节以控制响应延迟。
 
 \subsection{离线场景结果}
 
