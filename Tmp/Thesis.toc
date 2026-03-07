@@ -66,7 +66,8 @@
 \contentsline {subsubsection}{\numberline {4.4.1.5}基线系统}{36}{subsubsection.4.4.1.5}%
 \contentsline {subsection}{\numberline {4.4.2}离线场景结果}{36}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}流式场景结果}{37}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}人工评估}{39}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.4}解码效率分析}{39}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}人工评估}{39}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}本章小结}{40}{section.4.5}%
 \contentsline {chapter}{\numberline {第5章\hspace {.3em}}LLaMA-Omni 2}{41}{chapter.5}%
 \contentsline {chapter}{\numberline {第6章\hspace {.3em}}总结与展望}{42}{chapter.6}%

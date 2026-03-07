@@ -82,6 +82,7 @@
 \small
 \caption{LLaMA-Omni流式推理过程}
 \label{algo:llamaomni_infer}
+\algrenewcommand{\algorithmiccomment}[1]{\hfill// #1}
 \begin{algorithmic}[1]
 \Require 语音指令$X^S$，最小单元块大小$\Omega$
 \Ensure 文本响应$Y^T$，离散单元序列$Y^U$，语音波形$Y^S$
@@ -196,6 +197,8 @@ LLaMA-Omni在$\Omega = 10$时可实现最低236毫秒的响应延迟，甚至低
 级联系统SALMONN + Orca和Qwen2-Audio + Orca虽然能够实现较低的延迟，但存在两个明显问题。其一，流式场景下的ChatGPT分数和ASR-WER与离线场景相比存在较大差距。以SALMONN + Orca为例，词块大小$\Theta = 1$时ChatGPT分数为3.28，而离线场景为3.40，ASR-WER从3.78升至6.64，表明词级别的流式语音合成由于缺乏完整的上下文信息，容易引入额外的发音和韵律误差。其二，当延迟较低时，级联系统的整体语速急剧下降。如图\ref{fig:llamaomni_streaming}(d)所示，SALMONN + Orca在$\Theta = 1$时WPS仅为1.86，远低于离线场景的3.31。这是因为以词为单位触发语音合成时，词与词之间的停顿更加频繁，导致语音的自然性和连贯性大幅降低。
 
 相比之下，LLaMA-Omni的流式语音生成在端到端模型内部以离散单元为粒度完成，仅需外接声码器进行流式的单元到波形转换。由于离散单元的粒度远细于词，且CTC对齐已在模型内部学习了合理的时长分配，语音的整体韵律和节奏在不同延迟水平下几乎不受影响，WPS始终稳定在2.73至2.76之间。这体现了端到端模型相比基于流式TTS的级联系统的优势。
+
+\subsection{解码效率分析}
 
 \input{Tables/llamaomni_decode_time}
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 02:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 02:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2048,7 +2048,7 @@ File: Img/llamaomni_mos.pdf Graphic file (type pdf)
 File: Img/llamaomni_wps.pdf Graphic file (type pdf)
 <use Img/llamaomni_wps.pdf>
 ) (./Tables/llamaomni_streaming.tex)
-[37] (./Tables/llamaomni_decode_time.tex [38])
+[37] [38] (./Tables/llamaomni_decode_time.tex)
 (./Img/figure_llamaomni_humaneval.tex
 File: Img/llamaomni_humaneval_helpful.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_helpful.pdf>
@@ -2108,7 +2108,7 @@ Underfull \hbox (badness 2521) in paragraph at lines 411--415
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EDF60DD724A1DEE079A2CF0107835E51;5868.
+(rerunfilecheck)             Checksum: 88D14638B931521E234928EFFFCF50EA;6011.
  ) 
 Here is how much of TeX's memory you used:
  40720 strings out of 478671
