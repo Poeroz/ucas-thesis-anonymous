@@ -14,9 +14,9 @@
         Translatotron 2 \citep{translatotron2} & $\checkmark$ & $\times$ & $\times$ & 26.12 & 16.92 & 22.98 & 22.01 & 1.00$\times$ \\
         UnitY \citep{inaguma-etal-2023-unity} & $\checkmark$ & $\times$ & $\times$ & 26.90 & 16.36 & 24.06 & 22.44 & 0.98$\times$ \\
         S2UT \citep{s2ut} & $\checkmark$ & $\times$ & $\times$ & 22.23 & 2.99 & 18.53 & 14.58 & 0.62$\times$ \\
-        DASpeech \citep{fang-etal-2023-daspeech} & $\checkmark$ & $\checkmark$ & $\checkmark^\dagger$ & 25.03 & / & / & / & \textbf{10.05$\times$} \\
+        DASpeech \citep{fang-etal-2023-daspeech} & $\checkmark$ & $\checkmark$ & $\checkmark$ & 25.03 & / & / & / & \textbf{10.05$\times$} \\
         \textbf{ComSpeech} w/o pretrain & $\checkmark$ & $\times$ & $\times$ & 27.58** & 17.35** & 24.29** & 23.07 & 3.40$\times$ \\
-        \textbf{ComSpeech} w/ pretrain & $\checkmark$ & $\checkmark$ & $\checkmark^\dagger$ & \textbf{28.15**} & \textbf{18.16**} & \textbf{24.80**} & \textbf{23.70} & 3.40$\times$ \\
+        \textbf{ComSpeech} w/ pretrain & $\checkmark$ & $\checkmark$ & $\checkmark$ & \textbf{28.15**} & \textbf{18.16**} & \textbf{24.80**} & \textbf{23.70} & 3.40$\times$ \\
         \midrule
         \multicolumn{9}{c}{{零样本学习}} \\
         \midrule
@@ -25,5 +25,5 @@
         \bottomrule
     \end{tabular}}
     \vspace{2pt}
-    \parbox{\linewidth}{\small $\dagger$：有监督学习中的TTS数据与零样本学习中使用的TTS数据不同。**：相较于基线系统（有监督中为Translatotron 2，零样本中为S2TT + G2P + TTS）的提升在$p<0.01$水平下统计显著。}
+    \parbox{\linewidth}{\small **：相较于基线系统（有监督中为Translatotron 2，零样本中为S2TT + G2P + TTS）的提升在$p<0.01$水平下统计显著。}
 \end{table}
