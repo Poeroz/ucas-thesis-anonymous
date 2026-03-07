@@ -15,7 +15,7 @@
 
 \section{方法介绍}
 
-本节介绍ComSpeech的模型架构和训练方法。ComSpeech由三个可替换的模块组成：语音到文本翻译模型$\mathcal{F}$、词表适配器$\mathcal{A}$和语音合成模型$\mathcal{G}$。其中，$\mathcal{F}$可以是任意的S2TT模型，$\mathcal{G}$可以是任意的TTS模型，$\mathcal{A}$是本章提出的核心组件，用于连接两个采用不同词表的模型。$\mathcal{F}$采用子词词表$\mathbb{W}$，$\mathcal{G}$采用音素词表$\mathbb{V}$。目标文本$Y$在两种词表下的分词结果分别表示为$Y^{\mathbb{W}} = (y^{\mathbb{W}}_1, ..., y^{\mathbb{W}}_N)$和$Y^{\mathbb{V}} = (y^{\mathbb{V}}_1, ..., y^{\mathbb{V}}_M)$。
+本节介绍ComSpeech的模型架构和训练方法。ComSpeech由三个模块组成：语音到文本翻译模型$\mathcal{F}$、词表适配器（Vocabulary Adaptor）$\mathcal{A}$和语音合成模型$\mathcal{G}$。其中，$\mathcal{F}$可以是任意的S2TT模型，$\mathcal{G}$可以是任意的TTS模型，$\mathcal{A}$是本章提出的核心组件，用于将S2TT模型的子词表示转换为TTS模型的音素表示，从而连接两个采用不同词表的模型。$\mathcal{F}$采用子词词表$\mathbb{W}$，$\mathcal{G}$采用音素词表$\mathbb{V}$。目标文本$Y$在两种词表下的分词结果分别表示为$Y^{\mathbb{W}} = (y^{\mathbb{W}}_1, ..., y^{\mathbb{W}}_N)$和$Y^{\mathbb{V}} = (y^{\mathbb{V}}_1, ..., y^{\mathbb{V}}_M)$。
 
 \subsection{模型架构}\label{sec:comspeech_arch}
 
@@ -69,7 +69,7 @@
 
 \subsection{有监督训练}\label{sec:comspeech_supervised}
 
-在有平行语音数据的场景下，ComSpeech支持预训练-微调的训练范式：首先分别使用S2TT数据预训练S2TT模型$\mathcal{F}$，使用TTS数据预训练TTS模型$\mathcal{G}$；然后利用预训练参数初始化，在平行语音数据上对整个模型进行端到端微调。需要注意的是，有监督学习场景中用于TTS预训练的数据为S2ST数据中的目标文本-目标语音对，与零样本学习场景中使用的独立TTS数据不同。微调阶段的训练目标由三部分组成：
+在有平行语音数据的场景下，ComSpeech支持预训练-微调的训练范式：首先分别使用S2TT数据预训练S2TT模型$\mathcal{F}$，使用TTS数据预训练TTS模型$\mathcal{G}$；然后利用预训练参数初始化，在平行语音数据上对整个模型进行端到端微调。微调阶段的训练目标由三部分组成：
 \begin{equation}
     \mathcal{L}_{\text{ComSpeech}} = \mathcal{L}_{\text{S2TT}} + \mathcal{L}_{\text{CTC}} + \mathcal{L}_{\text{TTS}}.
 \end{equation}
@@ -90,7 +90,7 @@
 \begin{equation}
     \mathbf{C}^H = \mathcal{G}_{\text{enc}} (\mathbf{H}^{\mathbb{V}}), \quad \mathbf{C}^E = \mathcal{G}_{\text{enc}} (\textsc{Emb}(Y^{\mathbb{V}})).
 \end{equation}
-本章使用MSE损失和对比学习损失来对齐这两组表示。MSE损失直接最小化对应位置表示之间的距离：
+本章使用均方误差（Mean Squared Error, MSE）损失和对比学习损失来对齐这两组表示。MSE损失直接最小化对应位置表示之间的距离：
 \begin{equation}
     \mathcal{L}_{\text{MSE}} = \sum_{i=1}^M \| \mathbf{c}^H_i - \mathbf{c}^E_i \|^2_2.
 \end{equation}
