@@ -76,43 +76,35 @@
 
 \subsection{流式推理}
 
-在推理阶段，大语言模型基于语音指令自回归地生成文本响应。由于语音解码器使用因果注意力，当大语言模型生成文本响应前缀$Y^T_{\leq i}$后，对应的上采样隐状态$\widehat{\mathbf{C}}_{\leq \lambda \cdot i}$即可输入语音解码器，生成部分对齐$A_{\leq \lambda \cdot i}$，进而得到与已生成文本前缀对应的离散单元。为了进一步实现语音波形的流式合成，当已生成的离散单元数量达到预设的块大小$\Omega$时，该单元片段即被送入声码器合成一段语音并立即播放给用户。这样，用户无需等待完整的文本响应生成即可开始收听语音回复，确保了响应延迟不受文本响应长度的影响。
+在推理阶段，大语言模型基于语音指令自回归地生成文本响应。由于语音解码器使用因果注意力，当大语言模型生成文本响应前缀$Y^T_{\leq i}$后，对应的上采样隐状态$\widehat{\mathbf{C}}_{\leq \lambda \cdot i}$即可输入语音解码器，生成部分对齐$A_{\leq \lambda \cdot i}$，进而得到与已生成文本前缀对应的离散单元。为了进一步实现语音波形的流式合成，当已生成的离散单元数量达到预设的块大小$\Omega$时，该单元片段即被送入声码器合成一段语音并立即播放给用户。这样，用户无需等待完整的文本响应生成即可开始收听语音回复，确保了响应延迟不受文本响应长度的影响。LLaMA-Omni的完整流式推理流程如算法\ref{algo:llamaomni_infer}所示。
 
-$\Omega$的取值直接影响系统的延迟与语音质量之间的平衡。较小的$\Omega$意味着更早触发声码器合成，响应延迟更低，但语音被切分为更多片段，片段间可能出现不连续；较大的$\Omega$则提供更完整的上下文信息，合成的语音更连贯自然，但延迟也相应增大。当$\Omega = +\infty$时，等价于离线模式，即等待所有离散单元生成完毕后再一次性合成语音。
-
-此外，由于语音解码器采用非自回归建模，每个文本词元$y^T_i$对应的对齐$A_{\lambda \cdot (i-1)+1 : \lambda \cdot i}$在块内是并行生成的，因此同时生成文本和语音响应的解码速度与仅生成文本响应的速度差异不大。
-
-LLaMA-Omni的完整推理流程如算法\ref{algo:llamaomni_infer}所示。模型首先通过语音编码器和语音适配器将语音指令编码为语音表示$\mathbf{S}$，随后进入自回归解码循环：每生成一个文本词元，大语言模型同时输出对应的隐状态，该隐状态经上采样后送入语音解码器，通过贪心解码获取最优对齐路径并折叠为离散单元序列。当新增的离散单元数量达到块大小$\Omega$时，立即将该片段送入声码器合成语音波形。解码循环结束后，剩余的离散单元同样被送入声码器完成最后一段语音的合成。
-
-\begin{algorithm}[!htbp]
+\begin{algorithm}[htbp]
+\small
 \caption{LLaMA-Omni流式推理过程}
 \label{algo:llamaomni_infer}
 \begin{algorithmic}[1]
 \Require 语音指令$X^S$，最小单元块大小$\Omega$
 \Ensure 文本响应$Y^T$，离散单元序列$Y^U$，语音波形$Y^S$
-\State 初始化 $i=1$，$j=0$，$Y^T=[]$，$Y^U=[]$，$Y^S=[]$，$\widehat{\mathbf{C}} = []$
+\State 初始化 $i=1$, $j=0$, $Y^T=[]$, $Y^U=[]$, $Y^S=[]$, $\widehat{\mathbf{C}} = []$
 \State $\mathbf{S} \leftarrow \mathcal{A}(\mathcal{E}(X^S))$ \Comment{语音编码与适配}
 \While{$y^T_{i-1}\neq\left\langle\mathrm{EOS}\right\rangle$}
-    \State $\mathbf{c}_i \leftarrow \mathcal{M}(\mathcal{P}(\mathbf{S}), Y^T_{<i})$ \Comment{大语言模型生成隐状态}
-    \State $y^T_i \leftarrow \arg\max_{y^T_i} P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i})$ \Comment{贪心解码文本词元}
-    \State $Y^T \leftarrow Y^T + y^T_i$
-    \State $\widehat{\mathbf{C}} \leftarrow \widehat{\mathbf{C}} + \text{UpSample}(\mathbf{c}_i)$ \Comment{上采样隐状态}
-    \State $\mathbf{O} \leftarrow \mathcal{D}(\widehat{\mathbf{C}})$ \Comment{语音解码器前向传播}
-    \State $A^* \leftarrow \arg\max_A P(A \mid \mathbf{O})$ \Comment{CTC贪心解码}
-    \State $Y^U \leftarrow \beta(A^*)$ \Comment{折叠得到离散单元}
-    \If{$|Y^U| - j \geq \Omega$} \Comment{新增单元数达到块大小}
-        \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$ \Comment{声码器合成语音片段}
-        \State $Y^S \leftarrow Y^S + y^S$
-        \State $j \leftarrow |Y^U|$
+    \State $\mathbf{c}_i \leftarrow \mathcal{M}(\mathcal{P}(\mathbf{S}), Y^T_{<i})$; \enspace $y^T_i \leftarrow \arg\max P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i})$; \enspace $Y^T \leftarrow Y^T + y^T_i$
+    \State $\widehat{\mathbf{C}} \leftarrow \widehat{\mathbf{C}} + \text{UpSample}(\mathbf{c}_i)$; \enspace $\mathbf{O} \leftarrow \mathcal{D}(\widehat{\mathbf{C}})$ \Comment{上采样并解码}
+    \State $A^* \leftarrow \arg\max_A P(A \mid \mathbf{O})$; \enspace $Y^U \leftarrow \beta(A^*)$ \Comment{CTC贪心解码并折叠}
+    \If{$|Y^U| - j \geq \Omega$}
+        \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$; \enspace $Y^S \leftarrow Y^S + y^S$; \enspace $j \leftarrow |Y^U|$ \Comment{声码器合成}
     \EndIf
     \State $i \leftarrow i + 1$
 \EndWhile
-\If{$j<|Y^U|$} \Comment{合成剩余语音}
-    \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$
-    \State $Y^S \leftarrow Y^S + y^S$
+\If{$j<|Y^U|$}
+    \State $y^S \leftarrow \mathcal{V}(Y^U_{j+1:})$; \enspace $Y^S \leftarrow Y^S + y^S$ \Comment{合成剩余语音}
 \EndIf
 \end{algorithmic}
 \end{algorithm}
+
+$\Omega$的取值直接影响系统的延迟与语音质量之间的平衡。较小的$\Omega$意味着更早触发声码器合成，响应延迟更低，但语音被切分为更多片段，片段间可能出现不连续；较大的$\Omega$则提供更完整的上下文信息，合成的语音更连贯自然，但延迟也相应增大。当$\Omega = +\infty$时，等价于离线模式，即等待所有离散单元生成完毕后再一次性合成语音。
+
+此外，由于语音解码器采用非自回归建模，每个文本词元$y^T_i$对应的对齐$A_{\lambda \cdot (i-1)+1 : \lambda \cdot i}$在块内是并行生成的，因此同时生成文本和语音响应的解码速度与仅生成文本响应的速度差异不大。
 
 
 \section{语音指令数据集构建}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 01:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 01:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2035,10 +2035,10 @@ File: Img/LLaMA_Omni_training.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni_training.pdf>
 ) [32]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 88.
- [33] [34]
-(./Tables/llamaomni_data.tex) [35] [36] (./Tables/llamaomni_offline.tex)
-[37] (./Img/figure_llamaomni_streaming.tex
+put line 83.
+ [33]
+(./Tables/llamaomni_data.tex) [34] [35] (./Tables/llamaomni_offline.tex)
+[36] (./Img/figure_llamaomni_streaming.tex
 File: Img/llamaomni_score.pdf Graphic file (type pdf)
 <use Img/llamaomni_score.pdf>
 File: Img/llamaomni_asr-wer.pdf Graphic file (type pdf)
@@ -2048,7 +2048,7 @@ File: Img/llamaomni_mos.pdf Graphic file (type pdf)
 File: Img/llamaomni_wps.pdf Graphic file (type pdf)
 <use Img/llamaomni_wps.pdf>
 ) (./Tables/llamaomni_streaming.tex)
-[38] [39] (./Tables/llamaomni_decode_time.tex)
+[37] [38] (./Tables/llamaomni_decode_time.tex)
 (./Img/figure_llamaomni_humaneval.tex
 File: Img/llamaomni_humaneval_helpful.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_helpful.pdf>
@@ -2059,15 +2059,15 @@ Underfull \hbox (badness 1609) in paragraph at lines 6--6
 
 File: Img/llamaomni_humaneval_natural.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_natural.pdf>
-) [40]) (./Tex/Chap_LLaMA_Omni2.tex [41] [42]
+) [39]) (./Tex/Chap_LLaMA_Omni2.tex [40]
 第5章
-) (./Tex/Chap_Conclusion.tex [43
+) (./Tex/Chap_Conclusion.tex [41
 
 ]
 第6章
-)) [44
+)) [42
 
-] (Tmp/Thesis.bbl [45
+] (Tmp/Thesis.bbl [43
 
 
 ]
@@ -2088,19 +2088,19 @@ Underfull \hbox (badness 4132) in paragraph at lines 176--184
 lume 33.  Curran Asso-
  []
 
-[46] [47]
+[44] [45]
 Underfull \hbox (badness 2521) in paragraph at lines 411--415
 []\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-) [48] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [49
+) [46] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [47
 
 
 
-] [50
+] [48
 
-] [51] [52
+] [49] [50
 
 ])
 (Tmp/Thesis.aux)
@@ -2111,12 +2111,12 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: EDF60DD724A1DEE079A2CF0107835E51;5868.
  ) 
 Here is how much of TeX's memory you used:
- 40718 strings out of 478671
- 846186 string characters out of 5848460
+ 40720 strings out of 478671
+ 846268 string characters out of 5848460
  1883018 words of memory out of 6000000
- 59983 multiletter control sequences out of 15000+600000
- 523689 words of font info for 167 fonts, out of 8000000 for 9000
+ 59984 multiletter control sequences out of 15000+600000
+ 523697 words of font info for 168 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (68 pages).
+Output written on Tmp/Thesis.pdf (66 pages).
