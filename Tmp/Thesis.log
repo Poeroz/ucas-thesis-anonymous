@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 02:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1886,7 +1886,10 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 \tf@loappfig=\write7
 \openout7 = `Thesis.loappfig'.
 
- (Tmp/Thesis.lot)
+ (Tmp/Thesis.lot [7
+
+
+])
 \tf@lot=\write8
 \openout8 = `Thesis.lot'.
 
@@ -1895,15 +1898,11 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 \openout9 = `Thesis.loapptab'.
 
 )
-(./Tex/Prematter.tex [7
+(./Tex/Prematter.tex [8]) [9
 
+] [10
 
-] [8
-
-]) [9] [10
-
-] (./Tex/Mainmatter.tex
-(./Tex/Chap_Intro.tex
+] (./Tex/Mainmatter.tex (./Tex/Chap_Intro.tex
 第1章
 Package newfloat Info: Setting Plan B file extension to `lof'... on input line 
 1.
@@ -2061,14 +2060,22 @@ File: Img/llamaomni_humaneval_natural.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_natural.pdf>
 ) [39]) (./Tex/Chap_LLaMA_Omni2.tex [40]
 第5章
-) (./Tex/Chap_Conclusion.tex [41
+[41
 
-]
+] (./Img/figure_llamaomni2.tex
+File: Img/LLaMA_Omni2.pdf Graphic file (type pdf)
+<use Img/LLaMA_Omni2.pdf>
+) [42] [43] [44] [45] [46]
+(./Tables/llamaomni2_main.tex) [47] (./Tables/llamaomni2_ablation.tex) [48]
+(./Tables/llamaomni2_pretrain.tex) (./Tables/llamaomni2_readwrite.tex)
+(./Tables/llamaomni2_latency.tex) [49] [50] (./Tables/llamaomni2_data.tex))
+(./Tex/Chap_Conclusion.tex [51] [52]
 第6章
-)) [42
+)) [53
 
-] (Tmp/Thesis.bbl [43
+] [54
 
+] (Tmp/Thesis.bbl [55
 
 ]
 Underfull \hbox (badness 1635) in paragraph at lines 176--184
@@ -2088,35 +2095,36 @@ Underfull \hbox (badness 4132) in paragraph at lines 176--184
 lume 33.  Curran Asso-
  []
 
-[44] [45]
+[56] [57]
 Underfull \hbox (badness 2521) in paragraph at lines 411--415
 []\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-) [46] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [47
+[58]) [59] [60
+
+] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [61
 
 
+] [62
 
-] [48
+] [63]
+[64
 
-] [49] [50
-
-])
-(Tmp/Thesis.aux)
+]) (Tmp/Thesis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 88D14638B931521E234928EFFFCF50EA;6011.
+(rerunfilecheck)             Checksum: ADA7356E151CBA8ECBD3477610D0BB91;7468.
  ) 
 Here is how much of TeX's memory you used:
- 40720 strings out of 478671
- 846268 string characters out of 5848460
- 1883018 words of memory out of 6000000
- 59984 multiletter control sequences out of 15000+600000
+ 40844 strings out of 478671
+ 850735 string characters out of 5848460
+ 1886018 words of memory out of 6000000
+ 60086 multiletter control sequences out of 15000+600000
  523697 words of font info for 168 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (66 pages).
+Output written on Tmp/Thesis.pdf (80 pages).

@@ -69,8 +69,27 @@
 \contentsline {subsection}{\numberline {4.4.4}解码效率分析}{39}{subsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.4.5}人工评估}{39}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}本章小结}{40}{section.4.5}%
-\contentsline {chapter}{\numberline {第5章\hspace {.3em}}LLaMA-Omni 2}{41}{chapter.5}%
-\contentsline {chapter}{\numberline {第6章\hspace {.3em}}总结与展望}{42}{chapter.6}%
-\contentsline {chapter}{参考文献}{43}{section*.39}%
-\contentsline {chapter}{致谢}{47}{appendix*.41}%
-\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{49}{appendix*.42}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}基于自回归流式解码的高质量语音交互大模型}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}引言}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}方法介绍}{42}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}模型架构}{42}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}训练策略}{44}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}流式推理}{45}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}多轮对话数据集构建}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.4}实验结果与分析}{46}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}实验设置}{46}{subsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}模型配置}{46}{subsubsection.5.4.1.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.2}训练细节}{46}{subsubsection.5.4.1.2}%
+\contentsline {subsubsection}{\numberline {5.4.1.3}评价指标}{46}{subsubsection.5.4.1.3}%
+\contentsline {subsubsection}{\numberline {5.4.1.4}基线系统}{47}{subsubsection.5.4.1.4}%
+\contentsline {subsection}{\numberline {5.4.2}主要结果}{47}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}消融实验}{48}{subsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.3.1}门控融合机制}{48}{subsubsection.5.4.3.1}%
+\contentsline {subsubsection}{\numberline {5.4.3.2}TTS预训练策略}{49}{subsubsection.5.4.3.2}%
+\contentsline {subsubsection}{\numberline {5.4.3.3}读写策略}{49}{subsubsection.5.4.3.3}%
+\contentsline {subsubsection}{\numberline {5.4.3.4}训练数据规模}{51}{subsubsection.5.4.3.4}%
+\contentsline {section}{\numberline {5.5}本章小结}{51}{section.5.5}%
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}总结与展望}{53}{chapter.6}%
+\contentsline {chapter}{参考文献}{55}{section*.46}%
+\contentsline {chapter}{致谢}{61}{appendix*.48}%
+\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{63}{appendix*.49}%

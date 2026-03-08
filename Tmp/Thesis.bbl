@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{62}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -450,5 +450,111 @@ Saeki~T, Xin~D, Nakata~W, et~al.
 Interspeech 2022.
 \newblock 2022: 4521-4525.
 \newblock DOI: \doi{10.21437/Interspeech.2022-439}.
+
+\bibitem[Zeng {\bibetal}(2024)Zeng, Du, Liu, Wang, Jiang, Zhao, Dong, and
+  Tang]{glm4voice}
+Zeng~A, Du~Z, Liu~M, et~al.
+\newblock Glm-4-voice: Towards intelligent and human-like end-to-end spoken
+  chatbot [EB/OL].
+\newblock 2024.
+\newblock \url{https://arxiv.org/abs/2412.02612}.
+
+\bibitem[D\'efossez {\bibetal}(2024)D\'efossez, Mazar\'e, Orsini, Royer,
+  P\'erez, J\'egou, Grave, and Zeghidour]{kyutai2024moshi}
+D\'efossez~A, Mazar\'e~L, Orsini~M, et~al.
+\newblock Moshi: a speech-text foundation model for real-time dialogue [R/OL].
+\newblock 2024.
+\newblock \url{https://arxiv.org/abs/2410.00037}.
+
+\bibitem[Zeng {\bibetal}(2025)Zeng, Du, Liu, Zhang, shengmin jiang, Dong, and
+  Tang]{zeng2024scaling}
+Zeng~A, Du~Z, Liu~M, et~al.
+\newblock Scaling speech-text pre-training with synthetic interleaved data
+  [C/OL]//\allowbreak
+The Thirteenth International Conference on Learning Representations.
+\newblock 2025.
+\newblock \url{https://openreview.net/forum?id=3tukjsVyrE}.
+
+\bibitem[Fang {\bibetal}(2025)Fang, Guo, Zhou, Ma, Zhang, and
+  Feng]{fang2025llamaomni}
+Fang~Q, Guo~S, Zhou~Y, et~al.
+\newblock {LL}a{MA}-omni: Seamless speech interaction with large language
+  models [C/OL]//\allowbreak
+The Thirteenth International Conference on Learning Representations.
+\newblock 2025.
+\newblock \url{https://openreview.net/forum?id=PYmrUQmMEw}.
+
+\bibitem[Wang {\bibetal}(2024)Wang, Li, Fu, Shen, Xie, Li, Sun, and
+  Ma]{xiong2024freeze}
+Wang~X, Li~Y, Fu~C, et~al.
+\newblock Freeze-omni: A smart and low latency speech-to-speech dialogue model
+  with frozen llm [J].
+\newblock arXiv preprint arXiv:2411.00774, 2024.
+
+\bibitem[Team(2024)]{qwen2.5}
+Team~Q.
+\newblock Qwen2.5: A party of foundation models [EB/OL].
+\newblock 2024.
+\newblock \url{https://qwenlm.github.io/blog/qwen2.5/}.
+
+\bibitem[An {\bibetal}(2024)An, Chen, Deng, Du, Gao, Gao, Gu, He, Hu, Hu,
+  et~al.]{an2024funaudiollm}
+An~K, Chen~Q, Deng~C, et~al.
+\newblock Funaudiollm: Voice understanding and generation foundation models for
+  natural interaction between humans and llms [J].
+\newblock arXiv preprint arXiv:2407.04051, 2024.
+
+\bibitem[Mentzer {\bibetal}(2024)Mentzer, Minnen, Agustsson, and
+  Tschannen]{mentzer2024finite}
+Mentzer~F, Minnen~D, Agustsson~E, et~al.
+\newblock Finite scalar quantization: {VQ}-{VAE} made simple
+  [C/OL]//\allowbreak
+The Twelfth International Conference on Learning Representations.
+\newblock 2024.
+\newblock \url{https://openreview.net/forum?id=8ishA3LxN8}.
+
+\bibitem[Lipman {\bibetal}(2023)Lipman, Chen, Ben-Hamu, Nickel, and
+  Le]{lipman2023flow}
+Lipman~Y, Chen~R~T~Q, Ben-Hamu~H, et~al.
+\newblock Flow matching for generative modeling [C/OL]//\allowbreak
+The Eleventh International Conference on Learning Representations.
+\newblock 2023.
+\newblock \url{https://openreview.net/forum?id=PqvMRDCJT9t}.
+
+\bibitem[Liao {\bibetal}(2024)Liao, Wang, Li, Cheng, Zhang, Zhou, and
+  Xing]{fish-speech-v1.4}
+Liao~S, Wang~Y, Li~T, et~al.
+\newblock Fish-speech: Leveraging large language models for advanced
+  multilingual text-to-speech synthesis [EB/OL].
+\newblock 2024.
+\newblock \url{https://arxiv.org/abs/2411.01156}.
+
+\bibitem[Nachmani {\bibetal}(2024)Nachmani, Levkovitch, Hirsch, Salazar,
+  Asawaroengchai, Mariooryad, Rivlin, Skerry-Ryan, and
+  Ramanovich]{nachmani2024spoken}
+Nachmani~E, Levkovitch~A, Hirsch~R, et~al.
+\newblock Spoken question answering and speech continuation using
+  spectrogram-powered {LLM} [C/OL]//\allowbreak
+The Twelfth International Conference on Learning Representations.
+\newblock 2024.
+\newblock \url{https://openreview.net/forum?id=izrOLJov5y}.
+
+\bibitem[Berant {\bibetal}(2013)Berant, Chou, Frostig, and
+  Liang]{berant-etal-2013-semantic}
+Berant~J, Chou~A, Frostig~R, et~al.
+\newblock Semantic parsing on {F}reebase from question-answer pairs
+  [C/OL]//\allowbreak
+Yarowsky~D, Baldwin~T, Korhonen~A, et~al.
+\newblock Proceedings of the 2013 Conference on Empirical Methods in Natural
+  Language Processing.
+\newblock Seattle, Washington, USA: Association for Computational Linguistics,
+  2013: 1533-1544.
+\newblock \url{https://aclanthology.org/D13-1160/}.
+
+\bibitem[Hassid {\bibetal}(2024)Hassid, Remez, Nguyen, Gat, Conneau, Kreuk,
+  Copet, Defossez, Synnaeve, Dupoux, et~al.]{hassid2024textually}
+Hassid~M, Remez~T, Nguyen~T~A, et~al.
+\newblock Textually pretrained speech language models [J].
+\newblock Advances in Neural Information Processing Systems, 2024, 36.
 
 \end{thebibliography}
