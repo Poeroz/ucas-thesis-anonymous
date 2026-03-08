@@ -165,7 +165,22 @@
 
 ## 第五章 LLaMA-Omni 2
 
-（待写作时补充）
+### 表格
+
+| 论文文件 | label | 原论文来源 | 中文化 | 布局 | 检查状态 |
+|---------|-------|-----------|--------|------|---------|
+| `Tables/llamaomni2_main.tex` | `tab:llamaomni2_main` | LLaMA-Omni2论文 Table 1 (`Tables/table_main.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
+| `Tables/llamaomni2_ablation.tex` | `tab:llamaomni2_ablation` | LLaMA-Omni2论文 Table 2 (`Tables/table_ablation.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/llamaomni2_pretrain.tex` | `tab:llamaomni2_pretrain` | LLaMA-Omni2论文 Table 3 (`Tables/table_pretrain.tex`) | 已完成 | 原始宽度 | 待检查 |
+| `Tables/llamaomni2_readwrite.tex` | `tab:llamaomni2_readwrite` | LLaMA-Omni2论文 Table 4 (`Tables/table_readwrite.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
+| `Tables/llamaomni2_data.tex` | `tab:llamaomni2_data` | LLaMA-Omni2论文 Table 5 (`Tables/table_data.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
+| `Tables/llamaomni2_latency.tex` | `tab:llamaomni2_latency` | LLaMA-Omni2论文 Appendix Table (`Tables/table_latency.tex`) | 已完成 | `\resizebox{\linewidth}` | 待检查 |
+
+### 图片
+
+| 论文文件 | label | 图片文件 | 原论文来源 | 图片语言 | 检查状态 |
+|---------|-------|---------|-----------|---------|---------|
+| `Img/figure_llamaomni2.tex` | `fig:llamaomni2` | `Img/LLaMA_Omni2.pdf` | 已替换为中期报告中文版 | 中文 | 通过 |
 
 ---
 
@@ -179,3 +194,4 @@
 - 2026-03-05：录入第三章 ComSpeech 全部图表（5表4图）
 - 2026-03-07：图3-1/3-2替换为中期报告中文版；删除主结果表dagger脚注；图3-2宽度调为0.9
 - 2026-03-08：录入第四章 LLaMA-Omni 全部图表（4表3图组）
+- 2026-03-08：录入第五章 LLaMA-Omni 2 全部图表（6表1图）

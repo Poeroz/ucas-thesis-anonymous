@@ -1,0 +1,26 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace LLaMA-Omni 2系列模型的延迟分解}{\enspace Detailed latency of LLaMA-Omni 2 series models}
+    \label{tab:llamaomni2_latency}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{l|cc|cccc}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \multirow{2}{*}{$\mathcal{R}$} & \multirow{2}{*}{$\mathcal{W}$} & \multicolumn{4}{c}{\textbf{延迟(ms)}} \\
+        & & & \textbf{LLM} & \textbf{TTS} & \textbf{FM+Voc} & \textbf{总计} \\
+        \midrule
+        LLaMA-Omni 2-0.5B & 3 & 10 & 190.95 & 165.83 & 185.93 & 542.71 \\
+        LLaMA-Omni 2-1.5B & 3 & 10 & 201.01 & 165.83 & 185.93 & 552.76 \\
+        LLaMA-Omni 2-3B & 3 & 10 & 216.08 & 165.83 & 185.93 & 567.84 \\
+        LLaMA-Omni 2-7B & 3 & 10 & 231.16 & 165.83 & 185.93 & 582.91 \\
+        LLaMA-Omni 2-14B & 3 & 10 & 311.56 & 165.83 & 185.93 & 663.32 \\
+        \midrule
+        LLaMA-Omni 2-7B & 1 & 5 & 185.93 & 85.43 & 185.93 & 457.29 \\
+        LLaMA-Omni 2-7B & 2 & 10 & 206.03 & 165.83 & 185.93 & 557.79 \\
+        LLaMA-Omni 2-7B & 3 & 10 & 231.16 & 165.83 & 185.93 & 582.91 \\
+        LLaMA-Omni 2-7B & 3 & 15 & 231.16 & 246.23 & 185.93 & 663.32 \\
+        LLaMA-Omni 2-7B & 4 & 15 & 251.26 & 246.23 & 185.93 & 683.42 \\
+        LLaMA-Omni 2-7B & 5 & 20 & 271.36 & 336.68 & 190.95 & 798.99 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}

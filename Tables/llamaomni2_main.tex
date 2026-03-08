@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 语音问答和语音指令遵循任务的主要结果}{\enspace Main results on spoken question answering and speech instruction following}
+    \label{tab:llamaomni2_main}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{l|cccc|ccccc}
+        \toprule
+        \multirow{3}{*}{\textbf{模型}} & \multicolumn{4}{c|}{\textbf{SpokenQA准确率$\uparrow$}} & \multicolumn{5}{c}{\textbf{语音指令遵循}} \\
+        \cmidrule{2-5} \cmidrule{6-10}
+        & \multicolumn{2}{c}{\textbf{Llama Questions}} & \multicolumn{2}{c|}{\textbf{Web Questions}} & \multicolumn{2}{c}{\textbf{ChatGPT分数$\uparrow$}} & \multirow{2}{*}{\textbf{ASR-WER$\downarrow$}} & \multirow{2}{*}{\textbf{UTMOS$\uparrow$}} & \multirow{2}{*}{\textbf{延迟(ms)$\downarrow$}} \\
+        & \textbf{S2T} & \textbf{S2S} & \textbf{S2T} & \textbf{S2S} & \textbf{S2T} & \textbf{S2S} & & & \\
+        \midrule
+        TWIST & - & 4.0 & - & 1.5 & - & - & - & - & - \\
+        SpeechGPT & 21.6 & - & 6.5 & - & 2.98 & 2.17 & 40.01 & 3.51 & 5587.94 \\
+        Spectron & 21.9 & - & 6.1 & - & - & - & - & - & - \\
+        Moshi (7B) & 62.3 & 21.0 & 26.6 & 9.2 & - & - & - & - & - \\
+        GLM-4-Voice (9B) & 64.7 & 50.7 & 32.2 & 15.9 & 4.16 & 4.09 & 9.02 & 3.48 & 1562.81 \\
+        LLaMA-Omni (8B) & 67.7 & 49.0 & 33.4 & 23.7 & 3.99 & 3.52 & 5.95 & 3.67 & \textbf{346.73} \\
+        \midrule
+        LLaMA-Omni 2-0.5B & 45.7 & 38.7 & 17.7 & 16.8 & 3.24 & 3.20 & \textbf{2.64} & 4.21 & 542.71 \\
+        LLaMA-Omni 2-1.5B & 62.0 & 52.7 & 28.2 & 26.6 & 4.01 & 3.91 & 3.06 & \textbf{4.22} & 552.76 \\
+        LLaMA-Omni 2-3B & 64.3 & 55.7 & 30.5 & 28.0 & 4.24 & 4.14 & 3.37 & \textbf{4.22} & 567.84 \\
+        LLaMA-Omni 2-7B & 70.3 & 60.7 & 34.5 & 31.3 & 4.28 & 4.15 & 3.26 & 4.19 & 582.91 \\
+        LLaMA-Omni 2-14B & \textbf{73.0} & \textbf{62.7} & \textbf{40.4} & \textbf{37.1} & \textbf{4.56} & \textbf{4.35} & 3.89 & 4.20 & 663.32 \\
+        \bottomrule
+        \multicolumn{10}{l}{\scriptsize 注：S2T和S2S分别代表语音到文本和语音到语音。所有LLaMA-Omni 2系列模型均采用$\mathcal{R}=3$, $\mathcal{W}=10$的读写策略。}
+    \end{tabular}}
+\end{table}

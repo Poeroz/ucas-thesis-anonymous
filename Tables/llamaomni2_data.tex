@@ -1,0 +1,21 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 训练数据规模的影响}{\enspace Impact of training data size}
+    \label{tab:llamaomni2_data}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{cc|cccc|ccc}
+        \toprule
+        \multirow{3}{*}{\textbf{样本数}} & \multirow{3}{*}{\textbf{多轮}} & \multicolumn{4}{c|}{\textbf{SpokenQA准确率}} & \multicolumn{3}{c}{\textbf{语音指令遵循}} \\
+        \cmidrule{3-6} \cmidrule{7-9}
+        & & \multicolumn{2}{c}{\textbf{Llama Questions}} & \multicolumn{2}{c|}{\textbf{Web Questions}} & \multicolumn{2}{c}{\textbf{ChatGPT分数}} & \multirow{2}{*}{\textbf{ASR-WER}} \\
+        & & \textbf{S2T} & \textbf{S2S} & \textbf{S2T} & \textbf{S2S} & \textbf{S2T} & \textbf{S2S} & \\
+        \midrule
+        200K & \checkmark & 70.3 & \textbf{60.7} & 34.5 & 31.3 & \textbf{4.28} & \textbf{4.15} & \textbf{3.26} \\
+        200K & \texttimes & 70.0 & 59.0 & 33.7 & 30.5 & 4.11 & 3.98 & 3.28 \\
+        150K & \checkmark & \textbf{70.7} & 58.7 & \textbf{34.7} & \textbf{31.7} & 4.23 & 4.10 & 3.71 \\
+        100K & \checkmark & 67.7 & 55.3 & 34.1 & 29.9 & 4.19 & 4.07 & 4.45 \\
+        50K & \checkmark & 50.0 & 37.0 & 16.6 & 13.9 & 3.02 & 2.84 & 5.42 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}

@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 门控融合机制的消融实验}{\enspace Ablation study on the gate fusion module}
+    \label{tab:llamaomni2_ablation}
+    \centering
+    \small
+    \begin{tabular}{l|cc}
+        \toprule
+        \textbf{模型} & \textbf{ChatGPT分数(S2S)} & \textbf{ASR-WER} \\
+        \midrule
+        LLaMA-Omni 2-7B & \textbf{4.15} & \textbf{3.26} \\
+        \quad 去除门控融合 & 4.02 & 4.89 \\
+        \quad\quad 去除文本嵌入 & 3.88 & 6.83 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

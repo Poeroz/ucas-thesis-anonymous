@@ -1,0 +1,21 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 读写策略的消融实验}{\enspace Ablation study on the read/write strategy}
+    \label{tab:llamaomni2_readwrite}
+    \centering
+    \small
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{cc|cccc}
+        \toprule
+        $\mathcal{R}$ & $\mathcal{W}$ & \textbf{ChatGPT分数(S2S)} & \textbf{ASR-WER} & \textbf{UTMOS} & \textbf{延迟(ms)} \\
+        \midrule
+        1 & 5 & 4.09 & 3.48 & 3.98 & \textbf{457.29} \\
+        2 & 10 & \textbf{4.15} & 4.00 & 4.19 & 557.79 \\
+        3 & 10 & \textbf{4.15} & \textbf{3.26} & 4.19 & 582.91 \\
+        3 & 15 & 4.12 & 4.37 & 4.27 & 663.32 \\
+        4 & 15 & 4.10 & 3.77 & 4.27 & 683.42 \\
+        5 & 20 & \textbf{4.15} & 3.62 & 4.32 & 798.99 \\
+        \multicolumn{2}{c|}{离线} & 4.14 & 3.40 & \textbf{4.46} & - \\
+        \bottomrule
+        \multicolumn{6}{l}{\scriptsize 注：``离线''指在接收完整输入后再生成语音词元，并一次性合成全部语音。}
+    \end{tabular}}
+\end{table}
