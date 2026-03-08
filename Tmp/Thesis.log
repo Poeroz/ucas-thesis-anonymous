@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 16:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  8 MAR 2026 16:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2068,7 +2068,7 @@ File: Img/LLaMA_Omni2.pdf Graphic file (type pdf)
 ) [42] [43] [44] [45] [46]
 (./Tables/llamaomni2_main.tex) [47] (./Tables/llamaomni2_ablation.tex) [48]
 (./Tables/llamaomni2_pretrain.tex) (./Tables/llamaomni2_readwrite.tex)
-(./Tables/llamaomni2_latency.tex) [49] [50] (./Tables/llamaomni2_data.tex))
+(./Tables/llamaomni2_latency.tex) [49] (./Tables/llamaomni2_data.tex [50]))
 (./Tex/Chap_Conclusion.tex [51] [52]
 第6章
 )) [53
