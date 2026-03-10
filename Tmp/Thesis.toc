@@ -119,9 +119,10 @@
 \contentsline {subsection}{\numberline {7.2.2}多信道交织序列}{70}{subsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.2.1}对话的形式化表示}{70}{subsubsection.7.2.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2.2}双声道音频构造与语音词元化}{70}{subsubsection.7.2.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.2.3}三信道交织序列结构与因果偏移}{71}{subsubsection.7.2.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.2.4}文本信道构建规则}{71}{subsubsection.7.2.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.2.5}推理过程}{72}{subsubsection.7.2.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.2.3}三信道交织序列结构}{71}{subsubsection.7.2.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.2.4}因果偏移}{71}{subsubsection.7.2.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.2.5}文本信道构建规则}{71}{subsubsection.7.2.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.2.6}推理过程}{72}{subsubsection.7.2.2.6}%
 \contentsline {subsection}{\numberline {7.2.3}训练数据构造}{72}{subsection.7.2.3}%
 \contentsline {subsubsection}{\numberline {7.2.3.1}轮替场景}{72}{subsubsection.7.2.3.1}%
 \contentsline {subsubsection}{\numberline {7.2.3.2}打断场景}{73}{subsubsection.7.2.3.2}%
