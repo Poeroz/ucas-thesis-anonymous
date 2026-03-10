@@ -114,7 +114,22 @@
 \contentsline {section}{\numberline {6.5}本章小结}{67}{section.6.5}%
 \contentsline {chapter}{\numberline {第7章\hspace {.3em}}基于全双工建模的自然语音交互大模型}{68}{chapter.7}%
 \contentsline {section}{\numberline {7.1}引言}{68}{section.7.1}%
-\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{70}{chapter.8}%
-\contentsline {chapter}{参考文献}{71}{section*.46}%
-\contentsline {chapter}{致谢}{83}{appendix*.48}%
-\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{85}{appendix*.49}%
+\contentsline {section}{\numberline {7.2}方法介绍}{69}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}模型架构}{69}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}多信道交织序列}{70}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}对话的形式化表示}{70}{subsubsection.7.2.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2.2}双声道音频构造与语音词元化}{70}{subsubsection.7.2.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.3}三信道交织序列结构}{70}{subsubsection.7.2.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.2.4}因果偏移}{71}{subsubsection.7.2.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.2.5}文本信道构建规则}{71}{subsubsection.7.2.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.2.6}推理过程}{72}{subsubsection.7.2.2.6}%
+\contentsline {subsection}{\numberline {7.2.3}训练数据构造}{72}{subsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.1}轮替场景}{72}{subsubsection.7.2.3.1}%
+\contentsline {subsubsection}{\numberline {7.2.3.2}打断场景}{72}{subsubsection.7.2.3.2}%
+\contentsline {subsection}{\numberline {7.2.4}模型训练}{73}{subsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.4.1}监督微调}{73}{subsubsection.7.2.4.1}%
+\contentsline {subsubsection}{\numberline {7.2.4.2}直接偏好优化}{73}{subsubsection.7.2.4.2}%
+\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{75}{chapter.8}%
+\contentsline {chapter}{参考文献}{77}{section*.46}%
+\contentsline {chapter}{致谢}{89}{appendix*.48}%
+\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{91}{appendix*.49}%
