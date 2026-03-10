@@ -1,4 +1,4 @@
-\begin{thebibliography}{185}
+\begin{thebibliography}{186}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -1529,5 +1529,12 @@ Rafailov~R, Sharma~A, Mitchell~E, et~al.
   reward model [C]//\allowbreak
 Proc. of NeurIPS.
 \newblock 2023.
+
+\bibitem[{GLM Team} {\bibetal}(2024){GLM Team}, Zeng, Xu, Wang, Zhang, Yin,
+  et~al.]{glm2024chatglm}
+{GLM Team}, Zeng~A, Xu~B, et~al.
+\newblock Chatglm: A family of large language models from glm-130b to glm-4 all
+  tools [J].
+\newblock arXiv preprint arXiv:2406.12793, 2024.
 
 \end{thebibliography}
