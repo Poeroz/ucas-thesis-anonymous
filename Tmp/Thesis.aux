@@ -35,8 +35,19 @@
 \newlabel{chap:related_work}{{2}{2}{研究现状}{chapter.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}语音到语音生成的建模范式}{2}{section.2.1}\protected@file@percent }
 \newlabel{sec:rw_paradigm}{{2.1}{2}{语音到语音生成的建模范式}{section.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace  语音到语音生成的三种建模范式：(a)三阶段级联范式，(b)两阶段范式，(c)端到端范式\relax }}{3}{figure.caption.14}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:rw_paradigm}{{2-1}{3}{\enspace 语音到语音生成的三种建模范式：(a)三阶段级联范式，(b)两阶段范式，(c)端到端范式\relax }{figure.caption.14}{}}
 \citation{conformer}
 \citation{yao2024zipformer}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace  本章技术框架：按模型架构和任务类型组织的研究现状\relax }}{4}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:rw_framework}{{2-2}{4}{\enspace 本章技术框架：按模型架构和任务类型组织的研究现状\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}语音表征}{4}{section.2.2}\protected@file@percent }
+\newlabel{sec:rw_repr}{{2.2}{4}{语音表征}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}用于理解的语音表征}{4}{subsection.2.2.1}\protected@file@percent }
+\newlabel{sec:rw_repr_understand}{{2.2.1}{4}{用于理解的语音表征}{subsection.2.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace  用于理解的语音表征分类：按训练范式分为传统端到端训练、自监督学习和监督学习三类\relax }}{4}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:rw_repr_understand}{{2-3}{4}{\enspace 用于理解的语音表征分类：按训练范式分为传统端到端训练、自监督学习和监督学习三类\relax }{figure.caption.16}{}}
 \citation{baevski2020wav2vec}
 \citation{hubert}
 \citation{chen2022wavlm}
@@ -44,10 +55,6 @@
 \citation{baevski2022data2vec}
 \citation{chiu2022bestrq}
 \citation{chen2023beats}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}语音表征}{3}{section.2.2}\protected@file@percent }
-\newlabel{sec:rw_repr}{{2.2}{3}{语音表征}{section.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}用于理解的语音表征}{3}{subsection.2.2.1}\protected@file@percent }
-\newlabel{sec:rw_repr_understand}{{2.2.1}{3}{用于理解的语音表征}{subsection.2.2.1}{}}
 \citation{whisper}
 \citation{peng2023owsm}
 \citation{an2024funaudiollm}
@@ -55,14 +62,14 @@
 \citation{shen2024naturalspeech2}
 \citation{ju2024naturalspeech3}
 \citation{evans2024stableaudio}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}用于生成的语音表征}{5}{subsection.2.2.2}\protected@file@percent }
+\newlabel{sec:rw_repr_gen}{{2.2.2}{5}{用于生成的语音表征}{subsection.2.2.2}{}}
 \citation{du2024cosyvoice}
 \citation{du2024cosyvoice2}
 \citation{glm4voice}
 \citation{ji2024wavtokenizer}
 \citation{xin2024bigcodec}
 \citation{li2024singlecodec}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}用于生成的语音表征}{4}{subsection.2.2.2}\protected@file@percent }
-\newlabel{sec:rw_repr_gen}{{2.2.2}{4}{用于生成的语音表征}{subsection.2.2.2}{}}
 \citation{zeghidour2021soundstream}
 \citation{defossez2022encodec}
 \citation{kumar2023dac}
@@ -70,9 +77,13 @@
 \citation{siuzdak2024snac}
 \citation{kyutai2024moshi}
 \citation{ye2024xcodec}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace  用于生成的语音表征分类：连续表征（梅尔频谱和VAE潜在特征）与离散表征（单码本和多码本token）\relax }}{6}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:rw_repr_gen}{{2-4}{6}{\enspace 用于生成的语音表征分类：连续表征（梅尔频谱和VAE潜在特征）与离散表征（单码本和多码本token）\relax }{figure.caption.17}{}}
 \citation{transformer}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}编码器-解码器架构基础}{5}{section.2.3}\protected@file@percent }
-\newlabel{sec:rw_encdec}{{2.3}{5}{编码器-解码器架构基础}{section.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}基于编码器-解码器的语音到语音生成}{7}{section.2.3}\protected@file@percent }
+\newlabel{sec:rw_encdec_all}{{2.3}{7}{基于编码器-解码器的语音到语音生成}{section.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}编码器-解码器架构基础}{7}{subsection.2.3.1}\protected@file@percent }
+\newlabel{sec:rw_encdec}{{2.3.1}{7}{编码器-解码器架构基础}{subsection.2.3.1}{}}
 \citation{berard2016listen}
 \citation{weiss2017sequence}
 \citation{bansal2019pre}
@@ -81,13 +92,15 @@
 \citation{gigast}
 \citation{fang-feng-2023-back}
 \citation{gaido-etal-2021-ctc}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}基于编码器-解码器的语音到文本生成}{6}{section.2.4}\protected@file@percent }
-\newlabel{sec:rw_encdec_s2tt}{{2.4}{6}{基于编码器-解码器的语音到文本生成}{section.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}基础编码器-解码器}{6}{subsection.2.4.1}\protected@file@percent }
-\newlabel{sec:rw_s2tt_basic}{{2.4.1}{6}{基础编码器-解码器}{subsection.2.4.1}{}}
 \citation{duquenne-etal-2022-modules}
 \citation{ctcmeetsot}
 \citation{communication2023seamlessm4t}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}语音到文本翻译}{8}{subsection.2.3.2}\protected@file@percent }
+\newlabel{sec:rw_encdec_s2tt}{{2.3.2}{8}{语音到文本翻译}{subsection.2.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.1}基础编码器-解码器}{8}{subsubsection.2.3.2.1}\protected@file@percent }
+\newlabel{sec:rw_s2tt_basic}{{2.3.2.1}{8}{基础编码器-解码器}{subsubsection.2.3.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.2}并联双编码器}{8}{subsubsection.2.3.2.2}\protected@file@percent }
+\newlabel{sec:rw_s2tt_parallel}{{2.3.2.2}{8}{并联双编码器}{subsubsection.2.3.2.2}{}}
 \citation{anastasopoulos2018tied}
 \citation{han-etal-2021-learning}
 \citation{dong2021listen}
@@ -98,14 +111,12 @@
 \citation{ye-etal-2022-cross}
 \citation{fang-and-feng-2023-understanding}
 \citation{zhou-etal-2023-cmot}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}并联双编码器}{7}{subsection.2.4.2}\protected@file@percent }
-\newlabel{sec:rw_s2tt_parallel}{{2.4.2}{7}{并联双编码器}{subsection.2.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}串联双编码器}{7}{subsection.2.4.3}\protected@file@percent }
-\newlabel{sec:rw_s2tt_serial}{{2.4.3}{7}{串联双编码器}{subsection.2.4.3}{}}
 \citation{slam}
 \citation{mSLAM}
 \citation{zhang2022speechut}
 \citation{tang-etal-2022-unified}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.3}串联双编码器}{9}{subsubsection.2.3.2.3}\protected@file@percent }
+\newlabel{sec:rw_s2tt_serial}{{2.3.2.3}{9}{串联双编码器}{subsubsection.2.3.2.3}{}}
 \citation{tjandra2019s2st}
 \citation{uwspeech}
 \citation{s2ut}
@@ -115,12 +126,6 @@
 \citation{translatotron2}
 \citation{inaguma-etal-2023-unity}
 \citation{zhang-etal-2024-streamspeech}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}基于编码器-解码器的语音到语音翻译}{8}{section.2.5}\protected@file@percent }
-\newlabel{sec:rw_encdec_s2st}{{2.5}{8}{基于编码器-解码器的语音到语音翻译}{section.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}一阶段S2ST}{8}{subsection.2.5.1}\protected@file@percent }
-\newlabel{sec:rw_s2st_1pass}{{2.5.1}{8}{一阶段S2ST}{subsection.2.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}两阶段S2ST}{8}{subsection.2.5.2}\protected@file@percent }
-\newlabel{sec:rw_s2st_2pass}{{2.5.2}{8}{两阶段S2ST}{subsection.2.5.2}{}}
 \citation{gu2018nat}
 \citation{cmlm}
 \citation{qian-etal-2021-glancing}
@@ -131,6 +136,14 @@
 \citation{wu-2023-duplex}
 \citation{tan2024diffnorm}
 \citation{ma2024nasts2x}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}语音到语音翻译}{10}{subsection.2.3.3}\protected@file@percent }
+\newlabel{sec:rw_encdec_s2st}{{2.3.3}{10}{语音到语音翻译}{subsection.2.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.1}一阶段S2ST}{10}{subsubsection.2.3.3.1}\protected@file@percent }
+\newlabel{sec:rw_s2st_1pass}{{2.3.3.1}{10}{一阶段S2ST}{subsubsection.2.3.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.2}两阶段S2ST}{10}{subsubsection.2.3.3.2}\protected@file@percent }
+\newlabel{sec:rw_s2st_2pass}{{2.3.3.2}{10}{两阶段S2ST}{subsubsection.2.3.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.3}非自回归S2ST}{10}{subsubsection.2.3.3.3}\protected@file@percent }
+\newlabel{sec:rw_s2st_nar}{{2.3.3.3}{10}{非自回归S2ST}{subsubsection.2.3.3.3}{}}
 \citation{gpt1}
 \citation{radford2019language}
 \citation{touvron2023llama}
@@ -138,10 +151,10 @@
 \citation{dubey2024llama3}
 \citation{yang2024qwen2}
 \citation{yang2025qwen25}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}非自回归S2ST}{9}{subsection.2.5.3}\protected@file@percent }
-\newlabel{sec:rw_s2st_nar}{{2.5.3}{9}{非自回归S2ST}{subsection.2.5.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}仅解码器架构基础}{9}{section.2.6}\protected@file@percent }
-\newlabel{sec:rw_deconly}{{2.6}{9}{仅解码器架构基础}{section.2.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}基于仅解码器模型的语音到语音生成}{11}{section.2.4}\protected@file@percent }
+\newlabel{sec:rw_deconly_all}{{2.4}{11}{基于仅解码器模型的语音到语音生成}{section.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}仅解码器架构基础}{11}{subsection.2.4.1}\protected@file@percent }
+\newlabel{sec:rw_deconly}{{2.4.1}{11}{仅解码器架构基础}{subsection.2.4.1}{}}
 \citation{lakhotia2021generative}
 \citation{borsos2023audiolm}
 \citation{wang2023viola}
@@ -152,10 +165,10 @@
 \citation{chen-etal-2024-llast}
 \citation{tang2024salmonn}
 \citation{yu2024connecting}
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}基于仅解码器模型的语音到文本生成}{10}{section.2.7}\protected@file@percent }
-\newlabel{sec:rw_deconly_s2t}{{2.7}{10}{基于仅解码器模型的语音到文本生成}{section.2.7}{}}
 \citation{wu2023decoder}
 \citation{hono-etal-2024-integrating}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}语音到文本生成}{12}{subsection.2.4.2}\protected@file@percent }
+\newlabel{sec:rw_deconly_s2t}{{2.4.2}{12}{语音到文本生成}{subsection.2.4.2}{}}
 \citation{hu2024wavllm}
 \citation{twist}
 \citation{zhang-etal-2023-speechgpt}
@@ -164,12 +177,12 @@
 \citation{glm4voice}
 \citation{zhang2024speechgptgen}
 \citation{zhang2024intrinsicvoice}
-\@writefile{toc}{\contentsline {section}{\numberline {2.8}基于仅解码器模型的语音到语音生成}{11}{section.2.8}\protected@file@percent }
-\newlabel{sec:rw_deconly_s2s}{{2.8}{11}{基于仅解码器模型的语音到语音生成}{section.2.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.1}原生式语音大模型}{11}{subsection.2.8.1}\protected@file@percent }
-\newlabel{sec:rw_s2s_native}{{2.8.1}{11}{原生式语音大模型}{subsection.2.8.1}{}}
 \citation{xie2024mini}
 \citation{moonshot2025kimiaudio}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}语音到语音生成}{13}{subsection.2.4.3}\protected@file@percent }
+\newlabel{sec:rw_deconly_s2s}{{2.4.3}{13}{语音到语音生成}{subsection.2.4.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.1}原生式语音大模型}{13}{subsubsection.2.4.3.1}\protected@file@percent }
+\newlabel{sec:rw_s2s_native}{{2.4.3.1}{13}{原生式语音大模型}{subsubsection.2.4.3.1}{}}
 \citation{nguyen2022dgslm}
 \citation{kyutai2024moshi}
 \citation{gpt4o}
@@ -181,13 +194,13 @@
 \citation{zhan2024anygpt}
 \citation{fu2024vita}
 \citation{chen2025emova}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.2}组合式语音大模型}{12}{subsection.2.8.2}\protected@file@percent }
-\newlabel{sec:rw_s2s_composite}{{2.8.2}{12}{组合式语音大模型}{subsection.2.8.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.3}全模态大模型}{12}{subsection.2.8.3}\protected@file@percent }
-\newlabel{sec:rw_s2s_omni}{{2.8.3}{12}{全模态大模型}{subsection.2.8.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.9}研究现状综合分析}{13}{section.2.9}\protected@file@percent }
-\newlabel{sec:rw_analysis}{{2.9}{13}{研究现状综合分析}{section.2.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.10}本章小结}{14}{section.2.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.2}组合式语音大模型}{14}{subsubsection.2.4.3.2}\protected@file@percent }
+\newlabel{sec:rw_s2s_composite}{{2.4.3.2}{14}{组合式语音大模型}{subsubsection.2.4.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.3}全模态大模型}{14}{subsubsection.2.4.3.3}\protected@file@percent }
+\newlabel{sec:rw_s2s_omni}{{2.4.3.3}{14}{全模态大模型}{subsubsection.2.4.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}研究现状综合分析}{15}{section.2.5}\protected@file@percent }
+\newlabel{sec:rw_analysis}{{2.5}{15}{研究现状综合分析}{section.2.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}本章小结}{16}{section.2.6}\protected@file@percent }
 \citation{s2ut}
 \citation{translatotron}
 \citation{inaguma-etal-2023-unity}
@@ -195,53 +208,52 @@
 \citation{huang2023transpeech}
 \citation{diffs2ut}
 \citation{gu2018nat}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}基于有向无环图的语音到语音翻译模型}{15}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}基于有向无环图的语音到语音翻译模型}{17}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:daspeech}{{3}{15}{基于有向无环图的语音到语音翻译模型}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{15}{section.3.1}\protected@file@percent }
+\newlabel{chap:daspeech}{{3}{17}{基于有向无环图的语音到语音翻译模型}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{17}{section.3.1}\protected@file@percent }
 \citation{huang2022DATransformer}
 \citation{ren2021fastspeech2}
 \citation{huang2022DATransformer,huang2022PDAT}
 \citation{transformer}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}方法介绍}{16}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}相关技术}{16}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.1}DA-Transformer}{16}{subsubsection.3.2.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}方法介绍}{18}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}相关技术}{18}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.1}DA-Transformer}{18}{subsubsection.3.2.1.1}\protected@file@percent }
 \citation{ren2021fastspeech2}
-\newlabel{eq:dat}{{3-4}{17}{DA-Transformer}{equation.3.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.2}FastSpeech 2}{17}{subsubsection.3.2.1.2}\protected@file@percent }
-\newlabel{eq:tts}{{3-5}{17}{FastSpeech 2}{equation.3.2.5}{}}
+\newlabel{eq:dat}{{3-4}{19}{DA-Transformer}{equation.3.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.2}FastSpeech 2}{19}{subsubsection.3.2.1.2}\protected@file@percent }
+\newlabel{eq:tts}{{3-5}{19}{FastSpeech 2}{equation.3.2.5}{}}
 \citation{conformer}
 \citation{dai-etal-2019-transformer}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}模型架构}{18}{subsection.3.2.2}\protected@file@percent }
-\newlabel{sec:daspeech_arch}{{3.2.2}{18}{模型架构}{subsection.3.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace  DASpeech模型架构\relax }}{18}{figure.caption.14}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:daspeech}{{3-1}{18}{\enspace DASpeech模型架构\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}期望路径训练}{18}{subsection.3.2.3}\protected@file@percent }
-\newlabel{sec:daspeech_train}{{3.2.3}{18}{期望路径训练}{subsection.3.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}模型架构}{20}{subsection.3.2.2}\protected@file@percent }
+\newlabel{sec:daspeech_arch}{{3.2.2}{20}{模型架构}{subsection.3.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace  DASpeech模型架构\relax }}{20}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:daspeech}{{3-1}{20}{\enspace DASpeech模型架构\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}期望路径训练}{20}{subsection.3.2.3}\protected@file@percent }
+\newlabel{sec:daspeech_train}{{3.2.3}{20}{期望路径训练}{subsection.3.2.3}{}}
 \citation{hiddenmarkovmodel}
-\newlabel{eq:expect}{{3-6}{19}{期望路径训练}{equation.3.2.6}{}}
-\newlabel{eq:posterior}{{3-7}{19}{期望路径训练}{equation.3.2.7}{}}
+\newlabel{eq:expect}{{3-6}{21}{期望路径训练}{equation.3.2.6}{}}
+\newlabel{eq:posterior}{{3-7}{21}{期望路径训练}{equation.3.2.7}{}}
 \citation{viterbi}
 \citation{qian-etal-2021-glancing}
 \citation{hifigan}
-\newlabel{eq:daspeech}{{3-12}{20}{期望路径训练}{equation.3.2.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}解码策略}{20}{subsection.3.2.4}\protected@file@percent }
-\newlabel{sec:daspeech_infer}{{3.2.4}{20}{解码策略}{subsection.3.2.4}{}}
+\newlabel{eq:daspeech}{{3-12}{22}{期望路径训练}{equation.3.2.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}解码策略}{22}{subsection.3.2.4}\protected@file@percent }
+\newlabel{sec:daspeech_infer}{{3.2.4}{22}{解码策略}{subsection.3.2.4}{}}
 \citation{shao2022viterbi}
 \citation{viterbi}
 \citation{jia2022cvss}
 \citation{wang2020covost2}
 \citation{Veaux2017CSTRVC}
 \citation{adam}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果与分析}{21}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}实验设置}{21}{subsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}数据集}{21}{subsubsection.3.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}模型配置}{21}{subsubsection.3.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.3}训练细节}{21}{subsubsection.3.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果与分析}{23}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}实验设置}{23}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}数据集}{23}{subsubsection.3.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}模型配置}{23}{subsubsection.3.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.3}训练细节}{23}{subsubsection.3.3.1.3}\protected@file@percent }
 \citation{ott2019fairseq}
 \citation{post-2018-call}
 \citation{papineni-etal-2002-bleu}
@@ -251,81 +263,81 @@
 \citation{inaguma2022unity}
 \citation{translatotron2}
 \citation{huang2023transpeech}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.4}评价指标}{22}{subsubsection.3.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.5}基线系统}{22}{subsubsection.3.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.4}评价指标}{24}{subsubsection.3.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.5}基线系统}{24}{subsubsection.3.3.1.5}\protected@file@percent }
 \citation{s2ut}
 \citation{translatotron}
 \citation{inaguma-etal-2023-unity}
 \citation{translatotron2}
 \citation{huang2023transpeech}
-\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace  CVSS法语到英语数据集上的实验结果\relax }}{23}{table.caption.15}\protected@file@percent }
-\newlabel{tab:daspeech_main}{{3-1}{23}{\enspace CVSS法语到英语数据集上的实验结果\relax }{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}主要结果}{23}{subsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}法语到英语翻译结果}{23}{subsubsection.3.3.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace  CVSS法语到英语数据集上的实验结果\relax }}{25}{table.caption.19}\protected@file@percent }
+\newlabel{tab:daspeech_main}{{3-1}{25}{\enspace CVSS法语到英语数据集上的实验结果\relax }{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}主要结果}{25}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}法语到英语翻译结果}{25}{subsubsection.3.3.2.1}\protected@file@percent }
 \citation{s2ut}
 \citation{inaguma-etal-2023-unity}
 \citation{translatotron2}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}多语言翻译结果}{24}{subsubsection.3.3.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace  CVSS-C多语言数据集上的实验结果\relax }}{24}{table.caption.16}\protected@file@percent }
-\newlabel{tab:daspeech_multilingual}{{3-2}{24}{\enspace CVSS-C多语言数据集上的实验结果\relax }{table.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}分析实验}{24}{subsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.1}期望路径训练与最优路径训练的比较}{24}{subsubsection.3.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace  期望路径训练与最优路径训练的对比\relax }}{25}{table.caption.17}\protected@file@percent }
-\newlabel{tab:daspeech_path}{{3-3}{25}{\enspace 期望路径训练与最优路径训练的对比\relax }{table.caption.17}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.2}解码速度分析}{25}{subsubsection.3.3.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace  不同源语音长度下的翻译延迟对比\relax }}{25}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:daspeech_decoding}{{3-2}{25}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}多语言翻译结果}{26}{subsubsection.3.3.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace  CVSS-C多语言数据集上的实验结果\relax }}{26}{table.caption.20}\protected@file@percent }
+\newlabel{tab:daspeech_multilingual}{{3-2}{26}{\enspace CVSS-C多语言数据集上的实验结果\relax }{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}分析实验}{26}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.1}期望路径训练与最优路径训练的比较}{26}{subsubsection.3.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace  期望路径训练与最优路径训练的对比\relax }}{27}{table.caption.21}\protected@file@percent }
+\newlabel{tab:daspeech_path}{{3-3}{27}{\enspace 期望路径训练与最优路径训练的对比\relax }{table.caption.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.2}解码速度分析}{27}{subsubsection.3.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace  不同源语音长度下的翻译延迟对比\relax }}{27}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:daspeech_decoding}{{3-2}{27}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.22}{}}
 \citation{s2ut}
 \citation{inaguma-etal-2023-unity}
 \citation{huang2023transpeech}
 \citation{translatotron}
 \citation{translatotron2}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace  翻译质量与解码速度的权衡\relax }}{26}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:daspeech_tradeoff}{{3-3}{26}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace  不同批次大小下的解码加速比\relax }}{26}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:daspeech_batch}{{3-4}{26}{\enspace 不同批次大小下的解码加速比\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.3}图尺寸的影响}{26}{subsubsection.3.3.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace  不同图尺寸下S2TT模型的翻译质量\relax }}{26}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:daspeech_graph_size_s2t}{{3-5}{26}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace  不同图尺寸下DASpeech的翻译质量\relax }}{26}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:daspeech_graph_size_s2s}{{3-6}{26}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.4}音色保持能力分析}{27}{subsubsection.3.3.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace  各模型的说话人相似度对比\relax }}{27}{table.caption.21}\protected@file@percent }
-\newlabel{tab:daspeech_speaker}{{3-4}{27}{\enspace 各模型的说话人相似度对比\relax }{table.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{27}{section.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace  翻译质量与解码速度的权衡\relax }}{28}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:daspeech_tradeoff}{{3-3}{28}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace  不同批次大小下的解码加速比\relax }}{28}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:daspeech_batch}{{3-4}{28}{\enspace 不同批次大小下的解码加速比\relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.3}图尺寸的影响}{28}{subsubsection.3.3.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace  不同图尺寸下S2TT模型的翻译质量\relax }}{28}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:daspeech_graph_size_s2t}{{3-5}{28}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace  不同图尺寸下DASpeech的翻译质量\relax }}{28}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:daspeech_graph_size_s2s}{{3-6}{28}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.4}音色保持能力分析}{29}{subsubsection.3.3.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace  各模型的说话人相似度对比\relax }}{29}{table.caption.25}\protected@file@percent }
+\newlabel{tab:daspeech_speaker}{{3-4}{29}{\enspace 各模型的说话人相似度对比\relax }{table.caption.25}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{29}{section.3.4}\protected@file@percent }
 \citation{ctc}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}基于词表转换的组合式语音到语音翻译模型}{29}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}基于词表转换的组合式语音到语音翻译模型}{31}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:comspeech}{{4}{29}{基于词表转换的组合式语音到语音翻译模型}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{29}{section.4.1}\protected@file@percent }
+\newlabel{chap:comspeech}{{4}{31}{基于词表转换的组合式语音到语音翻译模型}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{31}{section.4.1}\protected@file@percent }
 \citation{conformer}
 \citation{transformer}
 \citation{ren2021fastspeech2}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}方法介绍}{30}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}模型架构}{30}{subsection.4.2.1}\protected@file@percent }
-\newlabel{sec:comspeech_arch}{{4.2.1}{30}{模型架构}{subsection.4.2.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace  ComSpeech模型架构\relax }}{31}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:comspeech}{{4-1}{31}{\enspace ComSpeech模型架构\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}方法介绍}{32}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}模型架构}{32}{subsection.4.2.1}\protected@file@percent }
+\newlabel{sec:comspeech_arch}{{4.2.1}{32}{模型架构}{subsection.4.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace  ComSpeech模型架构\relax }}{33}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:comspeech}{{4-1}{33}{\enspace ComSpeech模型架构\relax }{figure.caption.26}{}}
 \citation{viterbi}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}有监督训练}{32}{subsection.4.2.2}\protected@file@percent }
-\newlabel{sec:comspeech_supervised}{{4.2.2}{32}{有监督训练}{subsection.4.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}零样本训练}{32}{subsection.4.2.3}\protected@file@percent }
-\newlabel{sec:comspeech_zeroshot}{{4.2.3}{32}{零样本训练}{subsection.4.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace  ComSpeech-ZS的训练与推理流程\relax }}{33}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:comspeech_training}{{4-2}{33}{\enspace ComSpeech-ZS的训练与推理流程\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}表示对齐}{33}{subsubsection.4.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}有监督训练}{34}{subsection.4.2.2}\protected@file@percent }
+\newlabel{sec:comspeech_supervised}{{4.2.2}{34}{有监督训练}{subsection.4.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}零样本训练}{34}{subsection.4.2.3}\protected@file@percent }
+\newlabel{sec:comspeech_zeroshot}{{4.2.3}{34}{零样本训练}{subsection.4.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace  ComSpeech-ZS的训练与推理流程\relax }}{35}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:comspeech_training}{{4-2}{35}{\enspace ComSpeech-ZS的训练与推理流程\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}表示对齐}{35}{subsubsection.4.2.3.1}\protected@file@percent }
 \citation{jia2022cvss}
 \citation{Veaux2017CSTRVC}
 \citation{hifigan}
 \citation{adam}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}两阶段微调策略}{34}{subsubsection.4.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}实验结果与分析}{34}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}实验设置}{34}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.1}数据集}{34}{subsubsection.4.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.2}模型配置}{34}{subsubsection.4.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}两阶段微调策略}{36}{subsubsection.4.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}实验结果与分析}{36}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}实验设置}{36}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.1}数据集}{36}{subsubsection.4.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.2}模型配置}{36}{subsubsection.4.3.1.2}\protected@file@percent }
 \citation{post-2018-call}
 \citation{papineni-etal-2002-bleu}
 \citation{communication2023seamlessm4t}
@@ -337,113 +349,113 @@
 \citation{inaguma-etal-2023-unity}
 \citation{s2ut}
 \citation{fang-etal-2023-daspeech}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.3}训练细节}{35}{subsubsection.4.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.4}评价指标}{35}{subsubsection.4.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.5}基线系统}{35}{subsubsection.4.3.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}主要结果}{35}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}有监督学习结果}{35}{subsubsection.4.3.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  CVSS数据集上的实验结果\relax }}{36}{table.caption.24}\protected@file@percent }
-\newlabel{tab:comspeech_main}{{4-1}{36}{\enspace CVSS数据集上的实验结果\relax }{table.caption.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.2}S2TT与S2ST的性能差距分析}{36}{subsubsection.4.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.3}训练细节}{37}{subsubsection.4.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.4}评价指标}{37}{subsubsection.4.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.5}基线系统}{37}{subsubsection.4.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}主要结果}{37}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}有监督学习结果}{37}{subsubsection.4.3.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  CVSS数据集上的实验结果\relax }}{38}{table.caption.28}\protected@file@percent }
+\newlabel{tab:comspeech_main}{{4-1}{38}{\enspace CVSS数据集上的实验结果\relax }{table.caption.28}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.2}S2TT与S2ST的性能差距分析}{38}{subsubsection.4.3.2.2}\protected@file@percent }
 \citation{translatotron2}
 \citation{inaguma-etal-2023-unity}
-\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  S2TT与S2ST的性能差距对比\relax }}{37}{table.caption.25}\protected@file@percent }
-\newlabel{tab:comspeech_gap}{{4-2}{37}{\enspace S2TT与S2ST的性能差距对比\relax }{table.caption.25}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.3}零样本学习结果}{37}{subsubsection.4.3.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  BLASER 2.0评估结果\relax }}{37}{table.caption.26}\protected@file@percent }
-\newlabel{tab:comspeech_blaser}{{4-3}{37}{\enspace BLASER 2.0评估结果\relax }{table.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  S2TT与S2ST的性能差距对比\relax }}{39}{table.caption.29}\protected@file@percent }
+\newlabel{tab:comspeech_gap}{{4-2}{39}{\enspace S2TT与S2ST的性能差距对比\relax }{table.caption.29}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.3}零样本学习结果}{39}{subsubsection.4.3.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  BLASER 2.0评估结果\relax }}{39}{table.caption.30}\protected@file@percent }
+\newlabel{tab:comspeech_blaser}{{4-3}{39}{\enspace BLASER 2.0评估结果\relax }{table.caption.30}{}}
 \citation{pmlr-v119-wang20k}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.4}BLASER 2.0评估结果}{38}{subsubsection.4.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}分析实验}{38}{subsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}对齐训练目标的消融}{38}{subsubsection.4.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  不同对齐训练目标的实验结果\relax }}{38}{table.caption.27}\protected@file@percent }
-\newlabel{tab:comspeech_objectives}{{4-4}{38}{\enspace 不同对齐训练目标的实验结果\relax }{table.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace  不同预训练和微调策略的实验结果\relax }}{39}{table.caption.28}\protected@file@percent }
-\newlabel{tab:comspeech_pretrain}{{4-5}{39}{\enspace 不同预训练和微调策略的实验结果\relax }{table.caption.28}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.2}预训练和微调策略的消融}{39}{subsubsection.4.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.3}词表适配器超参数分析}{39}{subsubsection.4.3.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace  词表适配器超参数实验结果\relax }}{39}{table.caption.29}\protected@file@percent }
-\newlabel{tab:comspeech_adaptor}{{4-6}{39}{\enspace 词表适配器超参数实验结果\relax }{table.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  TTS数据规模对翻译质量的影响\relax }}{40}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:comspeech_tts_data}{{4-3}{40}{\enspace TTS数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  S2TT数据规模对翻译质量的影响\relax }}{40}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:comspeech_s2tt_data}{{4-4}{40}{\enspace S2TT数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.4}数据规模的影响}{40}{subsubsection.4.3.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{40}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.4}BLASER 2.0评估结果}{40}{subsubsection.4.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}分析实验}{40}{subsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}对齐训练目标的消融}{40}{subsubsection.4.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  不同对齐训练目标的实验结果\relax }}{40}{table.caption.31}\protected@file@percent }
+\newlabel{tab:comspeech_objectives}{{4-4}{40}{\enspace 不同对齐训练目标的实验结果\relax }{table.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace  不同预训练和微调策略的实验结果\relax }}{41}{table.caption.32}\protected@file@percent }
+\newlabel{tab:comspeech_pretrain}{{4-5}{41}{\enspace 不同预训练和微调策略的实验结果\relax }{table.caption.32}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.2}预训练和微调策略的消融}{41}{subsubsection.4.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.3}词表适配器超参数分析}{41}{subsubsection.4.3.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace  词表适配器超参数实验结果\relax }}{41}{table.caption.33}\protected@file@percent }
+\newlabel{tab:comspeech_adaptor}{{4-6}{41}{\enspace 词表适配器超参数实验结果\relax }{table.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  TTS数据规模对翻译质量的影响\relax }}{42}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:comspeech_tts_data}{{4-3}{42}{\enspace TTS数据规模对翻译质量的影响\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  S2TT数据规模对翻译质量的影响\relax }}{42}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:comspeech_s2tt_data}{{4-4}{42}{\enspace S2TT数据规模对翻译质量的影响\relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.4}数据规模的影响}{42}{subsubsection.4.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{42}{section.4.4}\protected@file@percent }
 \citation{chatgpt}
 \citation{zhang-etal-2023-speechgpt,rubenstein2023audiopalm}
 \citation{zhang-etal-2023-speechgpt}
 \citation{ctc}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}基于连接时序分类的实时语音交互大模型}{42}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}基于连接时序分类的实时语音交互大模型}{44}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni}{{5}{42}{基于连接时序分类的实时语音交互大模型}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}引言}{42}{section.5.1}\protected@file@percent }
+\newlabel{chap:llama-omni}{{5}{44}{基于连接时序分类的实时语音交互大模型}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}引言}{44}{section.5.1}\protected@file@percent }
 \citation{gpt4o}
 \citation{zhang-etal-2023-speechgpt}
 \citation{tang2024salmonn}
 \citation{Qwen2-Audio}
 \citation{whisper}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}方法介绍}{43}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}模型架构}{43}{subsection.5.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace  LLaMA-Omni模型架构\relax }}{43}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:llamaomni}{{5-1}{43}{\enspace LLaMA-Omni模型架构\relax }{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}方法介绍}{45}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}模型架构}{45}{subsection.5.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace  LLaMA-Omni模型架构\relax }}{45}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:llamaomni}{{5-1}{45}{\enspace LLaMA-Omni模型架构\relax }{figure.caption.35}{}}
 \citation{dubey2024llama3}
 \citation{hubert}
 \citation{hifigan}
 \citation{polyak21_interspeech}
 \citation{transformer}
-\newlabel{eq:llm_loss}{{5-3}{44}{模型架构}{equation.5.2.3}{}}
+\newlabel{eq:llm_loss}{{5-3}{46}{模型架构}{equation.5.2.3}{}}
 \citation{ctc}
-\newlabel{eq:ctc_loss}{{5-5}{45}{模型架构}{equation.5.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}训练策略}{45}{subsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace  LLaMA-Omni的两阶段训练策略\relax }}{45}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:llamaomni_training}{{5-2}{45}{\enspace LLaMA-Omni的两阶段训练策略\relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}流式推理}{46}{subsection.5.2.3}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces LLaMA-Omni流式推理过程\relax }}{46}{algorithm.1}\protected@file@percent }
-\newlabel{algo:llamaomni_infer}{{1}{46}{LLaMA-Omni流式推理过程\relax }{algorithm.1}{}}
+\newlabel{eq:ctc_loss}{{5-5}{47}{模型架构}{equation.5.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}训练策略}{47}{subsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace  LLaMA-Omni的两阶段训练策略\relax }}{47}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:llamaomni_training}{{5-2}{47}{\enspace LLaMA-Omni的两阶段训练策略\relax }{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}流式推理}{48}{subsection.5.2.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces LLaMA-Omni流式推理过程\relax }}{48}{algorithm.1}\protected@file@percent }
+\newlabel{algo:llamaomni_infer}{{1}{48}{LLaMA-Omni流式推理过程\relax }{algorithm.1}{}}
 \citation{cho-etal-2024-speechworthy}
 \citation{du2024cosyvoice}
 \citation{ljspeech17}
 \citation{kim2021conditional}
 \citation{alpaca}
 \citation{ultrachat}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}语音指令数据集构建}{47}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}语音指令数据集构建}{49}{section.5.3}\protected@file@percent }
 \citation{hifigan,polyak21_interspeech}
 \citation{alpacaeval}
-\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{48}{table.caption.33}\protected@file@percent }
-\newlabel{tab:llamaomni_data}{{5-1}{48}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.33}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}实验结果与分析}{48}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}实验设置}{48}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.1}数据集}{48}{subsubsection.5.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.2}模型配置}{48}{subsubsection.5.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.3}训练细节}{48}{subsubsection.5.4.1.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{50}{table.caption.37}\protected@file@percent }
+\newlabel{tab:llamaomni_data}{{5-1}{50}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.37}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}实验结果与分析}{50}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}实验设置}{50}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.1}数据集}{50}{subsubsection.5.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.2}模型配置}{50}{subsubsection.5.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.3}训练细节}{50}{subsubsection.5.4.1.3}\protected@file@percent }
 \citation{gpt4o}
 \citation{saeki22c_interspeech}
 \citation{zhang-etal-2023-speechgpt}
 \citation{tang2024salmonn}
 \citation{Qwen2-Audio}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.4}评价指标}{49}{subsubsection.5.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.5}基线系统}{49}{subsubsection.5.4.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}离线场景结果}{49}{subsection.5.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{50}{table.caption.34}\protected@file@percent }
-\newlabel{tab:llamaomni_offline}{{5-2}{50}{\enspace 离线场景下的实验结果\relax }{table.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}流式场景结果}{50}{subsection.5.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{51}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:llamaomni_streaming}{{5-3}{51}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{52}{table.caption.36}\protected@file@percent }
-\newlabel{tab:llamaomni_streaming}{{5-3}{52}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.36}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}解码效率分析}{52}{subsection.5.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{52}{table.caption.37}\protected@file@percent }
-\newlabel{tab:llamaomni_decode_time}{{5-4}{52}{\enspace 平均解码时间对比\relax }{table.caption.37}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}人工评估}{52}{subsection.5.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{52}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_helpful}{{5-4}{52}{\enspace 帮助性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{52}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_natural}{{5-5}{52}{\enspace 自然性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{53}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.4}评价指标}{51}{subsubsection.5.4.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.5}基线系统}{51}{subsubsection.5.4.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}离线场景结果}{51}{subsection.5.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{52}{table.caption.38}\protected@file@percent }
+\newlabel{tab:llamaomni_offline}{{5-2}{52}{\enspace 离线场景下的实验结果\relax }{table.caption.38}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}流式场景结果}{52}{subsection.5.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{53}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:llamaomni_streaming}{{5-3}{53}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{54}{table.caption.40}\protected@file@percent }
+\newlabel{tab:llamaomni_streaming}{{5-3}{54}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.40}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}解码效率分析}{54}{subsection.5.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{54}{table.caption.41}\protected@file@percent }
+\newlabel{tab:llamaomni_decode_time}{{5-4}{54}{\enspace 平均解码时间对比\relax }{table.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}人工评估}{54}{subsection.5.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{54}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_helpful}{{5-4}{54}{\enspace 帮助性人工评估结果\relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{54}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_natural}{{5-5}{54}{\enspace 自然性人工评估结果\relax }{figure.caption.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{55}{section.5.5}\protected@file@percent }
 \citation{zhang-etal-2023-speechgpt,glm4voice,kyutai2024moshi}
 \citation{glm4voice}
 \citation{kyutai2024moshi}
@@ -453,81 +465,81 @@
 \citation{qwen2.5}
 \citation{whisper}
 \citation{du2024cosyvoice}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}基于自回归流式解码的高质量语音交互大模型}{54}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}基于自回归流式解码的高质量语音交互大模型}{56}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni2}{{6}{54}{基于自回归流式解码的高质量语音交互大模型}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}引言}{54}{section.6.1}\protected@file@percent }
+\newlabel{chap:llama-omni2}{{6}{56}{基于自回归流式解码的高质量语音交互大模型}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}引言}{56}{section.6.1}\protected@file@percent }
 \citation{glm4voice}
 \citation{whisper}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}方法介绍}{55}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}模型架构}{55}{subsection.6.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace  LLaMA-Omni 2模型架构与训练策略\relax }}{55}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:llamaomni2}{{6-1}{55}{\enspace LLaMA-Omni 2模型架构与训练策略\relax }{figure.caption.39}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}方法介绍}{57}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}模型架构}{57}{subsection.6.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace  LLaMA-Omni 2模型架构与训练策略\relax }}{57}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:llamaomni2}{{6-1}{57}{\enspace LLaMA-Omni 2模型架构与训练策略\relax }{figure.caption.43}{}}
 \citation{du2024cosyvoice}
 \citation{an2024funaudiollm}
 \citation{mentzer2024finite}
 \citation{transformer}
 \citation{lipman2023flow}
 \citation{hifigan}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}训练策略}{57}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}训练策略}{59}{subsection.6.2.2}\protected@file@percent }
 \citation{alpaca}
 \citation{ultrachat}
 \citation{dubey2024llama3}
 \citation{fish-speech-v1.4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}流式推理}{58}{subsection.6.2.3}\protected@file@percent }
-\newlabel{eq:llamaomni2_latency}{{6-6}{58}{流式推理}{equation.6.2.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}多轮对话数据集构建}{58}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}流式推理}{60}{subsection.6.2.3}\protected@file@percent }
+\newlabel{eq:llamaomni2_latency}{{6-6}{60}{流式推理}{equation.6.2.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}多轮对话数据集构建}{60}{section.6.3}\protected@file@percent }
 \citation{nachmani2024spoken}
 \citation{berant-etal-2013-semantic}
 \citation{gpt4o}
 \citation{saeki22c_interspeech}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}实验结果与分析}{59}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}实验设置}{59}{subsection.6.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.1}模型配置}{59}{subsubsection.6.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.2}训练细节}{59}{subsubsection.6.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.3}评价指标}{59}{subsubsection.6.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}实验结果与分析}{61}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}实验设置}{61}{subsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.1}模型配置}{61}{subsubsection.6.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.2}训练细节}{61}{subsubsection.6.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.3}评价指标}{61}{subsubsection.6.4.1.3}\protected@file@percent }
 \citation{fang2025llamaomni}
 \citation{glm4voice}
 \citation{zhang-etal-2023-speechgpt}
 \citation{hassid2024textually}
 \citation{nachmani2024spoken}
 \citation{kyutai2024moshi}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.4}基线系统}{60}{subsubsection.6.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}主要结果}{60}{subsection.6.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace  语音问答和语音指令遵循任务的主要结果\relax }}{60}{table.caption.40}\protected@file@percent }
-\newlabel{tab:llamaomni2_main}{{6-1}{60}{\enspace 语音问答和语音指令遵循任务的主要结果\relax }{table.caption.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}消融实验}{61}{subsection.6.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.1}门控融合机制}{61}{subsubsection.6.4.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace  门控融合机制的消融实验\relax }}{61}{table.caption.41}\protected@file@percent }
-\newlabel{tab:llamaomni2_ablation}{{6-2}{61}{\enspace 门控融合机制的消融实验\relax }{table.caption.41}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.2}TTS预训练策略}{62}{subsubsection.6.4.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace  TTS预训练策略的消融实验\relax }}{62}{table.caption.42}\protected@file@percent }
-\newlabel{tab:llamaomni2_pretrain}{{6-3}{62}{\enspace TTS预训练策略的消融实验\relax }{table.caption.42}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.3}读写策略}{62}{subsubsection.6.4.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace  读写策略的消融实验\relax }}{62}{table.caption.43}\protected@file@percent }
-\newlabel{tab:llamaomni2_readwrite}{{6-4}{62}{\enspace 读写策略的消融实验\relax }{table.caption.43}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace  LLaMA-Omni 2系列模型的延迟分解\relax }}{63}{table.caption.44}\protected@file@percent }
-\newlabel{tab:llamaomni2_latency}{{6-5}{63}{\enspace LLaMA-Omni 2系列模型的延迟分解\relax }{table.caption.44}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.4}训练数据规模}{64}{subsubsection.6.4.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace  训练数据规模的影响\relax }}{64}{table.caption.45}\protected@file@percent }
-\newlabel{tab:llamaomni2_data}{{6-6}{64}{\enspace 训练数据规模的影响\relax }{table.caption.45}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}本章小结}{64}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第7章\hspace  {.3em}}基于全双工建模的自然语音交互大模型}{65}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.4}基线系统}{62}{subsubsection.6.4.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}主要结果}{62}{subsection.6.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace  语音问答和语音指令遵循任务的主要结果\relax }}{62}{table.caption.44}\protected@file@percent }
+\newlabel{tab:llamaomni2_main}{{6-1}{62}{\enspace 语音问答和语音指令遵循任务的主要结果\relax }{table.caption.44}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}消融实验}{63}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.1}门控融合机制}{63}{subsubsection.6.4.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace  门控融合机制的消融实验\relax }}{63}{table.caption.45}\protected@file@percent }
+\newlabel{tab:llamaomni2_ablation}{{6-2}{63}{\enspace 门控融合机制的消融实验\relax }{table.caption.45}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.2}TTS预训练策略}{64}{subsubsection.6.4.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace  TTS预训练策略的消融实验\relax }}{64}{table.caption.46}\protected@file@percent }
+\newlabel{tab:llamaomni2_pretrain}{{6-3}{64}{\enspace TTS预训练策略的消融实验\relax }{table.caption.46}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.3}读写策略}{64}{subsubsection.6.4.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace  读写策略的消融实验\relax }}{64}{table.caption.47}\protected@file@percent }
+\newlabel{tab:llamaomni2_readwrite}{{6-4}{64}{\enspace 读写策略的消融实验\relax }{table.caption.47}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace  LLaMA-Omni 2系列模型的延迟分解\relax }}{65}{table.caption.48}\protected@file@percent }
+\newlabel{tab:llamaomni2_latency}{{6-5}{65}{\enspace LLaMA-Omni 2系列模型的延迟分解\relax }{table.caption.48}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.4}训练数据规模}{66}{subsubsection.6.4.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace  训练数据规模的影响\relax }}{66}{table.caption.49}\protected@file@percent }
+\newlabel{tab:llamaomni2_data}{{6-6}{66}{\enspace 训练数据规模的影响\relax }{table.caption.49}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}本章小结}{66}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第7章\hspace  {.3em}}基于全双工建模的自然语音交互大模型}{67}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:full-duplex}{{7}{65}{基于全双工建模的自然语音交互大模型}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}引言}{65}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第8章\hspace  {.3em}}总结与展望}{67}{chapter.8}\protected@file@percent }
+\newlabel{chap:full-duplex}{{7}{67}{基于全双工建模的自然语音交互大模型}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}引言}{67}{section.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第8章\hspace  {.3em}}总结与展望}{69}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{8}{67}{总结与展望}{chapter.8}{}}
+\newlabel{chap:conclusion}{{8}{69}{总结与展望}{chapter.8}{}}
 \bibdata{Biblio/ref}
 \bibcite{transformer}{{1}{2017}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
 \bibcite{gpt1}{{2}{2018}{{Radford}}{{}}}
@@ -546,7 +558,7 @@
 \bibcite{chiu2022bestrq}{{15}{2022}{{Chiu {等}}}{{Chiu, Qin, Zhang, Yu, and Wu}}}
 \bibcite{chen2023beats}{{16}{2023}{{Chen {等}}}{{Chen, Wu, Wang, Liu, Tompkins, Chen, and Wei}}}
 \bibcite{whisper}{{17}{2023}{{Radford {等}}}{{Radford, Kim, Xu, Brockman, McLeavey, and Sutskever}}}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{69}{section*.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{参考文献}{71}{section*.50}\protected@file@percent }
 \bibcite{peng2023owsm}{{18}{2023}{{Peng {等}}}{{Peng, Tian, Yan, Berrebbi, Chang, Li, Shi, Arora, Chen, Sharma, Zhang, Sudo, Shakeel, weon Jung, Maiti, and Watanabe}}}
 \bibcite{an2024funaudiollm}{{19}{2024}{{An {等}}}{{An, Chen, Deng, Du, Gao, Gao, Gu, He, Hu, Hu, et~al.}}}
 \bibcite{liu2023audioldm}{{20}{2023}{{Liu {等}}}{{Liu, Chen, Yuan, Mei, Liu, Mandic, Wang, and Plumbley}}}
@@ -682,14 +694,14 @@
 \bibcite{nachmani2024spoken}{{150}{2024}{{Nachmani {等}}}{{Nachmani, Levkovitch, Hirsch, Salazar, Asawaroengchai, Mariooryad, Rivlin, Skerry-Ryan, and Ramanovich}}}
 \bibcite{berant-etal-2013-semantic}{{151}{2013}{{Berant {等}}}{{Berant, Chou, Frostig, and Liang}}}
 \bibcite{hassid2024textually}{{152}{2024{}}{{Hassid {等}}}{{Hassid, Remez, Nguyen, Gat, Conneau, Kreuk, Copet, Defossez, Synnaeve, Dupoux, et~al.}}}
-\@writefile{toc}{\contentsline {chapter}{致谢}{79}{appendix*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{致谢}{81}{appendix*.52}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{81}{appendix*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{83}{appendix*.53}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\gdef \@abspage@last{100}
+\gdef \@abspage@last{102}

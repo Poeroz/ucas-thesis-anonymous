@@ -1,0 +1,50 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw, rounded corners=3pt, minimum height=0.7cm, align=center, font=\small},
+        databox/.style={draw, rounded corners=3pt, minimum height=0.7cm, align=center, fill=black!8, font=\small},
+        reprbox/.style={draw, rounded corners=3pt, minimum height=0.7cm, align=center, fill=black!5, font=\small},
+        arr/.style={->, >=stealth, thick},
+        lbl/.style={font=\footnotesize\bfseries},
+        catlbl/.style={font=\small\bfseries, anchor=east},
+    ]
+
+    % 分类标签
+    \node[catlbl] at (-0.3, 1.5) {连续表征};
+    \node[catlbl] at (-0.3, -1.5) {离散表征};
+
+    % 分隔线
+    \draw[dashed, black!30] (-0.1, 0) -- (11.5, 0);
+
+    % 梅尔频谱
+    \node[reprbox, minimum width=2cm] (mel) at (1.6, 2.4) {梅尔频谱};
+    \node[box, minimum width=1.6cm] (vocoder1) at (5.4, 2.4) {声码器};
+    \node[databox, minimum width=1.6cm] (wav1) at (8.6, 2.4) {语音波形};
+    \draw[arr] (mel) -- node[above, font=\scriptsize, text=black!60] {时频矩阵} (vocoder1);
+    \draw[arr] (vocoder1) -- (wav1);
+
+    % VAE
+    \node[reprbox, minimum width=2cm] (vae) at (1.6, 0.8) {VAE潜在特征};
+    \node[box, minimum width=1.6cm] (vaedec) at (5.4, 0.8) {VAE解码器};
+    \node[databox, minimum width=1.6cm] (wav2) at (8.6, 0.8) {语音波形};
+    \draw[arr] (vae) -- node[above, font=\scriptsize, text=black!60] {低维潜在向量} (vaedec);
+    \draw[arr] (vaedec) -- (wav2);
+
+    % 单码本
+    \node[reprbox, minimum width=2cm] (single) at (1.6, -0.8) {单码本token};
+    \node[box, minimum width=1.6cm] (synth1) at (5.4, -0.8) {语音合成器};
+    \node[databox, minimum width=1.6cm] (wav3) at (8.6, -0.8) {语音波形};
+    \draw[arr] (single) -- node[above, font=\scriptsize, text=black!60] {一维token序列} (synth1);
+    \draw[arr] (synth1) -- (wav3);
+
+    % 多码本
+    \node[reprbox, minimum width=2cm] (multi) at (1.6, -2.4) {多码本token};
+    \node[box, minimum width=1.6cm] (synth2) at (5.4, -2.4) {语音合成器};
+    \node[databox, minimum width=1.6cm] (wav4) at (8.6, -2.4) {语音波形};
+    \draw[arr] (multi) -- node[above, font=\scriptsize, text=black!60] {多层token矩阵} (synth2);
+    \draw[arr] (synth2) -- (wav4);
+
+    \end{tikzpicture}
+    \bicaption{\enspace 用于生成的语音表征分类：连续表征（梅尔频谱和VAE潜在特征）与离散表征（单码本和多码本token）}{\enspace Taxonomy of speech representations for generation: continuous representations (mel spectrogram and VAE latent features) and discrete representations (single-codebook and multi-codebook tokens)}
+    \label{fig:rw_repr_gen}
+\end{figure}
