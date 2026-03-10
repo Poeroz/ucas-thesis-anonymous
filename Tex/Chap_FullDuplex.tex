@@ -89,9 +89,37 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 
 通过以上规则，文本信道在每个时刻都明确编码了当前的对话状态。模型的轮替决策被自然地转化为下一词元预测：预测\texttt{[SILENCE]}意味着继续等待，预测\texttt{[START]}意味着开始回复，预测\texttt{[EPAD]}意味着停止回复。这种设计将全双工场景下的各种交互决策统一到标准的自回归语言模型框架中，无需引入额外的分类头或决策模块。
 
+需要强调的是，文本信道的本质作用是为助手语音信道的生成提供引导信号。文本信道中的所有内容——包括\texttt{[SILENCE]}、\texttt{[START]}、文本词元和\texttt{[EPAD]}——并不直接作为模型的最终输出，而是作为条件信息指导助手语音信道生成相应的语音词元。例如，当文本信道输出\texttt{[SILENCE]}时，助手语音信道应生成与静音对应的语音词元；当文本信道输出文本内容时，助手语音信道应生成与该文本内容对应的语音词元。最终播放给用户的声音完全由助手语音信道的词元经语音解码器合成而来。这种设计使得文本信道承担了类似于"内心独白"的角色，模型通过文本信道进行状态决策和内容规划，再通过助手语音信道将决策外化为语音输出。
+
 \subsubsection{推理过程}
 
-推理时采用逐块自回归生成。对于每个块，模型首先接收$N$个来自实时语音流的用户语音词元，然后自回归生成$M$个文本信道词元和$N$个助手语音词元。生成文本信道词元时，通过词表掩码将预测范围限制在文本词元和特殊标记内；生成助手语音词元时，同样通过词表掩码限制在语音词元范围内。当文本信道生成\texttt{[START]}时标记回复开始，当生成\texttt{[EPAD]}时标记回复结束。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\delta$。
+推理时采用逐块自回归生成，完整流程如算法\ref{algo:fullduplex_infer}所示。每个时间步对应一个块：模型首先接收$N$个来自实时语音流的用户语音词元作为输入条件；随后自回归生成$M$个文本信道词元，通过词表掩码将预测范围限制在文本词元和特殊标记内，该过程决定了模型当前的对话状态和回复内容；最后自回归生成$N$个助手语音词元，同样通过词表掩码限制在语音词元范围内。当文本信道生成\texttt{[START]}时标记回复开始，模型进入回复状态；当生成\texttt{[EPAD]}时标记回复结束，模型回到静默状态。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\delta$以对齐真实时间轴。
+
+\begin{algorithm}[htbp]
+\small
+\caption{全双工语音交互模型推理过程}
+\label{algo:fullduplex_infer}
+\algrenewcommand{\algorithmiccomment}[1]{\hfill// #1}
+\begin{algorithmic}[1]
+\Require 实时用户语音流，块参数$N$、$M$，因果偏移$\delta$
+\Ensure 助手语音波形
+\State 初始化块索引 $b = 0$，对话状态 $\text{state} = \textsc{Silent}$
+\While{对话未结束}
+    \State $\mathbf{x}_b \leftarrow$ 从语音流接收$N$个用户语音词元并输入模型
+    \For{$j = 1, \ldots, M$} \Comment{生成文本信道}
+        \State $z \leftarrow$ 自回归采样（词表掩码限制为文本词元和特殊标记）
+        \If{$z = \texttt{[START]}$} $\text{state} \leftarrow \textsc{Speaking}$
+        \ElsIf{$z = \texttt{[EPAD]}$} $\text{state} \leftarrow \textsc{Silent}$
+        \EndIf
+    \EndFor
+    \For{$j = 1, \ldots, N$} \Comment{生成助手语音信道}
+        \State $y \leftarrow$ 自回归采样（词表掩码限制为语音词元）
+    \EndFor
+    \State 将$N$个助手语音词元送入语音解码器，合成波形并在时刻$(b+1) \cdot \Delta t + \delta$播放
+    \State $b \leftarrow b + 1$
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{训练数据构造}
 

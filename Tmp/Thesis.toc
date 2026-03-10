@@ -123,13 +123,13 @@
 \contentsline {subsubsection}{\numberline {7.2.2.4}因果偏移}{71}{subsubsection.7.2.2.4}%
 \contentsline {subsubsection}{\numberline {7.2.2.5}文本信道构建规则}{71}{subsubsection.7.2.2.5}%
 \contentsline {subsubsection}{\numberline {7.2.2.6}推理过程}{72}{subsubsection.7.2.2.6}%
-\contentsline {subsection}{\numberline {7.2.3}训练数据构造}{72}{subsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.3.1}轮替场景}{72}{subsubsection.7.2.3.1}%
-\contentsline {subsubsection}{\numberline {7.2.3.2}打断场景}{73}{subsubsection.7.2.3.2}%
-\contentsline {subsection}{\numberline {7.2.4}模型训练}{73}{subsection.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.4.1}监督微调}{73}{subsubsection.7.2.4.1}%
-\contentsline {subsubsection}{\numberline {7.2.4.2}直接偏好优化}{74}{subsubsection.7.2.4.2}%
-\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{75}{chapter.8}%
+\contentsline {subsection}{\numberline {7.2.3}训练数据构造}{73}{subsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.1}轮替场景}{73}{subsubsection.7.2.3.1}%
+\contentsline {subsubsection}{\numberline {7.2.3.2}打断场景}{74}{subsubsection.7.2.3.2}%
+\contentsline {subsection}{\numberline {7.2.4}模型训练}{74}{subsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.4.1}监督微调}{74}{subsubsection.7.2.4.1}%
+\contentsline {subsubsection}{\numberline {7.2.4.2}直接偏好优化}{75}{subsubsection.7.2.4.2}%
+\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{76}{chapter.8}%
 \contentsline {chapter}{参考文献}{77}{section*.46}%
 \contentsline {chapter}{致谢}{89}{appendix*.48}%
 \contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{91}{appendix*.49}%
