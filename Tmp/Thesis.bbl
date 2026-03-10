@@ -1,4 +1,4 @@
-\begin{thebibliography}{187}
+\begin{thebibliography}{184}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -1204,32 +1204,6 @@ Zhu~Y, Liu~Z, Sisman~B.
 \newblock {VocalNet}: Speech llm with multi-token prediction for faster and
   higher quality generation [J].
 \newblock arXiv preprint arXiv:2412.15553, 2024.
-
-\bibitem[Zhan {\bibetal}(2024)Zhan, Dai, Ye, Zhou, Zhang, Liu, Zhang, Yuan,
-  Zhang, Li, Yan, Fu, Gui, Sun, Jiang, and Qiu]{zhan2024anygpt}
-Zhan~J, Dai~J, Ye~J, et~al.
-\newblock {A}ny{GPT}: Unified multimodal {LLM} with discrete sequence modeling
-  [C/OL]//\allowbreak
-Ku~L~W, Martins~A, Srikumar~V.
-\newblock Proceedings of the 62nd Annual Meeting of the Association for
-  Computational Linguistics (Volume 1: Long Papers).
-\newblock Bangkok, Thailand: Association for Computational Linguistics, 2024:
-  9637-9662.
-\newblock \url{https://aclanthology.org/2024.acl-long.521}.
-\newblock DOI: \doi{10.18653/v1/2024.acl-long.521}.
-
-\bibitem[Fu {\bibetal}(2024)Fu, Lin, Long, Shen, Zhao, Zhang, Wang, Yin, Ma,
-  Zheng, He, Ji, Wu, Shan, and Sun]{fu2024vita}
-Fu~C, Lin~H, Long~Z, et~al.
-\newblock {VITA}: Towards open-source interactive omni multimodal {LLM} [J].
-\newblock arXiv preprint arXiv:2408.05211, 2024.
-
-\bibitem[Chen {\bibetal}(2024{\natexlab{c}})Chen, Gou, Huang, Liu, Tan, Xu,
-  Wang, Zhu, Zeng, Yang, et~al.]{chen2025emova}
-Chen~K, Gou~Y, Huang~R, et~al.
-\newblock {EMOVA}: Empowering language models to see, hear and speak with vivid
-  emotions [J].
-\newblock arXiv preprint arXiv:2409.18042, 2024.
 
 \bibitem[Ren {\bibetal}(2021)Ren, Hu, Tan, Qin, Zhao, Zhao, and
   Liu]{ren2021fastspeech2}

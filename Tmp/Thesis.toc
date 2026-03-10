@@ -20,7 +20,6 @@
 \contentsline {subsection}{\numberline {2.4.3}语音到语音生成}{14}{subsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.3.1}原生式语音大模型}{14}{subsubsection.2.4.3.1}%
 \contentsline {subsubsection}{\numberline {2.4.3.2}组合式语音大模型}{15}{subsubsection.2.4.3.2}%
-\contentsline {subsubsection}{\numberline {2.4.3.3}全模态大模型}{16}{subsubsection.2.4.3.3}%
 \contentsline {section}{\numberline {2.5}研究现状综合分析}{16}{section.2.5}%
 \contentsline {section}{\numberline {2.6}本章小结}{17}{section.2.6}%
 \contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于有向无环图的语音到语音翻译模型}{18}{chapter.3}%
