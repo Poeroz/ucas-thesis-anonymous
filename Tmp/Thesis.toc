@@ -12,7 +12,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2.3}串联双编码器}{9}{subsubsection.2.3.2.3}%
 \contentsline {subsection}{\numberline {2.3.3}语音到语音翻译}{10}{subsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.3.1}一阶段S2ST}{10}{subsubsection.2.3.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.3.2}两阶段S2ST}{10}{subsubsection.2.3.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3.2}两阶段S2ST}{11}{subsubsection.2.3.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3.3}非自回归S2ST}{11}{subsubsection.2.3.3.3}%
 \contentsline {section}{\numberline {2.4}基于仅解码器模型的语音到语音生成}{12}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}仅解码器架构基础}{12}{subsection.2.4.1}%
