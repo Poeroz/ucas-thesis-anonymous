@@ -164,15 +164,15 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
 
 \subsection{语音到文本生成}\label{sec:rw_deconly_s2t}
 
-基于仅解码器模型的语音到文本生成（S2T LLM）旨在利用大语言模型的文本理解和生成能力处理语音输入。其典型架构由语音编码器、适配器（Adaptor）和大语言模型三部分组成：语音编码器（如Whisper、Wav2Vec 2.0等）提取连续语音特征，适配器将语音特征映射到大语言模型的文本嵌入空间中，大语言模型基于映射后的语音表示生成文本输出。由于不同工作采用的语音编码器和大语言模型大体相似，适配器的设计成为S2T LLM的核心差异所在。按照适配器类型的不同，现有工作可分为以下几类。
+基于仅解码器模型的语音到文本生成（S2T LLM）旨在利用大语言模型的文本理解和生成能力处理语音输入。其典型架构由语音编码器、适配器（Adaptor）和大语言模型三部分组成：语音编码器（如Whisper、Wav2Vec 2.0等）提取连续语音特征，适配器将语音特征映射到大语言模型的文本嵌入空间中，大语言模型基于映射后的语音表示生成文本输出。由于语音编码器和大语言模型均可灵活替换（如语音编码器可选用Whisper或Wav2Vec 2.0，大语言模型可选用LLaMA或Qwen等），适配器的设计成为S2T LLM的核心差异所在。按照适配器类型的不同，现有工作可分为以下几类。
 
-\textbf{线性投影/MLP适配器}\quad 线性投影或多层感知机（MLP）是最简洁的适配器设计，通过一个或多个线性层将语音编码器的输出投影到大语言模型的嵌入空间。Qwen-Audio\citep{Qwen-Audio}将Whisper编码器通过投影层连接Qwen-7B大语言模型，构建了支持多种音频理解任务的统一模型。Qwen2-Audio\citep{Qwen2-Audio}在此基础上采用Whisper-large-v3编码器，并引入双模式训练和直接偏好优化（DPO）进一步提升了性能。SLAM-ASR\citep{slam-asr}构建了模块化框架，以线性投影器连接语音编码器和大语言模型，在语音识别任务上取得了优异的结果。\citet{fathullah2024prompting}通过帧堆叠和线性投影将CTC预训练Conformer编码器的输出映射到大语言模型输入空间。LLAST\citep{chen-etal-2024-llast}采用三层MLP适配器连接Whisper编码器和大语言模型，通过ASR增强训练实现了端到端语音翻译。
+\textbf{多层感知机适配器}\quad 多层感知机（Multi-Layer Perceptron, MLP）是最简洁的适配器设计，通过一个或多个线性层将语音编码器的输出投影到大语言模型的嵌入空间。Qwen-Audio\citep{Qwen-Audio}将Whisper编码器通过投影层连接Qwen-7B大语言模型，构建了支持多种音频理解任务的统一模型。Qwen2-Audio\citep{Qwen2-Audio}在此基础上采用Whisper-large-v3编码器，并通过直接偏好优化（Direct Preference Optimization, DPO）进一步提升了指令跟随能力。SLAM-ASR\citep{slam-asr}构建了模块化框架，以线性投影器连接语音编码器和大语言模型，在语音识别任务上取得了优异的结果。\citet{fathullah2024prompting}通过帧堆叠和线性投影将CTC预训练Conformer编码器的输出映射到大语言模型输入空间。LLAST\citep{chen-etal-2024-llast}采用三层MLP适配器连接Whisper编码器和大语言模型，通过ASR增强训练实现了端到端语音翻译。
 
-\textbf{Q-Former/交叉注意力适配器}\quad Q-Former是一种基于可学习查询和交叉注意力的适配器结构，最初由BLIP-2\citep{li2023blip2}提出并应用于视觉-语言对齐。其核心思想是使用一组固定数量的可学习查询向量，通过交叉注意力从编码器输出中提取信息，从而将变长的编码器输出压缩为固定长度的表示。SALMONN\citep{tang2024salmonn}采用双编码器架构（Whisper和BEATs），使用窗口级Q-Former将两个编码器的输出融合后连接至Vicuna-13B大语言模型，实现了听觉感知和理解的统一。\citet{yu2024connecting}系统地对比了全连接层、交叉注意力和Q-Former三种连接方式，发现Q-Former在固定长度压缩上表现优异但对变长输入适应性不足，进而提出了段级Q-Former，将语音编码器输出分段后分别进行Q-Former压缩再拼接，以更好地适配语音的可变长度特性。
+\textbf{Q-Former适配器}\quad Q-Former是一种基于可学习查询和交叉注意力的适配器结构，最初由BLIP-2\citep{li2023blip2}提出并应用于视觉-语言对齐。其核心思想是使用一组固定数量的可学习查询向量，通过交叉注意力从编码器输出中提取信息，从而将变长的编码器输出压缩为固定长度的表示。SALMONN\citep{tang2024salmonn}采用双编码器架构（Whisper和BEATs），使用窗口级Q-Former将两个编码器的输出融合后连接至Vicuna-13B大语言模型，实现了听觉感知和理解的统一。\citet{yu2024connecting}系统地对比了全连接层、交叉注意力和Q-Former三种连接方式，发现Q-Former在固定长度压缩上表现优异但对变长输入适应性不足，进而提出了段级Q-Former，将语音编码器输出分段后分别进行Q-Former压缩再拼接，以更好地适配语音的可变长度特性。
 
-\textbf{CTC压缩适配器}\quad CTC压缩利用连接时序分类（Connectionist Temporal Classification, CTC）的对齐信息对语音编码器的输出进行压缩和下采样，将变长的语音特征序列转换为与文本长度更接近的紧凑表示后送入大语言模型。与线性投影和Q-Former相比，CTC压缩能够利用语音内容信息自适应地确定压缩位置，更有效地去除语音中的冗余帧（如静音和重复帧），使得压缩后的表示序列长度接近文本token长度。Speech-LLaMA\citep{wu2023decoder}采用CTC压缩将变长语音编码器输出压缩为定长序列，在低资源条件下的语音识别任务上表现优异。\citet{hono-etal-2024-integrating}系统对比了卷积下采样、CTC移除（丢弃CTC空白帧）和CTC平均（将相邻同标签帧取平均）三种桥接方式，发现CTC平均在语音识别任务上表现最优，因为它在有效压缩序列的同时保留了更多的声学信息。
+\textbf{CTC适配器}\quad CTC适配器利用CTC的对齐信息对语音编码器的输出进行压缩和下采样，将变长的语音特征序列转换为与文本长度更接近的紧凑表示后送入大语言模型。与MLP和Q-Former相比，CTC适配器能够利用语音内容信息自适应地确定压缩位置，更有效地去除语音中的冗余帧（如静音和重复帧），使得压缩后的表示序列长度接近文本token长度。Speech-LLaMA\citep{wu2023decoder}采用CTC压缩将变长语音编码器输出压缩为定长序列，在低资源条件下的语音识别任务上表现优异。\citet{hono-etal-2024-integrating}系统对比了卷积下采样、CTC移除（丢弃CTC空白帧）和CTC平均（将相邻同标签帧取平均）三种桥接方式，发现CTC平均在语音识别任务上表现最优，因为它在有效压缩序列的同时保留了更多的声学信息。
 
-除上述三类主要适配器外，部分工作采用了混合策略。WavLLM\citep{hu2024wavllm}结合双编码器（Whisper和WavLM）与卷积-瓶颈-线性复合适配器，并引入提示感知的LoRA实现了对不同语音任务的自适应处理。
+除上述适配器外，部分工作采用了混合策略。WavLLM\citep{hu2024wavllm}结合双编码器（Whisper和WavLM）与卷积-瓶颈-线性复合适配器，并引入提示感知的LoRA实现了对不同语音任务的自适应处理。
 
 
 \subsection{语音到语音生成}\label{sec:rw_deconly_s2s}

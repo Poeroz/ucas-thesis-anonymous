@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 20:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1914,14 +1914,8 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 第2章
 [2
 
-] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (0.9123pt too wide) in paragraph at lines 173--174
-[]\TU/entextrm/b/n/12.045 CTC \TU/FandolSong-Regular(0)/b/n/12.045 压 缩 适 配 器 \T
-U/entextsf/m/n/12.045 CTC \TU/FandolSong-Regular(0)/m/n/12.045 压 缩 利 用 连 接 时 序 
-分 类  |（\TU/entextsf/m/n/12.045 Connectionist Temporal Clas-
- []
-
-[13] [14] [15] [16]) (./Tex/Chap_DASpeech.tex [17]
+] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16])
+(./Tex/Chap_DASpeech.tex [17]
 第3章
 [18
 
@@ -2148,7 +2142,7 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  41260 strings out of 478671
  860639 string characters out of 5848460
- 1885018 words of memory out of 6000000
+ 1886018 words of memory out of 6000000
  60496 multiletter control sequences out of 15000+600000
  523697 words of font info for 168 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
