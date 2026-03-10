@@ -93,7 +93,7 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 
 \subsubsection{推理过程}
 
-推理时采用逐块自回归生成，完整流程如算法\ref{algo:fullduplex_infer}所示。每个时间步对应一个块：模型首先接收$N$个来自实时语音流的用户语音词元作为输入条件；随后自回归生成$M$个文本信道词元，通过词表掩码将预测范围限制在文本词元和特殊标记内，该过程决定了模型当前的对话状态和回复内容；最后自回归生成$N$个助手语音词元，同样通过词表掩码限制在语音词元范围内。当文本信道生成\texttt{[START]}时标记回复开始，模型进入回复状态；当生成\texttt{[EPAD]}时标记回复结束，模型回到静默状态。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\delta$以对齐真实时间轴。
+推理时采用逐块自回归生成，完整流程如算法\ref{algo:fullduplex_infer}所示。每个时间步对应一个块：模型首先接收$N$个来自实时语音流的用户语音词元作为输入条件；随后自回归生成$M$个文本信道词元，通过词表掩码将预测范围限制在文本词元和特殊标记内；最后自回归生成$N$个助手语音词元，同样通过词表掩码限制在语音词元范围内。如前所述，文本信道的词元引导助手语音信道生成对应的语音词元：当文本信道输出\texttt{[SILENCE]}时，助手语音信道生成静音对应的词元；当文本信道输出\texttt{[START]}及后续文本内容时，助手语音信道生成与文本对应的语音词元。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\delta$以对齐真实时间轴。
 
 \begin{algorithm}[htbp]
 \small
@@ -103,17 +103,14 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 \begin{algorithmic}[1]
 \Require 实时用户语音流，块参数$N$、$M$，因果偏移$\delta$
 \Ensure 助手语音波形
-\State 初始化块索引 $b = 0$，对话状态 $\text{state} = \textsc{Silent}$
+\State 初始化块索引 $b = 0$
 \While{对话未结束}
     \State $\mathbf{x}_b \leftarrow$ 从语音流接收$N$个用户语音词元并输入模型
-    \For{$j = 1, \ldots, M$} \Comment{生成文本信道}
-        \State $z \leftarrow$ 自回归采样（词表掩码限制为文本词元和特殊标记）
-        \If{$z = \texttt{[START]}$} $\text{state} \leftarrow \textsc{Speaking}$
-        \ElsIf{$z = \texttt{[EPAD]}$} $\text{state} \leftarrow \textsc{Silent}$
-        \EndIf
+    \For{$j = 1, \ldots, M$} \Comment{生成文本信道，引导语音生成}
+        \State $z_j \leftarrow$ 自回归采样（词表掩码限制为文本词元和特殊标记）
     \EndFor
-    \For{$j = 1, \ldots, N$} \Comment{生成助手语音信道}
-        \State $y \leftarrow$ 自回归采样（词表掩码限制为语音词元）
+    \For{$j = 1, \ldots, N$} \Comment{在文本信道引导下生成助手语音}
+        \State $y_j \leftarrow$ 自回归采样（词表掩码限制为语音词元）
     \EndFor
     \State 将$N$个助手语音词元送入语音解码器，合成波形并在时刻$(b+1) \cdot \Delta t + \delta$播放
     \State $b \leftarrow b + 1$
