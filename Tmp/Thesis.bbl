@@ -1,4 +1,4 @@
-\begin{thebibliography}{186}
+\begin{thebibliography}{187}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -104,6 +104,13 @@ Gao~Z, Zhang~S, McLoughlin~I, et~al.
   non-autoregressive end-to-end speech recognition [C]//\allowbreak
 Proc. Interspeech.
 \newblock 2022: 2063-2067.
+
+\bibitem[Dong {\bibetal}(2020)Dong and Xu]{dong2020cif}
+Dong~L, Xu~B.
+\newblock {CIF}: Continuous integrate-and-fire for end-to-end speech
+  recognition [C]//\allowbreak
+Proc. ICASSP.
+\newblock 2020: 6079-6083.
 
 \bibitem[van~den Oord {\bibetal}(2018)van~den Oord, Li, and
   Vinyals]{oord2018cpc}

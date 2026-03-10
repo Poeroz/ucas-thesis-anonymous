@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 19:44
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 19:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2093,38 +2093,38 @@ File: Img/LLaMA_Omni2.pdf Graphic file (type pdf)
 
 
 ] [72] [73] [74] [75] [76] [77]
-Underfull \hbox (badness 1859) in paragraph at lines 1012--1015
+Underfull \hbox (badness 1859) in paragraph at lines 1019--1022
 []\TU/entexttt/m/n/10.53937 Chu Y, Xu J, Yang Q, et al.  Qwen2-audio technical 
 report [J].  arXiv preprint
  []
 
 [78] [79]
-Underfull \hbox (badness 1189) in paragraph at lines 1271--1279
+Underfull \hbox (badness 1189) in paragraph at lines 1278--1286
 []\TU/entexttt/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
 rial networks for efficient and
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 1271--1279
+Underfull \hbox (badness 1590) in paragraph at lines 1278--1286
 \TU/entexttt/m/n/10.53937 vances in Neural Information Processing Systems: volu
 me 33.  Curran Associates,
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 1271--1279
+Underfull \hbox (badness 3930) in paragraph at lines 1278--1286
 \TU/entexttt/m/n/10.53937 Inc., 2020: 17022-17033.  [][]$[][][][][] [] [] [] []
 [][][][][][][][][][] [] [][][][][][][] [] [][] [] [][][][][] [] [][][][][] [] [
 ][][][][] [] [][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 1281--1286
+Underfull \hbox (badness 1242) in paragraph at lines 1288--1293
 []\TU/entexttt/m/n/10.53937 Shao C, Ma Z, Feng Y.  Viterbi decoding of directed
  acyclic transformer for non-
  []
 
 [80]
-Underfull \hbox (badness 1990) in paragraph at lines 1423--1427
+Underfull \hbox (badness 1990) in paragraph at lines 1430--1434
 []\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
@@ -2146,10 +2146,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: E3B530E9F0DE3D8B8F872E0F418DC693;10122.
  ) 
 Here is how much of TeX's memory you used:
- 41257 strings out of 478671
- 860582 string characters out of 5848460
+ 41260 strings out of 478671
+ 860639 string characters out of 5848460
  1886018 words of memory out of 6000000
- 60493 multiletter control sequences out of 15000+600000
+ 60496 multiletter control sequences out of 15000+600000
  523697 words of font info for 168 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
