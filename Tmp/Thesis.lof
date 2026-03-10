@@ -1,29 +1,25 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace 语音到语音生成的三种建模范式：(a)三阶段级联范式，(b)两阶段范式，(c)端到端范式\relax }}{3}{figure.caption.14}%
-\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 本章技术框架：按模型架构和任务类型组织的研究现状\relax }}{4}{figure.caption.15}%
-\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace 用于理解的语音表征分类：按训练范式分为传统端到端训练、自监督学习和监督学习三类\relax }}{4}{figure.caption.16}%
-\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 用于生成的语音表征分类：连续表征（梅尔频谱和VAE潜在特征）与离散表征（单码本和多码本token）\relax }}{6}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{20}{figure.caption.18}%
-\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{27}{figure.caption.22}%
-\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{28}{figure.caption.23}%
-\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{28}{figure.caption.23}%
-\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{28}{figure.caption.24}%
-\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{25}{figure.caption.18}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{26}{figure.caption.20}%
+\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{26}{figure.caption.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{33}{figure.caption.26}%
-\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{35}{figure.caption.27}%
-\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{42}{figure.caption.34}%
-\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{42}{figure.caption.34}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{31}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{33}{figure.caption.23}%
+\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{40}{figure.caption.30}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{40}{figure.caption.30}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace LLaMA-Omni模型架构\relax }}{45}{figure.caption.35}%
-\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace LLaMA-Omni的两阶段训练策略\relax }}{47}{figure.caption.36}%
-\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{53}{figure.caption.39}%
-\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{54}{figure.caption.42}%
-\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace 自然性人工评估结果\relax }}{54}{figure.caption.42}%
+\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace LLaMA-Omni模型架构\relax }}{43}{figure.caption.31}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace LLaMA-Omni的两阶段训练策略\relax }}{45}{figure.caption.32}%
+\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{51}{figure.caption.35}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{52}{figure.caption.38}%
+\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace 自然性人工评估结果\relax }}{52}{figure.caption.38}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace LLaMA-Omni 2模型架构与训练策略\relax }}{57}{figure.caption.43}%
+\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace LLaMA-Omni 2模型架构与训练策略\relax }}{55}{figure.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
