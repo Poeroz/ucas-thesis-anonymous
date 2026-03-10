@@ -1,4 +1,4 @@
-\begin{thebibliography}{163}
+\begin{thebibliography}{186}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -73,6 +73,14 @@ Proc. Interspeech 2020.
 \newblock 2020: 5036-5040.
 \newblock DOI: \doi{10.21437/Interspeech.2020-3015}.
 
+\bibitem[Kim {\bibetal}(2022)Kim, Wu, Peng, Pan, Sridhar, Han, and
+  Watanabe]{kim2023ebranchformer}
+Kim~K, Wu~F, Peng~Y, et~al.
+\newblock {E-Branchformer}: Branchformer with enhanced merging for speech
+  recognition [C]//\allowbreak
+Proc. SLT.
+\newblock 2022: 84-91.
+
 \bibitem[Yao {\bibetal}(2023)Yao, Guo, Yang, Kang, Kuang, Yang, Jin, Lin, and
   Povey]{yao2024zipformer}
 Yao~Z, Guo~L, Yang~X, et~al.
@@ -80,7 +88,46 @@ Yao~Z, Guo~L, Yang~X, et~al.
   recognition [J].
 \newblock arXiv preprint arXiv:2310.11230, 2023.
 
-\bibitem[Baevski {\bibetal}(2020)Baevski, Zhou, Mohamed, and
+\bibitem[Rekesh {\bibetal}(2023)Rekesh, Koluguri, Kriman, Majumdar, Noroozi,
+  Huang, Hrinchuk, Puvvada, Kumar, Balam, and
+  Ginsburg]{rekesh2023fastconformer}
+Rekesh~D, Koluguri~N~R, Kriman~S, et~al.
+\newblock Fast conformer with linearly scalable attention for efficient speech
+  recognition [C]//\allowbreak
+Proc. ASRU.
+\newblock 2023: 1-8.
+
+\bibitem[Gao {\bibetal}(2022)Gao, Zhang, McLoughlin, and
+  Yan]{gao2022paraformer}
+Gao~Z, Zhang~S, McLoughlin~I, et~al.
+\newblock {Paraformer}: Fast and accurate parallel transformer for
+  non-autoregressive end-to-end speech recognition [C]//\allowbreak
+Proc. Interspeech.
+\newblock 2022: 2063-2067.
+
+\bibitem[van~den Oord {\bibetal}(2018)van~den Oord, Li, and
+  Vinyals]{oord2018cpc}
+van~den Oord~A, Li~Y, Vinyals~O.
+\newblock Representation learning with contrastive predictive coding [J].
+\newblock arXiv preprint arXiv:1807.03748, 2018.
+
+\bibitem[Schneider {\bibetal}(2019)Schneider, Baevski, Collobert, and
+  Auli]{schneider2019wav2vec}
+Schneider~S, Baevski~A, Collobert~R, et~al.
+\newblock wav2vec: Unsupervised pre-training for speech recognition
+  [C]//\allowbreak
+Proc. Interspeech.
+\newblock 2019: 3465-3469.
+
+\bibitem[Baevski {\bibetal}(2020{\natexlab{a}})Baevski, Schneider, and
+  Auli]{baevski2020vqwav2vec}
+Baevski~A, Schneider~S, Auli~M.
+\newblock vq-wav2vec: Self-supervised learning of discrete speech
+  representations [C]//\allowbreak
+Proc. ICLR.
+\newblock 2020{\natexlab{a}}.
+
+\bibitem[Baevski {\bibetal}(2020{\natexlab{b}})Baevski, Zhou, Mohamed, and
   Auli]{baevski2020wav2vec}
 Baevski~A, Zhou~Y, Mohamed~A, et~al.
 \newblock wav2vec 2.0: A framework for self-supervised learning of speech
@@ -126,12 +173,48 @@ Chiu~C~C, Qin~J, Zhang~Y, et~al.
 Proceedings of {ICML}.
 \newblock 2022.
 
+\bibitem[Liu {\bibetal}(2023{\natexlab{a}})Liu, Chang, Auli, Hsu, and
+  Glass]{liu2023dinosr}
+Liu~A~H, Chang~H~J, Auli~M, et~al.
+\newblock {DinoSR}: Self-distillation and online clustering for self-supervised
+  speech representation learning [C]//\allowbreak
+Proc. NeurIPS.
+\newblock 2023{\natexlab{a}}.
+
+\bibitem[Gong {\bibetal}(2022)Gong, Lai, Chung, and Glass]{gong2022ssast}
+Gong~Y, Lai~C~I, Chung~Y~A, et~al.
+\newblock {SSAST}: Self-supervised audio spectrogram transformer
+  [C]//\allowbreak
+Proc. AAAI.
+\newblock 2022: 10699-10709.
+
+\bibitem[Huang {\bibetal}(2022{\natexlab{a}})Huang, Xu, Li, Baevski, Auli,
+  Galuba, Metze, and Feichtenhofer]{huang2022audiomae}
+Huang~P~Y, Xu~H, Li~J, et~al.
+\newblock Masked autoencoders that listen [C]//\allowbreak
+Proc. NeurIPS.
+\newblock 2022{\natexlab{a}}.
+
 \bibitem[Chen {\bibetal}(2023)Chen, Wu, Wang, Liu, Tompkins, Chen, and
   Wei]{chen2023beats}
 Chen~S, Wu~Y, Wang~C, et~al.
 \newblock {BEATs}: Audio pre-training with acoustic tokenizers [C]//\allowbreak
 Proceedings of {ICML}.
 \newblock 2023.
+
+\bibitem[Pratap {\bibetal}(2023)Pratap, Tjandra, Shi, Tomasello, Babu, Kundu,
+  Elkahky, Ni, Vyas, Fazel-Zarandi, Baevski, Adi, Zhang, Hsu, Conneau, and
+  Auli]{pratap2023mms}
+Pratap~V, Tjandra~A, Shi~B, et~al.
+\newblock Scaling speech technology to 1,000+ languages [J].
+\newblock arXiv preprint arXiv:2305.13516, 2023.
+
+\bibitem[Zhang {\bibetal}(2023{\natexlab{a}})Zhang, Han, Qin, Wang, Bapna,
+  et~al.]{zhang2023usm}
+Zhang~Y, Han~W, Qin~J, et~al.
+\newblock {Google USM}: Scaling automatic speech recognition beyond 100
+  languages [J].
+\newblock arXiv preprint arXiv:2303.01037, 2023.
 
 \bibitem[Radford {\bibetal}(2023)Radford, Kim, Xu, Brockman, McLeavey, and
   Sutskever]{whisper}
@@ -213,8 +296,8 @@ Kong~J, Kim~J, Bae~J.
 Proc. NeurIPS.
 \newblock 2020{\natexlab{a}}.
 
-\bibitem[Liu {\bibetal}(2023)Liu, Chen, Yuan, Mei, Liu, Mandic, Wang, and
-  Plumbley]{liu2023audioldm}
+\bibitem[Liu {\bibetal}(2023{\natexlab{b}})Liu, Chen, Yuan, Mei, Liu, Mandic,
+  Wang, and Plumbley]{liu2023audioldm}
 Liu~H, Chen~Z, Yuan~Y, et~al.
 \newblock {AudioLDM}: Text-to-audio generation with latent diffusion models
   [J].
@@ -239,6 +322,13 @@ Ju~Z, Wang~Y, Shen~K, et~al.
 Evans~Z, Carr~C, Taylor~J, et~al.
 \newblock Fast timing-conditioned latent audio diffusion [J].
 \newblock arXiv preprint arXiv:2402.04825, 2024.
+
+\bibitem[Yan {\bibetal}(2025)Yan, Jin, Huang, Yu, Peng,
+  et~al.]{liang2025mingtok}
+Yan~C, Jin~C, Huang~D, et~al.
+\newblock {Ming-UniAudio}: Speech llm for joint understanding, generation and
+  editing with unified representation [J].
+\newblock arXiv preprint arXiv:2511.05516, 2025.
 
 \bibitem[Du {\bibetal}(2024{\natexlab{a}})Du, Chen, Zhang, Hu, Lu, Yang, Hu,
   Zheng, Gu, Ma, et~al.]{du2024cosyvoice}
@@ -283,6 +373,13 @@ Li~H, Xue~L, Guo~H, et~al.
   speech generation [J].
 \newblock arXiv preprint arXiv:2406.07422, 2024.
 
+\bibitem[Huang {\bibetal}(2024)Huang, Meng, and Ko]{huang2023repcodec}
+Huang~Z, Meng~C, Ko~T.
+\newblock {RepCodec}: A speech representation codec for speech tokenization
+  [C]//\allowbreak
+Proc. ACL.
+\newblock 2024: 5777-5790.
+
 \bibitem[Zeghidour {\bibetal}(2022)Zeghidour, Luebs, Omran, Skoglund, and
   Tagliasacchi]{zeghidour2021soundstream}
 Zeghidour~N, Luebs~A, Omran~A, et~al.
@@ -296,13 +393,28 @@ D{\'e}fossez~A, Copet~J, Synnaeve~G, et~al.
 \newblock High fidelity neural audio compression [J].
 \newblock arXiv preprint arXiv:2210.13438, 2022.
 
+\bibitem[Wang {\bibetal}(2023{\natexlab{a}})Wang, Chen, Wu, Zhang, Zhou, Liu,
+  Chen, Liu, Wang, Li, He, Zhao, and Wei]{wang-etal-2023-valle}
+Wang~C, Chen~S, Wu~Y, et~al.
+\newblock Neural codec language models are zero-shot text to speech
+  synthesizers [J].
+\newblock arXiv preprint arXiv:2301.02111, 2023.
+
+\bibitem[Borsos {\bibetal}(2023)Borsos, Marinier, Vincent, Kharitonov,
+  Pietquin, Sharifi, Roblek, Teboul, Grangier, Tagliasacchi,
+  et~al.]{borsos2023audiolm}
+Borsos~Z, Marinier~R, Vincent~D, et~al.
+\newblock Audiolm: a language modeling approach to audio generation [J].
+\newblock IEEE/ACM transactions on audio, speech, and language processing,
+  2023, 31: 2523-2533.
+
 \bibitem[Kumar {\bibetal}(2023)Kumar, Seetharaman, Luebs, Kumar, and
   Kumar]{kumar2023dac}
 Kumar~R, Seetharaman~P, Luebs~A, et~al.
 \newblock High-fidelity audio compression with improved {RVQGAN} [J].
 \newblock arXiv preprint arXiv:2306.06546, 2023.
 
-\bibitem[Zhang {\bibetal}(2023{\natexlab{a}})Zhang, Zhang, Li, Zhou, and
+\bibitem[Zhang {\bibetal}(2023{\natexlab{b}})Zhang, Zhang, Li, Zhou, and
   Qiu]{zhang2024speechtokenizer}
 Zhang~X, Zhang~D, Li~S, et~al.
 \newblock {SpeechTokenizer}: Unified speech tokenizer for speech language
@@ -326,6 +438,21 @@ D\'efossez~A, Mazar\'e~L, Orsini~M, et~al.
 Ye~Z, Wang~X.
 \newblock {X-Codec}: Unified audio tokenizer for audio language model [J].
 \newblock arXiv preprint arXiv:2501.16894, 2024.
+
+\bibitem[Liu {\bibetal}(2024)Liu, Xu, Yuan, Wu, Wang, and
+  Plumbley]{liu2024semanticodec}
+Liu~H, Xu~X, Yuan~Y, et~al.
+\newblock {SemantiCodec}: An ultra low bitrate semantic audio codec for general
+  sound [J].
+\newblock IEEE Journal of Selected Topics in Signal Processing, 2024,
+  18\penalty0 (8): 1448-1461.
+
+\bibitem[Gong {\bibetal}(2025)Gong, Jin, Deng, Zhang, Zhang, Cheng, Fei, Li,
+  and Qiu]{xiao2025xytokenizer}
+Gong~Y, Jin~L, Deng~R, et~al.
+\newblock {XY-Tokenizer}: Mitigating the semantic-acoustic conflict in
+  low-bitrate speech codecs [J].
+\newblock arXiv preprint arXiv:2506.23325, 2025.
 
 \bibitem[B{\'e}rard {\bibetal}(2016)B{\'e}rard, Pietquin, Servan, and
   Besacier]{berard2016listen}
@@ -479,6 +606,12 @@ Xu~C, Hu~B, Li~Y, et~al.
 Proceedings of {Interspeech}.
 \newblock 2021.
 
+\bibitem[Liu {\bibetal}(2020)Liu, Zhu, Zhang, and Zong]{liu2020_bridging}
+Liu~Y, Zhu~J, Zhang~J, et~al.
+\newblock Bridging the modality gap for speech-to-text translation [J/OL].
+\newblock CoRR, 2020, abs/2010.14920.
+\newblock \url{https://arxiv.org/abs/2010.14920}.
+
 \bibitem[Tang {\bibetal}(2021)Tang, Pino, Li, Wang, and
   Genzel]{tang-etal-2021-improving}
 Tang~Y, Pino~J, Li~X, et~al.
@@ -519,6 +652,37 @@ Carpuat~M, de~Marneffe~M~C, Meza~Ruiz~I~V.
 \newblock \url{https://aclanthology.org/2022.naacl-main.376}.
 \newblock DOI: \doi{10.18653/v1/2022.naacl-main.376}.
 
+\bibitem[Cheng {\bibetal}(2023)Cheng, Dong, Yue, Ko, Wang, and
+  Zou]{cheng2023m3st}
+Cheng~X, Dong~Q, Yue~F, et~al.
+\newblock {M3ST}: Mix at three levels for speech translation [C]//\allowbreak
+Proc. ICASSP.
+\newblock 2023: 1-5.
+
+\bibitem[Ouyang {\bibetal}(2023)Ouyang, Ye, and Li]{ouyang-etal-2023-waco}
+Ouyang~S, Ye~R, Li~L.
+\newblock {WACO}: Word-aligned contrastive learning for speech translation
+  [C/OL]//\allowbreak
+Rogers~A, Boyd-Graber~J, Okazaki~N.
+\newblock Proceedings of the 61st Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers).
+\newblock Toronto, Canada: Association for Computational Linguistics, 2023:
+  3891-3907.
+\newblock \url{https://aclanthology.org/2023.acl-long.216/}.
+\newblock DOI: \doi{10.18653/v1/2023.acl-long.216}.
+
+\bibitem[Lei {\bibetal}(2023)Lei, Xue, Zhao, Sun, Zhu, Lin, and
+  Xiong]{lei-etal-2023-ckdst}
+Lei~Y, Xue~Z, Zhao~X, et~al.
+\newblock {CKDST}: Comprehensively and effectively distill knowledge from
+  machine translation to end-to-end speech translation [C/OL]//\allowbreak
+Rogers~A, Boyd-Graber~J, Okazaki~N.
+\newblock Findings of the Association for Computational Linguistics: ACL 2023.
+\newblock Toronto, Canada: Association for Computational Linguistics, 2023:
+  3123-3137.
+\newblock \url{https://aclanthology.org/2023.findings-acl.195}.
+\newblock DOI: \doi{10.18653/v1/2023.findings-acl.195}.
+
 \bibitem[Fang {\bibetal}(2023{\natexlab{b}})Fang and
   Feng]{fang-and-feng-2023-understanding}
 Fang~Q, Feng~Y.
@@ -540,6 +704,28 @@ Rogers~A, Boyd-Graber~J, Okazaki~N.
 \newblock \url{https://aclanthology.org/2023.acl-long.436/}.
 \newblock DOI: \doi{10.18653/v1/2023.acl-long.436}.
 
+\bibitem[Zhang {\bibetal}(2023{\natexlab{c}})Zhang, Xu, Li, Chen, Xiao, Zhang,
+  and Zhu]{zhang2023rethinking}
+Zhang~Y, Xu~C, Li~B, et~al.
+\newblock Rethinking and improving multi-task learning for end-to-end speech
+  translation [J].
+\newblock arXiv preprint arXiv:2311.03810, 2023.
+
+\bibitem[Han {\bibetal}(2023)Han, Xu, Xiao, and Zhu]{han2023tab}
+Han~Y, Xu~C, Xiao~T, et~al.
+\newblock Modality adaption or regularization? a case study on end-to-end
+  speech translation [C]//\allowbreak
+Proc. ACL.
+\newblock 2023: 1340-1348.
+
+\bibitem[Zhang {\bibetal}(2024{\natexlab{a}})Zhang, Kou, Li, Xu, Zhang, Xiao,
+  and Zhu]{zhang2024salign}
+Zhang~Y, Kou~K, Li~B, et~al.
+\newblock Soft alignment of modality space for end-to-end speech translation
+  [C]//\allowbreak
+Proc. ICASSP.
+\newblock 2024{\natexlab{a}}: 11041-11045.
+
 \bibitem[Bapna {\bibetal}(2021)Bapna, Chung, Wu, Gulati, Jia, Clark, Johnson,
   Riesa, Conneau, and Zhang]{slam}
 Bapna~A, Chung~Y~a, Wu~N, et~al.
@@ -554,6 +740,13 @@ Bapna~A, Cherry~C, Zhang~Y, et~al.
   [J/OL].
 \newblock CoRR, 2022, abs/2202.01374.
 \newblock \url{https://arxiv.org/abs/2202.01374}.
+
+\bibitem[Zheng {\bibetal}(2021)Zheng, Chen, Ma, and Huang]{zheng2021fused}
+Zheng~R, Chen~J, Ma~M, et~al.
+\newblock Fused acoustic and text encoding for multimodal bilingual pretraining
+  and speech translation [C]//\allowbreak
+Proceedings of Machine Learning Research: volume 139\quad {ICML}.
+\newblock {PMLR}, 2021: 12736-12746.
 
 \bibitem[Zhang {\bibetal}(2022)Zhang, Zhou, Ao, Liu, Dai, Li, and
   Wei]{zhang2022speechut}
@@ -652,14 +845,14 @@ Rogers~A, Boyd-Graber~J, Okazaki~N.
 \newblock \url{https://aclanthology.org/2023.acl-long.872}.
 \newblock DOI: \doi{10.18653/v1/2023.acl-long.872}.
 
-\bibitem[Zhang {\bibetal}(2024{\natexlab{a}})Zhang, Fang, Guo, Ma, Zhang, and
+\bibitem[Zhang {\bibetal}(2024{\natexlab{b}})Zhang, Fang, Guo, Ma, Zhang, and
   Feng]{zhang-etal-2024-streamspeech}
 Zhang~S, Fang~Q, Guo~S, et~al.
 \newblock Stream{S}peech: Simultaneous speech-to-speech translation with
   multi-task learning [C]//\allowbreak
 Proceedings of the 62nd Annual Meeting of the Association for Computational
   Linguistics.
-\newblock 2024{\natexlab{a}}.
+\newblock 2024{\natexlab{b}}.
 
 \bibitem[Gu {\bibetal}(2018)Gu, Bradbury, Xiong, Li, and Socher]{gu2018nat}
 Gu~J, Bradbury~J, Xiong~C, et~al.
@@ -695,14 +888,14 @@ Proceedings of the 59th Annual Meeting of the Association for Computational
 \newblock \url{https://aclanthology.org/2021.acl-long.155}.
 \newblock DOI: \doi{10.18653/v1/2021.acl-long.155}.
 
-\bibitem[Huang {\bibetal}(2022)Huang, Zhou, Liu, Li, and
+\bibitem[Huang {\bibetal}(2022{\natexlab{b}})Huang, Zhou, Liu, Li, and
   Huang]{huang2022DATransformer}
 Huang~F, Zhou~H, Liu~Y, et~al.
 \newblock Directed acyclic transformer for non-autoregressive machine
   translation [C]//\allowbreak
 Proceedings of the 39th International Conference on Machine Learning, {ICML}
   2022.
-\newblock 2022.
+\newblock 2022{\natexlab{b}}.
 
 \bibitem[Graves {\bibetal}(2006{\natexlab{a}})Graves, Fern\'{a}ndez, Gomez, and
   Schmidhuber]{graves2006connectionist}
@@ -799,21 +992,6 @@ Lakhotia~K, Kharitonov~E, Hsu~W~N, et~al.
 \newblock On generative spoken language modeling from raw audio [J].
 \newblock Transactions of the Association for Computational Linguistics, 2021,
   9: 1336-1354.
-
-\bibitem[Borsos {\bibetal}(2023)Borsos, Marinier, Vincent, Kharitonov,
-  Pietquin, Sharifi, Roblek, Teboul, Grangier, Tagliasacchi,
-  et~al.]{borsos2023audiolm}
-Borsos~Z, Marinier~R, Vincent~D, et~al.
-\newblock Audiolm: a language modeling approach to audio generation [J].
-\newblock IEEE/ACM transactions on audio, speech, and language processing,
-  2023, 31: 2523-2533.
-
-\bibitem[Wang {\bibetal}(2023{\natexlab{a}})Wang, Chen, Wu, Zhang, Zhou, Liu,
-  Chen, Liu, Wang, Li, He, Zhao, and Wei]{wang-etal-2023-valle}
-Wang~C, Chen~S, Wu~Y, et~al.
-\newblock Neural codec language models are zero-shot text to speech
-  synthesizers [J].
-\newblock arXiv preprint arXiv:2301.02111, 2023.
 
 \bibitem[Wang {\bibetal}(2023{\natexlab{b}})Wang, Zhou, Zhang, Wu, Liu, Gaur,
   Chen, Li, and Wei]{wang2023viola}
@@ -919,7 +1097,7 @@ Hassid~M, Remez~T, Nguyen~T~A, et~al.
 \newblock Textually pretrained speech language models [J].
 \newblock Advances in Neural Information Processing Systems, 2024, 36.
 
-\bibitem[Zhang {\bibetal}(2023{\natexlab{b}})Zhang, Li, Zhang, Zhan, Wang,
+\bibitem[Zhang {\bibetal}(2023{\natexlab{d}})Zhang, Li, Zhang, Zhan, Wang,
   Zhou, and Qiu]{zhang-etal-2023-speechgpt}
 Zhang~D, Li~S, Zhang~X, et~al.
 \newblock {S}peech{GPT}: Empowering large language models with intrinsic
@@ -928,7 +1106,7 @@ Bouamor~H, Pino~J, Bali~K.
 \newblock Findings of the Association for Computational Linguistics: EMNLP
   2023.
 \newblock Singapore: Association for Computational Linguistics,
-  2023{\natexlab{b}}: 15757-15773.
+  2023{\natexlab{d}}: 15757-15773.
 \newblock \url{https://aclanthology.org/2023.findings-emnlp.1055}.
 \newblock DOI: \doi{10.18653/v1/2023.findings-emnlp.1055}.
 
@@ -945,13 +1123,13 @@ Nguyen~T~A, Muller~B, Yu~B, et~al.
 \newblock Spirit-lm: Interleaved spoken and written language model [J].
 \newblock arXiv preprint arXiv:2402.05755, 2024.
 
-\bibitem[Zhang {\bibetal}(2024{\natexlab{b}})Zhang, Zhang, Zhan, Li, Zhou, and
+\bibitem[Zhang {\bibetal}(2024{\natexlab{c}})Zhang, Zhang, Zhan, Li, Zhou, and
   Qiu]{zhang2024speechgptgen}
 Zhang~D, Zhang~X, Zhan~J, et~al.
 \newblock Speechgpt-gen: Scaling chain-of-information speech generation [J].
 \newblock arXiv preprint arXiv:2401.13527, 2024.
 
-\bibitem[Zhang {\bibetal}(2024{\natexlab{c}})Zhang, Lyu, Du, Chen, Zhang, Hu,
+\bibitem[Zhang {\bibetal}(2024{\natexlab{d}})Zhang, Lyu, Du, Chen, Zhang, Hu,
   Tan, Zhao, Wang, Zhang, et~al.]{zhang2024intrinsicvoice}
 Zhang~X, Lyu~X, Du~Z, et~al.
 \newblock Intrinsicvoice: Empowering llms with intrinsic real-time voice

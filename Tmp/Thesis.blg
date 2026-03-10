@@ -9,49 +9,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 10868 items from 5000.
+Reallocated field_info (elt_size=4) to 11696 items from 5000.
 Database file #1: Biblio/ref.bib
 Warning--empty journal in gpt1
 Warning--empty booktitle in Veaux2017CSTRVC
-You've used 163 entries,
+You've used 186 entries,
             4948 wiz_defined-function locations,
-            1832 strings with 51881 characters,
-and the built_in function-call counts, 1814939 in all, are:
-= -- 32254
-> -- 218046
-< -- 268654
-+ -- 72926
-- -- 15086
-* -- 9688
-:= -- 252162
-add.period$ -- 601
-call.type$ -- 163
-change.case$ -- 326
-chr.to.int$ -- 66291
-cite$ -- 165
-duplicate$ -- 3494
-empty$ -- 11753
-format.name$ -- 6925
-if$ -- 469668
-int.to.chr$ -- 24
-int.to.str$ -- 164
+            1937 strings with 56790 characters,
+and the built_in function-call counts, 2049248 in all, are:
+= -- 36389
+> -- 246099
+< -- 303450
++ -- 82396
+- -- 16887
+* -- 10942
+:= -- 284606
+add.period$ -- 677
+call.type$ -- 186
+change.case$ -- 372
+chr.to.int$ -- 74868
+cite$ -- 188
+duplicate$ -- 3989
+empty$ -- 13317
+format.name$ -- 7844
+if$ -- 530459
+int.to.chr$ -- 30
+int.to.str$ -- 187
 missing$ -- 0
-newline$ -- 1028
-num.names$ -- 515
-pop$ -- 93895
+newline$ -- 1165
+num.names$ -- 586
+pop$ -- 105966
 preamble$ -- 1
-purify$ -- 163
+purify$ -- 186
 quote$ -- 0
-skip$ -- 194337
+skip$ -- 219466
 stack$ -- 0
-substring$ -- 84467
-swap$ -- 215
-text.length$ -- 3520
+substring$ -- 95212
+swap$ -- 248
+text.length$ -- 3985
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1943
+type$ -- 2212
 warning$ -- 2
-while$ -- 4148
+while$ -- 4709
 width$ -- 0
-write$ -- 2315
+write$ -- 2624
 (There were 2 warnings)
