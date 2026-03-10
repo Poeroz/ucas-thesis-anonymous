@@ -151,7 +151,7 @@ Translatotron 2\citep{translatotron2}是首个采用两阶段架构的端到端S
 
 GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言模型的开创性工作。GPT以标准语言建模为训练目标，即自回归地预测下一个token，在大规模无标注文本上进行预训练，然后通过在下游任务上微调来适配具体应用。GPT提出的"预训练-微调"范式证明了单向语言模型可以学习到丰富的语言表示，为后续大语言模型的发展奠定了基础。GPT-2\citep{radford2019language}将模型规模扩展到15亿参数，并在WebText等大规模语料上训练，展示了大规模语言模型在不进行任何微调的情况下完成多种任务的零样本能力。GPT-3\citep{brown2020gpt3}进一步将参数量扩大至1750亿，首次系统性地验证了上下文学习（In-Context Learning）能力——仅通过在提示中提供少量示例，模型即可完成翻译、问答和推理等多种任务，无需更新模型参数。这些工作共同确立了仅解码器架构在语言生成领域的主导地位。
 
-后续的大语言模型延续了仅解码器架构和自回归语言建模的技术路线，并在此基础上不断扩大模型规模和训练数据。LLaMA\citep{touvron2023llama}系列是推动开源大语言模型发展的重要力量，LLaMA初始版本覆盖7B至65B参数规模，LLaMA 2\citep{touvron2023llama2}进一步扩展至70B并引入基于人类反馈的强化学习（RLHF），LLaMA 3\citep{dubey2024llama3}则达到8B/70B/405B参数，训练数据规模超过15万亿token。Qwen2\citep{yang2024qwen2}和Qwen2.5\citep{yang2025qwen25}是阿里通义千问系列的代表，在中英双语和多语言任务上表现突出，其中Qwen2.5是本文第六章LLaMA-Omni 2所使用的骨干大语言模型。
+后续的大语言模型延续了仅解码器架构和自回归语言建模的技术路线，并在此基础上不断扩大模型规模和训练数据。LLaMA\citep{touvron2023llama}系列是推动开源大语言模型发展的重要力量，LLaMA初始版本覆盖7B至65B参数规模，LLaMA 2\citep{touvron2023llama2}进一步扩展至70B并引入基于人类反馈的强化学习（RLHF），LLaMA 3\citep{dubey2024llama3}则达到8B/70B/405B参数，训练数据规模超过15万亿token。Qwen2\citep{yang2024qwen2}和Qwen2.5\citep{yang2025qwen25}是阿里通义千问系列的代表，在中英双语和多语言任务上表现突出。
 
 仅解码器架构的训练目标为标准语言建模，即最小化下一个token的负对数似然：
 \begin{equation}
