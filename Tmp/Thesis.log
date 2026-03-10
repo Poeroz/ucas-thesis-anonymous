@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 18:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  10 MAR 2026 18:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1914,25 +1914,18 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 第2章
 [2
 
-] [3] [4] [5] [6] [7] [8] [9] [10]
+] [3] [4] [5] [6] [7] [8] [9] [10] [11]
 Overfull \hbox (0.9123pt too wide) in paragraph at lines 169--170
 []\TU/entextrm/b/n/12.045 CTC \TU/FandolSong-Regular(0)/b/n/12.045 压 缩 适 配 器 \T
 U/entextsf/m/n/12.045 CTC \TU/FandolSong-Regular(0)/m/n/12.045 压 缩 利 用 连 接 时 序 
 分 类  |（\TU/entextsf/m/n/12.045 Connectionist Temporal Clas-
  []
 
-[11]
-Overfull \hbox (6.65416pt too wide) in paragraph at lines 196--197
-\TU/entextsf/m/n/12.045 CosyVoice 2 \TU/FandolSong-Regular(0)/m/n/12.045 语 音 解 
-码 器，|  构 建 了 支 持 无 缝 语 音 交 互 的 完 整 系 统。| \TU/entextsf/m/n/12.045 Qwen2.5-Omni$[
-]$
- []
-
-[12] [13]) (./Tex/Chap_DASpeech.tex [14]
+[12] [13] [14] [15]) (./Tex/Chap_DASpeech.tex [16]
 第3章
-[15
+[17
 
-] [16] [17]
+] [18] [19]
 Overfull \hbox (13.97916pt too wide) in paragraph at lines 63--64
 []\TU/FandolSong-Regular(0)/b/n/12.045 非 自 回 归 声 学 解 码 器 \TU/FandolSong-Regular
 (0)/m/n/12.045 声 学 解 码 器 采 用 \TU/entextsf/m/n/12.045 FastSpeech 2 \TU/FandolSon
@@ -1942,7 +1935,7 @@ g-Regular(0)/m/n/12.045 的 设 计，|  从 \TU/entextsf/m/n/12.045 DA-Transfor
 (./Img/figure_daspeech.tex
 File: Img/DASpeech.pdf Graphic file (type pdf)
 <use Img/DASpeech.pdf>
-) [18] [19] [20] [21] [22]
+) [20] [21] [22] [23] [24]
 (./Tables/daspeech_results.tex
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
 (Font)              scaled to size 7.00075pt on input line 2.
@@ -1952,8 +1945,8 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
-) [23] (./Tables/daspeech_multilingual.tex)
-(./Tables/daspeech_path_ablation.tex) [24] (./Img/figure_daspeech_decoding.tex
+) [25] (./Tables/daspeech_multilingual.tex)
+(./Tables/daspeech_path_ablation.tex) [26] (./Img/figure_daspeech_decoding.tex
 File: Img/decode_time.pdf Graphic file (type pdf)
 <use Img/decode_time.pdf>
 )
@@ -1971,20 +1964,20 @@ Underfull \hbox (badness 2503) in paragraph at lines 231--231
 []\TU/entextrm/b/n/10.53937 Figure 3-4 |Speedup ratio with different
  []
 
-[25]
+[27]
 File: Img/daspeech_graph_size_s2t.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2t.pdf>
 File: Img/daspeech_graph_size_s2s.pdf Graphic file (type pdf)
 <use Img/daspeech_graph_size_s2s.pdf>
- (./Tables/daspeech_speaker.tex [26])) (./Tex/Chap_ComSpeech.tex [27]
-[28]
+ (./Tables/daspeech_speaker.tex [28])) (./Tex/Chap_ComSpeech.tex [29]
+[30]
 第4章
-[29
+[31
 
 ] (./Img/figure_comspeech.tex
 File: Img/ComSpeech.pdf Graphic file (type pdf)
 <use Img/ComSpeech.pdf>
-) [30] [31]
+) [32] [33]
 Overfull \hbox (7.59578pt too wide) in paragraph at lines 66--68
 \TU/FandolSong-Regular(0)/m/n/12.045 编 码 器 进 行 后 续 的 语 音 合 成。|  在 推 理 阶 段，|  使 
 用 \TU/entextsf/m/n/12.045 Argmax \TU/FandolSong-Regular(0)/m/n/12.045 解 码 $[][]
@@ -1994,8 +1987,8 @@ Overfull \hbox (7.59578pt too wide) in paragraph at lines 66--68
 (./Img/figure_comspeech_training.tex
 File: Img/ComSpeech_training.pdf Graphic file (type pdf)
 <use Img/ComSpeech_training.pdf>
-) [32] [33] [34]
-(./Tables/comspeech_results.tex) [35] (./Tables/comspeech_gap.tex) [36]
+) [34] [35] [36]
+(./Tables/comspeech_results.tex) [37] (./Tables/comspeech_gap.tex) [38]
 (./Tables/comspeech_blaser.tex)
 Overfull \hbox (7.40758pt too wide) in paragraph at lines 192--193
 \TU/FandolSong-Regular(0)/m/n/12.045 升 \TU/entextsf/m/n/12.045 0.54 \TU/FandolS
@@ -2004,13 +1997,13 @@ lar(0)/m/n/12.045 。|  相 比 级 联 系 统 在 各 模 块 之 间 传 递 
 n/12.045 ComSpeech-
  []
 
-[37] (./Tables/comspeech_objectives.tex) (./Tables/comspeech_pretrain.tex)
-[38] (./Tables/comspeech_adaptor.tex)
+[39] (./Tables/comspeech_objectives.tex) (./Tables/comspeech_pretrain.tex)
+[40] (./Tables/comspeech_adaptor.tex)
 File: Img/comspeech_tts_data_size.pdf Graphic file (type pdf)
 <use Img/comspeech_tts_data_size.pdf>
 File: Img/comspeech_s2tt_data_size.pdf Graphic file (type pdf)
 <use Img/comspeech_s2tt_data_size.pdf>
- [39]) (./Tex/Chap_LLaMA_Omni.tex
+ [41]) (./Tex/Chap_LLaMA_Omni.tex
 Overfull \hbox (5.55264pt too wide) in paragraph at lines 259--1
 \TU/entextsf/m/n/12.045 DASpeech\TU/FandolSong-Regular(0)/m/n/12.045 。|  此 外，| 
 \TU/entextsf/m/n/12.045 ComSpeech \TU/FandolSong-Regular(0)/m/n/12.045 和 \TU/en
@@ -2019,14 +2012,14 @@ entextsf/m/n/12.045 -\TU/FandolSong-Regular(0)/m/n/12.045 解 码 器  |（\TU/e
 /m/n/12.045 Encoder-Decoder\TU/FandolSong-Regular(0)/m/n/12.045 ）|
  []
 
-[40] [41]
+[42] [43]
 第5章
-[42
+[44
 
 ] (./Img/figure_llamaomni.tex
 File: Img/LLaMA_Omni.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni.pdf>
-) [43]
+) [45]
 
 Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -2048,15 +2041,15 @@ LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined
 (Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
 45.
 
-[44] (./Img/figure_llamaomni_training.tex
+[46] (./Img/figure_llamaomni_training.tex
 File: Img/LLaMA_Omni_training.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni_training.pdf>
-) [45]
+) [47]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 83.
- [46]
-(./Tables/llamaomni_data.tex) [47] [48] (./Tables/llamaomni_offline.tex)
-[49] (./Img/figure_llamaomni_streaming.tex
+ [48]
+(./Tables/llamaomni_data.tex) [49] [50] (./Tables/llamaomni_offline.tex)
+[51] (./Img/figure_llamaomni_streaming.tex
 File: Img/llamaomni_score.pdf Graphic file (type pdf)
 <use Img/llamaomni_score.pdf>
 File: Img/llamaomni_asr-wer.pdf Graphic file (type pdf)
@@ -2066,7 +2059,7 @@ File: Img/llamaomni_mos.pdf Graphic file (type pdf)
 File: Img/llamaomni_wps.pdf Graphic file (type pdf)
 <use Img/llamaomni_wps.pdf>
 ) (./Tables/llamaomni_streaming.tex)
-[50] [51] (./Tables/llamaomni_decode_time.tex)
+[52] [53] (./Tables/llamaomni_decode_time.tex)
 (./Img/figure_llamaomni_humaneval.tex
 File: Img/llamaomni_humaneval_helpful.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_helpful.pdf>
@@ -2077,76 +2070,77 @@ Underfull \hbox (badness 1609) in paragraph at lines 6--6
 
 File: Img/llamaomni_humaneval_natural.pdf Graphic file (type pdf)
 <use Img/llamaomni_humaneval_natural.pdf>
-) [52]) (./Tex/Chap_LLaMA_Omni2.tex [53]
+) [54]) (./Tex/Chap_LLaMA_Omni2.tex [55]
 第6章
-[54
+[56
 
 ] (./Img/figure_llamaomni2.tex
 File: Img/LLaMA_Omni2.pdf Graphic file (type pdf)
 <use Img/LLaMA_Omni2.pdf>
-) [55] [56] [57] [58] [59]
-(./Tables/llamaomni2_main.tex) [60] (./Tables/llamaomni2_ablation.tex) [61]
+) [57] [58] [59] [60] [61]
+(./Tables/llamaomni2_main.tex) [62] (./Tables/llamaomni2_ablation.tex) [63]
 (./Tables/llamaomni2_pretrain.tex) (./Tables/llamaomni2_readwrite.tex)
-(./Tables/llamaomni2_latency.tex) [62] (./Tables/llamaomni2_data.tex [63]))
-(./Tex/Chap_FullDuplex.tex [64]
+(./Tables/llamaomni2_latency.tex) [64] (./Tables/llamaomni2_data.tex [65]))
+(./Tex/Chap_FullDuplex.tex [66]
 第7章
-) (./Tex/Chap_Conclusion.tex [65
+) (./Tex/Chap_Conclusion.tex [67
 
-] [66]
+] [68]
 第8章
-)) [67
+)) [69
 
-] [68
+] [70
 
-] (Tmp/Thesis.bbl [69
+] (Tmp/Thesis.bbl [71
 
-] [70] [71] [72] [73]
-Underfull \hbox (badness 1859) in paragraph at lines 765--768
+] [72] [73] [74] [75] [76]
+Underfull \hbox (badness 1859) in paragraph at lines 834--837
 []\TU/entexttt/m/n/10.53937 Chu Y, Xu J, Yang Q, et al.  Qwen2-audio technical 
 report [J].  arXiv preprint
  []
 
-[74] [75]
-Underfull \hbox (badness 1189) in paragraph at lines 1009--1017
+[77] [78]
+Underfull \hbox (badness 1189) in paragraph at lines 1093--1101
 []\TU/entexttt/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
 rial networks for efficient and
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 1009--1017
+Underfull \hbox (badness 1590) in paragraph at lines 1093--1101
 \TU/entexttt/m/n/10.53937 vances in Neural Information Processing Systems: volu
 me 33.  Curran Associates,
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 1009--1017
+Underfull \hbox (badness 3930) in paragraph at lines 1093--1101
 \TU/entexttt/m/n/10.53937 Inc., 2020: 17022-17033.  [][]$[][][][][] [] [] [] []
 [][][][][][][][][][] [] [][][][][][][] [] [][] [] [][][][][] [] [][][][][] [] [
 ][][][][] [] [][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 1019--1024
+Underfull \hbox (badness 1242) in paragraph at lines 1103--1108
 []\TU/entexttt/m/n/10.53937 Shao C, Ma Z, Feng Y.  Viterbi decoding of directed
  acyclic transformer for non-
  []
 
-[76] [77]
-Underfull \hbox (badness 1990) in paragraph at lines 1161--1165
+[79]
+Underfull \hbox (badness 1990) in paragraph at lines 1245--1249
 []\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-) [78] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [79
+[80]) [81] [82
+
+] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [83
 
 
+] [84
 
-] [80
+] [85]
+[86
 
-] [81] [82
-
-])
-(Tmp/Thesis.aux)
+]) (Tmp/Thesis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2154,12 +2148,12 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: E3B530E9F0DE3D8B8F872E0F418DC693;10122.
  ) 
 Here is how much of TeX's memory you used:
- 41155 strings out of 478671
- 858089 string characters out of 5848460
+ 41188 strings out of 478671
+ 858899 string characters out of 5848460
  1885018 words of memory out of 6000000
- 60391 multiletter control sequences out of 15000+600000
+ 60424 multiletter control sequences out of 15000+600000
  523697 words of font info for 168 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  118i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (100 pages).
+Output written on Tmp/Thesis.pdf (104 pages).

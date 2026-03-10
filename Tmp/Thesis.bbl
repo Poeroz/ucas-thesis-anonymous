@@ -1,4 +1,4 @@
-\begin{thebibliography}{152}
+\begin{thebibliography}{163}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -157,6 +157,62 @@ An~K, Chen~Q, Deng~C, et~al.
   natural interaction between humans and llms [J].
 \newblock arXiv preprint arXiv:2407.04051, 2024.
 
+\bibitem[Wang {\bibetal}(2017)Wang, Skerry{-}Ryan, Stanton, Wu, Weiss, Jaitly,
+  Yang, Xiao, Chen, Bengio, Le, Agiomyrgiannakis, Clark, and
+  Saurous]{wang2017tacotron}
+Wang~Y, Skerry{-}Ryan~R~J, Stanton~D, et~al.
+\newblock Tacotron: Towards end-to-end speech synthesis [C]//\allowbreak
+Proc. Interspeech.
+\newblock 2017: 4006-4010.
+
+\bibitem[Shen {\bibetal}(2018)Shen, Pang, Weiss, Schuster, Jaitly, Yang, Chen,
+  Zhang, Wang, Skerry{-}Ryan, Saurous, Agiomyrgiannakis, and
+  Wu]{shen2018tacotron2}
+Shen~J, Pang~R, Weiss~R~J, et~al.
+\newblock Natural {TTS} synthesis by conditioning wavenet on {MEL} spectrogram
+  predictions [C]//\allowbreak
+Proc. {ICASSP}.
+\newblock 2018: 4779-4783.
+
+\bibitem[Ren {\bibetal}(2019)Ren, Ruan, Tan, Qin, Zhao, Zhao, and
+  Liu]{ren2019fastspeech}
+Ren~Y, Ruan~Y, Tan~X, et~al.
+\newblock Fastspeech: Fast, robust and controllable text to speech
+  [C]//\allowbreak
+Proc. NeurIPS.
+\newblock 2019: 3165-3174.
+
+\bibitem[Jia {\bibetal}(2019{\natexlab{a}})Jia, Weiss, Biadsy, Macherey,
+  Johnson, Chen, and Wu]{translatotron}
+Jia~Y, Weiss~R~J, Biadsy~F, et~al.
+\newblock Direct speech-to-speech translation with a sequence-to-sequence model
+  [C/OL]//\allowbreak
+Kubin~G, Kacic~Z.
+\newblock Interspeech 2019, 20th Annual Conference of the International Speech
+  Communication Association, Graz, Austria, 15-19 September 2019.
+\newblock {ISCA}, 2019{\natexlab{a}}: 1123-1127.
+\newblock \url{https://doi.org/10.21437/Interspeech.2019-1951}.
+
+\bibitem[Griffin {\bibetal}(1984)Griffin and Lim]{griffin1984signal}
+Griffin~D~W, Lim~J~S.
+\newblock Signal estimation from modified short-time {Fourier} transform [J].
+\newblock IEEE Transactions on Acoustics, Speech, and Signal Processing, 1984,
+  32\penalty0 (2): 236-243.
+
+\bibitem[van~den Oord {\bibetal}(2016)van~den Oord, Dieleman, Zen, Simonyan,
+  Vinyals, Graves, Kalchbrenner, Senior, and Kavukcuoglu]{oord2016wavenet}
+van~den Oord~A, Dieleman~S, Zen~H, et~al.
+\newblock Wavenet: {A} generative model for raw audio [C]//\allowbreak
+The 9th {ISCA} Speech Synthesis Workshop.
+\newblock 2016.
+
+\bibitem[Kong {\bibetal}(2020{\natexlab{a}})Kong, Kim, and Bae]{kong2020hifi}
+Kong~J, Kim~J, Bae~J.
+\newblock Hifi-gan: Generative adversarial networks for efficient and high
+  fidelity speech synthesis [C]//\allowbreak
+Proc. NeurIPS.
+\newblock 2020{\natexlab{a}}.
+
 \bibitem[Liu {\bibetal}(2023)Liu, Chen, Yuan, Mei, Liu, Mandic, Wang, and
   Plumbley]{liu2023audioldm}
 Liu~H, Chen~Z, Yuan~Y, et~al.
@@ -305,13 +361,13 @@ Liu~Y, Xiong~H, He~Z, et~al.
 \newblock End-to-end speech translation with knowledge distillation [J].
 \newblock arXiv preprint arXiv:1904.08075, 2019.
 
-\bibitem[Jia {\bibetal}(2019{\natexlab{a}})Jia, Johnson, Macherey, Weiss, Cao,
+\bibitem[Jia {\bibetal}(2019{\natexlab{b}})Jia, Johnson, Macherey, Weiss, Cao,
   Chiu, Ari, Laurenzo, and Wu]{jia2019leveraging}
 Jia~Y, Johnson~M, Macherey~W, et~al.
 \newblock Leveraging weakly supervised data to improve end-to-end
   speech-to-text translation [C]//\allowbreak
 Proc. of ICASSP.
-\newblock 2019{\natexlab{a}}: 7180-7184.
+\newblock 2019{\natexlab{b}}: 7180-7184.
 
 \bibitem[Ye {\bibetal}(2022{\natexlab{a}})Ye, Zhao, Ko, Meng, Wang, Wang, and
   Cao]{gigast}
@@ -382,6 +438,13 @@ Communication~S, Barrault~L, Chung~Y~A, et~al.
 \newblock Seamlessm4t: Massively multilingual \& multimodal machine translation
   [Z].
 \newblock 2023.
+
+\bibitem[Barrault {\bibetal}(2023)Barrault, Chung, Meglioli, Dale, Dong,
+  et~al.]{communication2023seamlessm4tv2}
+Barrault~L, Chung~Y, Meglioli~M~C, et~al.
+\newblock Seamless: Multilingual expressive and streaming speech translation
+  [J].
+\newblock arXiv preprint arXiv:2312.05187, 2023.
 
 \bibitem[Anastasopoulos {\bibetal}(2018)Anastasopoulos and
   Chiang]{anastasopoulos2018tied}
@@ -565,17 +628,6 @@ Ko~H, Hansen~J~H~L.
 \newblock {ISCA}, 2022: 5195-5199.
 \newblock \url{https://doi.org/10.21437/Interspeech.2022-11032}.
 
-\bibitem[Jia {\bibetal}(2019{\natexlab{b}})Jia, Weiss, Biadsy, Macherey,
-  Johnson, Chen, and Wu]{translatotron}
-Jia~Y, Weiss~R~J, Biadsy~F, et~al.
-\newblock Direct speech-to-speech translation with a sequence-to-sequence model
-  [C/OL]//\allowbreak
-Kubin~G, Kacic~Z.
-\newblock Interspeech 2019, 20th Annual Conference of the International Speech
-  Communication Association, Graz, Austria, 15-19 September 2019.
-\newblock {ISCA}, 2019{\natexlab{b}}: 1123-1127.
-\newblock \url{https://doi.org/10.21437/Interspeech.2019-1951}.
-
 \bibitem[Jia {\bibetal}(2022{\natexlab{a}})Jia, Ramanovich, Remez, and
   Pomerantz]{translatotron2}
 Jia~Y, Ramanovich~M~T, Remez~T, et~al.
@@ -712,6 +764,16 @@ Radford~A, Wu~J, Child~R, et~al.
 \newblock Language models are unsupervised multitask learners [J].
 \newblock OpenAI blog, 2019.
 
+\bibitem[Brown {\bibetal}(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal,
+  Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert{-}Voss, Krueger,
+  Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin,
+  Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and
+  Amodei]{brown2020gpt3}
+Brown~T~B, Mann~B, Ryder~N, et~al.
+\newblock Language models are few-shot learners [C]//\allowbreak
+Proc. NeurIPS.
+\newblock 2020.
+
 \bibitem[Touvron {\bibetal}(2023{\natexlab{b}})Touvron, Martin, Stone, Albert,
   Almahairi, Babaei, Bashlykov, Batra, Bhargava, Bhosale,
   et~al.]{touvron2023llama2}
@@ -746,8 +808,15 @@ Borsos~Z, Marinier~R, Vincent~D, et~al.
 \newblock IEEE/ACM transactions on audio, speech, and language processing,
   2023, 31: 2523-2533.
 
-\bibitem[Wang {\bibetal}(2023)Wang, Zhou, Zhang, Wu, Liu, Gaur, Chen, Li, and
-  Wei]{wang2023viola}
+\bibitem[Wang {\bibetal}(2023{\natexlab{a}})Wang, Chen, Wu, Zhang, Zhou, Liu,
+  Chen, Liu, Wang, Li, He, Zhao, and Wei]{wang-etal-2023-valle}
+Wang~C, Chen~S, Wu~Y, et~al.
+\newblock Neural codec language models are zero-shot text to speech
+  synthesizers [J].
+\newblock arXiv preprint arXiv:2301.02111, 2023.
+
+\bibitem[Wang {\bibetal}(2023{\natexlab{b}})Wang, Zhou, Zhang, Wu, Liu, Gaur,
+  Chen, Li, and Wei]{wang2023viola}
 Wang~T, Zhou~L, Zhang~Z, et~al.
 \newblock Viola: Unified codec language models for speech recognition,
   synthesis, and translation [J].
@@ -792,6 +861,14 @@ Ku~L~W, Martins~A, Srikumar~V.
 \newblock Bangkok, Thailand and virtual meeting: Association for Computational
   Linguistics, 2024{\natexlab{a}}: 6976-6987.
 \newblock \url{https://aclanthology.org/2024.findings-acl.416}.
+
+\bibitem[Li {\bibetal}(2023{\natexlab{a}})Li, Li, Savarese, and
+  Hoi]{li2023blip2}
+Li~J, Li~D, Savarese~S, et~al.
+\newblock {BLIP-2:} bootstrapping language-image pre-training with frozen image
+  encoders and large language models [C]//\allowbreak
+Proc. {ICML}.
+\newblock 2023{\natexlab{a}}: 19730-19742.
 
 \bibitem[Tang {\bibetal}(2024)Tang, Yu, Sun, Chen, Tan, Li, Lu, MA, and
   Zhang]{tang2024salmonn}
@@ -910,6 +987,13 @@ OpenAI.
 \newblock Gemini: A family of highly capable multimodal models [J].
 \newblock arXiv preprint arXiv:2312.11805, 2023.
 
+\bibitem[Chen {\bibetal}(2024{\natexlab{b}})Chen, Liu, Zhou, Liu, Tan, Li,
+  Zhao, Qian, and Wei]{chen2024valle2}
+Chen~S, Liu~S, Zhou~L, et~al.
+\newblock {VALL-E} 2: Neural codec language models are human parity zero-shot
+  text to speech synthesizers [J].
+\newblock arXiv preprint arXiv:2406.05370, 2024.
+
 \bibitem[Wang {\bibetal}(2024)Wang, Li, Fu, Shen, Xie, Li, Sun, and
   Ma]{xiong2024freeze}
 Wang~X, Li~Y, Fu~C, et~al.
@@ -955,7 +1039,7 @@ Fu~C, Lin~H, Long~Z, et~al.
 \newblock {VITA}: Towards open-source interactive omni multimodal {LLM} [J].
 \newblock arXiv preprint arXiv:2408.05211, 2024.
 
-\bibitem[Chen {\bibetal}(2024{\natexlab{b}})Chen, Gou, Huang, Liu, Tan, Xu,
+\bibitem[Chen {\bibetal}(2024{\natexlab{c}})Chen, Gou, Huang, Liu, Tan, Xu,
   Wang, Zhu, Zeng, Yang, et~al.]{chen2025emova}
 Chen~K, Gou~Y, Huang~R, et~al.
 \newblock {EMOVA}: Empowering language models to see, hear and speak with vivid
@@ -1005,13 +1089,13 @@ Viterbi~A.
   260-269.
 \newblock DOI: \doi{10.1109/TIT.1967.1054010}.
 
-\bibitem[Kong {\bibetal}(2020)Kong, Kim, and Bae]{hifigan}
+\bibitem[Kong {\bibetal}(2020{\natexlab{b}})Kong, Kim, and Bae]{hifigan}
 Kong~J, Kim~J, Bae~J.
 \newblock Hifi-gan: Generative adversarial networks for efficient and high
   fidelity speech synthesis [C/OL]//\allowbreak
 Larochelle~H, Ranzato~M, Hadsell~R, et~al.
 \newblock Advances in Neural Information Processing Systems: volume~33.
-\newblock Curran Associates, Inc., 2020: 17022-17033.
+\newblock Curran Associates, Inc., 2020{\natexlab{b}}: 17022-17033.
 \newblock
   \url{https://proceedings.neurips.cc/paper_files/paper/2020/file/c5d736809766d46260d816d8dbc9eb44-Paper.pdf}.
 
@@ -1184,8 +1268,8 @@ Ding~N, Chen~Y, Xu~B, et~al.
   conversations [J].
 \newblock arXiv preprint arXiv:2305.14233, 2023.
 
-\bibitem[Li {\bibetal}(2023)Li, Zhang, Dubois, Taori, Gulrajani, Guestrin,
-  Liang, and Hashimoto]{alpacaeval}
+\bibitem[Li {\bibetal}(2023{\natexlab{b}})Li, Zhang, Dubois, Taori, Gulrajani,
+  Guestrin, Liang, and Hashimoto]{alpacaeval}
 Li~X, Zhang~T, Dubois~Y, et~al.
 \newblock Alpacaeval: An automatic evaluator of instruction-following models
   [J/OL].
