@@ -61,11 +61,7 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 
 \subsubsection{因果偏移}
 
-在上述块结构中，用户语音信道的第$b$块对应实际时段$[b \cdot \Delta t, (b+1) \cdot \Delta t)$。由于模型采用因果自回归生成，在第$b$块中生成文本信道和助手语音信道时，模型可利用的信息包括截至第$b$块用户语音信道末尾的所有词元，即模型"听完"了时刻$(b+1) \cdot \Delta t$之前的用户语音。因此，模型最早能输出的助手语音对应的实际播放时刻为$(b+1) \cdot \Delta t$而非$b \cdot \Delta t$，二者之间存在一个块的时间差。为此，训练时将文本信道和助手语音信道相对于用户语音信道向前偏移一个块：第$b$块中放置的文本和助手语音词元实际对应时段$[(b+1) \cdot \Delta t, (b+2) \cdot \Delta t)$的内容。因果偏移量为：
-\begin{equation}
-    \delta = \Delta t = \frac{N}{f_s}
-\end{equation}
-通过这种偏移，序列中三个信道在因果方向上的时间关系与实际对话中的时间关系保持一致。推理时，模型生成的助手语音需加回偏移$\delta$后才能对应到真实的播放时间轴。
+在上述块结构中，用户语音信道的第$b$块对应实际时段$[b \cdot \Delta t, (b+1) \cdot \Delta t)$。由于模型采用因果自回归生成，在第$b$块中生成文本信道和助手语音信道时，模型可利用的信息包括截至第$b$块用户语音信道末尾的所有词元，即模型"听完"了时刻$(b+1) \cdot \Delta t$之前的用户语音。因此，模型最早能输出的助手语音对应的实际播放时刻为$(b+1) \cdot \Delta t$而非$b \cdot \Delta t$，二者之间存在一个块的时间差$\Delta t = N / f_s$。为此，训练时将文本信道和助手语音信道相对于用户语音信道向前偏移一个块：第$b$块中放置的文本和助手语音词元实际对应时段$[(b+1) \cdot \Delta t, (b+2) \cdot \Delta t)$的内容。通过这种偏移，序列中三个信道在因果方向上的时间关系与实际对话中的时间关系保持一致。推理时，模型生成的助手语音需加回偏移$\Delta t$后才能对应到真实的播放时间轴。
 
 \subsubsection{文本信道构建规则}
 
@@ -77,11 +73,11 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
     \item \texttt{[EPAD]}：标记本轮助手回复的语音生成结束。
 \end{itemize}
 
-文本信道初始化时所有位置均填充\texttt{[SILENCE]}，然后根据每个助手发话段的时间戳进行覆写。为将发话段的时间戳映射到文本信道的词元索引，首先进行因果偏移校正，再将时间映射到语音词元索引，最后按语音与文本的比例$N:M$映射到文本索引。具体地，对于第$k$个助手发话段，其偏移后的起止时间为$s_k' = s_k - \delta$和$e_k' = e_k - \delta$，对应的语音词元索引为$\lfloor s_k' \cdot f_s \rfloor$和$\lceil e_k' \cdot f_s \rceil$。由于每$N$个语音词元对应$M$个文本词元，文本信道中的三个关键索引计算如下：
+文本信道初始化时所有位置均填充\texttt{[SILENCE]}，然后根据每个助手发话段的时间戳进行覆写。对于第$k$个助手发话段，需要将其起止时间$s_k$和$e_k$映射到文本信道的词元索引。映射过程包含三步：减去因果偏移$\Delta t$、乘以帧率$f_s$得到语音词元索引、再按语音与文本的比例$N:M$换算为文本索引。由此，文本信道中的三个关键索引计算如下：
 \begin{align}
-    j_k^{\text{start}} &= \left\lfloor s_k' \cdot f_s \right\rfloor \cdot M / N - 1 \\
+    j_k^{\text{start}} &= \left\lfloor (s_k - \Delta t) \cdot f_s \right\rfloor \cdot \frac{M}{N} - 1 \\
     j_k^{\text{content}} &= j_k^{\text{start}} + 1 \\
-    j_k^{\text{epad}} &= \left\lceil e_k' \cdot f_s \right\rceil \cdot M / N
+    j_k^{\text{epad}} &= \left\lceil (e_k - \Delta t) \cdot f_s \right\rceil \cdot \frac{M}{N}
 \end{align}
 其中$j_k^{\text{start}}$为\texttt{[START]}的放置位置，$j_k^{\text{content}}$为文本内容的起始位置，$j_k^{\text{epad}}$为\texttt{[EPAD]}的放置位置。
 
@@ -93,7 +89,7 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 
 \subsubsection{推理过程}
 
-推理时采用逐块自回归生成，完整流程如算法\ref{algo:fullduplex_infer}所示。每个时间步对应一个块：模型首先接收$N$个来自实时语音流的用户语音词元作为输入条件；随后自回归生成$M$个文本信道词元，通过词表掩码将预测范围限制在文本词元和特殊标记内；最后自回归生成$N$个助手语音词元，同样通过词表掩码限制在语音词元范围内。如前所述，文本信道的词元引导助手语音信道生成对应的语音词元：当文本信道输出\texttt{[SILENCE]}时，助手语音信道生成静音对应的词元；当文本信道输出\texttt{[START]}及后续文本内容时，助手语音信道生成与文本对应的语音词元。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\delta$以对齐真实时间轴。
+推理时采用逐块自回归生成，完整流程如算法\ref{algo:fullduplex_infer}所示。每个时间步对应一个块：模型首先接收$N$个来自实时语音流的用户语音词元作为输入条件；随后自回归生成$M$个文本信道词元，通过词表掩码将预测范围限制在文本词元和特殊标记内；最后自回归生成$N$个助手语音词元，同样通过词表掩码限制在语音词元范围内。如前所述，文本信道的词元引导助手语音信道生成对应的语音词元：当文本信道输出\texttt{[SILENCE]}时，助手语音信道生成静音对应的词元；当文本信道输出\texttt{[START]}及后续文本内容时，助手语音信道生成与文本对应的语音词元。生成的助手语音词元经语音解码器转换为波形，播放时加回因果偏移$\Delta t$以对齐真实时间轴。
 
 \begin{algorithm}[htbp]
 \small
@@ -101,18 +97,21 @@ GLM-4-Voice在预训练阶段采用文本与语音词元交织的方式进行联
 \label{algo:fullduplex_infer}
 \algrenewcommand{\algorithmiccomment}[1]{\hfill// #1}
 \begin{algorithmic}[1]
-\Require 实时用户语音流，块参数$N$、$M$，因果偏移$\delta$
+\Require 实时用户语音流，块参数$N$、$M$，因果偏移$\Delta t$
 \Ensure 助手语音波形
-\State 初始化块索引 $b = 0$
+\State 初始化块索引 $b = 0$，历史序列 $\mathbf{S} = ()$
 \While{对话未结束}
-    \State $\mathbf{x}_b \leftarrow$ 从语音流接收$N$个用户语音词元并输入模型
+    \State $\mathbf{x}_b \leftarrow$ 从语音流接收$N$个用户语音词元
+    \State $\mathbf{S} \leftarrow \mathbf{S} \oplus \mathbf{x}_b$ \Comment{将用户语音词元追加到历史序列}
     \For{$j = 1, \ldots, M$} \Comment{生成文本信道，引导语音生成}
-        \State $z_j \leftarrow$ 自回归采样（词表掩码限制为文本词元和特殊标记）
+        \State $z_j \leftarrow$ 基于$\mathbf{S}$自回归采样（词表掩码限制为文本词元和特殊标记）
+        \State $\mathbf{S} \leftarrow \mathbf{S} \oplus z_j$
     \EndFor
     \For{$j = 1, \ldots, N$} \Comment{在文本信道引导下生成助手语音}
-        \State $y_j \leftarrow$ 自回归采样（词表掩码限制为语音词元）
+        \State $y_j \leftarrow$ 基于$\mathbf{S}$自回归采样（词表掩码限制为语音词元）
+        \State $\mathbf{S} \leftarrow \mathbf{S} \oplus y_j$
     \EndFor
-    \State 将$N$个助手语音词元送入语音解码器，合成波形并在时刻$(b+1) \cdot \Delta t + \delta$播放
+    \State 将$\{y_1, \ldots, y_N\}$送入语音解码器，合成波形并在时刻$(b+2) \cdot \Delta t$播放
     \State $b \leftarrow b + 1$
 \EndWhile
 \end{algorithmic}
