@@ -111,7 +111,9 @@
 \contentsline {subsubsection}{\numberline {6.4.3.3}读写策略}{62}{subsubsection.6.4.3.3}%
 \contentsline {subsubsection}{\numberline {6.4.3.4}训练数据规模}{64}{subsubsection.6.4.3.4}%
 \contentsline {section}{\numberline {6.5}本章小结}{64}{section.6.5}%
-\contentsline {chapter}{\numberline {第7章\hspace {.3em}}总结与展望}{66}{chapter.7}%
-\contentsline {chapter}{参考文献}{67}{section*.46}%
-\contentsline {chapter}{致谢}{77}{appendix*.48}%
-\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{79}{appendix*.49}%
+\contentsline {chapter}{\numberline {第7章\hspace {.3em}}基于全双工建模的自然语音交互大模型}{65}{chapter.7}%
+\contentsline {section}{\numberline {7.1}引言}{65}{section.7.1}%
+\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{67}{chapter.8}%
+\contentsline {chapter}{参考文献}{69}{section*.46}%
+\contentsline {chapter}{致谢}{79}{appendix*.48}%
+\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{81}{appendix*.49}%
