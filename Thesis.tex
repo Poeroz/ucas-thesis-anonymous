@@ -22,7 +22,7 @@
 %->> Document settings
 %---------------------------------------------------------------------------%
 \usepackage{caption}
-\usepackage[super,numbers, list,table,math]{Style/artratex}
+\usepackage[super,numbers, list,table,math,tikz]{Style/artratex}
 %- usage: \usepackage[option1,option2,...,optionN]{artratex}
 %- Multiple optional arguments:
 %- [bibtex|biber]% set bibliography processor and package
@@ -42,6 +42,7 @@
 %- [math]% enable some extra math packages
 %- [xlink]% disable link colors
 \usepackage{Style/artracom}% user defined commands
+\usetikzlibrary{shapes.geometric, shapes.multipart, arrows.meta, fit, backgrounds, patterns, decorations.pathreplacing}
 %---------------------------------------------------------------------------%
 %->> Document inclusion
 %---------------------------------------------------------------------------%
