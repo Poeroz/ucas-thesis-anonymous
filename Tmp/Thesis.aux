@@ -15,6 +15,10 @@
 \providecommand*\HyPL@Entry[1]{}
 \HyPL@Entry{0<</S/r>>}
 \HyPL@Entry{6<</S/R>>}
+\citation{vaswani2017attention}
+\citation{translatotron}
+\citation{lee-etal-2022-textless}
+\citation{translatotron2,inaguma-etal-2023-unity}
 \HyPL@Entry{18<</S/D>>}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第1章\hspace  {.3em}}绪论}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -22,29 +26,60 @@
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
 \newlabel{chap:introduction}{{1}{1}{绪论}{chapter.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}研究背景与意义}{1}{section.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}研究背景}{1}{subsection.1.1.1}\protected@file@percent }
+\citation{chatgpt}
+\citation{gpt4o}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}研究意义}{2}{subsection.1.1.2}\protected@file@percent }
+\citation{translatotron}
+\citation{lee-etal-2022-textless}
+\citation{translatotron2,inaguma-etal-2023-unity}
+\citation{huang2023transpeech,diffs2ut}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}国内外研究现状}{3}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}编码器-解码器架构下的语音到语音生成}{3}{subsection.1.2.1}\protected@file@percent }
+\citation{Qwen-Audio}
+\citation{tang2024salmonn}
+\citation{whisper}
+\citation{zhang-etal-2023-speechgpt}
+\citation{glm4voice}
+\citation{kyutai2024moshi}
+\citation{kyutai2024moshi}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}仅解码器架构下的语音到语音生成}{4}{subsection.1.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}研究现状分析}{4}{subsection.1.2.3}\protected@file@percent }
+\citation{fang2023daspeech}
+\citation{fang2024comspeech}
+\citation{fang2024llama}
+\citation{fang2025llamaomni}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}研究内容}{5}{section.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}基于有向无环图的非自回归语音到语音翻译}{5}{subsection.1.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}基于词表转换的可组合语音到语音翻译}{5}{subsection.1.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}基于非自回归语音解码的实时语音交互大模型}{5}{subsection.1.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}基于自回归流式语音解码的实时语音交互大模型}{6}{subsection.1.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.5}基于全双工建模的自然语音交互大模型}{6}{subsection.1.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}章节安排}{6}{section.1.4}\protected@file@percent }
 \citation{transformer}
 \citation{gpt1}
 \citation{touvron2023llama}
 \citation{yang2024qwen2}
 \citation{lavie1997janus,ney1999speech,nakamura2006atr}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第2章\hspace  {.3em}}研究现状}{2}{chapter.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第2章\hspace  {.3em}}研究现状}{8}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:related_work}{{2}{2}{研究现状}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}语音到语音生成的建模范式}{2}{section.2.1}\protected@file@percent }
-\newlabel{sec:rw_paradigm}{{2.1}{2}{语音到语音生成的建模范式}{section.2.1}{}}
+\newlabel{chap:related_work}{{2}{8}{研究现状}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}语音到语音生成的建模范式}{8}{section.2.1}\protected@file@percent }
+\newlabel{sec:rw_paradigm}{{2.1}{8}{语音到语音生成的建模范式}{section.2.1}{}}
 \citation{conformer}
 \citation{kim2023ebranchformer}
 \citation{yao2024zipformer}
 \citation{rekesh2023fastconformer}
 \citation{gao2022paraformer}
 \citation{dong2020cif}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}语音表征}{3}{section.2.2}\protected@file@percent }
-\newlabel{sec:rw_repr}{{2.2}{3}{语音表征}{section.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}用于理解的语音表征}{3}{subsection.2.2.1}\protected@file@percent }
-\newlabel{sec:rw_repr_understand}{{2.2.1}{3}{用于理解的语音表征}{subsection.2.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}语音表征}{9}{section.2.2}\protected@file@percent }
+\newlabel{sec:rw_repr}{{2.2}{9}{语音表征}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}用于理解的语音表征}{9}{subsection.2.2.1}\protected@file@percent }
+\newlabel{sec:rw_repr_understand}{{2.2.1}{9}{用于理解的语音表征}{subsection.2.2.1}{}}
 \citation{oord2018cpc}
 \citation{schneider2019wav2vec}
 \citation{baevski2020vqwav2vec}
@@ -75,8 +110,8 @@
 \citation{ju2024naturalspeech3}
 \citation{evans2024stableaudio}
 \citation{liang2025mingtok}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}用于生成的语音表征}{5}{subsection.2.2.2}\protected@file@percent }
-\newlabel{sec:rw_repr_gen}{{2.2.2}{5}{用于生成的语音表征}{subsection.2.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}用于生成的语音表征}{11}{subsection.2.2.2}\protected@file@percent }
+\newlabel{sec:rw_repr_gen}{{2.2.2}{11}{用于生成的语音表征}{subsection.2.2.2}{}}
 \citation{du2024cosyvoice}
 \citation{du2024cosyvoice2}
 \citation{glm4voice}
@@ -95,13 +130,13 @@
 \citation{ye2024xcodec}
 \citation{liu2024semanticodec}
 \citation{xiao2025xytokenizer}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}基于编码器-解码器的语音到语音生成}{6}{section.2.3}\protected@file@percent }
-\newlabel{sec:rw_encdec_all}{{2.3}{6}{基于编码器-解码器的语音到语音生成}{section.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}基于编码器-解码器的语音到语音生成}{12}{section.2.3}\protected@file@percent }
+\newlabel{sec:rw_encdec_all}{{2.3}{12}{基于编码器-解码器的语音到语音生成}{section.2.3}{}}
 \citation{transformer}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}编码器-解码器架构基础}{7}{subsection.2.3.1}\protected@file@percent }
-\newlabel{sec:rw_encdec}{{2.3.1}{7}{编码器-解码器架构基础}{subsection.2.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}语音到文本翻译}{7}{subsection.2.3.2}\protected@file@percent }
-\newlabel{sec:rw_encdec_s2tt}{{2.3.2}{7}{语音到文本翻译}{subsection.2.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}编码器-解码器架构基础}{13}{subsection.2.3.1}\protected@file@percent }
+\newlabel{sec:rw_encdec}{{2.3.1}{13}{编码器-解码器架构基础}{subsection.2.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}语音到文本翻译}{13}{subsection.2.3.2}\protected@file@percent }
+\newlabel{sec:rw_encdec_s2tt}{{2.3.2}{13}{语音到文本翻译}{subsection.2.3.2}{}}
 \citation{berard2016listen}
 \citation{weiss2017sequence}
 \citation{bansal2019pre}
@@ -114,10 +149,10 @@
 \citation{ctcmeetsot}
 \citation{communication2023seamlessm4t}
 \citation{communication2023seamlessm4tv2}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.1}基础编码器-解码器}{8}{subsubsection.2.3.2.1}\protected@file@percent }
-\newlabel{sec:rw_s2tt_basic}{{2.3.2.1}{8}{基础编码器-解码器}{subsubsection.2.3.2.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.2}并联双编码器}{8}{subsubsection.2.3.2.2}\protected@file@percent }
-\newlabel{sec:rw_s2tt_parallel}{{2.3.2.2}{8}{并联双编码器}{subsubsection.2.3.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.1}基础编码器-解码器}{14}{subsubsection.2.3.2.1}\protected@file@percent }
+\newlabel{sec:rw_s2tt_basic}{{2.3.2.1}{14}{基础编码器-解码器}{subsubsection.2.3.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.2}并联双编码器}{14}{subsubsection.2.3.2.2}\protected@file@percent }
+\newlabel{sec:rw_s2tt_parallel}{{2.3.2.2}{14}{并联双编码器}{subsubsection.2.3.2.2}{}}
 \citation{anastasopoulos2018tied}
 \citation{han-etal-2021-learning}
 \citation{dong2021listen}
@@ -140,18 +175,18 @@
 \citation{zheng2021fused}
 \citation{zhang2022speechut}
 \citation{tang-etal-2022-unified}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.3}串联双编码器}{9}{subsubsection.2.3.2.3}\protected@file@percent }
-\newlabel{sec:rw_s2tt_serial}{{2.3.2.3}{9}{串联双编码器}{subsubsection.2.3.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2.3}串联双编码器}{15}{subsubsection.2.3.2.3}\protected@file@percent }
+\newlabel{sec:rw_s2tt_serial}{{2.3.2.3}{15}{串联双编码器}{subsubsection.2.3.2.3}{}}
 \citation{translatotron}
 \citation{tjandra2019s2st}
 \citation{uwspeech}
 \citation{s2ut}
 \citation{lee-etal-2022-textless}
 \citation{DBLP:conf/interspeech/PopuriCWPAGHL22}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}语音到语音翻译}{10}{subsection.2.3.3}\protected@file@percent }
-\newlabel{sec:rw_encdec_s2st}{{2.3.3}{10}{语音到语音翻译}{subsection.2.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.1}一阶段S2ST}{10}{subsubsection.2.3.3.1}\protected@file@percent }
-\newlabel{sec:rw_s2st_1pass}{{2.3.3.1}{10}{一阶段S2ST}{subsubsection.2.3.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}语音到语音翻译}{16}{subsection.2.3.3}\protected@file@percent }
+\newlabel{sec:rw_encdec_s2st}{{2.3.3}{16}{语音到语音翻译}{subsection.2.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.1}一阶段S2ST}{16}{subsubsection.2.3.3.1}\protected@file@percent }
+\newlabel{sec:rw_s2st_1pass}{{2.3.3.1}{16}{一阶段S2ST}{subsubsection.2.3.3.1}{}}
 \citation{translatotron2}
 \citation{inaguma-etal-2023-unity}
 \citation{communication2023seamlessm4t}
@@ -166,10 +201,10 @@
 \citation{wu-2023-duplex}
 \citation{tan2024diffnorm}
 \citation{ma2024nasts2x}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.2}两阶段S2ST}{11}{subsubsection.2.3.3.2}\protected@file@percent }
-\newlabel{sec:rw_s2st_2pass}{{2.3.3.2}{11}{两阶段S2ST}{subsubsection.2.3.3.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.3}非自回归S2ST}{11}{subsubsection.2.3.3.3}\protected@file@percent }
-\newlabel{sec:rw_s2st_nar}{{2.3.3.3}{11}{非自回归S2ST}{subsubsection.2.3.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.2}两阶段S2ST}{17}{subsubsection.2.3.3.2}\protected@file@percent }
+\newlabel{sec:rw_s2st_2pass}{{2.3.3.2}{17}{两阶段S2ST}{subsubsection.2.3.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.3}非自回归S2ST}{17}{subsubsection.2.3.3.3}\protected@file@percent }
+\newlabel{sec:rw_s2st_nar}{{2.3.3.3}{17}{非自回归S2ST}{subsubsection.2.3.3.3}{}}
 \citation{gpt1}
 \citation{radford2019language}
 \citation{brown2020gpt3}
@@ -182,10 +217,10 @@
 \citation{borsos2023audiolm}
 \citation{wang-etal-2023-valle}
 \citation{wang2023viola}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}基于仅解码器模型的语音到语音生成}{12}{section.2.4}\protected@file@percent }
-\newlabel{sec:rw_deconly_all}{{2.4}{12}{基于仅解码器模型的语音到语音生成}{section.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}仅解码器架构基础}{12}{subsection.2.4.1}\protected@file@percent }
-\newlabel{sec:rw_deconly}{{2.4.1}{12}{仅解码器架构基础}{subsection.2.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}基于仅解码器模型的语音到语音生成}{18}{section.2.4}\protected@file@percent }
+\newlabel{sec:rw_deconly_all}{{2.4}{18}{基于仅解码器模型的语音到语音生成}{section.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}仅解码器架构基础}{18}{subsection.2.4.1}\protected@file@percent }
+\newlabel{sec:rw_deconly}{{2.4.1}{18}{仅解码器架构基础}{subsection.2.4.1}{}}
 \citation{Qwen-Audio}
 \citation{Qwen2-Audio}
 \citation{slam-asr}
@@ -194,8 +229,8 @@
 \citation{li2023blip2}
 \citation{tang2024salmonn}
 \citation{yu2024connecting}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}语音到文本生成}{13}{subsection.2.4.2}\protected@file@percent }
-\newlabel{sec:rw_deconly_s2t}{{2.4.2}{13}{语音到文本生成}{subsection.2.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}语音到文本生成}{19}{subsection.2.4.2}\protected@file@percent }
+\newlabel{sec:rw_deconly_s2t}{{2.4.2}{19}{语音到文本生成}{subsection.2.4.2}{}}
 \citation{wu2023decoder}
 \citation{hono-etal-2024-integrating}
 \citation{hu2024wavllm}
@@ -206,10 +241,10 @@
 \citation{glm4voice}
 \citation{zhang2024speechgptgen}
 \citation{zhang2024intrinsicvoice}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}语音到语音生成}{14}{subsection.2.4.3}\protected@file@percent }
-\newlabel{sec:rw_deconly_s2s}{{2.4.3}{14}{语音到语音生成}{subsection.2.4.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.1}原生式语音大模型}{14}{subsubsection.2.4.3.1}\protected@file@percent }
-\newlabel{sec:rw_s2s_native}{{2.4.3.1}{14}{原生式语音大模型}{subsubsection.2.4.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}语音到语音生成}{20}{subsection.2.4.3}\protected@file@percent }
+\newlabel{sec:rw_deconly_s2s}{{2.4.3}{20}{语音到语音生成}{subsection.2.4.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.1}原生式语音大模型}{20}{subsubsection.2.4.3.1}\protected@file@percent }
+\newlabel{sec:rw_s2s_native}{{2.4.3.1}{20}{原生式语音大模型}{subsubsection.2.4.3.1}{}}
 \citation{xie2024mini}
 \citation{moonshot2025kimiaudio}
 \citation{nguyen2022dgslm}
@@ -222,11 +257,11 @@
 \citation{chen2025minmo}
 \citation{alibaba2025qwen25omni}
 \citation{vocalnet2025}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.2}组合式语音大模型}{15}{subsubsection.2.4.3.2}\protected@file@percent }
-\newlabel{sec:rw_s2s_composite}{{2.4.3.2}{15}{组合式语音大模型}{subsubsection.2.4.3.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}研究现状综合分析}{16}{section.2.5}\protected@file@percent }
-\newlabel{sec:rw_analysis}{{2.5}{16}{研究现状综合分析}{section.2.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}本章小结}{17}{section.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3.2}组合式语音大模型}{21}{subsubsection.2.4.3.2}\protected@file@percent }
+\newlabel{sec:rw_s2s_composite}{{2.4.3.2}{21}{组合式语音大模型}{subsubsection.2.4.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}研究现状综合分析}{22}{section.2.5}\protected@file@percent }
+\newlabel{sec:rw_analysis}{{2.5}{22}{研究现状综合分析}{section.2.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}本章小结}{23}{section.2.6}\protected@file@percent }
 \citation{s2ut}
 \citation{translatotron}
 \citation{inaguma-etal-2023-unity}
@@ -234,53 +269,53 @@
 \citation{huang2023transpeech}
 \citation{diffs2ut}
 \citation{gu2018nat}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}基于有向无环图的语音到语音翻译模型}{18}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第3章\hspace  {.3em}}基于有向无环图的语音到语音翻译模型}{24}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:daspeech}{{3}{18}{基于有向无环图的语音到语音翻译模型}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{18}{section.3.1}\protected@file@percent }
+\newlabel{chap:daspeech}{{3}{24}{基于有向无环图的语音到语音翻译模型}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{24}{section.3.1}\protected@file@percent }
 \citation{huang2022DATransformer}
 \citation{ren2021fastspeech2}
 \citation{huang2022DATransformer,huang2022PDAT}
 \citation{transformer}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}方法介绍}{19}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}相关技术}{19}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.1}DA-Transformer}{19}{subsubsection.3.2.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}方法介绍}{25}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}相关技术}{25}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.1}DA-Transformer}{25}{subsubsection.3.2.1.1}\protected@file@percent }
 \citation{ren2021fastspeech2}
-\newlabel{eq:dat}{{3-4}{20}{DA-Transformer}{equation.3.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.2}FastSpeech 2}{20}{subsubsection.3.2.1.2}\protected@file@percent }
-\newlabel{eq:tts}{{3-5}{20}{FastSpeech 2}{equation.3.2.5}{}}
+\newlabel{eq:dat}{{3-4}{26}{DA-Transformer}{equation.3.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1.2}FastSpeech 2}{26}{subsubsection.3.2.1.2}\protected@file@percent }
+\newlabel{eq:tts}{{3-5}{26}{FastSpeech 2}{equation.3.2.5}{}}
 \citation{conformer}
 \citation{dai-etal-2019-transformer}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}模型架构}{21}{subsection.3.2.2}\protected@file@percent }
-\newlabel{sec:daspeech_arch}{{3.2.2}{21}{模型架构}{subsection.3.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace  DASpeech模型架构\relax }}{21}{figure.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}模型架构}{27}{subsection.3.2.2}\protected@file@percent }
+\newlabel{sec:daspeech_arch}{{3.2.2}{27}{模型架构}{subsection.3.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace  DASpeech模型架构\relax }}{27}{figure.caption.14}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:daspeech}{{3-1}{21}{\enspace DASpeech模型架构\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}期望路径训练}{21}{subsection.3.2.3}\protected@file@percent }
-\newlabel{sec:daspeech_train}{{3.2.3}{21}{期望路径训练}{subsection.3.2.3}{}}
+\newlabel{fig:daspeech}{{3-1}{27}{\enspace DASpeech模型架构\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}期望路径训练}{27}{subsection.3.2.3}\protected@file@percent }
+\newlabel{sec:daspeech_train}{{3.2.3}{27}{期望路径训练}{subsection.3.2.3}{}}
 \citation{hiddenmarkovmodel}
-\newlabel{eq:expect}{{3-6}{22}{期望路径训练}{equation.3.2.6}{}}
-\newlabel{eq:posterior}{{3-7}{22}{期望路径训练}{equation.3.2.7}{}}
+\newlabel{eq:expect}{{3-6}{28}{期望路径训练}{equation.3.2.6}{}}
+\newlabel{eq:posterior}{{3-7}{28}{期望路径训练}{equation.3.2.7}{}}
 \citation{viterbi}
 \citation{qian-etal-2021-glancing}
 \citation{hifigan}
-\newlabel{eq:daspeech}{{3-12}{23}{期望路径训练}{equation.3.2.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}解码策略}{23}{subsection.3.2.4}\protected@file@percent }
-\newlabel{sec:daspeech_infer}{{3.2.4}{23}{解码策略}{subsection.3.2.4}{}}
+\newlabel{eq:daspeech}{{3-12}{29}{期望路径训练}{equation.3.2.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}解码策略}{29}{subsection.3.2.4}\protected@file@percent }
+\newlabel{sec:daspeech_infer}{{3.2.4}{29}{解码策略}{subsection.3.2.4}{}}
 \citation{shao2022viterbi}
 \citation{viterbi}
 \citation{jia2022cvss}
 \citation{wang2020covost2}
 \citation{Veaux2017CSTRVC}
 \citation{adam}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果与分析}{24}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}实验设置}{24}{subsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}数据集}{24}{subsubsection.3.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}模型配置}{24}{subsubsection.3.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.3}训练细节}{24}{subsubsection.3.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果与分析}{30}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}实验设置}{30}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}数据集}{30}{subsubsection.3.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}模型配置}{30}{subsubsection.3.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.3}训练细节}{30}{subsubsection.3.3.1.3}\protected@file@percent }
 \citation{ott2019fairseq}
 \citation{post-2018-call}
 \citation{papineni-etal-2002-bleu}
@@ -290,81 +325,81 @@
 \citation{inaguma2022unity}
 \citation{translatotron2}
 \citation{huang2023transpeech}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.4}评价指标}{25}{subsubsection.3.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.5}基线系统}{25}{subsubsection.3.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.4}评价指标}{31}{subsubsection.3.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.5}基线系统}{31}{subsubsection.3.3.1.5}\protected@file@percent }
 \citation{s2ut}
 \citation{translatotron}
 \citation{inaguma-etal-2023-unity}
 \citation{translatotron2}
 \citation{huang2023transpeech}
-\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace  CVSS法语到英语数据集上的实验结果\relax }}{26}{table.caption.15}\protected@file@percent }
-\newlabel{tab:daspeech_main}{{3-1}{26}{\enspace CVSS法语到英语数据集上的实验结果\relax }{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}主要结果}{26}{subsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}法语到英语翻译结果}{26}{subsubsection.3.3.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace  CVSS法语到英语数据集上的实验结果\relax }}{32}{table.caption.15}\protected@file@percent }
+\newlabel{tab:daspeech_main}{{3-1}{32}{\enspace CVSS法语到英语数据集上的实验结果\relax }{table.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}主要结果}{32}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}法语到英语翻译结果}{32}{subsubsection.3.3.2.1}\protected@file@percent }
 \citation{s2ut}
 \citation{inaguma-etal-2023-unity}
 \citation{translatotron2}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}多语言翻译结果}{27}{subsubsection.3.3.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace  CVSS-C多语言数据集上的实验结果\relax }}{27}{table.caption.16}\protected@file@percent }
-\newlabel{tab:daspeech_multilingual}{{3-2}{27}{\enspace CVSS-C多语言数据集上的实验结果\relax }{table.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}分析实验}{27}{subsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.1}期望路径训练与最优路径训练的比较}{27}{subsubsection.3.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace  期望路径训练与最优路径训练的对比\relax }}{28}{table.caption.17}\protected@file@percent }
-\newlabel{tab:daspeech_path}{{3-3}{28}{\enspace 期望路径训练与最优路径训练的对比\relax }{table.caption.17}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.2}解码速度分析}{28}{subsubsection.3.3.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace  不同源语音长度下的翻译延迟对比\relax }}{28}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:daspeech_decoding}{{3-2}{28}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}多语言翻译结果}{33}{subsubsection.3.3.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace  CVSS-C多语言数据集上的实验结果\relax }}{33}{table.caption.16}\protected@file@percent }
+\newlabel{tab:daspeech_multilingual}{{3-2}{33}{\enspace CVSS-C多语言数据集上的实验结果\relax }{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}分析实验}{33}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.1}期望路径训练与最优路径训练的比较}{33}{subsubsection.3.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace  期望路径训练与最优路径训练的对比\relax }}{34}{table.caption.17}\protected@file@percent }
+\newlabel{tab:daspeech_path}{{3-3}{34}{\enspace 期望路径训练与最优路径训练的对比\relax }{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.2}解码速度分析}{34}{subsubsection.3.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace  不同源语音长度下的翻译延迟对比\relax }}{34}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:daspeech_decoding}{{3-2}{34}{\enspace 不同源语音长度下的翻译延迟对比\relax }{figure.caption.18}{}}
 \citation{s2ut}
 \citation{inaguma-etal-2023-unity}
 \citation{huang2023transpeech}
 \citation{translatotron}
 \citation{translatotron2}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace  翻译质量与解码速度的权衡\relax }}{29}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:daspeech_tradeoff}{{3-3}{29}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace  不同批次大小下的解码加速比\relax }}{29}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:daspeech_batch}{{3-4}{29}{\enspace 不同批次大小下的解码加速比\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.3}图尺寸的影响}{29}{subsubsection.3.3.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace  不同图尺寸下S2TT模型的翻译质量\relax }}{29}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:daspeech_graph_size_s2t}{{3-5}{29}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace  不同图尺寸下DASpeech的翻译质量\relax }}{29}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:daspeech_graph_size_s2s}{{3-6}{29}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.4}音色保持能力分析}{30}{subsubsection.3.3.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace  各模型的说话人相似度对比\relax }}{30}{table.caption.21}\protected@file@percent }
-\newlabel{tab:daspeech_speaker}{{3-4}{30}{\enspace 各模型的说话人相似度对比\relax }{table.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{30}{section.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace  翻译质量与解码速度的权衡\relax }}{35}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:daspeech_tradeoff}{{3-3}{35}{\enspace 翻译质量与解码速度的权衡\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace  不同批次大小下的解码加速比\relax }}{35}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:daspeech_batch}{{3-4}{35}{\enspace 不同批次大小下的解码加速比\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.3}图尺寸的影响}{35}{subsubsection.3.3.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \enspace  不同图尺寸下S2TT模型的翻译质量\relax }}{35}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:daspeech_graph_size_s2t}{{3-5}{35}{\enspace 不同图尺寸下S2TT模型的翻译质量\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \enspace  不同图尺寸下DASpeech的翻译质量\relax }}{35}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:daspeech_graph_size_s2s}{{3-6}{35}{\enspace 不同图尺寸下DASpeech的翻译质量\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3.4}音色保持能力分析}{36}{subsubsection.3.3.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace  各模型的说话人相似度对比\relax }}{36}{table.caption.21}\protected@file@percent }
+\newlabel{tab:daspeech_speaker}{{3-4}{36}{\enspace 各模型的说话人相似度对比\relax }{table.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{36}{section.3.4}\protected@file@percent }
 \citation{ctc}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}基于词表转换的组合式语音到语音翻译模型}{32}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章\hspace  {.3em}}基于词表转换的组合式语音到语音翻译模型}{38}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:comspeech}{{4}{32}{基于词表转换的组合式语音到语音翻译模型}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{32}{section.4.1}\protected@file@percent }
+\newlabel{chap:comspeech}{{4}{38}{基于词表转换的组合式语音到语音翻译模型}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{38}{section.4.1}\protected@file@percent }
 \citation{conformer}
 \citation{transformer}
 \citation{ren2021fastspeech2}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}方法介绍}{33}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}模型架构}{33}{subsection.4.2.1}\protected@file@percent }
-\newlabel{sec:comspeech_arch}{{4.2.1}{33}{模型架构}{subsection.4.2.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace  ComSpeech模型架构\relax }}{34}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:comspeech}{{4-1}{34}{\enspace ComSpeech模型架构\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}方法介绍}{39}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}模型架构}{39}{subsection.4.2.1}\protected@file@percent }
+\newlabel{sec:comspeech_arch}{{4.2.1}{39}{模型架构}{subsection.4.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace  ComSpeech模型架构\relax }}{40}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:comspeech}{{4-1}{40}{\enspace ComSpeech模型架构\relax }{figure.caption.22}{}}
 \citation{viterbi}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}有监督训练}{35}{subsection.4.2.2}\protected@file@percent }
-\newlabel{sec:comspeech_supervised}{{4.2.2}{35}{有监督训练}{subsection.4.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}零样本训练}{35}{subsection.4.2.3}\protected@file@percent }
-\newlabel{sec:comspeech_zeroshot}{{4.2.3}{35}{零样本训练}{subsection.4.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace  ComSpeech-ZS的训练与推理流程\relax }}{36}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:comspeech_training}{{4-2}{36}{\enspace ComSpeech-ZS的训练与推理流程\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}表示对齐}{36}{subsubsection.4.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}有监督训练}{41}{subsection.4.2.2}\protected@file@percent }
+\newlabel{sec:comspeech_supervised}{{4.2.2}{41}{有监督训练}{subsection.4.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}零样本训练}{41}{subsection.4.2.3}\protected@file@percent }
+\newlabel{sec:comspeech_zeroshot}{{4.2.3}{41}{零样本训练}{subsection.4.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace  ComSpeech-ZS的训练与推理流程\relax }}{42}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:comspeech_training}{{4-2}{42}{\enspace ComSpeech-ZS的训练与推理流程\relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}表示对齐}{42}{subsubsection.4.2.3.1}\protected@file@percent }
 \citation{jia2022cvss}
 \citation{Veaux2017CSTRVC}
 \citation{hifigan}
 \citation{adam}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}两阶段微调策略}{37}{subsubsection.4.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}实验结果与分析}{37}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}实验设置}{37}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.1}数据集}{37}{subsubsection.4.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.2}模型配置}{37}{subsubsection.4.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}两阶段微调策略}{43}{subsubsection.4.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}实验结果与分析}{43}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}实验设置}{43}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.1}数据集}{43}{subsubsection.4.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.2}模型配置}{43}{subsubsection.4.3.1.2}\protected@file@percent }
 \citation{post-2018-call}
 \citation{papineni-etal-2002-bleu}
 \citation{communication2023seamlessm4t}
@@ -376,113 +411,113 @@
 \citation{inaguma-etal-2023-unity}
 \citation{s2ut}
 \citation{fang-etal-2023-daspeech}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.3}训练细节}{38}{subsubsection.4.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.4}评价指标}{38}{subsubsection.4.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.5}基线系统}{38}{subsubsection.4.3.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}主要结果}{38}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}有监督学习结果}{38}{subsubsection.4.3.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  CVSS数据集上的实验结果\relax }}{39}{table.caption.24}\protected@file@percent }
-\newlabel{tab:comspeech_main}{{4-1}{39}{\enspace CVSS数据集上的实验结果\relax }{table.caption.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.2}S2TT与S2ST的性能差距分析}{39}{subsubsection.4.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.3}训练细节}{44}{subsubsection.4.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.4}评价指标}{44}{subsubsection.4.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.5}基线系统}{44}{subsubsection.4.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}主要结果}{44}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}有监督学习结果}{44}{subsubsection.4.3.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace  CVSS数据集上的实验结果\relax }}{45}{table.caption.24}\protected@file@percent }
+\newlabel{tab:comspeech_main}{{4-1}{45}{\enspace CVSS数据集上的实验结果\relax }{table.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.2}S2TT与S2ST的性能差距分析}{45}{subsubsection.4.3.2.2}\protected@file@percent }
 \citation{translatotron2}
 \citation{inaguma-etal-2023-unity}
-\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  S2TT与S2ST的性能差距对比\relax }}{40}{table.caption.25}\protected@file@percent }
-\newlabel{tab:comspeech_gap}{{4-2}{40}{\enspace S2TT与S2ST的性能差距对比\relax }{table.caption.25}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.3}零样本学习结果}{40}{subsubsection.4.3.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  BLASER 2.0评估结果\relax }}{40}{table.caption.26}\protected@file@percent }
-\newlabel{tab:comspeech_blaser}{{4-3}{40}{\enspace BLASER 2.0评估结果\relax }{table.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace  S2TT与S2ST的性能差距对比\relax }}{46}{table.caption.25}\protected@file@percent }
+\newlabel{tab:comspeech_gap}{{4-2}{46}{\enspace S2TT与S2ST的性能差距对比\relax }{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.3}零样本学习结果}{46}{subsubsection.4.3.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace  BLASER 2.0评估结果\relax }}{46}{table.caption.26}\protected@file@percent }
+\newlabel{tab:comspeech_blaser}{{4-3}{46}{\enspace BLASER 2.0评估结果\relax }{table.caption.26}{}}
 \citation{pmlr-v119-wang20k}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.4}BLASER 2.0评估结果}{41}{subsubsection.4.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}分析实验}{41}{subsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}对齐训练目标的消融}{41}{subsubsection.4.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  不同对齐训练目标的实验结果\relax }}{41}{table.caption.27}\protected@file@percent }
-\newlabel{tab:comspeech_objectives}{{4-4}{41}{\enspace 不同对齐训练目标的实验结果\relax }{table.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace  不同预训练和微调策略的实验结果\relax }}{42}{table.caption.28}\protected@file@percent }
-\newlabel{tab:comspeech_pretrain}{{4-5}{42}{\enspace 不同预训练和微调策略的实验结果\relax }{table.caption.28}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.2}预训练和微调策略的消融}{42}{subsubsection.4.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.3}词表适配器超参数分析}{42}{subsubsection.4.3.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace  词表适配器超参数实验结果\relax }}{42}{table.caption.29}\protected@file@percent }
-\newlabel{tab:comspeech_adaptor}{{4-6}{42}{\enspace 词表适配器超参数实验结果\relax }{table.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  TTS数据规模对翻译质量的影响\relax }}{43}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:comspeech_tts_data}{{4-3}{43}{\enspace TTS数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  S2TT数据规模对翻译质量的影响\relax }}{43}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:comspeech_s2tt_data}{{4-4}{43}{\enspace S2TT数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.4}数据规模的影响}{43}{subsubsection.4.3.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{43}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.4}BLASER 2.0评估结果}{47}{subsubsection.4.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}分析实验}{47}{subsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}对齐训练目标的消融}{47}{subsubsection.4.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace  不同对齐训练目标的实验结果\relax }}{47}{table.caption.27}\protected@file@percent }
+\newlabel{tab:comspeech_objectives}{{4-4}{47}{\enspace 不同对齐训练目标的实验结果\relax }{table.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace  不同预训练和微调策略的实验结果\relax }}{48}{table.caption.28}\protected@file@percent }
+\newlabel{tab:comspeech_pretrain}{{4-5}{48}{\enspace 不同预训练和微调策略的实验结果\relax }{table.caption.28}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.2}预训练和微调策略的消融}{48}{subsubsection.4.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.3}词表适配器超参数分析}{48}{subsubsection.4.3.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace  词表适配器超参数实验结果\relax }}{48}{table.caption.29}\protected@file@percent }
+\newlabel{tab:comspeech_adaptor}{{4-6}{48}{\enspace 词表适配器超参数实验结果\relax }{table.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace  TTS数据规模对翻译质量的影响\relax }}{49}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:comspeech_tts_data}{{4-3}{49}{\enspace TTS数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace  S2TT数据规模对翻译质量的影响\relax }}{49}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:comspeech_s2tt_data}{{4-4}{49}{\enspace S2TT数据规模对翻译质量的影响\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.4}数据规模的影响}{49}{subsubsection.4.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{49}{section.4.4}\protected@file@percent }
 \citation{chatgpt}
 \citation{zhang-etal-2023-speechgpt,rubenstein2023audiopalm}
 \citation{zhang-etal-2023-speechgpt}
 \citation{ctc}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}基于连接时序分类的实时语音交互大模型}{45}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}基于连接时序分类的实时语音交互大模型}{51}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni}{{5}{45}{基于连接时序分类的实时语音交互大模型}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}引言}{45}{section.5.1}\protected@file@percent }
+\newlabel{chap:llama-omni}{{5}{51}{基于连接时序分类的实时语音交互大模型}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}引言}{51}{section.5.1}\protected@file@percent }
 \citation{gpt4o}
 \citation{zhang-etal-2023-speechgpt}
 \citation{tang2024salmonn}
 \citation{Qwen2-Audio}
 \citation{whisper}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}方法介绍}{46}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}模型架构}{46}{subsection.5.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace  LLaMA-Omni模型架构\relax }}{46}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:llamaomni}{{5-1}{46}{\enspace LLaMA-Omni模型架构\relax }{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}方法介绍}{52}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}模型架构}{52}{subsection.5.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace  LLaMA-Omni模型架构\relax }}{52}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:llamaomni}{{5-1}{52}{\enspace LLaMA-Omni模型架构\relax }{figure.caption.31}{}}
 \citation{dubey2024llama3}
 \citation{hubert}
 \citation{hifigan}
 \citation{polyak21_interspeech}
 \citation{transformer}
-\newlabel{eq:llm_loss}{{5-3}{47}{模型架构}{equation.5.2.3}{}}
+\newlabel{eq:llm_loss}{{5-3}{53}{模型架构}{equation.5.2.3}{}}
 \citation{ctc}
-\newlabel{eq:ctc_loss}{{5-5}{48}{模型架构}{equation.5.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}训练策略}{48}{subsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace  LLaMA-Omni的两阶段训练策略\relax }}{48}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:llamaomni_training}{{5-2}{48}{\enspace LLaMA-Omni的两阶段训练策略\relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}流式推理}{49}{subsection.5.2.3}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces LLaMA-Omni流式推理过程\relax }}{49}{algorithm.1}\protected@file@percent }
-\newlabel{algo:llamaomni_infer}{{1}{49}{LLaMA-Omni流式推理过程\relax }{algorithm.1}{}}
+\newlabel{eq:ctc_loss}{{5-5}{54}{模型架构}{equation.5.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}训练策略}{54}{subsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace  LLaMA-Omni的两阶段训练策略\relax }}{54}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:llamaomni_training}{{5-2}{54}{\enspace LLaMA-Omni的两阶段训练策略\relax }{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}流式推理}{55}{subsection.5.2.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces LLaMA-Omni流式推理过程\relax }}{55}{algorithm.1}\protected@file@percent }
+\newlabel{algo:llamaomni_infer}{{1}{55}{LLaMA-Omni流式推理过程\relax }{algorithm.1}{}}
 \citation{cho-etal-2024-speechworthy}
 \citation{du2024cosyvoice}
 \citation{ljspeech17}
 \citation{kim2021conditional}
 \citation{alpaca}
 \citation{ultrachat}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}语音指令数据集构建}{50}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}语音指令数据集构建}{56}{section.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{56}{table.caption.33}\protected@file@percent }
+\newlabel{tab:llamaomni_data}{{5-1}{56}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.33}{}}
 \citation{hifigan,polyak21_interspeech}
 \citation{alpacaeval}
-\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace  InstructS2S-200K数据集统计\relax }}{51}{table.caption.33}\protected@file@percent }
-\newlabel{tab:llamaomni_data}{{5-1}{51}{\enspace InstructS2S-200K数据集统计\relax }{table.caption.33}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}实验结果与分析}{51}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}实验设置}{51}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.1}数据集}{51}{subsubsection.5.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.2}模型配置}{51}{subsubsection.5.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.3}训练细节}{51}{subsubsection.5.4.1.3}\protected@file@percent }
 \citation{gpt4o}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}实验结果与分析}{57}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}实验设置}{57}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.1}数据集}{57}{subsubsection.5.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.2}模型配置}{57}{subsubsection.5.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.3}训练细节}{57}{subsubsection.5.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.4}评价指标}{57}{subsubsection.5.4.1.4}\protected@file@percent }
 \citation{saeki22c_interspeech}
 \citation{zhang-etal-2023-speechgpt}
 \citation{tang2024salmonn}
 \citation{Qwen2-Audio}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.4}评价指标}{52}{subsubsection.5.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.5}基线系统}{52}{subsubsection.5.4.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}离线场景结果}{52}{subsection.5.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{53}{table.caption.34}\protected@file@percent }
-\newlabel{tab:llamaomni_offline}{{5-2}{53}{\enspace 离线场景下的实验结果\relax }{table.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}流式场景结果}{53}{subsection.5.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{54}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:llamaomni_streaming}{{5-3}{54}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{55}{table.caption.36}\protected@file@percent }
-\newlabel{tab:llamaomni_streaming}{{5-3}{55}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.36}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}解码效率分析}{55}{subsection.5.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{55}{table.caption.37}\protected@file@percent }
-\newlabel{tab:llamaomni_decode_time}{{5-4}{55}{\enspace 平均解码时间对比\relax }{table.caption.37}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}人工评估}{55}{subsection.5.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{55}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_helpful}{{5-4}{55}{\enspace 帮助性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{55}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:llamaomni_humaneval_natural}{{5-5}{55}{\enspace 自然性人工评估结果\relax }{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{56}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.5}基线系统}{58}{subsubsection.5.4.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}离线场景结果}{58}{subsection.5.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace  离线场景下的实验结果\relax }}{58}{table.caption.34}\protected@file@percent }
+\newlabel{tab:llamaomni_offline}{{5-2}{58}{\enspace 离线场景下的实验结果\relax }{table.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}流式场景结果}{59}{subsection.5.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace  流式场景下各模型在不同延迟条件下的实验结果\relax }}{60}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:llamaomni_streaming}{{5-3}{60}{\enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}解码效率分析}{60}{subsection.5.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace  LLaMA-Omni在不同流式配置下的实验结果\relax }}{61}{table.caption.36}\protected@file@percent }
+\newlabel{tab:llamaomni_streaming}{{5-3}{61}{\enspace LLaMA-Omni在不同流式配置下的实验结果\relax }{table.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace  平均解码时间对比\relax }}{61}{table.caption.37}\protected@file@percent }
+\newlabel{tab:llamaomni_decode_time}{{5-4}{61}{\enspace 平均解码时间对比\relax }{table.caption.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}人工评估}{61}{subsection.5.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace  帮助性人工评估结果\relax }}{61}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_helpful}{{5-4}{61}{\enspace 帮助性人工评估结果\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces \enspace  自然性人工评估结果\relax }}{61}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:llamaomni_humaneval_natural}{{5-5}{61}{\enspace 自然性人工评估结果\relax }{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{62}{section.5.5}\protected@file@percent }
 \citation{zhang-etal-2023-speechgpt,glm4voice,kyutai2024moshi}
 \citation{glm4voice}
 \citation{kyutai2024moshi}
@@ -492,302 +527,305 @@
 \citation{qwen2.5}
 \citation{whisper}
 \citation{du2024cosyvoice}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}基于自回归流式解码的高质量语音交互大模型}{57}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章\hspace  {.3em}}基于自回归流式解码的高质量语音交互大模型}{63}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:llama-omni2}{{6}{57}{基于自回归流式解码的高质量语音交互大模型}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}引言}{57}{section.6.1}\protected@file@percent }
+\newlabel{chap:llama-omni2}{{6}{63}{基于自回归流式解码的高质量语音交互大模型}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}引言}{63}{section.6.1}\protected@file@percent }
 \citation{glm4voice}
 \citation{whisper}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}方法介绍}{58}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}模型架构}{58}{subsection.6.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace  LLaMA-Omni 2模型架构与训练策略\relax }}{58}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:llamaomni2}{{6-1}{58}{\enspace LLaMA-Omni 2模型架构与训练策略\relax }{figure.caption.39}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}方法介绍}{64}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}模型架构}{64}{subsection.6.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace  LLaMA-Omni 2模型架构与训练策略\relax }}{64}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:llamaomni2}{{6-1}{64}{\enspace LLaMA-Omni 2模型架构与训练策略\relax }{figure.caption.39}{}}
 \citation{du2024cosyvoice}
 \citation{an2024funaudiollm}
 \citation{mentzer2024finite}
 \citation{transformer}
 \citation{lipman2023flow}
 \citation{hifigan}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}训练策略}{60}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}训练策略}{66}{subsection.6.2.2}\protected@file@percent }
 \citation{alpaca}
 \citation{ultrachat}
 \citation{dubey2024llama3}
 \citation{fish-speech-v1.4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}流式推理}{61}{subsection.6.2.3}\protected@file@percent }
-\newlabel{eq:llamaomni2_latency}{{6-6}{61}{流式推理}{equation.6.2.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}多轮对话数据集构建}{61}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}流式推理}{67}{subsection.6.2.3}\protected@file@percent }
+\newlabel{eq:llamaomni2_latency}{{6-6}{67}{流式推理}{equation.6.2.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}多轮对话数据集构建}{67}{section.6.3}\protected@file@percent }
 \citation{nachmani2024spoken}
 \citation{berant-etal-2013-semantic}
 \citation{gpt4o}
 \citation{saeki22c_interspeech}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}实验结果与分析}{62}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}实验设置}{62}{subsection.6.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.1}模型配置}{62}{subsubsection.6.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.2}训练细节}{62}{subsubsection.6.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.3}评价指标}{62}{subsubsection.6.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}实验结果与分析}{68}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}实验设置}{68}{subsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.1}模型配置}{68}{subsubsection.6.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.2}训练细节}{68}{subsubsection.6.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.3}评价指标}{68}{subsubsection.6.4.1.3}\protected@file@percent }
 \citation{fang2025llamaomni}
 \citation{glm4voice}
 \citation{zhang-etal-2023-speechgpt}
 \citation{hassid2024textually}
 \citation{nachmani2024spoken}
 \citation{kyutai2024moshi}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.4}基线系统}{63}{subsubsection.6.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}主要结果}{63}{subsection.6.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace  语音问答和语音指令遵循任务的主要结果\relax }}{63}{table.caption.40}\protected@file@percent }
-\newlabel{tab:llamaomni2_main}{{6-1}{63}{\enspace 语音问答和语音指令遵循任务的主要结果\relax }{table.caption.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}消融实验}{64}{subsection.6.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.1}门控融合机制}{64}{subsubsection.6.4.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace  门控融合机制的消融实验\relax }}{64}{table.caption.41}\protected@file@percent }
-\newlabel{tab:llamaomni2_ablation}{{6-2}{64}{\enspace 门控融合机制的消融实验\relax }{table.caption.41}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.2}TTS预训练策略}{65}{subsubsection.6.4.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace  TTS预训练策略的消融实验\relax }}{65}{table.caption.42}\protected@file@percent }
-\newlabel{tab:llamaomni2_pretrain}{{6-3}{65}{\enspace TTS预训练策略的消融实验\relax }{table.caption.42}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.3}读写策略}{65}{subsubsection.6.4.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace  读写策略的消融实验\relax }}{65}{table.caption.43}\protected@file@percent }
-\newlabel{tab:llamaomni2_readwrite}{{6-4}{65}{\enspace 读写策略的消融实验\relax }{table.caption.43}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace  LLaMA-Omni 2系列模型的延迟分解\relax }}{66}{table.caption.44}\protected@file@percent }
-\newlabel{tab:llamaomni2_latency}{{6-5}{66}{\enspace LLaMA-Omni 2系列模型的延迟分解\relax }{table.caption.44}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.4}训练数据规模}{67}{subsubsection.6.4.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace  训练数据规模的影响\relax }}{67}{table.caption.45}\protected@file@percent }
-\newlabel{tab:llamaomni2_data}{{6-6}{67}{\enspace 训练数据规模的影响\relax }{table.caption.45}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}本章小结}{67}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第7章\hspace  {.3em}}基于全双工建模的自然语音交互大模型}{68}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.4}基线系统}{69}{subsubsection.6.4.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}主要结果}{69}{subsection.6.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace  语音问答和语音指令遵循任务的主要结果\relax }}{69}{table.caption.40}\protected@file@percent }
+\newlabel{tab:llamaomni2_main}{{6-1}{69}{\enspace 语音问答和语音指令遵循任务的主要结果\relax }{table.caption.40}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}消融实验}{70}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.1}门控融合机制}{70}{subsubsection.6.4.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace  门控融合机制的消融实验\relax }}{70}{table.caption.41}\protected@file@percent }
+\newlabel{tab:llamaomni2_ablation}{{6-2}{70}{\enspace 门控融合机制的消融实验\relax }{table.caption.41}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.2}TTS预训练策略}{71}{subsubsection.6.4.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace  TTS预训练策略的消融实验\relax }}{71}{table.caption.42}\protected@file@percent }
+\newlabel{tab:llamaomni2_pretrain}{{6-3}{71}{\enspace TTS预训练策略的消融实验\relax }{table.caption.42}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.3}读写策略}{71}{subsubsection.6.4.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace  读写策略的消融实验\relax }}{71}{table.caption.43}\protected@file@percent }
+\newlabel{tab:llamaomni2_readwrite}{{6-4}{71}{\enspace 读写策略的消融实验\relax }{table.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace  LLaMA-Omni 2系列模型的延迟分解\relax }}{72}{table.caption.44}\protected@file@percent }
+\newlabel{tab:llamaomni2_latency}{{6-5}{72}{\enspace LLaMA-Omni 2系列模型的延迟分解\relax }{table.caption.44}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3.4}训练数据规模}{73}{subsubsection.6.4.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace  训练数据规模的影响\relax }}{73}{table.caption.45}\protected@file@percent }
+\newlabel{tab:llamaomni2_data}{{6-6}{73}{\enspace 训练数据规模的影响\relax }{table.caption.45}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}本章小结}{73}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第7章\hspace  {.3em}}基于全双工建模的自然语音交互大模型}{74}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:full-duplex}{{7}{68}{基于全双工建模的自然语音交互大模型}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}引言}{68}{section.7.1}\protected@file@percent }
+\newlabel{chap:full-duplex}{{7}{74}{基于全双工建模的自然语音交互大模型}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}引言}{74}{section.7.1}\protected@file@percent }
 \citation{glm4voice}
 \citation{rafailov2023dpo}
 \citation{kyutai2024moshi}
 \citation{glm4voice}
 \citation{whisper}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}方法介绍}{75}{section.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}模型架构}{75}{subsection.7.2.1}\protected@file@percent }
 \citation{glm2024chatglm}
+\citation{du2024cosyvoice}
+\citation{lipman2023flow}
 \citation{hifigan}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}方法介绍}{69}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}模型架构}{69}{subsection.7.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}多信道交织序列}{70}{subsection.7.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.1}对话的形式化表示}{70}{subsubsection.7.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.2}双声道音频构造与语音词元化}{70}{subsubsection.7.2.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.3}三信道交织序列结构}{71}{subsubsection.7.2.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.4}因果偏移}{71}{subsubsection.7.2.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.5}文本信道构建规则}{71}{subsubsection.7.2.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.6}推理过程}{72}{subsubsection.7.2.2.6}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces 全双工语音交互模型推理过程\relax }}{73}{algorithm.2}\protected@file@percent }
-\newlabel{algo:fullduplex_infer}{{2}{73}{全双工语音交互模型推理过程\relax }{algorithm.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}训练数据构造}{73}{subsection.7.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3.1}轮替场景}{73}{subsubsection.7.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}多信道交织序列}{76}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.1}对话的形式化表示}{77}{subsubsection.7.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.2}双声道音频构造与语音词元化}{77}{subsubsection.7.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.3}三信道交织序列结构}{77}{subsubsection.7.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.4}因果偏移}{78}{subsubsection.7.2.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.5}文本信道构建规则}{78}{subsubsection.7.2.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2.6}推理过程}{79}{subsubsection.7.2.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}模型训练}{79}{subsection.7.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3.1}监督微调}{79}{subsubsection.7.2.3.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces 全双工语音交互模型推理过程\relax }}{80}{algorithm.2}\protected@file@percent }
+\newlabel{algo:fullduplex_infer}{{2}{80}{全双工语音交互模型推理过程\relax }{algorithm.2}{}}
 \citation{rafailov2023dpo}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3.2}打断场景}{74}{subsubsection.7.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.4}模型训练}{74}{subsection.7.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.4.1}监督微调}{74}{subsubsection.7.2.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.4.2}直接偏好优化}{75}{subsubsection.7.2.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第8章\hspace  {.3em}}总结与展望}{76}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3.2}直接偏好优化}{81}{subsubsection.7.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第8章\hspace  {.3em}}总结与展望}{82}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{8}{76}{总结与展望}{chapter.8}{}}
+\newlabel{chap:conclusion}{{8}{82}{总结与展望}{chapter.8}{}}
 \bibdata{Biblio/ref}
-\bibcite{transformer}{{1}{2017}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
-\bibcite{gpt1}{{2}{2018}{{Radford}}{{}}}
-\bibcite{touvron2023llama}{{3}{2023{}}{{Touvron {等}}}{{Touvron, Lavril, Izacard, Martinet, Lachaux, Lacroix, Rozi{\`e}re, Goyal, Hambro, Azhar, Rodriguez, Joulin, Grave, and Lample}}}
-\bibcite{yang2024qwen2}{{4}{2024{}}{{Yang {等}}}{{Yang, Yang, Hui, Zheng, Yu, Zhou, et~al.}}}
-\bibcite{lavie1997janus}{{5}{1997}{{Lavie {等}}}{{Lavie, Waibel, Levin, Finke, Gates, Gavald{\`a}, Zeissler, and Zhan}}}
-\bibcite{ney1999speech}{{6}{1999}{{Ney}}{{}}}
-\bibcite{nakamura2006atr}{{7}{2006}{{Nakamura {等}}}{{Nakamura, Markov, Nakaiwa, ichiro Kikui, Kawai, Jitsuhiro, Zhang, Yamamoto, Sumita, and Yamamoto}}}
-\bibcite{conformer}{{8}{2020}{{Gulati {等}}}{{Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han, Wang, Zhang, Wu, and Pang}}}
-\bibcite{kim2023ebranchformer}{{9}{2022}{{Kim {等}}}{{Kim, Wu, Peng, Pan, Sridhar, Han, and Watanabe}}}
-\bibcite{yao2024zipformer}{{10}{2023}{{Yao {等}}}{{Yao, Guo, Yang, Kang, Kuang, Yang, Jin, Lin, and Povey}}}
-\bibcite{rekesh2023fastconformer}{{11}{2023}{{Rekesh {等}}}{{Rekesh, Koluguri, Kriman, Majumdar, Noroozi, Huang, Hrinchuk, Puvvada, Kumar, Balam, and Ginsburg}}}
-\bibcite{gao2022paraformer}{{12}{2022}{{Gao {等}}}{{Gao, Zhang, McLoughlin, and Yan}}}
-\bibcite{dong2020cif}{{13}{2020}{{Dong {等}}}{{Dong and Xu}}}
-\bibcite{oord2018cpc}{{14}{2018}{{van~den Oord {等}}}{{van~den Oord, Li, and Vinyals}}}
-\bibcite{schneider2019wav2vec}{{15}{2019}{{Schneider {等}}}{{Schneider, Baevski, Collobert, and Auli}}}
-\bibcite{baevski2020vqwav2vec}{{16}{2020{}}{{Baevski {等}}}{{Baevski, Schneider, and Auli}}}
-\bibcite{baevski2020wav2vec}{{17}{2020{}}{{Baevski {等}}}{{Baevski, Zhou, Mohamed, and Auli}}}
-\bibcite{hubert}{{18}{2021}{{Hsu {等}}}{{Hsu, Bolte, Tsai, Lakhotia, Salakhutdinov, and Mohamed}}}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{77}{section*.46}\protected@file@percent }
-\bibcite{chen2022wavlm}{{19}{2022}{{Chen {等}}}{{Chen, Wang, Chen, Wu, Liu, Chen, Li, Kanda, Yoshioka, Xiao, Wu, Zhou, Ren, Qian, Qian, Wu, Zeng, Yu, and Wei}}}
-\bibcite{chung2021w2vbert}{{20}{2021}{{Chung {等}}}{{Chung, Zhang, Han, Chiu, Qin, Pang, and Wu}}}
-\bibcite{baevski2022data2vec}{{21}{2022}{{Baevski {等}}}{{Baevski, Hsu, Xu, Babu, Gu, and Auli}}}
-\bibcite{chiu2022bestrq}{{22}{2022}{{Chiu {等}}}{{Chiu, Qin, Zhang, Yu, and Wu}}}
-\bibcite{liu2023dinosr}{{23}{2023{}}{{Liu {等}}}{{Liu, Chang, Auli, Hsu, and Glass}}}
-\bibcite{gong2022ssast}{{24}{2022}{{Gong {等}}}{{Gong, Lai, Chung, and Glass}}}
-\bibcite{huang2022audiomae}{{25}{2022{}}{{Huang {等}}}{{Huang, Xu, Li, Baevski, Auli, Galuba, Metze, and Feichtenhofer}}}
-\bibcite{chen2023beats}{{26}{2023}{{Chen {等}}}{{Chen, Wu, Wang, Liu, Tompkins, Chen, and Wei}}}
-\bibcite{pratap2023mms}{{27}{2023}{{Pratap {等}}}{{Pratap, Tjandra, Shi, Tomasello, Babu, Kundu, Elkahky, Ni, Vyas, Fazel-Zarandi, Baevski, Adi, Zhang, Hsu, Conneau, and Auli}}}
-\bibcite{zhang2023usm}{{28}{2023{}}{{Zhang {等}}}{{Zhang, Han, Qin, Wang, Bapna, et~al.}}}
-\bibcite{whisper}{{29}{2023}{{Radford {等}}}{{Radford, Kim, Xu, Brockman, McLeavey, and Sutskever}}}
-\bibcite{peng2023owsm}{{30}{2023}{{Peng {等}}}{{Peng, Tian, Yan, Berrebbi, Chang, Li, Shi, Arora, Chen, Sharma, Zhang, Sudo, Shakeel, weon Jung, Maiti, and Watanabe}}}
-\bibcite{an2024funaudiollm}{{31}{2024}{{An {等}}}{{An, Chen, Deng, Du, Gao, Gao, Gu, He, Hu, Hu, et~al.}}}
-\bibcite{wang2017tacotron}{{32}{2017}{{Wang {等}}}{{Wang, Skerry{-}Ryan, Stanton, Wu, Weiss, Jaitly, Yang, Xiao, Chen, Bengio, Le, Agiomyrgiannakis, Clark, and Saurous}}}
-\bibcite{shen2018tacotron2}{{33}{2018}{{Shen {等}}}{{Shen, Pang, Weiss, Schuster, Jaitly, Yang, Chen, Zhang, Wang, Skerry{-}Ryan, Saurous, Agiomyrgiannakis, and Wu}}}
-\bibcite{ren2019fastspeech}{{34}{2019}{{Ren {等}}}{{Ren, Ruan, Tan, Qin, Zhao, Zhao, and Liu}}}
-\bibcite{translatotron}{{35}{2019{}}{{Jia {等}}}{{Jia, Weiss, Biadsy, Macherey, Johnson, Chen, and Wu}}}
-\bibcite{griffin1984signal}{{36}{1984}{{Griffin {等}}}{{Griffin and Lim}}}
-\bibcite{oord2016wavenet}{{37}{2016}{{van~den Oord {等}}}{{van~den Oord, Dieleman, Zen, Simonyan, Vinyals, Graves, Kalchbrenner, Senior, and Kavukcuoglu}}}
-\bibcite{kong2020hifi}{{38}{2020{}}{{Kong {等}}}{{Kong, Kim, and Bae}}}
-\bibcite{liu2023audioldm}{{39}{2023{}}{{Liu {等}}}{{Liu, Chen, Yuan, Mei, Liu, Mandic, Wang, and Plumbley}}}
-\bibcite{shen2024naturalspeech2}{{40}{2023}{{Shen {等}}}{{Shen, Ju, Tan, Liu, Leng, He, Qin, Zhao, and Bian}}}
-\bibcite{ju2024naturalspeech3}{{41}{2024}{{Ju {等}}}{{Ju, Wang, Shen, Tan, Xin, Yang, Liu, Leng, Song, Tang, Wu, Qin, Li, Ye, Zhang, Bian, He, Li, and Zhao}}}
-\bibcite{evans2024stableaudio}{{42}{2024}{{Evans {等}}}{{Evans, Carr, Taylor, Hawley, and Pons}}}
-\bibcite{liang2025mingtok}{{43}{2025}{{Yan {等}}}{{Yan, Jin, Huang, Yu, Peng, et~al.}}}
-\bibcite{du2024cosyvoice}{{44}{2024{}}{{Du {等}}}{{Du, Chen, Zhang, Hu, Lu, Yang, Hu, Zheng, Gu, Ma, et~al.}}}
-\bibcite{du2024cosyvoice2}{{45}{2024{}}{{Du {等}}}{{Du, Fan, Ma, Sisman, Qian, and Li}}}
-\bibcite{glm4voice}{{46}{2024}{{Zeng {等}}}{{Zeng, Du, Liu, Wang, Jiang, Zhao, Dong, and Tang}}}
-\bibcite{ji2024wavtokenizer}{{47}{2024}{{Ji {等}}}{{Ji, Jiang, Cheng, Chen, Fang, Zuo, Yang, Li, Zhang, Yang, Huang, Jiang, Chen, Zheng, Wang, and Zhao}}}
-\bibcite{xin2024bigcodec}{{48}{2024}{{Xin {等}}}{{Xin, Tan, Takamichi, and Saruwatari}}}
-\bibcite{li2024singlecodec}{{49}{2024}{{Li {等}}}{{Li, Xue, Guo, Zhu, Lv, Xie, Chen, Yin, and Li}}}
-\bibcite{huang2023repcodec}{{50}{2024}{{Huang {等}}}{{Huang, Meng, and Ko}}}
-\bibcite{zeghidour2021soundstream}{{51}{2022}{{Zeghidour {等}}}{{Zeghidour, Luebs, Omran, Skoglund, and Tagliasacchi}}}
-\bibcite{defossez2022encodec}{{52}{2022}{{D{\'e}fossez {等}}}{{D{\'e}fossez, Copet, Synnaeve, and Adi}}}
-\bibcite{wang-etal-2023-valle}{{53}{2023{}}{{Wang {等}}}{{Wang, Chen, Wu, Zhang, Zhou, Liu, Chen, Liu, Wang, Li, He, Zhao, and Wei}}}
-\bibcite{borsos2023audiolm}{{54}{2023}{{Borsos {等}}}{{Borsos, Marinier, Vincent, Kharitonov, Pietquin, Sharifi, Roblek, Teboul, Grangier, Tagliasacchi, et~al.}}}
-\bibcite{kumar2023dac}{{55}{2023}{{Kumar {等}}}{{Kumar, Seetharaman, Luebs, Kumar, and Kumar}}}
-\bibcite{zhang2024speechtokenizer}{{56}{2023{}}{{Zhang {等}}}{{Zhang, Zhang, Li, Zhou, and Qiu}}}
-\bibcite{siuzdak2024snac}{{57}{2024}{{Siuzdak {等}}}{{Siuzdak, Gr{\"o}tschla, and Lanzend{\"o}rfer}}}
-\bibcite{kyutai2024moshi}{{58}{2024}{{D\'efossez {等}}}{{D\'efossez, Mazar\'e, Orsini, Royer, P\'erez, J\'egou, Grave, and Zeghidour}}}
-\bibcite{ye2024xcodec}{{59}{2024}{{Ye {等}}}{{Ye and Wang}}}
-\bibcite{liu2024semanticodec}{{60}{2024}{{Liu {等}}}{{Liu, Xu, Yuan, Wu, Wang, and Plumbley}}}
-\bibcite{xiao2025xytokenizer}{{61}{2025}{{Gong {等}}}{{Gong, Jin, Deng, Zhang, Zhang, Cheng, Fei, Li, and Qiu}}}
-\bibcite{berard2016listen}{{62}{2016}{{B{\'e}rard {等}}}{{B{\'e}rard, Pietquin, Servan, and Besacier}}}
-\bibcite{weiss2017sequence}{{63}{2017}{{Weiss {等}}}{{Weiss, Chorowski, Jaitly, Wu, and Chen}}}
-\bibcite{bansal2019pre}{{64}{2019}{{Bansal {等}}}{{Bansal, Kamper, Livescu, Lopez, and Goldwater}}}
-\bibcite{liu2019end}{{65}{2019}{{Liu {等}}}{{Liu, Xiong, He, Zhang, Wu, Wang, and Zong}}}
-\bibcite{jia2019leveraging}{{66}{2019{}}{{Jia {等}}}{{Jia, Johnson, Macherey, Weiss, Cao, Chiu, Ari, Laurenzo, and Wu}}}
-\bibcite{gigast}{{67}{2022{}}{{Ye {等}}}{{Ye, Zhao, Ko, Meng, Wang, Wang, and Cao}}}
-\bibcite{fang-feng-2023-back}{{68}{2023{}}{{Fang {等}}}{{Fang and Feng}}}
-\bibcite{gaido-etal-2021-ctc}{{69}{2021}{{Gaido {等}}}{{Gaido, Cettolo, Negri, and Turchi}}}
-\bibcite{duquenne-etal-2022-modules}{{70}{2022}{{Duquenne {等}}}{{Duquenne, Gong, Sagot, and Schwenk}}}
-\bibcite{ctcmeetsot}{{71}{2023}{{Le {等}}}{{Le, Gong, Wang, Pino, Lecouteux, and Schwab}}}
-\bibcite{communication2023seamlessm4t}{{72}{2023}{{Communication {等}}}{{Communication, Barrault, Chung, Meglioli, Dale, Dong, Duquenne, Elsahar, Gong, Heffernan, Hoffman, Klaiber, Li, Licht, Maillard, Rakotoarison, Sadagopan, Wenzek, Ye, Akula, Chen, Hachem, Ellis, Gonzalez, Haaheim, Hansanti, Howes, Huang, Hwang, Inaguma, Jain, Kalbassi, Kallet, Kulikov, Lam, Li, Ma, Mavlyutov, Peloquin, Ramadan, Ramakrishnan, Sun, Tran, Tran, Tufanov, Vogeti, Wood, Yang, Yu, Andrews, Balioglu, Costa-jussà, Celebi, Elbayad, Gao, Guzmán, Kao, Lee, Mourachko, Pino, Popuri, Ropers, Saleem, Schwenk, Tomasello, Wang, Wang, and Wang}}}
-\bibcite{communication2023seamlessm4tv2}{{73}{2023}{{Barrault {等}}}{{Barrault, Chung, Meglioli, Dale, Dong, et~al.}}}
-\bibcite{anastasopoulos2018tied}{{74}{2018}{{Anastasopoulos {等}}}{{Anastasopoulos and Chiang}}}
-\bibcite{han-etal-2021-learning}{{75}{2021}{{Han {等}}}{{Han, Wang, Ji, and Li}}}
-\bibcite{dong2021listen}{{76}{2021}{{Dong {等}}}{{Dong, Ye, Wang, Zhou, Xu, Xu, and Li}}}
-\bibcite{xu2021sate}{{77}{2021}{{Xu {等}}}{{Xu, Hu, Li, Zhang, Huang, Ju, Xiao, and Zhu}}}
-\bibcite{liu2020_bridging}{{78}{2020}{{Liu {等}}}{{Liu, Zhu, Zhang, and Zong}}}
-\bibcite{tang-etal-2021-improving}{{79}{2021}{{Tang {等}}}{{Tang, Pino, Li, Wang, and Genzel}}}
-\bibcite{ye2021xstnet}{{80}{2021}{{Ye {等}}}{{Ye, Wang, and Li}}}
-\bibcite{fang-etal-2022-STEMM}{{81}{2022}{{Fang {等}}}{{Fang, Ye, Li, Feng, and Wang}}}
-\bibcite{ye-etal-2022-cross}{{82}{2022{}}{{Ye {等}}}{{Ye, Wang, and Li}}}
-\bibcite{cheng2023m3st}{{83}{2023}{{Cheng {等}}}{{Cheng, Dong, Yue, Ko, Wang, and Zou}}}
-\bibcite{ouyang-etal-2023-waco}{{84}{2023}{{Ouyang {等}}}{{Ouyang, Ye, and Li}}}
-\bibcite{lei-etal-2023-ckdst}{{85}{2023}{{Lei {等}}}{{Lei, Xue, Zhao, Sun, Zhu, Lin, and Xiong}}}
-\bibcite{fang-and-feng-2023-understanding}{{86}{2023{}}{{Fang {等}}}{{Fang and Feng}}}
-\bibcite{zhou-etal-2023-cmot}{{87}{2023}{{Zhou {等}}}{{Zhou, Fang, and Feng}}}
-\bibcite{zhang2023rethinking}{{88}{2023{}}{{Zhang {等}}}{{Zhang, Xu, Li, Chen, Xiao, Zhang, and Zhu}}}
-\bibcite{han2023tab}{{89}{2023}{{Han {等}}}{{Han, Xu, Xiao, and Zhu}}}
-\bibcite{zhang2024salign}{{90}{2024{}}{{Zhang {等}}}{{Zhang, Kou, Li, Xu, Zhang, Xiao, and Zhu}}}
-\bibcite{slam}{{91}{2021}{{Bapna {等}}}{{Bapna, Chung, Wu, Gulati, Jia, Clark, Johnson, Riesa, Conneau, and Zhang}}}
-\bibcite{mSLAM}{{92}{2022}{{Bapna {等}}}{{Bapna, Cherry, Zhang, Jia, Johnson, Cheng, Khanuja, Riesa, and Conneau}}}
-\bibcite{zheng2021fused}{{93}{2021}{{Zheng {等}}}{{Zheng, Chen, Ma, and Huang}}}
-\bibcite{zhang2022speechut}{{94}{2022}{{Zhang {等}}}{{Zhang, Zhou, Ao, Liu, Dai, Li, and Wei}}}
-\bibcite{tang-etal-2022-unified}{{95}{2022}{{Tang {等}}}{{Tang, Gong, Dong, Wang, Hsu, Gu, Baevski, Li, Mohamed, Auli, and Pino}}}
-\bibcite{tjandra2019s2st}{{96}{2019}{{Tjandra {等}}}{{Tjandra, Sakti, and Nakamura}}}
-\bibcite{uwspeech}{{97}{2021}{{Zhang {等}}}{{Zhang, Tan, Ren, Qin, Zhang, and Liu}}}
-\bibcite{s2ut}{{98}{2022{}}{{Lee {等}}}{{Lee, Chen, Wang, Gu, Popuri, Ma, Polyak, Adi, He, Tang, Pino, and Hsu}}}
-\bibcite{lee-etal-2022-textless}{{99}{2022{}}{{Lee {等}}}{{Lee, Gong, Duquenne, Schwenk, Chen, Wang, Popuri, Adi, Pino, Gu, and Hsu}}}
-\bibcite{DBLP:conf/interspeech/PopuriCWPAGHL22}{{100}{2022}{{Popuri {等}}}{{Popuri, Chen, Wang, Pino, Adi, Gu, Hsu, and Lee}}}
-\bibcite{translatotron2}{{101}{2022{}}{{Jia {等}}}{{Jia, Ramanovich, Remez, and Pomerantz}}}
-\bibcite{inaguma-etal-2023-unity}{{102}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
-\bibcite{zhang-etal-2024-streamspeech}{{103}{2024{}}{{Zhang {等}}}{{Zhang, Fang, Guo, Ma, Zhang, and Feng}}}
-\bibcite{gu2018nat}{{104}{2018}{{Gu {等}}}{{Gu, Bradbury, Xiong, Li, and Socher}}}
-\bibcite{cmlm}{{105}{2019}{{Ghazvininejad {等}}}{{Ghazvininejad, Levy, Liu, and Zettlemoyer}}}
-\bibcite{qian-etal-2021-glancing}{{106}{2021}{{Qian {等}}}{{Qian, Zhou, Bao, Wang, Qiu, Zhang, Yu, and Li}}}
-\bibcite{huang2022DATransformer}{{107}{2022{}}{{Huang {等}}}{{Huang, Zhou, Liu, Li, and Huang}}}
-\bibcite{graves2006connectionist}{{108}{2006{}}{{Graves {等}}}{{Graves, Fern\'{a}ndez, Gomez, and Schmidhuber}}}
-\bibcite{huang2023transpeech}{{109}{2023{}}{{Huang {等}}}{{Huang, Liu, Liu, Ren, Zhang, He, and Zhao}}}
-\bibcite{diffs2ut}{{110}{2023}{{Zhu {等}}}{{Zhu, Gao, Zhou, Zhongyi, and Xu}}}
-\bibcite{wu-2023-duplex}{{111}{2023}{{Wu}}{{}}}
-\bibcite{tan2024diffnorm}{{112}{2023}{{Tan {等}}}{{Tan, Chen, Qin, and Liu}}}
-\bibcite{ma2024nasts2x}{{113}{2024{}}{{Ma {等}}}{{Ma, Fang, Guo, Zhang, and Feng}}}
-\bibcite{radford2019language}{{114}{2019}{{Radford {等}}}{{Radford, Wu, Child, Luan, Amodei, and Sutskever}}}
-\bibcite{brown2020gpt3}{{115}{2020}{{Brown {等}}}{{Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert{-}Voss, Krueger, Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and Amodei}}}
-\bibcite{touvron2023llama2}{{116}{2023{}}{{Touvron {等}}}{{Touvron, Martin, Stone, Albert, Almahairi, Babaei, Bashlykov, Batra, Bhargava, Bhosale, et~al.}}}
-\bibcite{dubey2024llama3}{{117}{2024}{{Dubey {等}}}{{Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman, Mathur, Schelten, Yang, Fan, et~al.}}}
-\bibcite{yang2025qwen25}{{118}{2024{}}{{Yang {等}}}{{Yang, Yang, Zhang, Hui, Zheng, Yu, et~al.}}}
-\bibcite{lakhotia2021generative}{{119}{2021}{{Lakhotia {等}}}{{Lakhotia, Kharitonov, Hsu, Adi, Polyak, Bolte, Nguyen, Copet, Baevski, Mohamed, et~al.}}}
-\bibcite{wang2023viola}{{120}{2023{}}{{Wang {等}}}{{Wang, Zhou, Zhang, Wu, Liu, Gaur, Chen, Li, and Wei}}}
-\bibcite{Qwen-Audio}{{121}{2023}{{Chu {等}}}{{Chu, Xu, Zhou, Yang, Zhang, Yan, Zhou, and Zhou}}}
-\bibcite{Qwen2-Audio}{{122}{2024}{{Chu {等}}}{{Chu, Xu, Yang, Wei, Wei, Guo, Leng, Lv, He, Lin, Zhou, and Zhou}}}
-\bibcite{slam-asr}{{123}{2024{}}{{Ma {等}}}{{Ma, Yang, Yang, Gao, Wang, Du, Yu, Chen, Zheng, Zhang, et~al.}}}
-\bibcite{fathullah2024prompting}{{124}{2024}{{Fathullah {等}}}{{Fathullah, Wu, Lakomkin, Jia, Shangguan, Li, Guo, Xiong, Mahadeokar, Kalinli, et~al.}}}
-\bibcite{chen-etal-2024-llast}{{125}{2024{}}{{Chen {等}}}{{Chen, Zhang, Bai, Chen, and Nakamura}}}
-\bibcite{li2023blip2}{{126}{2023{}}{{Li {等}}}{{Li, Li, Savarese, and Hoi}}}
-\bibcite{tang2024salmonn}{{127}{2024}{{Tang {等}}}{{Tang, Yu, Sun, Chen, Tan, Li, Lu, MA, and Zhang}}}
-\bibcite{yu2024connecting}{{128}{2024}{{Yu {等}}}{{Yu, Tang, Sun, Chen, Tan, Li, Lu, Ma, and Zhang}}}
-\bibcite{wu2023decoder}{{129}{2023}{{Wu {等}}}{{Wu, Gaur, Chen, Zhou, Zhu, Wang, Li, Liu, Ren, Liu, et~al.}}}
-\bibcite{hono-etal-2024-integrating}{{130}{2024}{{Hono {等}}}{{Hono, Mitsuda, Zhao, Mitsui, Wakatsuki, and Sawada}}}
-\bibcite{hu2024wavllm}{{131}{2024}{{Hu {等}}}{{Hu, Zhou, Liu, Chen, Hao, Pan, Liu, Li, Sivasankaran, Liu, et~al.}}}
-\bibcite{twist}{{132}{2024{}}{{Hassid {等}}}{{Hassid, Remez, Nguyen, Gat, Conneau, Kreuk, Copet, Defossez, Synnaeve, Dupoux, et~al.}}}
-\bibcite{zhang-etal-2023-speechgpt}{{133}{2023{}}{{Zhang {等}}}{{Zhang, Li, Zhang, Zhan, Wang, Zhou, and Qiu}}}
-\bibcite{rubenstein2023audiopalm}{{134}{2023}{{Rubenstein {等}}}{{Rubenstein, Asawaroengchai, Nguyen, Bapna, Borsos, Quitry, Chen, Badawy, Han, Kharitonov, et~al.}}}
-\bibcite{nguyen2024spirit}{{135}{2024}{{Nguyen {等}}}{{Nguyen, Muller, Yu, Costa-Jussa, Elbayad, Popuri, Duquenne, Algayres, Mavlyutov, Gat, et~al.}}}
-\bibcite{zhang2024speechgptgen}{{136}{2024{}}{{Zhang {等}}}{{Zhang, Zhang, Zhan, Li, Zhou, and Qiu}}}
-\bibcite{zhang2024intrinsicvoice}{{137}{2024{}}{{Zhang {等}}}{{Zhang, Lyu, Du, Chen, Zhang, Hu, Tan, Zhao, Wang, Zhang, et~al.}}}
-\bibcite{xie2024mini}{{138}{2024}{{Xie {等}}}{{Xie and Wu}}}
-\bibcite{moonshot2025kimiaudio}{{139}{2025}{{Moonshot AI}}{{}}}
-\bibcite{nguyen2022dgslm}{{140}{2023}{{Nguyen {等}}}{{Nguyen, Kharitonov, Copet, Adi, Hsu, Elkahky, Tomasello, Algayres, Sagot, Mohamed, and Dupoux}}}
-\bibcite{gpt4o}{{141}{2024}{{OpenAI}}{{}}}
-\bibcite{google2024gemini}{{142}{2023}{{Gemini Team, Google}}{{}}}
-\bibcite{chen2024valle2}{{143}{2024{}}{{Chen {等}}}{{Chen, Liu, Zhou, Liu, Tan, Li, Zhao, Qian, and Wei}}}
-\bibcite{xiong2024freeze}{{144}{2024}{{Wang {等}}}{{Wang, Li, Fu, Shen, Xie, Li, Sun, and Ma}}}
-\bibcite{chen2025minmo}{{145}{2025}{{Chen {等}}}{{Chen, Chen, Chen, Chen, Chen, Deng, Du, Gao, Gao, Gao, et~al.}}}
-\bibcite{alibaba2025qwen25omni}{{146}{2025}{{Xu {等}}}{{Xu, Guo, He, Hu, He, Bai, Chen, et~al.}}}
-\bibcite{vocalnet2025}{{147}{2024}{{Zhu {等}}}{{Zhu, Liu, and Sisman}}}
-\bibcite{ren2021fastspeech2}{{148}{2021}{{Ren {等}}}{{Ren, Hu, Tan, Qin, Zhao, Zhao, and Liu}}}
-\bibcite{huang2022PDAT}{{149}{2023{}}{{Huang {等}}}{{Huang, Ke, and Huang}}}
-\bibcite{dai-etal-2019-transformer}{{150}{2019}{{Dai {等}}}{{Dai, Yang, Yang, Carbonell, Le, and Salakhutdinov}}}
-\bibcite{hiddenmarkovmodel}{{151}{1989}{{Rabiner}}{{}}}
-\bibcite{viterbi}{{152}{1967}{{Viterbi}}{{}}}
-\bibcite{hifigan}{{153}{2020{}}{{Kong {等}}}{{Kong, Kim, and Bae}}}
-\bibcite{shao2022viterbi}{{154}{2022}{{Shao {等}}}{{Shao, Ma, and Feng}}}
-\bibcite{jia2022cvss}{{155}{2022{}}{{Jia {等}}}{{Jia, Tadmor~Ramanovich, Wang, and Zen}}}
-\bibcite{wang2020covost2}{{156}{2020{}}{{Wang {等}}}{{Wang, Wu, and Pino}}}
-\bibcite{Veaux2017CSTRVC}{{157}{2017}{{Veaux {等}}}{{Veaux, Yamagishi, and MacDonald}}}
-\bibcite{adam}{{158}{2015}{{Kingma {等}}}{{Kingma and Ba}}}
-\bibcite{ott2019fairseq}{{159}{2019}{{Ott {等}}}{{Ott, Edunov, Baevski, Fan, Gross, Ng, Grangier, and Auli}}}
-\bibcite{post-2018-call}{{160}{2018}{{Post}}{{}}}
-\bibcite{papineni-etal-2002-bleu}{{161}{2002}{{Papineni {等}}}{{Papineni, Roukos, Ward, and Zhu}}}
-\bibcite{dvector}{{162}{2018}{{Wan {等}}}{{Wan, Wang, Papir, and Moreno}}}
-\bibcite{inaguma2022unity}{{163}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
-\bibcite{ctc}{{164}{2006{}}{{Graves {等}}}{{Graves, Fern\'{a}ndez, Gomez, and Schmidhuber}}}
-\bibcite{fang-etal-2023-daspeech}{{165}{2023{}}{{Fang {等}}}{{Fang, Zhou, and Feng}}}
-\bibcite{pmlr-v119-wang20k}{{166}{2020{}}{{Wang {等}}}{{Wang and Isola}}}
-\bibcite{chatgpt}{{167}{2022}{{OpenAI}}{{}}}
-\bibcite{polyak21_interspeech}{{168}{2021}{{Polyak {等}}}{{Polyak, Adi, Copet, Kharitonov, Lakhotia, Hsu, Mohamed, and Dupoux}}}
-\bibcite{cho-etal-2024-speechworthy}{{169}{2024}{{Cho {等}}}{{Cho, Jedema, Ribeiro, Sharma, Szekely, Moschitti, Janssen, and May}}}
-\bibcite{ljspeech17}{{170}{2017}{{Ito {等}}}{{Ito and Johnson}}}
-\bibcite{kim2021conditional}{{171}{2021}{{Kim {等}}}{{Kim, Kong, and Son}}}
-\bibcite{alpaca}{{172}{2023}{{Taori {等}}}{{Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}}}
-\bibcite{ultrachat}{{173}{2023}{{Ding {等}}}{{Ding, Chen, Xu, Qin, Zheng, Hu, Liu, Sun, and Zhou}}}
-\bibcite{alpacaeval}{{174}{2023{}}{{Li {等}}}{{Li, Zhang, Dubois, Taori, Gulrajani, Guestrin, Liang, and Hashimoto}}}
-\bibcite{saeki22c_interspeech}{{175}{2022}{{Saeki {等}}}{{Saeki, Xin, Nakata, Koriyama, Takamichi, and Saruwatari}}}
-\bibcite{zeng2024scaling}{{176}{2025}{{Zeng {等}}}{{Zeng, Du, Liu, Zhang, shengmin jiang, Dong, and Tang}}}
-\bibcite{fang2025llamaomni}{{177}{2025}{{Fang {等}}}{{Fang, Guo, Zhou, Ma, Zhang, and Feng}}}
-\bibcite{qwen2.5}{{178}{2024}{{Team}}{{}}}
-\bibcite{mentzer2024finite}{{179}{2024}{{Mentzer {等}}}{{Mentzer, Minnen, Agustsson, and Tschannen}}}
-\bibcite{lipman2023flow}{{180}{2023}{{Lipman {等}}}{{Lipman, Chen, Ben-Hamu, Nickel, and Le}}}
-\bibcite{fish-speech-v1.4}{{181}{2024}{{Liao {等}}}{{Liao, Wang, Li, Cheng, Zhang, Zhou, and Xing}}}
-\bibcite{nachmani2024spoken}{{182}{2024}{{Nachmani {等}}}{{Nachmani, Levkovitch, Hirsch, Salazar, Asawaroengchai, Mariooryad, Rivlin, Skerry-Ryan, and Ramanovich}}}
-\bibcite{berant-etal-2013-semantic}{{183}{2013}{{Berant {等}}}{{Berant, Chou, Frostig, and Liang}}}
-\bibcite{hassid2024textually}{{184}{2024{}}{{Hassid {等}}}{{Hassid, Remez, Nguyen, Gat, Conneau, Kreuk, Copet, Defossez, Synnaeve, Dupoux, et~al.}}}
-\bibcite{rafailov2023dpo}{{185}{2023}{{Rafailov {等}}}{{Rafailov, Sharma, Mitchell, Ermon, Manning, and Finn}}}
-\bibcite{glm2024chatglm}{{186}{2024}{{{GLM Team} {等}}}{{{GLM Team}, Zeng, Xu, Wang, Zhang, Yin, et~al.}}}
-\@writefile{toc}{\contentsline {chapter}{致谢}{89}{appendix*.48}\protected@file@percent }
+\bibcite{vaswani2017attention}{{1}{2017{}}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{translatotron}{{2}{2019{}}{{Jia {等}}}{{Jia, Weiss, Biadsy, Macherey, Johnson, Chen, and Wu}}}
+\bibcite{lee-etal-2022-textless}{{3}{2022{}}{{Lee {等}}}{{Lee, Gong, Duquenne, Schwenk, Chen, Wang, Popuri, Adi, Pino, Gu, and Hsu}}}
+\bibcite{translatotron2}{{4}{2022{}}{{Jia {等}}}{{Jia, Ramanovich, Remez, and Pomerantz}}}
+\bibcite{inaguma-etal-2023-unity}{{5}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
+\bibcite{chatgpt}{{6}{2022}{{OpenAI}}{{}}}
+\bibcite{gpt4o}{{7}{2024}{{OpenAI}}{{}}}
+\bibcite{huang2023transpeech}{{8}{2023{}}{{Huang {等}}}{{Huang, Liu, Liu, Ren, Zhang, He, and Zhao}}}
+\bibcite{diffs2ut}{{9}{2023}{{Zhu {等}}}{{Zhu, Gao, Zhou, Zhongyi, and Xu}}}
+\bibcite{Qwen-Audio}{{10}{2023}{{Chu {等}}}{{Chu, Xu, Zhou, Yang, Zhang, Yan, Zhou, and Zhou}}}
+\bibcite{tang2024salmonn}{{11}{2024}{{Tang {等}}}{{Tang, Yu, Sun, Chen, Tan, Li, Lu, MA, and Zhang}}}
+\bibcite{whisper}{{12}{2023}{{Radford {等}}}{{Radford, Kim, Xu, Brockman, McLeavey, and Sutskever}}}
+\bibcite{zhang-etal-2023-speechgpt}{{13}{2023{}}{{Zhang {等}}}{{Zhang, Li, Zhang, Zhan, Wang, Zhou, and Qiu}}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{83}{section*.46}\protected@file@percent }
+\bibcite{glm4voice}{{14}{2024}{{Zeng {等}}}{{Zeng, Du, Liu, Wang, Jiang, Zhao, Dong, and Tang}}}
+\bibcite{kyutai2024moshi}{{15}{2024}{{D\'efossez {等}}}{{D\'efossez, Mazar\'e, Orsini, Royer, P\'erez, J\'egou, Grave, and Zeghidour}}}
+\bibcite{fang2023daspeech}{{16}{2023{}}{{Fang {等}}}{{Fang, Yan, and Feng}}}
+\bibcite{fang2024comspeech}{{17}{2024}{{Fang {等}}}{{Fang and Feng}}}
+\bibcite{fang2024llama}{{18}{2025{}}{{Fang {等}}}{{Fang, Guo, Zhou, Ma, Zhang, and Feng}}}
+\bibcite{fang2025llamaomni}{{19}{2025{}}{{Fang {等}}}{{Fang, Guo, Zhou, Ma, Zhang, and Feng}}}
+\bibcite{transformer}{{20}{2017{}}{{Vaswani {等}}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{gpt1}{{21}{2018}{{Radford}}{{}}}
+\bibcite{touvron2023llama}{{22}{2023{}}{{Touvron {等}}}{{Touvron, Lavril, Izacard, Martinet, Lachaux, Lacroix, Rozi{\`e}re, Goyal, Hambro, Azhar, Rodriguez, Joulin, Grave, and Lample}}}
+\bibcite{yang2024qwen2}{{23}{2024{}}{{Yang {等}}}{{Yang, Yang, Hui, Zheng, Yu, Zhou, et~al.}}}
+\bibcite{lavie1997janus}{{24}{1997}{{Lavie {等}}}{{Lavie, Waibel, Levin, Finke, Gates, Gavald{\`a}, Zeissler, and Zhan}}}
+\bibcite{ney1999speech}{{25}{1999}{{Ney}}{{}}}
+\bibcite{nakamura2006atr}{{26}{2006}{{Nakamura {等}}}{{Nakamura, Markov, Nakaiwa, ichiro Kikui, Kawai, Jitsuhiro, Zhang, Yamamoto, Sumita, and Yamamoto}}}
+\bibcite{conformer}{{27}{2020}{{Gulati {等}}}{{Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han, Wang, Zhang, Wu, and Pang}}}
+\bibcite{kim2023ebranchformer}{{28}{2022}{{Kim {等}}}{{Kim, Wu, Peng, Pan, Sridhar, Han, and Watanabe}}}
+\bibcite{yao2024zipformer}{{29}{2023}{{Yao {等}}}{{Yao, Guo, Yang, Kang, Kuang, Yang, Jin, Lin, and Povey}}}
+\bibcite{rekesh2023fastconformer}{{30}{2023}{{Rekesh {等}}}{{Rekesh, Koluguri, Kriman, Majumdar, Noroozi, Huang, Hrinchuk, Puvvada, Kumar, Balam, and Ginsburg}}}
+\bibcite{gao2022paraformer}{{31}{2022}{{Gao {等}}}{{Gao, Zhang, McLoughlin, and Yan}}}
+\bibcite{dong2020cif}{{32}{2020}{{Dong {等}}}{{Dong and Xu}}}
+\bibcite{oord2018cpc}{{33}{2018}{{van~den Oord {等}}}{{van~den Oord, Li, and Vinyals}}}
+\bibcite{schneider2019wav2vec}{{34}{2019}{{Schneider {等}}}{{Schneider, Baevski, Collobert, and Auli}}}
+\bibcite{baevski2020vqwav2vec}{{35}{2020{}}{{Baevski {等}}}{{Baevski, Schneider, and Auli}}}
+\bibcite{baevski2020wav2vec}{{36}{2020{}}{{Baevski {等}}}{{Baevski, Zhou, Mohamed, and Auli}}}
+\bibcite{hubert}{{37}{2021}{{Hsu {等}}}{{Hsu, Bolte, Tsai, Lakhotia, Salakhutdinov, and Mohamed}}}
+\bibcite{chen2022wavlm}{{38}{2022}{{Chen {等}}}{{Chen, Wang, Chen, Wu, Liu, Chen, Li, Kanda, Yoshioka, Xiao, Wu, Zhou, Ren, Qian, Qian, Wu, Zeng, Yu, and Wei}}}
+\bibcite{chung2021w2vbert}{{39}{2021}{{Chung {等}}}{{Chung, Zhang, Han, Chiu, Qin, Pang, and Wu}}}
+\bibcite{baevski2022data2vec}{{40}{2022}{{Baevski {等}}}{{Baevski, Hsu, Xu, Babu, Gu, and Auli}}}
+\bibcite{chiu2022bestrq}{{41}{2022}{{Chiu {等}}}{{Chiu, Qin, Zhang, Yu, and Wu}}}
+\bibcite{liu2023dinosr}{{42}{2023{}}{{Liu {等}}}{{Liu, Chang, Auli, Hsu, and Glass}}}
+\bibcite{gong2022ssast}{{43}{2022}{{Gong {等}}}{{Gong, Lai, Chung, and Glass}}}
+\bibcite{huang2022audiomae}{{44}{2022{}}{{Huang {等}}}{{Huang, Xu, Li, Baevski, Auli, Galuba, Metze, and Feichtenhofer}}}
+\bibcite{chen2023beats}{{45}{2023}{{Chen {等}}}{{Chen, Wu, Wang, Liu, Tompkins, Chen, and Wei}}}
+\bibcite{pratap2023mms}{{46}{2023}{{Pratap {等}}}{{Pratap, Tjandra, Shi, Tomasello, Babu, Kundu, Elkahky, Ni, Vyas, Fazel-Zarandi, Baevski, Adi, Zhang, Hsu, Conneau, and Auli}}}
+\bibcite{zhang2023usm}{{47}{2023{}}{{Zhang {等}}}{{Zhang, Han, Qin, Wang, Bapna, et~al.}}}
+\bibcite{peng2023owsm}{{48}{2023}{{Peng {等}}}{{Peng, Tian, Yan, Berrebbi, Chang, Li, Shi, Arora, Chen, Sharma, Zhang, Sudo, Shakeel, weon Jung, Maiti, and Watanabe}}}
+\bibcite{an2024funaudiollm}{{49}{2024}{{An {等}}}{{An, Chen, Deng, Du, Gao, Gao, Gu, He, Hu, Hu, et~al.}}}
+\bibcite{wang2017tacotron}{{50}{2017}{{Wang {等}}}{{Wang, Skerry{-}Ryan, Stanton, Wu, Weiss, Jaitly, Yang, Xiao, Chen, Bengio, Le, Agiomyrgiannakis, Clark, and Saurous}}}
+\bibcite{shen2018tacotron2}{{51}{2018}{{Shen {等}}}{{Shen, Pang, Weiss, Schuster, Jaitly, Yang, Chen, Zhang, Wang, Skerry{-}Ryan, Saurous, Agiomyrgiannakis, and Wu}}}
+\bibcite{ren2019fastspeech}{{52}{2019}{{Ren {等}}}{{Ren, Ruan, Tan, Qin, Zhao, Zhao, and Liu}}}
+\bibcite{griffin1984signal}{{53}{1984}{{Griffin {等}}}{{Griffin and Lim}}}
+\bibcite{oord2016wavenet}{{54}{2016}{{van~den Oord {等}}}{{van~den Oord, Dieleman, Zen, Simonyan, Vinyals, Graves, Kalchbrenner, Senior, and Kavukcuoglu}}}
+\bibcite{kong2020hifi}{{55}{2020{}}{{Kong {等}}}{{Kong, Kim, and Bae}}}
+\bibcite{liu2023audioldm}{{56}{2023{}}{{Liu {等}}}{{Liu, Chen, Yuan, Mei, Liu, Mandic, Wang, and Plumbley}}}
+\bibcite{shen2024naturalspeech2}{{57}{2023}{{Shen {等}}}{{Shen, Ju, Tan, Liu, Leng, He, Qin, Zhao, and Bian}}}
+\bibcite{ju2024naturalspeech3}{{58}{2024}{{Ju {等}}}{{Ju, Wang, Shen, Tan, Xin, Yang, Liu, Leng, Song, Tang, Wu, Qin, Li, Ye, Zhang, Bian, He, Li, and Zhao}}}
+\bibcite{evans2024stableaudio}{{59}{2024}{{Evans {等}}}{{Evans, Carr, Taylor, Hawley, and Pons}}}
+\bibcite{liang2025mingtok}{{60}{2025}{{Yan {等}}}{{Yan, Jin, Huang, Yu, Peng, et~al.}}}
+\bibcite{du2024cosyvoice}{{61}{2024{}}{{Du {等}}}{{Du, Chen, Zhang, Hu, Lu, Yang, Hu, Zheng, Gu, Ma, et~al.}}}
+\bibcite{du2024cosyvoice2}{{62}{2024{}}{{Du {等}}}{{Du, Fan, Ma, Sisman, Qian, and Li}}}
+\bibcite{ji2024wavtokenizer}{{63}{2024}{{Ji {等}}}{{Ji, Jiang, Cheng, Chen, Fang, Zuo, Yang, Li, Zhang, Yang, Huang, Jiang, Chen, Zheng, Wang, and Zhao}}}
+\bibcite{xin2024bigcodec}{{64}{2024}{{Xin {等}}}{{Xin, Tan, Takamichi, and Saruwatari}}}
+\bibcite{li2024singlecodec}{{65}{2024}{{Li {等}}}{{Li, Xue, Guo, Zhu, Lv, Xie, Chen, Yin, and Li}}}
+\bibcite{huang2023repcodec}{{66}{2024}{{Huang {等}}}{{Huang, Meng, and Ko}}}
+\bibcite{zeghidour2021soundstream}{{67}{2022}{{Zeghidour {等}}}{{Zeghidour, Luebs, Omran, Skoglund, and Tagliasacchi}}}
+\bibcite{defossez2022encodec}{{68}{2022}{{D{\'e}fossez {等}}}{{D{\'e}fossez, Copet, Synnaeve, and Adi}}}
+\bibcite{wang-etal-2023-valle}{{69}{2023{}}{{Wang {等}}}{{Wang, Chen, Wu, Zhang, Zhou, Liu, Chen, Liu, Wang, Li, He, Zhao, and Wei}}}
+\bibcite{borsos2023audiolm}{{70}{2023}{{Borsos {等}}}{{Borsos, Marinier, Vincent, Kharitonov, Pietquin, Sharifi, Roblek, Teboul, Grangier, Tagliasacchi, et~al.}}}
+\bibcite{kumar2023dac}{{71}{2023}{{Kumar {等}}}{{Kumar, Seetharaman, Luebs, Kumar, and Kumar}}}
+\bibcite{zhang2024speechtokenizer}{{72}{2023{}}{{Zhang {等}}}{{Zhang, Zhang, Li, Zhou, and Qiu}}}
+\bibcite{siuzdak2024snac}{{73}{2024}{{Siuzdak {等}}}{{Siuzdak, Gr{\"o}tschla, and Lanzend{\"o}rfer}}}
+\bibcite{ye2024xcodec}{{74}{2024}{{Ye {等}}}{{Ye and Wang}}}
+\bibcite{liu2024semanticodec}{{75}{2024}{{Liu {等}}}{{Liu, Xu, Yuan, Wu, Wang, and Plumbley}}}
+\bibcite{xiao2025xytokenizer}{{76}{2025}{{Gong {等}}}{{Gong, Jin, Deng, Zhang, Zhang, Cheng, Fei, Li, and Qiu}}}
+\bibcite{berard2016listen}{{77}{2016}{{B{\'e}rard {等}}}{{B{\'e}rard, Pietquin, Servan, and Besacier}}}
+\bibcite{weiss2017sequence}{{78}{2017}{{Weiss {等}}}{{Weiss, Chorowski, Jaitly, Wu, and Chen}}}
+\bibcite{bansal2019pre}{{79}{2019}{{Bansal {等}}}{{Bansal, Kamper, Livescu, Lopez, and Goldwater}}}
+\bibcite{liu2019end}{{80}{2019}{{Liu {等}}}{{Liu, Xiong, He, Zhang, Wu, Wang, and Zong}}}
+\bibcite{jia2019leveraging}{{81}{2019{}}{{Jia {等}}}{{Jia, Johnson, Macherey, Weiss, Cao, Chiu, Ari, Laurenzo, and Wu}}}
+\bibcite{gigast}{{82}{2022{}}{{Ye {等}}}{{Ye, Zhao, Ko, Meng, Wang, Wang, and Cao}}}
+\bibcite{fang-feng-2023-back}{{83}{2023{}}{{Fang {等}}}{{Fang and Feng}}}
+\bibcite{gaido-etal-2021-ctc}{{84}{2021}{{Gaido {等}}}{{Gaido, Cettolo, Negri, and Turchi}}}
+\bibcite{duquenne-etal-2022-modules}{{85}{2022}{{Duquenne {等}}}{{Duquenne, Gong, Sagot, and Schwenk}}}
+\bibcite{ctcmeetsot}{{86}{2023}{{Le {等}}}{{Le, Gong, Wang, Pino, Lecouteux, and Schwab}}}
+\bibcite{communication2023seamlessm4t}{{87}{2023}{{Communication {等}}}{{Communication, Barrault, Chung, Meglioli, Dale, Dong, Duquenne, Elsahar, Gong, Heffernan, Hoffman, Klaiber, Li, Licht, Maillard, Rakotoarison, Sadagopan, Wenzek, Ye, Akula, Chen, Hachem, Ellis, Gonzalez, Haaheim, Hansanti, Howes, Huang, Hwang, Inaguma, Jain, Kalbassi, Kallet, Kulikov, Lam, Li, Ma, Mavlyutov, Peloquin, Ramadan, Ramakrishnan, Sun, Tran, Tran, Tufanov, Vogeti, Wood, Yang, Yu, Andrews, Balioglu, Costa-jussà, Celebi, Elbayad, Gao, Guzmán, Kao, Lee, Mourachko, Pino, Popuri, Ropers, Saleem, Schwenk, Tomasello, Wang, Wang, and Wang}}}
+\bibcite{communication2023seamlessm4tv2}{{88}{2023}{{Barrault {等}}}{{Barrault, Chung, Meglioli, Dale, Dong, et~al.}}}
+\bibcite{anastasopoulos2018tied}{{89}{2018}{{Anastasopoulos {等}}}{{Anastasopoulos and Chiang}}}
+\bibcite{han-etal-2021-learning}{{90}{2021}{{Han {等}}}{{Han, Wang, Ji, and Li}}}
+\bibcite{dong2021listen}{{91}{2021}{{Dong {等}}}{{Dong, Ye, Wang, Zhou, Xu, Xu, and Li}}}
+\bibcite{xu2021sate}{{92}{2021}{{Xu {等}}}{{Xu, Hu, Li, Zhang, Huang, Ju, Xiao, and Zhu}}}
+\bibcite{liu2020_bridging}{{93}{2020}{{Liu {等}}}{{Liu, Zhu, Zhang, and Zong}}}
+\bibcite{tang-etal-2021-improving}{{94}{2021}{{Tang {等}}}{{Tang, Pino, Li, Wang, and Genzel}}}
+\bibcite{ye2021xstnet}{{95}{2021}{{Ye {等}}}{{Ye, Wang, and Li}}}
+\bibcite{fang-etal-2022-STEMM}{{96}{2022}{{Fang {等}}}{{Fang, Ye, Li, Feng, and Wang}}}
+\bibcite{ye-etal-2022-cross}{{97}{2022{}}{{Ye {等}}}{{Ye, Wang, and Li}}}
+\bibcite{cheng2023m3st}{{98}{2023}{{Cheng {等}}}{{Cheng, Dong, Yue, Ko, Wang, and Zou}}}
+\bibcite{ouyang-etal-2023-waco}{{99}{2023}{{Ouyang {等}}}{{Ouyang, Ye, and Li}}}
+\bibcite{lei-etal-2023-ckdst}{{100}{2023}{{Lei {等}}}{{Lei, Xue, Zhao, Sun, Zhu, Lin, and Xiong}}}
+\bibcite{fang-and-feng-2023-understanding}{{101}{2023{}}{{Fang {等}}}{{Fang and Feng}}}
+\bibcite{zhou-etal-2023-cmot}{{102}{2023}{{Zhou {等}}}{{Zhou, Fang, and Feng}}}
+\bibcite{zhang2023rethinking}{{103}{2023{}}{{Zhang {等}}}{{Zhang, Xu, Li, Chen, Xiao, Zhang, and Zhu}}}
+\bibcite{han2023tab}{{104}{2023}{{Han {等}}}{{Han, Xu, Xiao, and Zhu}}}
+\bibcite{zhang2024salign}{{105}{2024{}}{{Zhang {等}}}{{Zhang, Kou, Li, Xu, Zhang, Xiao, and Zhu}}}
+\bibcite{slam}{{106}{2021}{{Bapna {等}}}{{Bapna, Chung, Wu, Gulati, Jia, Clark, Johnson, Riesa, Conneau, and Zhang}}}
+\bibcite{mSLAM}{{107}{2022}{{Bapna {等}}}{{Bapna, Cherry, Zhang, Jia, Johnson, Cheng, Khanuja, Riesa, and Conneau}}}
+\bibcite{zheng2021fused}{{108}{2021}{{Zheng {等}}}{{Zheng, Chen, Ma, and Huang}}}
+\bibcite{zhang2022speechut}{{109}{2022}{{Zhang {等}}}{{Zhang, Zhou, Ao, Liu, Dai, Li, and Wei}}}
+\bibcite{tang-etal-2022-unified}{{110}{2022}{{Tang {等}}}{{Tang, Gong, Dong, Wang, Hsu, Gu, Baevski, Li, Mohamed, Auli, and Pino}}}
+\bibcite{tjandra2019s2st}{{111}{2019}{{Tjandra {等}}}{{Tjandra, Sakti, and Nakamura}}}
+\bibcite{uwspeech}{{112}{2021}{{Zhang {等}}}{{Zhang, Tan, Ren, Qin, Zhang, and Liu}}}
+\bibcite{s2ut}{{113}{2022{}}{{Lee {等}}}{{Lee, Chen, Wang, Gu, Popuri, Ma, Polyak, Adi, He, Tang, Pino, and Hsu}}}
+\bibcite{DBLP:conf/interspeech/PopuriCWPAGHL22}{{114}{2022}{{Popuri {等}}}{{Popuri, Chen, Wang, Pino, Adi, Gu, Hsu, and Lee}}}
+\bibcite{zhang-etal-2024-streamspeech}{{115}{2024{}}{{Zhang {等}}}{{Zhang, Fang, Guo, Ma, Zhang, and Feng}}}
+\bibcite{gu2018nat}{{116}{2018}{{Gu {等}}}{{Gu, Bradbury, Xiong, Li, and Socher}}}
+\bibcite{cmlm}{{117}{2019}{{Ghazvininejad {等}}}{{Ghazvininejad, Levy, Liu, and Zettlemoyer}}}
+\bibcite{qian-etal-2021-glancing}{{118}{2021}{{Qian {等}}}{{Qian, Zhou, Bao, Wang, Qiu, Zhang, Yu, and Li}}}
+\bibcite{huang2022DATransformer}{{119}{2022{}}{{Huang {等}}}{{Huang, Zhou, Liu, Li, and Huang}}}
+\bibcite{graves2006connectionist}{{120}{2006{}}{{Graves {等}}}{{Graves, Fern\'{a}ndez, Gomez, and Schmidhuber}}}
+\bibcite{wu-2023-duplex}{{121}{2023}{{Wu}}{{}}}
+\bibcite{tan2024diffnorm}{{122}{2023}{{Tan {等}}}{{Tan, Chen, Qin, and Liu}}}
+\bibcite{ma2024nasts2x}{{123}{2024{}}{{Ma {等}}}{{Ma, Fang, Guo, Zhang, and Feng}}}
+\bibcite{radford2019language}{{124}{2019}{{Radford {等}}}{{Radford, Wu, Child, Luan, Amodei, and Sutskever}}}
+\bibcite{brown2020gpt3}{{125}{2020}{{Brown {等}}}{{Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert{-}Voss, Krueger, Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and Amodei}}}
+\bibcite{touvron2023llama2}{{126}{2023{}}{{Touvron {等}}}{{Touvron, Martin, Stone, Albert, Almahairi, Babaei, Bashlykov, Batra, Bhargava, Bhosale, et~al.}}}
+\bibcite{dubey2024llama3}{{127}{2024}{{Dubey {等}}}{{Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman, Mathur, Schelten, Yang, Fan, et~al.}}}
+\bibcite{yang2025qwen25}{{128}{2024{}}{{Yang {等}}}{{Yang, Yang, Zhang, Hui, Zheng, Yu, et~al.}}}
+\bibcite{lakhotia2021generative}{{129}{2021}{{Lakhotia {等}}}{{Lakhotia, Kharitonov, Hsu, Adi, Polyak, Bolte, Nguyen, Copet, Baevski, Mohamed, et~al.}}}
+\bibcite{wang2023viola}{{130}{2023{}}{{Wang {等}}}{{Wang, Zhou, Zhang, Wu, Liu, Gaur, Chen, Li, and Wei}}}
+\bibcite{Qwen2-Audio}{{131}{2024}{{Chu {等}}}{{Chu, Xu, Yang, Wei, Wei, Guo, Leng, Lv, He, Lin, Zhou, and Zhou}}}
+\bibcite{slam-asr}{{132}{2024{}}{{Ma {等}}}{{Ma, Yang, Yang, Gao, Wang, Du, Yu, Chen, Zheng, Zhang, et~al.}}}
+\bibcite{fathullah2024prompting}{{133}{2024}{{Fathullah {等}}}{{Fathullah, Wu, Lakomkin, Jia, Shangguan, Li, Guo, Xiong, Mahadeokar, Kalinli, et~al.}}}
+\bibcite{chen-etal-2024-llast}{{134}{2024{}}{{Chen {等}}}{{Chen, Zhang, Bai, Chen, and Nakamura}}}
+\bibcite{li2023blip2}{{135}{2023{}}{{Li {等}}}{{Li, Li, Savarese, and Hoi}}}
+\bibcite{yu2024connecting}{{136}{2024}{{Yu {等}}}{{Yu, Tang, Sun, Chen, Tan, Li, Lu, Ma, and Zhang}}}
+\bibcite{wu2023decoder}{{137}{2023}{{Wu {等}}}{{Wu, Gaur, Chen, Zhou, Zhu, Wang, Li, Liu, Ren, Liu, et~al.}}}
+\bibcite{hono-etal-2024-integrating}{{138}{2024}{{Hono {等}}}{{Hono, Mitsuda, Zhao, Mitsui, Wakatsuki, and Sawada}}}
+\bibcite{hu2024wavllm}{{139}{2024}{{Hu {等}}}{{Hu, Zhou, Liu, Chen, Hao, Pan, Liu, Li, Sivasankaran, Liu, et~al.}}}
+\bibcite{twist}{{140}{2024{}}{{Hassid {等}}}{{Hassid, Remez, Nguyen, Gat, Conneau, Kreuk, Copet, Defossez, Synnaeve, Dupoux, et~al.}}}
+\bibcite{rubenstein2023audiopalm}{{141}{2023}{{Rubenstein {等}}}{{Rubenstein, Asawaroengchai, Nguyen, Bapna, Borsos, Quitry, Chen, Badawy, Han, Kharitonov, et~al.}}}
+\bibcite{nguyen2024spirit}{{142}{2024}{{Nguyen {等}}}{{Nguyen, Muller, Yu, Costa-Jussa, Elbayad, Popuri, Duquenne, Algayres, Mavlyutov, Gat, et~al.}}}
+\bibcite{zhang2024speechgptgen}{{143}{2024{}}{{Zhang {等}}}{{Zhang, Zhang, Zhan, Li, Zhou, and Qiu}}}
+\bibcite{zhang2024intrinsicvoice}{{144}{2024{}}{{Zhang {等}}}{{Zhang, Lyu, Du, Chen, Zhang, Hu, Tan, Zhao, Wang, Zhang, et~al.}}}
+\bibcite{xie2024mini}{{145}{2024}{{Xie {等}}}{{Xie and Wu}}}
+\bibcite{moonshot2025kimiaudio}{{146}{2025}{{Moonshot AI}}{{}}}
+\bibcite{nguyen2022dgslm}{{147}{2023}{{Nguyen {等}}}{{Nguyen, Kharitonov, Copet, Adi, Hsu, Elkahky, Tomasello, Algayres, Sagot, Mohamed, and Dupoux}}}
+\bibcite{google2024gemini}{{148}{2023}{{Gemini Team, Google}}{{}}}
+\bibcite{chen2024valle2}{{149}{2024{}}{{Chen {等}}}{{Chen, Liu, Zhou, Liu, Tan, Li, Zhao, Qian, and Wei}}}
+\bibcite{xiong2024freeze}{{150}{2024}{{Wang {等}}}{{Wang, Li, Fu, Shen, Xie, Li, Sun, and Ma}}}
+\bibcite{chen2025minmo}{{151}{2025}{{Chen {等}}}{{Chen, Chen, Chen, Chen, Chen, Deng, Du, Gao, Gao, Gao, et~al.}}}
+\bibcite{alibaba2025qwen25omni}{{152}{2025}{{Xu {等}}}{{Xu, Guo, He, Hu, He, Bai, Chen, et~al.}}}
+\bibcite{vocalnet2025}{{153}{2024}{{Zhu {等}}}{{Zhu, Liu, and Sisman}}}
+\bibcite{ren2021fastspeech2}{{154}{2021}{{Ren {等}}}{{Ren, Hu, Tan, Qin, Zhao, Zhao, and Liu}}}
+\bibcite{huang2022PDAT}{{155}{2023{}}{{Huang {等}}}{{Huang, Ke, and Huang}}}
+\bibcite{dai-etal-2019-transformer}{{156}{2019}{{Dai {等}}}{{Dai, Yang, Yang, Carbonell, Le, and Salakhutdinov}}}
+\bibcite{hiddenmarkovmodel}{{157}{1989}{{Rabiner}}{{}}}
+\bibcite{viterbi}{{158}{1967}{{Viterbi}}{{}}}
+\bibcite{hifigan}{{159}{2020{}}{{Kong {等}}}{{Kong, Kim, and Bae}}}
+\bibcite{shao2022viterbi}{{160}{2022}{{Shao {等}}}{{Shao, Ma, and Feng}}}
+\bibcite{jia2022cvss}{{161}{2022{}}{{Jia {等}}}{{Jia, Tadmor~Ramanovich, Wang, and Zen}}}
+\bibcite{wang2020covost2}{{162}{2020{}}{{Wang {等}}}{{Wang, Wu, and Pino}}}
+\bibcite{Veaux2017CSTRVC}{{163}{2017}{{Veaux {等}}}{{Veaux, Yamagishi, and MacDonald}}}
+\bibcite{adam}{{164}{2015}{{Kingma {等}}}{{Kingma and Ba}}}
+\bibcite{ott2019fairseq}{{165}{2019}{{Ott {等}}}{{Ott, Edunov, Baevski, Fan, Gross, Ng, Grangier, and Auli}}}
+\bibcite{post-2018-call}{{166}{2018}{{Post}}{{}}}
+\bibcite{papineni-etal-2002-bleu}{{167}{2002}{{Papineni {等}}}{{Papineni, Roukos, Ward, and Zhu}}}
+\bibcite{dvector}{{168}{2018}{{Wan {等}}}{{Wan, Wang, Papir, and Moreno}}}
+\bibcite{inaguma2022unity}{{169}{2023{}}{{Inaguma {等}}}{{Inaguma, Popuri, Kulikov, Chen, Wang, Chung, Tang, Lee, Watanabe, and Pino}}}
+\bibcite{ctc}{{170}{2006{}}{{Graves {等}}}{{Graves, Fern\'{a}ndez, Gomez, and Schmidhuber}}}
+\bibcite{fang-etal-2023-daspeech}{{171}{2023{}}{{Fang {等}}}{{Fang, Zhou, and Feng}}}
+\bibcite{pmlr-v119-wang20k}{{172}{2020{}}{{Wang {等}}}{{Wang and Isola}}}
+\bibcite{polyak21_interspeech}{{173}{2021}{{Polyak {等}}}{{Polyak, Adi, Copet, Kharitonov, Lakhotia, Hsu, Mohamed, and Dupoux}}}
+\bibcite{cho-etal-2024-speechworthy}{{174}{2024}{{Cho {等}}}{{Cho, Jedema, Ribeiro, Sharma, Szekely, Moschitti, Janssen, and May}}}
+\bibcite{ljspeech17}{{175}{2017}{{Ito {等}}}{{Ito and Johnson}}}
+\bibcite{kim2021conditional}{{176}{2021}{{Kim {等}}}{{Kim, Kong, and Son}}}
+\bibcite{alpaca}{{177}{2023}{{Taori {等}}}{{Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}}}
+\bibcite{ultrachat}{{178}{2023}{{Ding {等}}}{{Ding, Chen, Xu, Qin, Zheng, Hu, Liu, Sun, and Zhou}}}
+\bibcite{alpacaeval}{{179}{2023{}}{{Li {等}}}{{Li, Zhang, Dubois, Taori, Gulrajani, Guestrin, Liang, and Hashimoto}}}
+\bibcite{saeki22c_interspeech}{{180}{2022}{{Saeki {等}}}{{Saeki, Xin, Nakata, Koriyama, Takamichi, and Saruwatari}}}
+\bibcite{zeng2024scaling}{{181}{2025}{{Zeng {等}}}{{Zeng, Du, Liu, Zhang, shengmin jiang, Dong, and Tang}}}
+\bibcite{qwen2.5}{{182}{2024}{{Team}}{{}}}
+\bibcite{mentzer2024finite}{{183}{2024}{{Mentzer {等}}}{{Mentzer, Minnen, Agustsson, and Tschannen}}}
+\bibcite{lipman2023flow}{{184}{2023}{{Lipman {等}}}{{Lipman, Chen, Ben-Hamu, Nickel, and Le}}}
+\bibcite{fish-speech-v1.4}{{185}{2024}{{Liao {等}}}{{Liao, Wang, Li, Cheng, Zhang, Zhou, and Xing}}}
+\bibcite{nachmani2024spoken}{{186}{2024}{{Nachmani {等}}}{{Nachmani, Levkovitch, Hirsch, Salazar, Asawaroengchai, Mariooryad, Rivlin, Skerry-Ryan, and Ramanovich}}}
+\bibcite{berant-etal-2013-semantic}{{187}{2013}{{Berant {等}}}{{Berant, Chou, Frostig, and Liang}}}
+\bibcite{hassid2024textually}{{188}{2024{}}{{Hassid {等}}}{{Hassid, Remez, Nguyen, Gat, Conneau, Kreuk, Copet, Defossez, Synnaeve, Dupoux, et~al.}}}
+\bibcite{rafailov2023dpo}{{189}{2023}{{Rafailov {等}}}{{Rafailov, Sharma, Mitchell, Ermon, Manning, and Finn}}}
+\bibcite{glm2024chatglm}{{190}{2024}{{{GLM Team} {等}}}{{{GLM Team}, Zeng, Xu, Wang, Zhang, Yin, et~al.}}}
+\@writefile{toc}{\contentsline {chapter}{致谢}{95}{appendix*.48}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{91}{appendix*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与其他相关学术成果}{97}{appendix*.49}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loappfig}{\addvspace {10\p@ }}
 \@writefile{loapptab}{\addvspace {10\p@ }}
-\gdef \@abspage@last{110}
+\gdef \@abspage@last{116}
