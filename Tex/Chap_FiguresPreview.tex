@@ -51,13 +51,13 @@
     \def\ya{0}
     \node[font=\small\bfseries] (t1) at (\xcenter, \ya+0.9) {(a) 三阶段级联};
     \node[module=green, minimum width=2.0cm] (asr) at (2.0, \ya) {语音识别};
-    \node[module=orange, minimum width=2.0cm] (mt) at (\xcenter, \ya) {文本翻译};
+    \node[module=orange, minimum width=2.4cm] (mt) at (\xcenter, \ya) {机器翻译/\\大语言模型};
     \node[module=red, minimum width=2.0cm] (tts) at (9.0, \ya) {语音合成};
-    \node[font=\small] (sin1) at (\xleft, \ya) {输入语音};
-    \node[font=\small] (sout1) at (\xright, \ya) {输出语音};
+    \node[font=\small] (sin1) at (0.0, \ya) {输入语音};
+    \node[font=\small] (sout1) at (11.0, \ya) {输出语音};
     \draw[arrow] (sin1) -- (asr);
-    \draw[arrow] (asr) -- node[above, yshift=1pt, font=\scriptsize]{源语言文本} (mt);
-    \draw[arrow] (mt) -- node[above, yshift=1pt, font=\scriptsize]{目标语言文本} (tts);
+    \draw[arrow] (asr) -- node[above, yshift=1pt, font=\scriptsize]{转写文本} (mt);
+    \draw[arrow] (mt) -- node[above, yshift=1pt, font=\scriptsize]{目标文本} (tts);
     \draw[arrow] (tts) -- (sout1);
 
     % === (b) 两阶段 ===
@@ -68,10 +68,10 @@
     \node[font=\small\bfseries] (t2) at (\xcenter, \yb+0.9) {(b) 两阶段};
     \node[module=teal, minimum width=5.5cm] (s2t) at (3.75, \yb) {语音到文本模型};
     \node[module=red, minimum width=2.0cm] (tts2) at (9.0, \yb) {语音合成};
-    \node[font=\small] (sin2) at (\xleft, \yb) {输入语音};
-    \node[font=\small] (sout2) at (\xright, \yb) {输出语音};
+    \node[font=\small] (sin2) at (0.0, \yb) {输入语音};
+    \node[font=\small] (sout2) at (11.0, \yb) {输出语音};
     \draw[arrow] (sin2) -- (s2t);
-    \draw[arrow] (s2t) -- node[above, yshift=1pt, font=\scriptsize]{目标语言文本} (tts2);
+    \draw[arrow] (s2t) -- node[above, yshift=1pt, font=\scriptsize]{目标文本} (tts2);
     \draw[arrow] (tts2) -- (sout2);
 
     % === (c) 端到端 ===
@@ -80,8 +80,8 @@
     \def\yc{-4.4}
     \node[font=\small\bfseries] (t3) at (\xcenter, \yc+0.9) {(c) 端到端};
     \node[module=violet, minimum width=9.0cm] (e2e) at (\xcenter, \yc) {端到端语音到语音模型};
-    \node[font=\small] (sin3) at (\xleft, \yc) {输入语音};
-    \node[font=\small] (sout3) at (\xright, \yc) {输出语音};
+    \node[font=\small] (sin3) at (0.0, \yc) {输入语音};
+    \node[font=\small] (sout3) at (11.0, \yc) {输出语音};
     \draw[arrow] (sin3) -- (e2e);
     \draw[arrow] (e2e) -- (sout3);
 \end{tikzpicture}
