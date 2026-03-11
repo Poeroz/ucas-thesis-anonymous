@@ -89,107 +89,48 @@
 
 
 % ============================================================
-% 图 2-2：整体技术架构图（编码器-解码器 / 仅解码器两条线）
+% 图 2-2：本章内容结构概览（树状图）
 % ============================================================
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[node distance=0.5cm and 0.8cm,
-    stage/.style={draw, rounded corners=3pt, minimum width=2.6cm, minimum height=0.8cm,
+\begin{tikzpicture}[
+    node distance=0.6cm and 1.2cm,
+    box/.style={draw, rounded corners=3pt, minimum height=0.8cm,
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
-    stage/.default=blue]
-    % 左侧：编码器-解码器
-    \node[font=\small\bfseries] (left_title) at (-3.2, 0) {编码器-解码器架构};
-    \node[stage=teal, below=0.4cm of left_title] (s2tt) {语音到文本翻译\\(S2TT)};
-    \node[stage=blue, below=0.5cm of s2tt] (s2st) {语音到语音翻译\\(S2ST)};
-    \draw[arrow] (s2tt) -- (s2st);
-    % 右侧：仅解码器
-    \node[font=\small\bfseries] (right_title) at (3.2, 0) {仅解码器架构};
-    \node[stage=orange, below=0.4cm of right_title] (s2t_llm) {语音到文本生成\\(S2T + LLM)};
-    \node[stage=red, below=0.5cm of s2t_llm] (s2s_llm) {语音到语音生成\\(S2S + LLM)};
-    \draw[arrow] (s2t_llm) -- (s2s_llm);
-    % 时间轴
-    \draw[arrow, gray!60] (-3.2, -3.3) -- (-3.2, -3.8) node[below, font=\footnotesize, gray!80]{2017 $\sim$ 2023};
-    \draw[arrow, gray!60] (3.2, -3.3) -- (3.2, -3.8) node[below, font=\footnotesize, gray!80]{2023 $\sim$ 至今};
-    % 连接
-    \draw[dasharrow, gray] (s2st.east) -- node[above, slbl, gray]{架构演进} (s2s_llm.west);
-    % 底部共同目标
-    \node[draw, rounded corners=3pt, thick, fill=violet!8, draw=violet!60, minimum width=7cm, minimum height=0.7cm,
-        font=\small, below=1.1cm of $(s2st.south)!0.5!(s2s_llm.south)$] (goal) {共同目标：高质量、低延迟的端到端语音到语音生成};
-    \draw[arrow2, violet!60] (s2st.south) |- (goal.west);
-    \draw[arrow2, violet!60] (s2s_llm.south) |- (goal.east);
+    box/.default=blue,
+    sec/.style={font=\scriptsize, text=gray!70},
+]
+    % 根节点 (中心 x=5.5)
+    \node[box=violet, minimum width=3.0cm] (root) at (5.5, 0) {语音到语音生成};
+
+    % 第二层 (x=2.5, x=8.5)
+    \node[box=teal, minimum width=3.0cm] (encdec) at (2.5, -1.5) {编码器-解码器架构};
+    \node[box=orange, minimum width=3.0cm] (deconly) at (8.5, -1.5) {仅解码器架构};
+    \node[sec, below=0.02cm of encdec] {（\S 2.3）};
+    \node[sec, below=0.02cm of deconly] {（\S 2.4）};
+
+    % 第三层：编码器-解码器 (x=0.8, x=4.2)
+    \node[box=teal, minimum width=2.8cm] (s2tt) at (0.8, -3.5) {语音到文本翻译};
+    \node[box=blue, minimum width=2.8cm] (s2st) at (4.2, -3.5) {语音到语音翻译};
+    \node[sec, below=0.02cm of s2tt] {（\S 2.3.2）};
+    \node[sec, below=0.02cm of s2st] {（\S 2.3.3）};
+
+    % 第三层：仅解码器 (x=6.8, x=10.2)
+    \node[box=orange, minimum width=2.8cm] (s2t_llm) at (6.8, -3.5) {语音理解大模型};
+    \node[box=red, minimum width=2.8cm] (s2s_llm) at (10.2, -3.5) {语音交互大模型};
+    \node[sec, below=0.02cm of s2t_llm] {（\S 2.4.2）};
+    \node[sec, below=0.02cm of s2s_llm] {（\S 2.4.3）};
+
+    % 连线
+    \draw[arrow] (root) -- (encdec);
+    \draw[arrow] (root) -- (deconly);
+    \draw[arrow] (encdec) -- (s2tt);
+    \draw[arrow] (encdec) -- (s2st);
+    \draw[arrow] (deconly) -- (s2t_llm);
+    \draw[arrow] (deconly) -- (s2s_llm);
 \end{tikzpicture}
-\bicaption{\enspace 语音到语音生成的两条技术发展路线}{\enspace Two technical development lines of speech-to-speech generation}
+\bicaption{\enspace 本章内容结构概览}{\enspace Overview of the chapter structure}
 \label{fig:rw_overview}
-\end{figure}
-
-
-% ============================================================
-% 图 2-3：用于理解的语音表征分类图
-% ============================================================
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    level 1/.style={sibling distance=4.2cm, level distance=1.5cm},
-    level 2/.style={sibling distance=2.2cm, level distance=1.4cm},
-    cat/.style={draw, rounded corners=2pt, thick, fill=#1!12, draw=#1!70!black,
-        font=\small, align=center, minimum height=0.65cm, inner sep=3pt},
-    cat/.default=blue,
-    leaf/.style={draw, rounded corners=2pt, fill=gray!8, draw=gray!50,
-        font=\scriptsize, align=center, minimum height=0.55cm, inner sep=2pt},
-    edge from parent/.style={draw, thick, -{Stealth[length=4pt]}},
-]
-\node[cat=violet, minimum width=3cm] {用于理解的语音表征}
-    child { node[cat=green] {传统端到端训练}
-        child { node[leaf] {Fbank 特征\\+ Conformer} }
-        child { node[leaf] {E-Branchformer\\Paraformer} }
-    }
-    child { node[cat=blue] {自监督学习}
-        child { node[leaf] {Wav2Vec 2.0\\HuBERT} }
-        child { node[leaf] {WavLM\\W2V-BERT} }
-    }
-    child { node[cat=orange] {监督学习}
-        child { node[leaf] {Whisper} }
-        child { node[leaf] {SenseVoice} }
-    };
-\end{tikzpicture}
-\bicaption{\enspace 用于理解的语音表征分类}{\enspace Taxonomy of speech representations for understanding}
-\label{fig:rw_repr_understand}
-\end{figure}
-
-
-% ============================================================
-% 图 2-4：用于生成的语音表征分类图
-% ============================================================
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    level 1/.style={sibling distance=3.3cm, level distance=1.5cm},
-    level 2/.style={sibling distance=2.2cm, level distance=1.4cm},
-    cat/.style={draw, rounded corners=2pt, thick, fill=#1!12, draw=#1!70!black,
-        font=\small, align=center, minimum height=0.65cm, inner sep=3pt},
-    cat/.default=blue,
-    leaf/.style={draw, rounded corners=2pt, fill=gray!8, draw=gray!50,
-        font=\scriptsize, align=center, minimum height=0.55cm, inner sep=2pt},
-    edge from parent/.style={draw, thick, -{Stealth[length=4pt]}},
-]
-\node[cat=violet, minimum width=3cm] {用于生成的语音表征}
-    child { node[cat=green, minimum width=1.6cm] {连续频谱特征}
-        child { node[leaf] {梅尔谱\\+ 声码器} }
-    }
-    child { node[cat=teal, minimum width=1.6cm] {连续 VAE\\潜在特征}
-        child { node[leaf] {AudioLDM\\NaturalSpeech} }
-    }
-    child { node[cat=blue, minimum width=1.6cm] {离散\\单码本 token}
-        child { node[leaf] {HuBERT\\+ K-Means} }
-        child { node[leaf] {CosyVoice\\GLM-4-Voice} }
-    }
-    child { node[cat=orange, minimum width=1.6cm] {离散\\多码本 token}
-        child { node[leaf] {EnCodec\\SoundStream} }
-        child { node[leaf] {SpeechTokenizer\\SNAC} }
-    };
-\end{tikzpicture}
-\bicaption{\enspace 用于生成的语音表征分类}{\enspace Taxonomy of speech representations for generation}
-\label{fig:rw_repr_gen}
 \end{figure}
 
 

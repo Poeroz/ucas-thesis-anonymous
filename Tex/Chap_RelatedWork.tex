@@ -162,7 +162,7 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
 \textbf{语音语言建模}\quad 在大语言模型的影响下，研究者开始探索将语言建模的思想应用于语音模态，即在离散语音token上训练自回归语言模型，使模型能够以无文本的方式直接建模和生成语音。GSLM\citep{lakhotia2021generative}是语音语言建模（Spoken Language Modeling）的开创性工作，在HuBERT离散单元上训练自回归Transformer语言模型，实现了无需文本监督的语音生成和语音续写。AudioLM\citep{borsos2023audiolm}提出了层级化的自回归生成框架：首先利用语义token（来自W2V-BERT）建模语音的语义内容，再通过声学token（来自SoundStream）恢复声学细节和音质，这种从粗到细的生成策略在语音续写和音频生成上取得了高度自然的效果。VALL-E\citep{wang-etal-2023-valle}将零样本语音合成建模为语言模型任务，以3秒语音提示即可生成保持说话人音色的合成语音。VioLA\citep{wang2023viola}统一编解码框架处理语音识别、语音翻译和语音合成等多种任务，验证了单一语言模型架构在多种语音任务上的适用性。这些工作为后续基于大语言模型的语音到语音生成奠定了基础。
 
 
-\subsection{语音到文本生成}\label{sec:rw_deconly_s2t}
+\subsection{语音理解大模型}\label{sec:rw_deconly_s2t}
 
 基于仅解码器模型的语音到文本生成旨在利用大语言模型的文本理解和生成能力处理语音输入。其典型架构由语音编码器、适配器（Adaptor）和大语言模型三部分组成：语音编码器（如Whisper、Wav2Vec 2.0等）提取连续语音特征，适配器将语音特征映射到大语言模型的文本嵌入空间中，大语言模型基于映射后的语音表示生成文本输出。由于语音编码器和大语言模型均可灵活替换（如语音编码器可选用Whisper或Wav2Vec 2.0，大语言模型可选用LLaMA或Qwen等），适配器的设计成为该类工作的核心差异所在。按照适配器类型的不同，现有工作可分为以下几类。
 
@@ -175,7 +175,7 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
 除上述适配器外，部分工作采用了混合策略。WavLLM\citep{hu2024wavllm}结合双编码器（Whisper和WavLM）与卷积-瓶颈-线性复合适配器，并引入提示感知的LoRA实现了对不同语音任务的自适应处理。
 
 
-\subsection{语音到语音生成}\label{sec:rw_deconly_s2s}
+\subsection{语音交互大模型}\label{sec:rw_deconly_s2s}
 
 基于仅解码器模型的语音到语音生成是该领域的前沿方向。按照语音生成方式的不同，现有方法可分为原生式和组合式两类。
 
