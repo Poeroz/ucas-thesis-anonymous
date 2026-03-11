@@ -138,8 +138,7 @@
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
     block/.default=blue]
 
-    % 编码器
-    \node[font=\small\bfseries] (enc_title) at (-2.5, 4.8) {编码器};
+    % 编码器（自底向上）
     \node[block=green, minimum width=2.8cm] (enc_input) at (-2.5, 0) {输入嵌入 + 位置编码};
     \node[block=blue, above=of enc_input, minimum width=2.8cm] (enc_sa) {双向自注意力};
     \node[block=blue, above=of enc_sa, minimum width=2.8cm] (enc_ffn) {前馈网络};
@@ -155,8 +154,10 @@
     \node[above=0.35cm of enc_ffn, font=\small] (enc_out) {编码器输出 $Z$};
     \draw[arrow2] (enc_ffn) -- (enc_out);
 
-    % 解码器
-    \node[font=\small\bfseries] (dec_title) at (3.0, 4.8) {解码器};
+    % 编码器标题（放在编码器输出上方）
+    \node[font=\small\bfseries, above=0.15cm of enc_out] (enc_title) {编码器};
+
+    % 解码器（自底向上）
     \node[block=orange, minimum width=2.8cm] (dec_input) at (3.0, 0) {输出嵌入 + 位置编码};
     \node[block=red, above=of dec_input, minimum width=2.8cm] (dec_sa) {因果自注意力};
     \node[block=violet, above=of dec_sa, minimum width=2.8cm] (dec_ca) {交叉注意力};
@@ -172,12 +173,15 @@
     \end{scope}
     \node[right=0.1cm of dec_layer, font=\scriptsize, red!70] {$\times N$};
 
-    % 交叉注意力连接
-    \draw[arrow2, violet!70] (enc_out.east) -| ([xshift=-0.3cm]dec_ca.west) -- (dec_ca.west);
-
     % 输出
     \node[above=0.2cm of dec_linear, font=\small] (output) {输出};
     \draw[arrow2] (dec_linear) -- (output);
+
+    % 解码器标题（放在输出上方）
+    \node[font=\small\bfseries, above=0.15cm of output] (dec_title) {解码器};
+
+    % 交叉注意力连接
+    \draw[arrow2, violet!70] (enc_out.east) -| ([xshift=-0.3cm]dec_ca.west) -- (dec_ca.west);
 \end{tikzpicture}
 \bicaption{\enspace Transformer编码器-解码器架构}{\enspace Transformer encoder-decoder architecture}
 \label{fig:rw_transformer}
@@ -194,34 +198,36 @@
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
     enc/.default=blue,
 ]
+    % 使用绝对坐标，三列左对齐，自底向上构建
+
     % === (a) 基础编码器-解码器 ===
-    \node[font=\small\bfseries] (ta) at (0, 0) {(a) 基础};
-    \node[enc=green, below=0.3cm of ta, minimum width=2.4cm] (a_senc) {语音编码器};
-    \node[enc=red, above=0.5cm of a_senc, minimum width=2.4cm] (a_dec) {文本解码器};
-    \node[below=0.15cm of a_senc, font=\scriptsize] {源语言语音};
-    \node[above=0.15cm of a_dec, font=\scriptsize] {目标语言文本};
+    \node[enc=green, minimum width=2.4cm] (a_senc) at (0, 0) {语音编码器};
+    \node[enc=red, minimum width=2.4cm] (a_dec) at (0, 1.2) {文本解码器};
+    \node[font=\scriptsize] at (0, -0.6) {源语言语音};
+    \node[font=\scriptsize] at (0, 1.8) {目标语言文本};
     \draw[arrow2] (a_senc) -- (a_dec);
+    \node[font=\small\bfseries] at (0, -1.2) {(a) 基础};
 
     % === (b) 并联双编码器 ===
-    \node[font=\small\bfseries] (tb) at (4.5, 0) {(b) 并联双编码器};
-    \node[enc=green, below=0.3cm of tb, xshift=-0.9cm, minimum width=1.5cm] (b_senc) {语音\\编码器};
-    \node[enc=orange, below=0.3cm of tb, xshift=0.9cm, minimum width=1.5cm] (b_tenc) {文本\\编码器};
-    \node[enc=red, above=0.5cm of tb, minimum width=2.4cm, yshift=0.1cm] (b_dec) {文本解码器};
-    \node[below=0.15cm of b_senc, font=\scriptsize] {语音};
-    \node[below=0.15cm of b_tenc, font=\scriptsize] {文本};
-    \node[above=0.15cm of b_dec, font=\scriptsize] {目标语言文本};
+    \node[enc=green, minimum width=1.5cm] (b_senc) at (3.6, 0) {语音\\编码器};
+    \node[enc=orange, minimum width=1.5cm] (b_tenc) at (5.4, 0) {文本\\编码器};
+    \node[enc=red, minimum width=2.4cm] (b_dec) at (4.5, 1.8) {文本解码器};
+    \node[font=\scriptsize] at (3.6, -0.7) {语音};
+    \node[font=\scriptsize] at (5.4, -0.7) {文本};
+    \node[font=\scriptsize] at (4.5, 2.4) {目标语言文本};
     \draw[arrow2] (b_senc.north) -- ([xshift=-0.5cm]b_dec.south);
     \draw[arrow2] (b_tenc.north) -- ([xshift=0.5cm]b_dec.south);
+    \node[font=\small\bfseries] at (4.5, -1.3) {(b) 并联双编码器};
 
     % === (c) 串联双编码器 ===
-    \node[font=\small\bfseries] (tc) at (9.0, 0) {(c) 串联双编码器};
-    \node[enc=green, below=0.3cm of tc, minimum width=2.4cm] (c_senc) {语音编码器};
-    \node[enc=orange, above=0.4cm of c_senc, minimum width=2.4cm] (c_tenc) {文本编码器};
-    \node[enc=red, above=0.4cm of c_tenc, minimum width=2.4cm] (c_dec) {文本解码器};
-    \node[below=0.15cm of c_senc, font=\scriptsize] {源语言语音};
-    \node[above=0.15cm of c_dec, font=\scriptsize] {目标语言文本};
+    \node[enc=green, minimum width=2.4cm] (c_senc) at (9.0, 0) {语音编码器};
+    \node[enc=orange, minimum width=2.4cm] (c_tenc) at (9.0, 1.0) {文本编码器};
+    \node[enc=red, minimum width=2.4cm] (c_dec) at (9.0, 2.0) {文本解码器};
+    \node[font=\scriptsize] at (9.0, -0.6) {源语言语音};
+    \node[font=\scriptsize] at (9.0, 2.6) {目标语言文本};
     \draw[arrow2] (c_senc) -- (c_tenc);
     \draw[arrow2] (c_tenc) -- (c_dec);
+    \node[font=\small\bfseries] at (9.0, -1.2) {(c) 串联双编码器};
 \end{tikzpicture}
 \bicaption{\enspace 语音到文本翻译的三种模型结构}{\enspace Three model architectures for speech-to-text translation}
 \label{fig:rw_s2tt}
@@ -238,41 +244,52 @@
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
     blk/.default=blue,
 ]
+    % 使用绝对 y 坐标，每行统一高度；小标题统一在左侧
+
     % === (a) 一阶段 ===
-    \node[font=\small\bfseries] (ta) at (0, 0) {(a) 一阶段};
-    \node[blk=green, below=0.3cm of ta, minimum width=1.5cm] (a_enc) {语音\\编码器};
-    \node[blk=red, right=0.4cm of a_enc, minimum width=1.8cm] (a_dec) {语音\\解码器};
-    \node[blk=teal, right=0.4cm of a_dec, minimum width=1.2cm] (a_voc) {声码器};
-    \node[left=0.2cm of a_enc, font=\scriptsize] {源语音};
-    \node[right=0.2cm of a_voc, font=\scriptsize] {目标语音};
+    \def\ya{0}
+    \node[blk=green, minimum width=1.5cm] (a_enc) at (2.5, \ya) {语音\\编码器};
+    \node[blk=red, minimum width=1.8cm] (a_dec) at (4.8, \ya) {语音\\解码器};
+    \node[blk=teal, minimum width=1.2cm] (a_voc) at (7.2, \ya) {声码器};
+    \node[font=\scriptsize] at (1.0, \ya) {源语音};
+    \node[font=\scriptsize, anchor=west] at (8.1, \ya) {目标语音};
+    \draw[arrow2] (1.4, \ya) -- (a_enc);
     \draw[arrow2] (a_enc) -- (a_dec);
-    \draw[arrow2] (a_dec) -- node[above, slbl]{语音表征} (a_voc);
+    \draw[arrow2] (a_dec) -- node[above=2pt, slbl]{语音表征} (a_voc);
+    \draw[arrow2] (a_voc) -- (7.95, \ya);
+    \node[font=\small\bfseries, anchor=east] at (0.3, \ya) {(a) 一阶段};
 
     % === (b) 两阶段 ===
-    \node[font=\small\bfseries, below=1.5cm of ta] (tb) {(b) 两阶段};
-    \node[blk=green, below=0.3cm of tb, minimum width=1.5cm] (b_enc) {语音\\编码器};
-    \node[blk=orange, right=0.35cm of b_enc, minimum width=1.5cm] (b_dec1) {文本\\解码器};
-    \node[blk=red, right=0.35cm of b_dec1, minimum width=1.5cm] (b_dec2) {语音\\解码器};
-    \node[blk=teal, right=0.35cm of b_dec2, minimum width=1.1cm] (b_voc) {声码器};
-    \node[left=0.2cm of b_enc, font=\scriptsize] {源语音};
-    \node[right=0.15cm of b_voc, font=\scriptsize] {目标语音};
+    \def\yb{-2.0}
+    \node[blk=green, minimum width=1.5cm] (b_enc) at (2.5, \yb) {语音\\编码器};
+    \node[blk=orange, minimum width=1.5cm] (b_dec1) at (4.3, \yb) {文本\\解码器};
+    \node[blk=red, minimum width=1.5cm] (b_dec2) at (6.1, \yb) {语音\\解码器};
+    \node[blk=teal, minimum width=1.1cm] (b_voc) at (7.7, \yb) {声码器};
+    \node[font=\scriptsize] at (1.0, \yb) {源语音};
+    \node[font=\scriptsize, anchor=west] at (8.6, \yb) {目标语音};
+    \draw[arrow2] (1.4, \yb) -- (b_enc);
     \draw[arrow2] (b_enc) -- (b_dec1);
     \draw[arrow2] (b_dec1) -- node[above, slbl]{文本} (b_dec2);
     \draw[arrow2] (b_dec2) -- (b_voc);
+    \draw[arrow2] (b_voc) -- (8.45, \yb);
     % 标注两个阶段
     \draw[braceup] (b_dec1.north west) -- (b_dec1.north east) node[midway, above=4pt, slbl]{第一阶段};
     \draw[braceup] (b_dec2.north west) -- (b_dec2.north east) node[midway, above=4pt, slbl]{第二阶段};
+    \node[font=\small\bfseries, anchor=east] at (0.3, \yb) {(b) 两阶段};
 
     % === (c) 非自回归 ===
-    \node[font=\small\bfseries, below=1.5cm of tb] (tc) {(c) 非自回归};
-    \node[blk=green, below=0.3cm of tc, minimum width=1.5cm] (c_enc) {语音\\编码器};
-    \node[blk=violet, right=0.4cm of c_enc, minimum width=1.8cm] (c_dec) {NAR\\解码器};
-    \node[blk=teal, right=0.4cm of c_dec, minimum width=1.2cm] (c_voc) {声码器};
-    \node[left=0.2cm of c_enc, font=\scriptsize] {源语音};
-    \node[right=0.2cm of c_voc, font=\scriptsize] {目标语音};
+    \def\yc{-4.0}
+    \node[blk=green, minimum width=1.5cm] (c_enc) at (2.5, \yc) {语音\\编码器};
+    \node[blk=violet, minimum width=1.8cm] (c_dec) at (4.8, \yc) {NAR\\解码器};
+    \node[blk=teal, minimum width=1.2cm] (c_voc) at (7.2, \yc) {声码器};
+    \node[font=\scriptsize] at (1.0, \yc) {源语音};
+    \node[font=\scriptsize, anchor=west] at (8.1, \yc) {目标语音};
+    \draw[arrow2] (1.4, \yc) -- (c_enc);
     \draw[arrow2] (c_enc) -- (c_dec);
-    \draw[arrow2] (c_dec) -- node[above, slbl]{语音表征} (c_voc);
+    \draw[arrow2] (c_dec) -- node[above=2pt, slbl]{语音表征} (c_voc);
+    \draw[arrow2] (c_voc) -- (7.95, \yc);
     \node[below=0.15cm of c_dec, font=\scriptsize, violet!70] {并行生成};
+    \node[font=\small\bfseries, anchor=east] at (0.3, \yc) {(c) 非自回归};
 \end{tikzpicture}
 \bicaption{\enspace 语音到语音翻译的三种方法}{\enspace Three approaches for speech-to-speech translation}
 \label{fig:rw_s2st}
@@ -308,9 +325,6 @@
     \node[below=0.2cm of input, font=\small] {输入序列};
     \node[above=0.2cm of linear, font=\small] {下一词元预测};
 
-    % 因果掩码示意
-    \node[right=2.0cm of sa, font=\scriptsize, align=left, text=gray!70] (mask_note) {因果掩码：\\每个位置仅\\关注前缀};
-    \draw[-{Stealth[length=3pt]}, gray!50, thin] (mask_note.west) -- (sa.east);
 \end{tikzpicture}
 \bicaption{\enspace 仅解码器架构}{\enspace Decoder-only architecture}
 \label{fig:rw_decoderonly}
@@ -328,8 +342,8 @@
     blk/.default=blue,
 ]
     \node[blk=green, minimum width=2.2cm] (senc) {语音编码器\\{\scriptsize (Whisper 等)}};
-    \node[blk=orange, right=0.5cm of senc, minimum width=2.0cm] (adapt) {适配器\\{\scriptsize (MLP / Q-Former / CTC)}};
-    \node[blk=red, right=0.5cm of adapt, minimum width=2.5cm] (llm) {大语言模型\\{\scriptsize (LLaMA / Qwen 等)}};
+    \node[blk=orange, right=1.3cm of senc, minimum width=2.0cm] (adapt) {适配器\\{\scriptsize (MLP / Q-Former / CTC)}};
+    \node[blk=red, right=0.8cm of adapt, minimum width=2.5cm] (llm) {大语言模型\\{\scriptsize (LLaMA / Qwen 等)}};
 
     \node[left=0.3cm of senc, font=\small] (in) {语音};
     \node[right=0.3cm of llm, font=\small] (out) {文本};
@@ -360,8 +374,8 @@
     blk/.default=blue,
 ]
     % === (a) 原生式 ===
-    \node[font=\small\bfseries] (ta) at (0, 0) {(a) 原生式};
-    \node[blk=violet, below=0.3cm of ta, minimum width=5.0cm, minimum height=1.2cm] (native) {
+    \def\ya{0}
+    \node[blk=violet, minimum width=5.0cm, minimum height=1.2cm] (native) at (4.0, \ya) {
         语音-语言模型\\
         {\scriptsize 统一词表：文本 token + 语音 token}
     };
@@ -369,17 +383,17 @@
     \node[right=0.3cm of native, font=\small] (out1) {语音};
     \draw[arrow] (in1) -- (native);
     \draw[arrow] (native) -- (out1);
-    \node[below=0.15cm of native, font=\scriptsize, violet!60] {如 SpeechGPT, GLM-4-Voice, Moshi};
+    \node[font=\small\bfseries] at (4.0, \ya+1.2) {(a) 原生式};
 
     % === (b) 组合式 ===
-    \node[font=\small\bfseries, below=1.8cm of ta] (tb) {(b) 组合式};
-    \node[blk=green, below=0.3cm of tb, xshift=-3.0cm, minimum width=1.6cm] (b_senc) {语音\\编码器};
-    \node[blk=orange, below=0.3cm of tb, xshift=-1.0cm, minimum width=1.2cm] (b_adapt) {适配器};
-    \node[blk=red, below=0.3cm of tb, xshift=0.8cm, minimum width=1.8cm] (b_llm) {大语言模型};
-    \node[blk=blue, below=0.3cm of tb, xshift=2.8cm, minimum width=1.6cm] (b_sdec) {语音\\解码器};
+    \def\yb{-2.5}
+    \node[blk=green, minimum width=1.6cm] (b_senc) at (1.0, \yb) {语音\\编码器};
+    \node[blk=orange, minimum width=1.2cm] (b_adapt) at (3.0, \yb) {适配器};
+    \node[blk=red, minimum width=1.8cm] (b_llm) at (4.8, \yb) {大语言模型};
+    \node[blk=blue, minimum width=1.6cm] (b_sdec) at (6.8, \yb) {语音\\解码器};
 
-    \node[left=0.2cm of b_senc, font=\small] (in2) {语音};
-    \node[right=0.2cm of b_sdec, font=\small] (out2) {语音};
+    \node[left=0.3cm of b_senc, font=\small] (in2) {语音};
+    \node[right=0.3cm of b_sdec, font=\small] (out2) {语音};
 
     \draw[arrow2] (in2) -- (b_senc);
     \draw[arrow2] (b_senc) -- (b_adapt);
@@ -392,7 +406,7 @@
     \draw[arrow2] (b_llm) -- (txt_out);
 
     \node[below=0.15cm of b_sdec, font=\scriptsize, blue!60] {NAR / AR};
-    \node[below=0.7cm of tb, xshift=0cm, font=\scriptsize, gray] {如 LLaMA-Omni, Freeze-Omni, Qwen2.5-Omni};
+    \node[font=\small\bfseries] at (4.0, \yb+1.5) {(b) 组合式};
 \end{tikzpicture}
 \bicaption{\enspace 语音到语音生成的两种架构：原生式与组合式}{\enspace Two architectures for speech-to-speech generation: native vs.\ modular}
 \label{fig:rw_s2s_llm}
