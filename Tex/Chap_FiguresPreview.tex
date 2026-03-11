@@ -39,51 +39,49 @@
     \def\xright{12.0}   % 输出语音 x
     \def\xcenter{5.5}   % 图表中轴线
 
-    % === 关键对齐参考线 ===
     % (a) 三框：ASR 中心=2.0, MT 中心=5.5, TTS 中心=9.0
-    % 三框宽均为 2.0cm
-    % ASR: 左=1.0, 右=3.0
-    % MT:  左=4.5, 右=6.5
-    % TTS: 左=8.0, 右=10.0
-    % 箭头间距: 3.0→4.5=1.5cm, 6.5→8.0=1.5cm
+    % ASR: 宽2.0, 左=1.0, 右=3.0
+    % MT:  宽2.4, 左=4.3, 右=6.7 (双行，高度自然撑大)
+    % TTS: 宽2.0, 左=8.0, 右=10.0
+    % 箭头间距: 3.0→4.3=1.3cm, 6.7→8.0=1.3cm
 
-    % === (a) 三阶段级联 ===
+    % === (a) 三阶段级联系统 ===
     \def\ya{0}
-    \node[font=\small\bfseries] (t1) at (\xcenter, \ya+0.9) {(a) 三阶段级联};
-    \node[module=green, minimum width=2.0cm] (asr) at (2.0, \ya) {语音识别};
-    \node[module=orange, minimum width=2.4cm] (mt) at (\xcenter, \ya) {机器翻译/\\大语言模型};
-    \node[module=red, minimum width=2.0cm] (tts) at (9.0, \ya) {语音合成};
-    \node[font=\small] (sin1) at (0.0, \ya) {输入语音};
-    \node[font=\small] (sout1) at (11.0, \ya) {输出语音};
+    \node[module=green, minimum width=2.0cm, minimum height=0.9cm] (asr) at (2.0, \ya) {语音识别};
+    \node[module=orange, minimum width=2.4cm, minimum height=0.9cm] (mt) at (\xcenter, \ya) {机器翻译/\\[-2pt]大语言模型};
+    \node[module=red, minimum width=2.0cm, minimum height=0.9cm] (tts) at (9.0, \ya) {语音合成};
+    \node[font=\small] (sin1) at (\xleft, \ya) {输入语音};
+    \node[font=\small] (sout1) at (\xright, \ya) {输出语音};
     \draw[arrow] (sin1) -- (asr);
     \draw[arrow] (asr) -- node[above, yshift=1pt, font=\scriptsize]{转写文本} (mt);
     \draw[arrow] (mt) -- node[above, yshift=1pt, font=\scriptsize]{目标文本} (tts);
     \draw[arrow] (tts) -- (sout1);
+    \node[font=\small\bfseries] at (\xcenter, \ya-1.0) {(a) 三阶段级联系统};
 
-    % === (b) 两阶段 ===
-    % S2T 框：左边缘对齐 ASR 左=1.0，右边缘对齐 MT 右=6.5
-    % 宽度=5.5cm, 中心=(1.0+6.5)/2=3.75
+    % === (b) 两阶段级联系统 ===
+    % S2T 框：左边缘对齐 ASR 左=1.0，右边缘对齐 MT 右=6.7
+    % 宽度=5.7cm, 中心=(1.0+6.7)/2=3.85
     % TTS 框：与 (a) 的 TTS 对齐，中心=9.0, 宽=2.0
-    \def\yb{-2.2}
-    \node[font=\small\bfseries] (t2) at (\xcenter, \yb+0.9) {(b) 两阶段};
-    \node[module=teal, minimum width=5.5cm] (s2t) at (3.75, \yb) {语音到文本模型};
-    \node[module=red, minimum width=2.0cm] (tts2) at (9.0, \yb) {语音合成};
-    \node[font=\small] (sin2) at (0.0, \yb) {输入语音};
-    \node[font=\small] (sout2) at (11.0, \yb) {输出语音};
+    \def\yb{-2.5}
+    \node[module=teal, minimum width=5.7cm, minimum height=0.9cm] (s2t) at (3.85, \yb) {语音到文本模型};
+    \node[module=red, minimum width=2.0cm, minimum height=0.9cm] (tts2) at (9.0, \yb) {语音合成};
+    \node[font=\small] (sin2) at (\xleft, \yb) {输入语音};
+    \node[font=\small] (sout2) at (\xright, \yb) {输出语音};
     \draw[arrow] (sin2) -- (s2t);
     \draw[arrow] (s2t) -- node[above, yshift=1pt, font=\scriptsize]{目标文本} (tts2);
     \draw[arrow] (tts2) -- (sout2);
+    \node[font=\small\bfseries] at (\xcenter, \yb-0.8) {(b) 两阶段级联系统};
 
-    % === (c) 端到端 ===
+    % === (c) 端到端模型 ===
     % E2E 框：左边缘对齐 ASR 左=1.0，右边缘对齐 TTS 右=10.0
     % 宽度=9.0cm, 中心=(1.0+10.0)/2=5.5
-    \def\yc{-4.4}
-    \node[font=\small\bfseries] (t3) at (\xcenter, \yc+0.9) {(c) 端到端};
-    \node[module=violet, minimum width=9.0cm] (e2e) at (\xcenter, \yc) {端到端语音到语音模型};
-    \node[font=\small] (sin3) at (0.0, \yc) {输入语音};
-    \node[font=\small] (sout3) at (11.0, \yc) {输出语音};
+    \def\yc{-4.5}
+    \node[module=violet, minimum width=9.0cm, minimum height=0.9cm] (e2e) at (\xcenter, \yc) {端到端语音到语音模型};
+    \node[font=\small] (sin3) at (\xleft, \yc) {输入语音};
+    \node[font=\small] (sout3) at (\xright, \yc) {输出语音};
     \draw[arrow] (sin3) -- (e2e);
     \draw[arrow] (e2e) -- (sout3);
+    \node[font=\small\bfseries] at (\xcenter, \yc-0.8) {(c) 端到端模型};
 \end{tikzpicture}
 \bicaption{\enspace 语音到语音生成的三种建模范式}{\enspace Three modeling paradigms for speech-to-speech generation}
 \label{fig:rw_paradigm}
