@@ -121,35 +121,21 @@
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{训练数据构造}
-
-训练数据来源为单轮语音指令-回复对，每条数据包含用户语音、助手语音及对应文本。上节定义的序列组织规则对不同的全双工场景是统一的，不同场景的差异仅体现在发话段时间戳的设定方式上。本章构造了轮替和打断两类场景的训练数据，同时为每类场景构造了用于DPO训练的正负例样本对。
-
-\subsubsection{轮替场景}
-
-轮替场景指用户说完后助手开始回复，双方发话无时间重叠。
-
-\textbf{正例构造}\quad 设用户发话段为$(0, e_u)$，助手发话段为$(e_u + \delta_{\text{target}}, e_u + \delta_{\text{target}} + d_a)$，其中$d_a$为助手语音时长，$\delta_{\text{target}}$为目标回复延迟，设为一个块的时间窗口$\Delta t$。选取$\delta_{\text{target}} = \Delta t$意味着模型在听完用户最后一个块后立即开始回复，恰好对应因果偏移所允许的最快响应速度。
-
-\textbf{负例构造}\quad 保持对话内容不变，仅将助手回复延迟增大为$\delta_{\text{neg}}$，其中$\delta_{\text{neg}} \sim \text{Uniform}(\delta_{\min}, \delta_{\max})$。具体操作为在助手语音前插入$\delta_{\text{neg}} - \delta_{\text{target}}$秒的额外静音，然后重新合成双声道音频、重新经语音分词器词元化、重新构建交织序列。正负例的差异仅体现在助手回复前\texttt{[SILENCE]}的持续时长和\texttt{[START]}出现的位置上，使DPO训练精确聚焦于轮替时机的优化。
-
-\subsubsection{打断场景}
-
-打断场景指助手正在回复时用户插入新的发话，助手应及时停止当前回复。此时用户与助手的发话段存在时间重叠。
-
-\textbf{正例构造}\quad 设助手正在回复，发话段为$(s_a, e_a)$。用户在时刻$s_u'$发起打断，其中$s_a < s_u' < e_a$。在正例中，助手应在感知到打断后迅速停止，其实际结束时间被截断为$e_a' = s_u' + \delta_{\text{react}}$，$\delta_{\text{react}}$为期望的反应延迟。截断后的助手发话段为$(s_a, e_a')$，用户打断发话段为$(s_u', e_u')$，二者在$[s_u', e_a']$时段内存在重叠。
-
-\textbf{负例构造}\quad 保持用户打断时刻$s_u'$不变，但增大助手的反应延迟为$\delta_{\text{react,neg}} > \delta_{\text{react}}$，即助手结束时间变为$e_a'' = s_u' + \delta_{\text{react,neg}}$，表示助手未能及时停止。负例的文本信道中\texttt{[EPAD]}出现的位置更晚，反映出不理想的打断响应。
-
-无论是轮替还是打断场景，确定好各发话段的时间戳后，均按上节描述的统一规则进行双声道音频合成、语音词元化和交织序列构建。两类场景共享完全相同的序列组织逻辑和训练流程。
-
 \subsection{模型训练}
 
-本章基于GLM-4-Voice已完成预训练和对话微调的检查点进行全双工微调。训练分为监督微调和直接偏好优化两个阶段。
+本章基于GLM-4-Voice已完成预训练和对话微调的检查点进行全双工微调。训练数据来源为单轮语音指令-回复对，每条数据包含用户语音、助手语音及对应文本。上节定义的序列组织规则对不同的全双工场景是统一的，不同场景的差异仅体现在发话段时间戳的设定方式上。训练分为监督微调和直接偏好优化两个阶段。
 
 \subsubsection{监督微调}
 
-在监督微调阶段，用户语音信道$\mathbf{X}$作为条件输入，不参与损失计算。损失仅在文本信道$\mathbf{Z}$和助手语音信道$\mathbf{Y}$上计算。设模型在位置$i$的预测分布为$p_\theta(\cdot \mid \mathbf{s}_{<i})$，真实标签为$s_i$。定义有效位置集合$\mathcal{V} = \{i : i \in \mathbf{Z} \cup \mathbf{Y}\}$，基础交叉熵损失为：
+监督微调阶段使用轮替和打断两类全双工场景的数据训练模型，使其学会全双工序列格式、回复内容生成和基本的时机决策能力。
+
+\textbf{轮替场景数据构造}\quad 轮替场景指用户说完后助手开始回复，双方发话无时间重叠。设用户发话段为$(0, e_u)$，助手发话段为$(e_u + \delta_{\text{target}}, e_u + \delta_{\text{target}} + d_a)$，其中$d_a$为助手语音时长，$\delta_{\text{target}}$为目标回复延迟，设为一个块的时间窗口$\Delta t$。选取$\delta_{\text{target}} = \Delta t$意味着模型在听完用户最后一个块后立即开始回复，恰好对应因果偏移所允许的最快响应速度。
+
+\textbf{打断场景数据构造}\quad 打断场景指助手正在回复时用户插入新的发话，助手应及时停止当前回复，此时用户与助手的发话段存在时间重叠。设助手正在回复，发话段为$(s_a, e_a)$。用户在时刻$s_u'$发起打断，其中$s_a < s_u' < e_a$。助手应在感知到打断后迅速停止，其实际结束时间被截断为$e_a' = s_u' + \delta_{\text{react}}$，$\delta_{\text{react}}$为期望的反应延迟。截断后的助手发话段为$(s_a, e_a')$，用户打断发话段为$(s_u', e_u')$，二者在$[s_u', e_a']$时段内存在重叠。
+
+无论是轮替还是打断场景，确定好各发话段的时间戳后，均按上节描述的统一规则进行双声道音频合成、语音词元化和交织序列构建。两类场景共享完全相同的序列组织逻辑。
+
+\textbf{训练损失}\quad 在监督微调阶段，用户语音信道$\mathbf{X}$作为条件输入，不参与损失计算。损失仅在文本信道$\mathbf{Z}$和助手语音信道$\mathbf{Y}$上计算。设模型在位置$i$的预测分布为$p_\theta(\cdot \mid \mathbf{s}_{<i})$，真实标签为$s_i$。定义有效位置集合$\mathcal{V} = \{i : i \in \mathbf{Z} \cup \mathbf{Y}\}$，基础交叉熵损失为：
 \begin{equation}
     \ell_i = -\log p_\theta(s_i \mid \mathbf{s}_{<i}), \quad i \in \mathcal{V}
 \end{equation}
@@ -162,9 +148,13 @@
 
 \subsubsection{直接偏好优化}
 
-监督微调使模型学会了全双工序列格式和基本的回复能力，但回复时机的优化仍有提升空间。为进一步强化模型在轮替和打断场景下的决策能力，本章引入DPO\citep{rafailov2023dpo}训练。偏好数据的构造方式见上节。
+监督微调使模型学会了全双工序列格式和基本的回复能力，但回复时机的优化仍有提升空间。为进一步强化模型在轮替和打断场景下的时机决策能力，本章引入DPO\citep{rafailov2023dpo}训练。DPO通过构造正负例样本对，降低不期望行为的生成概率来优化模型的交互表现。正例即为监督微调阶段使用的训练数据，负例则通过修改正例中的时间戳来构造，具体方式如下。
 
-设正例序列为$\mathbf{s}^+$，负例序列为$\mathbf{s}^-$，当前策略模型为$\pi_\theta$，参考模型为监督微调阶段得到的检查点$\pi_{\text{ref}}$。DPO损失定义为：
+\textbf{轮替场景负例构造}\quad 保持对话内容不变，仅将助手回复延迟增大为$\delta_{\text{neg}}$，其中$\delta_{\text{neg}} \sim \text{Uniform}(\delta_{\min}, \delta_{\max})$。具体操作为在助手语音前插入$\delta_{\text{neg}} - \delta_{\text{target}}$秒的额外静音，然后重新合成双声道音频、重新经语音分词器词元化、重新构建交织序列。正负例的差异仅体现在助手回复前\texttt{[SILENCE]}的持续时长和\texttt{[START]}出现的位置上，使DPO训练精确聚焦于轮替时机的优化。
+
+\textbf{打断场景负例构造}\quad 保持用户打断时刻$s_u'$不变，但增大助手的反应延迟为$\delta_{\text{react,neg}} > \delta_{\text{react}}$，即助手结束时间变为$e_a'' = s_u' + \delta_{\text{react,neg}}$，表示助手未能及时停止。负例的文本信道中\texttt{[EPAD]}出现的位置更晚，反映出不理想的打断响应。
+
+\textbf{训练损失}\quad 设正例序列为$\mathbf{s}^+$，负例序列为$\mathbf{s}^-$，当前策略模型为$\pi_\theta$，参考模型为监督微调阶段得到的检查点$\pi_{\text{ref}}$。DPO损失定义为：
 \begin{equation}
     \mathcal{L}_{\text{DPO}} = -\log \sigma \left( \beta \left[ \log \frac{\pi_\theta(\mathbf{s}^+)}{\pi_{\text{ref}}(\mathbf{s}^+)} - \log \frac{\pi_\theta(\mathbf{s}^-)}{\pi_{\text{ref}}(\mathbf{s}^-)} \right] \right)
 \end{equation}
