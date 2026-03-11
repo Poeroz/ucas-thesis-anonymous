@@ -133,16 +133,16 @@
 
 \textbf{打断场景数据构造}\quad 打断场景指助手正在回复时用户插入新的发话，助手应及时停止当前回复。构造方式为：从数据中随机选取两条不同对话的第一轮，或同一条对话的前两轮，将第一轮的助手回复作为被打断的发话段，第二轮的用户发话作为打断语音。用户打断时刻$s_u'$设置在助手回复过程中的某个随机位置，助手在感知到打断后停止回复，实际结束时间截断为$e_a' = s_u' + \delta_{\text{react}}$，其中$\delta_{\text{react}}$为期望的反应延迟。截断后的助手发话段与用户打断发话段在$[s_u', e_a']$时段内存在时间重叠。确定时间戳后，同样按上节规则构建交织序列。
 
-\textbf{训练损失}\quad 在监督微调阶段，用户语音信道$\mathbf{X}$作为条件输入，不参与损失计算。损失仅在文本信道$\mathbf{Z}$和助手语音信道$\mathbf{Y}$上计算。设模型在位置$i$的预测分布为$p_\theta(\cdot \mid \mathbf{s}_{<i})$，真实标签为$s_i$。定义有效位置集合$\mathcal{V} = \{i : i \in \mathbf{Z} \cup \mathbf{Y}\}$，基础交叉熵损失为：
+\textbf{训练损失}\quad 在监督微调阶段，用户语音信道$\mathbf{X}$作为条件输入，不参与损失计算。损失仅在文本信道$\mathbf{Z}$和助手语音信道$\mathbf{Y}$上计算。设模型在位置$i$的预测分布为$\pi_\theta(\cdot \mid \mathbf{s}_{<i})$，真实标签为$s_i$。定义有效位置集合$\mathcal{V} = \{i : i \in \mathbf{Z} \cup \mathbf{Y}\}$，基础交叉熵损失为：
 \begin{equation}
-    \ell_i = -\log p_\theta(s_i \mid \mathbf{s}_{<i}), \quad i \in \mathcal{V}
+    \ell_i = -\log \pi_\theta(s_i \mid \mathbf{s}_{<i}), \quad i \in \mathcal{V}
 \end{equation}
 
 在全双工序列中，不同类型的词元在数量分布上极度不均衡。在一段典型对话中，用户说话而助手保持静默的时间往往占据序列的大部分，导致\texttt{[SILENCE]}词元在文本信道中占比极高，而标记回复起始的\texttt{[START]}词元每轮对话仅出现一次，占比极低。如果对所有词元赋予相同权重，损失将由大量\texttt{[SILENCE]}主导，模型倾向于始终预测静默而忽略关键的轮替决策信号。为此，本章为每个词元位置$i$赋予权重$\omega_i$，加权损失定义为：
 \begin{equation}
     \mathcal{L}_{\text{SFT}} = \frac{\sum_{i \in \mathcal{V}} \omega_i \cdot \ell_i}{\sum_{i \in \mathcal{V}} \omega_i}
 \end{equation}
-其中\texttt{[SILENCE]}词元赋予较小的权重$\omega_{\text{sil}}$以降低其对损失的主导作用，\texttt{[START]}词元赋予较大的权重$\omega_{\text{start}}$以强化模型对轮替决策信号的学习，文本内容词元赋予权重$\omega_{\text{text}}$以保证回复内容质量，其余词元的权重设为1.0。
+具体地，文本信道中的\texttt{[SILENCE]}、\texttt{[START]}、文本内容、\texttt{[PAD]}、\texttt{[EPAD]}以及助手语音信道的语音词元分别赋予独立的权重。由于\texttt{[SILENCE]}词元数量远多于其他类型，赋予较小的权重以降低其对损失的主导作用；\texttt{[START]}词元是轮替决策的关键信号，赋予较大的权重以强化学习。
 
 \subsubsection{直接偏好优化}
 
@@ -150,7 +150,7 @@
 
 \textbf{轮替场景负例构造}\quad 保持对话内容不变，仅将每处用户到助手的回复间隔从正例中的0.8秒增大为$\delta_{\text{neg}}$秒，其中$\delta_{\text{neg}} \sim \text{Uniform}(2, 5)$，然后重新合成双声道音频、重新经语音分词器词元化、重新构建交织序列。正负例的差异仅体现在助手回复前\texttt{[SILENCE]}的持续时长和\texttt{[START]}出现的位置上，使DPO训练精确聚焦于轮替时机的优化。
 
-\textbf{打断场景负例构造}\quad 保持用户打断时刻$s_u'$不变，但增大助手的反应延迟为$\delta_{\text{react,neg}} > \delta_{\text{react}}$，即助手结束时间变为$e_a'' = s_u' + \delta_{\text{react,neg}}$，表示助手未能及时停止。负例的文本信道中\texttt{[EPAD]}出现的位置更晚，反映出不理想的打断响应。
+\textbf{打断场景负例构造}\quad 保持用户打断时刻$s_u'$不变，但增大助手的反应延迟为$\delta_{\text{react}}^{\text{neg}} > \delta_{\text{react}}$，即助手结束时间变为$e_a'' = s_u' + \delta_{\text{react}}^{\text{neg}}$，表示助手未能及时停止。负例的文本信道中\texttt{[EPAD]}出现的位置更晚，反映出不理想的打断响应。
 
 \textbf{训练损失}\quad 设正例序列为$\mathbf{s}^+$，负例序列为$\mathbf{s}^-$，当前策略模型为$\pi_\theta$，参考模型为监督微调阶段得到的检查点$\pi_{\text{ref}}$。DPO损失定义为：
 \begin{equation}
