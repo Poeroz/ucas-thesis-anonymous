@@ -107,16 +107,13 @@
     \node[box=teal, minimum width=3.2cm] (encdec) at (2.5, -1.5) {编码器-解码器架构\\[-2pt]{\scriptsize（\S 2.3）}};
     \node[box=orange, minimum width=3.2cm] (deconly) at (8.5, -1.5) {仅解码器架构\\[-2pt]{\scriptsize（\S 2.4）}};
 
-    % 第三层：任务名放进框内第二行，§编号在框下方灰色
-    \node[box=teal, minimum width=2.8cm] (s2tt) at (0.5, -3.8) {语音到文本\\[-2pt]{\scriptsize（语音到文本翻译）}};
-    \node[box=blue, minimum width=2.8cm] (s2st) at (3.8, -3.8) {语音到语音\\[-2pt]{\scriptsize（语音到语音翻译）}};
-    \node[sec, below=0.02cm of s2tt] {\S 2.3.2};
-    \node[sec, below=0.02cm of s2st] {\S 2.3.3};
+    % 第三层：§编号和任务名都在框内
+    % 框宽由文字自动撑开（约3.2cm），四框间距需保证不重叠
+    \node[box=teal] (s2tt) at (0.0, -3.8) {语音到文本\\[-2pt]{\scriptsize（\S 2.3.2 语音到文本翻译）}};
+    \node[box=blue] (s2st) at (3.7, -3.8) {语音到语音\\[-2pt]{\scriptsize（\S 2.3.3 语音到语音翻译）}};
 
-    \node[box=orange, minimum width=2.8cm] (s2t_llm) at (7.2, -3.8) {语音到文本\\[-2pt]{\scriptsize（语音理解大模型）}};
-    \node[box=red, minimum width=2.8cm] (s2s_llm) at (10.5, -3.8) {语音到语音\\[-2pt]{\scriptsize（语音交互大模型）}};
-    \node[sec, below=0.02cm of s2t_llm] {\S 2.4.2};
-    \node[sec, below=0.02cm of s2s_llm] {\S 2.4.3};
+    \node[box=orange] (s2t_llm) at (7.3, -3.8) {语音到文本\\[-2pt]{\scriptsize（\S 2.4.2 语音理解大模型）}};
+    \node[box=red] (s2s_llm) at (11.0, -3.8) {语音到语音\\[-2pt]{\scriptsize（\S 2.4.3 语音交互大模型）}};
 
     % 连线
     \draw[arrow] (root) -- (encdec);
