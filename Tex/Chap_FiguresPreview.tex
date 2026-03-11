@@ -33,33 +33,41 @@
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[node distance=0.4cm and 0.3cm]
+    % 固定左右输入输出的 x 坐标，确保三行对齐
+    \def\xleft{-0.8}    % 输入语音 x
+    \def\xright{10.0}   % 输出语音 x
+    % 中间区域：从 x=0.8 到 x=9.2，总宽 8.4cm
+
     % === (a) 三阶段级联 ===
-    \node[font=\small\bfseries] (t1) at (0, 0) {(a) 三阶段级联};
-    \node[module=green, below=0.3cm of t1, minimum width=1.4cm] (asr) {ASR};
-    \node[module=orange, right=0.4cm of asr, minimum width=1.8cm] (mt) {MT / LLM};
-    \node[module=red, right=0.4cm of mt, minimum width=1.3cm] (tts) {TTS};
-    \node[left=0.3cm of asr, font=\small] (sin1) {语音};
-    \node[right=0.3cm of tts, font=\small] (sout1) {语音};
+    \def\ya{0}
+    \node[font=\small\bfseries] (t1) at (4.5, \ya+0.8) {(a) 三阶段级联};
+    \node[module=green, minimum width=2.4cm] (asr) at (2.0, \ya) {语音识别};
+    \node[module=orange, minimum width=2.8cm] (mt) at (5.0, \ya) {文本翻译};
+    \node[module=red, minimum width=2.4cm] (tts) at (8.0, \ya) {语音合成};
+    \node[font=\small] (sin1) at (\xleft, \ya) {输入语音};
+    \node[font=\small] (sout1) at (\xright, \ya) {输出语音};
     \draw[arrow] (sin1) -- (asr);
-    \draw[arrow] (asr) -- node[above, slbl]{文本} (mt);
-    \draw[arrow] (mt) -- node[above, slbl]{文本} (tts);
+    \draw[arrow] (asr) -- node[above, slbl]{源语言文本} (mt);
+    \draw[arrow] (mt) -- node[above, slbl]{目标语言文本} (tts);
     \draw[arrow] (tts) -- (sout1);
 
     % === (b) 两阶段 ===
-    \node[font=\small\bfseries, below=1.3cm of t1] (t2) {(b) 两阶段};
-    \node[module=teal, below=0.3cm of t2, minimum width=2.8cm] (s2t) {S2T 模型};
-    \node[module=red, right=0.4cm of s2t, minimum width=1.3cm] (tts2) {TTS};
-    \node[left=0.3cm of s2t, font=\small] (sin2) {语音};
-    \node[right=0.3cm of tts2, font=\small] (sout2) {语音};
+    \def\yb{-2.0}
+    \node[font=\small\bfseries] (t2) at (4.5, \yb+0.8) {(b) 两阶段};
+    \node[module=teal, minimum width=4.6cm] (s2t) at (3.3, \yb) {语音到文本模型};
+    \node[module=red, minimum width=2.8cm] (tts2) at (7.5, \yb) {语音合成};
+    \node[font=\small] (sin2) at (\xleft, \yb) {输入语音};
+    \node[font=\small] (sout2) at (\xright, \yb) {输出语音};
     \draw[arrow] (sin2) -- (s2t);
-    \draw[arrow] (s2t) -- node[above, slbl]{文本} (tts2);
+    \draw[arrow] (s2t) -- node[above, slbl]{目标语言文本} (tts2);
     \draw[arrow] (tts2) -- (sout2);
 
     % === (c) 端到端 ===
-    \node[font=\small\bfseries, below=1.3cm of t2] (t3) {(c) 端到端};
-    \node[module=violet, below=0.3cm of t3, minimum width=4.0cm] (e2e) {端到端 S2S 模型};
-    \node[left=0.3cm of e2e, font=\small] (sin3) {语音};
-    \node[right=0.3cm of e2e, font=\small] (sout3) {语音};
+    \def\yc{-4.0}
+    \node[font=\small\bfseries] (t3) at (4.5, \yc+0.8) {(c) 端到端};
+    \node[module=violet, minimum width=7.4cm] (e2e) at (5.0, \yc) {端到端语音到语音模型};
+    \node[font=\small] (sin3) at (\xleft, \yc) {输入语音};
+    \node[font=\small] (sout3) at (\xright, \yc) {输出语音};
     \draw[arrow] (sin3) -- (e2e);
     \draw[arrow] (e2e) -- (sout3);
 \end{tikzpicture}
