@@ -109,17 +109,18 @@
     \node[sec, below=0.02cm of encdec] {（\S 2.3）};
     \node[sec, below=0.02cm of deconly] {（\S 2.4）};
 
-    % 第三层：编码器-解码器 (x=0.8, x=4.2)
-    \node[box=teal, minimum width=2.8cm] (s2tt) at (0.8, -3.5) {语音到文本翻译};
-    \node[box=blue, minimum width=2.8cm] (s2st) at (4.2, -3.5) {语音到语音翻译};
-    \node[sec, below=0.02cm of s2tt] {（\S 2.3.2）};
-    \node[sec, below=0.02cm of s2st] {（\S 2.3.3）};
+    % 第三层：编码器-解码器 (x=0.5, x=4.0)
+    % s2st 右边缘=4.0+1.1=5.1, s2t_llm 左边缘=7.0-1.1=5.9, 间隙0.8cm
+    \node[box=teal, minimum width=2.2cm] (s2tt) at (0.5, -3.5) {语音到文本};
+    \node[box=blue, minimum width=2.2cm] (s2st) at (3.8, -3.5) {语音到语音};
+    \node[sec, below=0.02cm of s2tt] {（\S 2.3.2 语音到文本翻译）};
+    \node[sec, below=0.02cm of s2st] {（\S 2.3.3 语音到语音翻译）};
 
-    % 第三层：仅解码器 (x=6.8, x=10.2)
-    \node[box=orange, minimum width=2.8cm] (s2t_llm) at (6.8, -3.5) {语音理解大模型};
-    \node[box=red, minimum width=2.8cm] (s2s_llm) at (10.2, -3.5) {语音交互大模型};
-    \node[sec, below=0.02cm of s2t_llm] {（\S 2.4.2）};
-    \node[sec, below=0.02cm of s2s_llm] {（\S 2.4.3）};
+    % 第三层：仅解码器 (x=7.2, x=10.5)
+    \node[box=orange, minimum width=2.2cm] (s2t_llm) at (7.2, -3.5) {语音到文本};
+    \node[box=red, minimum width=2.2cm] (s2s_llm) at (10.5, -3.5) {语音到语音};
+    \node[sec, below=0.02cm of s2t_llm] {（\S 2.4.2 语音理解大模型）};
+    \node[sec, below=0.02cm of s2s_llm] {（\S 2.4.3 语音交互大模型）};
 
     % 连线
     \draw[arrow] (root) -- (encdec);
