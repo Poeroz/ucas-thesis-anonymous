@@ -186,7 +186,7 @@
     \begin{scope}[on background layer]
         \node[dbox=blue!40, fit=(enc_sa)(enc_ffn), inner sep=5pt] (enc_layer) {};
     \end{scope}
-    \node[right=2pt of enc_layer.east, anchor=west, font=\scriptsize, blue!70] {$\times N$};
+    \node[right=-2pt of enc_layer.east, anchor=west, font=\scriptsize, blue!70] {$\times N$};
     % 编码器输出
     \node[above=0.35cm of enc_ffn, font=\small, fill=white, inner sep=2pt] (enc_out) {编码器输出 $Z$};
     \draw[arrow2] (enc_ffn) -- (enc_out);
@@ -204,13 +204,13 @@
     \begin{scope}[on background layer]
         \node[dbox=red!40, fit=(dec_sa)(dec_ca)(dec_ffn), inner sep=5pt] (dec_layer) {};
     \end{scope}
-    \node[right=2pt of dec_layer.east, anchor=west, font=\scriptsize, red!70] {$\times N$};
+    \node[right=-2pt of dec_layer.east, anchor=west, font=\scriptsize, red!70] {$\times N$};
     % 输出
     \node[above=0.2cm of dec_linear, font=\small] (output) {输出};
     \draw[arrow2] (dec_linear) -- (output);
 
     % 交叉注意力连接
-    \draw[arrow2, violet!70] (enc_out.east) -| ([xshift=-0.3cm]dec_ca.west) -- (dec_ca.west);
+    \draw[arrow2, violet!70] (enc_out.east) -| ([xshift=-0.4cm]dec_ca.west) -- (dec_ca.west);
 
     % 编码器/解码器大虚线框 + 底部标题
     \begin{scope}[on background layer]
