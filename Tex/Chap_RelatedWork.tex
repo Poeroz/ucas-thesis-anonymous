@@ -32,9 +32,7 @@
 %===========================================================================
 \section{语音到语音生成的建模范式}\label{sec:rw_paradigm}
 
-语音到语音生成（Speech-to-Speech Generation, S2S）是一类以语音为输入、以语音为输出的序列到序列生成任务。典型的语音到语音生成任务包括语音到语音翻译（将源语言语音转换为目标语言语音）和语音对话（根据用户的语音指令生成语音回复）等。由于语音到语音生成本质上是序列到序列的映射问题，其模型架构的发展与序列到序列生成领域的技术演进高度相关。
-
-从系统层面来看，如图\ref{fig:rw_paradigm}所示，语音到语音生成存在三种主要的建模范式，分别对应不同的模块化程度和端到端程度。
+语音到语音生成（Speech-to-Speech Generation, S2S）是一类以语音为输入、以语音为输出的序列到序列生成任务。典型的语音到语音生成任务包括语音到语音翻译（将源语言语音转换为目标语言语音）和语音对话（根据用户的语音指令生成语音回复）等。从系统层面来看，如图\ref{fig:rw_paradigm}所示，语音到语音生成存在三种主要的建模范式，分别对应不同的模块化程度和端到端程度。
 
 % 图：建模范式对比图
 \begin{figure}[htbp]
@@ -242,7 +240,8 @@ Transformer的核心组件包括多头注意力机制、前馈神经网络和位
 基于编码器-解码器的语音到文本生成是语音到语音生成的重要前置任务，也是本文第三章和第四章工作的基础。端到端语音到文本翻译（Speech-to-Text Translation, S2TT）直接将源语言语音信号转换为目标语言文本，相比传统的ASR加MT级联系统，在减少错误累积和降低延迟方面具有显著优势。然而，S2TT面临的核心挑战在于高质量语音-文本平行数据的匮乏，以及语音与文本之间的模态鸿沟（Modality Gap）。围绕这些挑战，研究者从模型结构和训练方法两个维度展开了大量研究。按照模型结构，如图\ref{fig:rw_s2tt}所示，现有S2TT方法可分为三类：基础编码器-解码器、并联双编码器和串联双编码器。
 
 % 图：语音到文本翻译模型结构对比图
-% 设计原则：三子图整体垂直居中；所有箭头统一长度（标签↔方框 = 方框↔方框 = 0.5cm）
+% 设计原则：三子图整体垂直居中；箭头视觉长度统一
+% 关键：TikZ从节点边框画箭头，文本标签比方框矮，需加大标签↔方框的中心距来补偿
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[node distance=0.3cm and 0.3cm,
@@ -250,22 +249,25 @@ Transformer的核心组件包括多头注意力机制、前馈神经网络和位
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
     enc/.default=blue,
 ]
-    % 统一间距参数
-    \def\gap{0.5}        % 方框之间、方框与标签之间的统一间距
+    % 间距参数（控制箭头视觉长度）
+    % 方框高0.7cm，标签高约0.25cm；TikZ从边框画箭头
+    % 方框↔方框：视觉箭头 = 中心距 - 0.7
+    % 标签↔方框：视觉箭头 = 中心距 - 0.35 - 0.125 ≈ 中心距 - 0.475
+    % 要使视觉相等，标签的中心距需比方框的中心距多约0.225
+    \def\boxgap{0.4}     % 方框之间的视觉箭头长度
+    \def\lblgap{0.63}    % 标签↔方框的中心距偏移（补偿标签较矮）
+    % 验证：方框视觉 = 0.4；标签视觉 ≈ 0.63 - 0.475 ≈ 0.4 — 匹配 ✓
     \def\titleGap{0.7}   % 底部标签与标题的间距
 
     % === (c) 串联双编码器 — 最高的子图，先定位以确定全局范围 ===
-    % 从下到上：输入标签 → 语音编码器 → 文本编码器 → 文本解码器 → 输出标签
-    % 总高度 = 4*gap + 3*boxH = 4*0.5 + 3*0.7 = 4.1（以中心算）
-    % 垂直居中：中心在 文本编码器 的位置
     \def\xc{10.0}
-    \pgfmathsetmacro{\cMid}{0}          % 垂直中心 y
-    \pgfmathsetmacro{\cTenc}{\cMid}      % 文本编码器 y（中心）
-    \pgfmathsetmacro{\cSenc}{\cMid-0.7-\gap}   % 语音编码器 y
-    \pgfmathsetmacro{\cDec}{\cMid+0.7+\gap}    % 文本解码器 y
-    \pgfmathsetmacro{\cIn}{\cSenc-0.35-\gap}    % 输入标签 y
-    \pgfmathsetmacro{\cOut}{\cDec+0.35+\gap}    % 输出标签 y
-    \pgfmathsetmacro{\titleY}{\cIn-\titleGap}   % 标题 y（三图共用）
+    \pgfmathsetmacro{\cMid}{0}
+    \pgfmathsetmacro{\cTenc}{\cMid}                        % 文本编码器（中心）
+    \pgfmathsetmacro{\cSenc}{\cMid-0.7-\boxgap}            % 语音编码器
+    \pgfmathsetmacro{\cDec}{\cMid+0.7+\boxgap}             % 文本解码器
+    \pgfmathsetmacro{\cIn}{\cSenc-0.35-\lblgap}             % 输入标签
+    \pgfmathsetmacro{\cOut}{\cDec+0.35+\lblgap}             % 输出标签
+    \pgfmathsetmacro{\titleY}{\cIn-\titleGap}               % 标题（三图共用）
 
     \node[enc=green] (c_senc) at (\xc, \cSenc) {语音编码器};
     \node[enc=orange] (c_tenc) at (\xc, \cTenc) {文本编码器};
@@ -278,16 +280,13 @@ Transformer的核心组件包括多头注意力机制、前馈神经网络和位
     \draw[arrow2] (c_dec) -- (c_out);
     \node[font=\small\bfseries] at (\xc, \titleY) {(c) 串联双编码器};
 
-    % === (a) 单编码器 — 垂直居中对齐 ===
-    % 从下到上：输入标签 → 语音编码器 → 文本解码器 → 输出标签
-    % 总高度 = 3*gap + 2*boxH = 3*0.5 + 2*0.7 = 2.9
-    % 居中：中心在 语音编码器与文本解码器之间
+    % === (a) 单编码器 — 垂直居中 ===
     \def\xa{0}
-    \pgfmathsetmacro{\aMid}{\cMid}      % 与(c)共享垂直中心
-    \pgfmathsetmacro{\aEnc}{\aMid-0.35-\gap/2}  % 语音编码器 y
-    \pgfmathsetmacro{\aDec}{\aMid+0.35+\gap/2}  % 文本解码器 y
-    \pgfmathsetmacro{\aIn}{\aEnc-0.35-\gap}     % 输入标签 y
-    \pgfmathsetmacro{\aOut}{\aDec+0.35+\gap}    % 输出标签 y
+    \pgfmathsetmacro{\aMid}{\cMid}
+    \pgfmathsetmacro{\aEnc}{\aMid-0.35-\boxgap/2}          % 语音编码器
+    \pgfmathsetmacro{\aDec}{\aMid+0.35+\boxgap/2}          % 文本解码器
+    \pgfmathsetmacro{\aIn}{\aEnc-0.35-\lblgap}              % 输入标签
+    \pgfmathsetmacro{\aOut}{\aDec+0.35+\lblgap}             % 输出标签
 
     \node[enc=green] (a_senc) at (\xa, \aEnc) {语音编码器};
     \node[enc=red] (a_dec) at (\xa, \aDec) {文本解码器};
