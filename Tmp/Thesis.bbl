@@ -189,6 +189,29 @@ The Thirteenth International Conference on Learning Representations.
 \newblock 2025{\natexlab{b}}.
 \newblock \url{https://openreview.net/forum?id=PYmrUQmMEw}.
 
+\bibitem[Lavie {\bibetal}(1997)Lavie, Waibel, Levin, Finke, Gates, Gavald{\`a},
+  Zeissler, and Zhan]{lavie1997janus}
+Lavie~A, Waibel~A, Levin~L, et~al.
+\newblock {JANUS-III}: Speech-to-speech translation in multiple languages
+  [C]//\allowbreak
+Proceedings of {ICASSP}.
+\newblock IEEE, 1997.
+
+\bibitem[Ney(1999)]{ney1999speech}
+Ney~H.
+\newblock Speech translation: Coupling of recognition and translation
+  [C]//\allowbreak
+1999 IEEE International Conference on Acoustics, Speech, and Signal Processing.
+  Proceedings. ICASSP99 (Cat. No. 99CH36258): volume~1.
+\newblock IEEE, 1999: 517-520.
+
+\bibitem[Nakamura {\bibetal}(2006)Nakamura, Markov, Nakaiwa, ichiro Kikui,
+  Kawai, Jitsuhiro, Zhang, Yamamoto, Sumita, and Yamamoto]{nakamura2006atr}
+Nakamura~S, Markov~K, Nakaiwa~H, et~al.
+\newblock The {ATR} multilingual speech-to-speech translation system [J].
+\newblock IEEE Transactions on Audio, Speech, and Language Processing, 2006,
+  14\penalty0 (2): 365-376.
+
 \bibitem[Vaswani {\bibetal}(2017{\natexlab{b}})Vaswani, Shazeer, Parmar,
   Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin]{transformer}
 Vaswani~A, Shazeer~N, Parmar~N, et~al.
@@ -216,29 +239,6 @@ Touvron~H, Lavril~T, Izacard~G, et~al.
 Yang~A, Yang~B, Hui~B, et~al.
 \newblock {Qwen2} technical report [J].
 \newblock arXiv preprint arXiv:2407.10671, 2024.
-
-\bibitem[Lavie {\bibetal}(1997)Lavie, Waibel, Levin, Finke, Gates, Gavald{\`a},
-  Zeissler, and Zhan]{lavie1997janus}
-Lavie~A, Waibel~A, Levin~L, et~al.
-\newblock {JANUS-III}: Speech-to-speech translation in multiple languages
-  [C]//\allowbreak
-Proceedings of {ICASSP}.
-\newblock IEEE, 1997.
-
-\bibitem[Ney(1999)]{ney1999speech}
-Ney~H.
-\newblock Speech translation: Coupling of recognition and translation
-  [C]//\allowbreak
-1999 IEEE International Conference on Acoustics, Speech, and Signal Processing.
-  Proceedings. ICASSP99 (Cat. No. 99CH36258): volume~1.
-\newblock IEEE, 1999: 517-520.
-
-\bibitem[Nakamura {\bibetal}(2006)Nakamura, Markov, Nakaiwa, ichiro Kikui,
-  Kawai, Jitsuhiro, Zhang, Yamamoto, Sumita, and Yamamoto]{nakamura2006atr}
-Nakamura~S, Markov~K, Nakaiwa~H, et~al.
-\newblock The {ATR} multilingual speech-to-speech translation system [J].
-\newblock IEEE Transactions on Audio, Speech, and Language Processing, 2006,
-  14\penalty0 (2): 365-376.
 
 \bibitem[Gulati {\bibetal}(2020)Gulati, Qin, Chiu, Parmar, Zhang, Yu, Han,
   Wang, Zhang, Wu, and Pang]{conformer}
