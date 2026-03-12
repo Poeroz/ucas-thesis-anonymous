@@ -124,7 +124,7 @@
     \begin{scope}[on background layer]
         \node[dbox=blue!40, fit=(enc_sa)(enc_ffn), inner sep=5pt] (enc_layer) {};
     \end{scope}
-    \node[right=0.15cm of enc_layer, font=\scriptsize, blue!70] {$\times N$};
+    \node[right=0.3cm of enc_layer, font=\scriptsize, blue!70] {$\times N$};
     % 编码器输出
     \node[above=0.35cm of enc_ffn, font=\small, fill=white, inner sep=2pt] (enc_out) {编码器输出 $Z$};
     \draw[arrow2] (enc_ffn) -- (enc_out);
@@ -142,7 +142,7 @@
     \begin{scope}[on background layer]
         \node[dbox=red!40, fit=(dec_sa)(dec_ca)(dec_ffn), inner sep=5pt] (dec_layer) {};
     \end{scope}
-    \node[right=0.15cm of dec_layer, font=\scriptsize, red!70] {$\times N$};
+    \node[right=0.3cm of dec_layer, font=\scriptsize, red!70] {$\times N$};
     % 输出
     \node[above=0.2cm of dec_linear, font=\small] (output) {输出};
     \draw[arrow2] (dec_linear) -- (output);
@@ -178,15 +178,16 @@
         font=\small, align=center, thick, fill=#1!12, draw=#1!70!black},
     enc/.default=blue,
 ]
-    % 统一 Y 坐标：标题基线、输入标签基线、输出标签基线
-    \def\titleY{-1.0}   % 子图标题
-    \def\inputY{-0.25}   % 输入标签
-    \def\outputY{2.85}   % 输出标签
+    % 统一 Y 坐标：文本解码器统一y=2.0，标题、输入、输出统一
+    \def\decY{2.0}       % 文本解码器 y（三图统一）
+    \def\titleY{-1.2}    % 子图标题
+    \def\inputY{-0.4}    % 输入标签
+    \def\outputY{2.8}    % 输出标签
 
     % === (a) 单编码器 ===
     \def\xa{0}
-    \node[enc=green] (a_senc) at (\xa, 0.5) {语音编码器};
-    \node[enc=red] (a_dec) at (\xa, 1.8) {文本解码器};
+    \node[enc=green] (a_senc) at (\xa, 0.7) {语音编码器};
+    \node[enc=red] (a_dec) at (\xa, \decY) {文本解码器};
     \node[font=\scriptsize] at (\xa, \inputY) {源语言语音};
     \node[font=\scriptsize] at (\xa, \outputY) {目标语言文本};
     \draw[arrow2] (a_senc) -- (a_dec);
@@ -194,9 +195,9 @@
 
     % === (b) 并联双编码器 ===
     \def\xb{5.0}
-    \node[enc=green] (b_senc) at (\xb-1.4, 0.3) {语音编码器};
-    \node[enc=orange] (b_tenc) at (\xb+1.4, 0.3) {文本编码器};
-    \node[enc=red] (b_dec) at (\xb, 2.0) {文本解码器};
+    \node[enc=green] (b_senc) at (\xb-1.4, 0.5) {语音编码器};
+    \node[enc=orange] (b_tenc) at (\xb+1.4, 0.5) {文本编码器};
+    \node[enc=red] (b_dec) at (\xb, \decY) {文本解码器};
     \node[font=\scriptsize] at (\xb-1.4, \inputY) {源语言语音};
     \node[font=\scriptsize] at (\xb+1.4, \inputY) {源语言文本};
     \node[font=\scriptsize] at (\xb, \outputY) {目标语言文本};
@@ -206,10 +207,10 @@
 
     % === (c) 串联双编码器 ===
     \def\xc{10.0}
-    \node[enc=green] (c_senc) at (\xc, -0.15) {语音编码器};
+    \node[enc=green] (c_senc) at (\xc, 0.0) {语音编码器};
     \node[enc=orange] (c_tenc) at (\xc, 1.0) {文本编码器};
-    \node[enc=red] (c_dec) at (\xc, 2.15) {文本解码器};
-    \node[font=\scriptsize] at (\xc, \inputY-0.45) {源语言语音};
+    \node[enc=red] (c_dec) at (\xc, \decY) {文本解码器};
+    \node[font=\scriptsize] at (\xc, \inputY-0.2) {源语言语音};
     \node[font=\scriptsize] at (\xc, \outputY) {目标语言文本};
     \draw[arrow2] (c_senc) -- (c_tenc);
     \draw[arrow2] (c_tenc) -- (c_dec);
@@ -246,7 +247,7 @@
     \node[font=\small] (a_out) at (\xright, \ya) {目标语音};
     \draw[arrow2] (a_in) -- (a_enc);
     \draw[arrow2] (a_enc) -- (a_dec);
-    \draw[arrow2] (a_dec) -- node[above=2pt, slbl, fill=white, inner sep=1pt]{语音表征} (a_voc);
+    \draw[arrow2] (a_dec) -- (a_voc);
     \draw[arrow2] (a_voc) -- (a_out);
     \node[font=\small\bfseries] at (4.4, \ya-0.9) {(a) 一阶段解码};
 
@@ -260,12 +261,16 @@
     \node[font=\small] (b_out) at (\xright, \yb) {目标语音};
     \draw[arrow2] (b_in) -- (b_enc);
     \draw[arrow2] (b_enc) -- (b_dec1);
-    \draw[arrow2] (b_dec1) -- node[above=3pt, slbl, fill=white, inner sep=1pt]{文本} (b_dec2);
+    \draw[arrow2] (b_dec1) -- (b_dec2);
     \draw[arrow2] (b_dec2) -- (b_voc);
     \draw[arrow2] (b_voc) -- (b_out);
     % 标注两个阶段
-    \draw[braceup] ([yshift=1pt]b_dec1.north west) -- ([yshift=1pt]b_dec1.north east) node[midway, above=5pt, slbl]{第一阶段};
-    \draw[braceup] ([yshift=1pt]b_dec2.north west) -- ([yshift=1pt]b_dec2.north east) node[midway, above=5pt, slbl]{第二阶段};
+    \draw[braceup] ([yshift=2pt]b_dec1.north west) -- ([yshift=2pt]b_dec1.north east) node[midway, above=5pt, slbl]{第一阶段};
+    \draw[braceup] ([yshift=2pt]b_dec2.north west) -- ([yshift=2pt]b_dec2.north east) node[midway, above=5pt, slbl]{第二阶段};
+    % 文本：从文本解码器和语音解码器之间的箭头中点向上引出
+    \coordinate (b_mid) at ($(b_dec1.east)!0.5!(b_dec2.west)$);
+    \node[above=0.65cm of b_mid, font=\scriptsize] (b_txt) {文本};
+    \draw[arrow2] (b_mid) -- (b_txt);
     \node[font=\small\bfseries] at (4.4, \yb-0.9) {(b) 两阶段解码};
 
     % === (c) 非自回归解码 ===
@@ -277,7 +282,7 @@
     \node[font=\small] (c_out) at (\xright, \yc) {目标语音};
     \draw[arrow2] (c_in) -- (c_enc);
     \draw[arrow2] (c_enc) -- (c_dec);
-    \draw[arrow2] (c_dec) -- node[above=2pt, slbl, fill=white, inner sep=1pt]{语音表征} (c_voc);
+    \draw[arrow2] (c_dec) -- (c_voc);
     \draw[arrow2] (c_voc) -- (c_out);
     \node[font=\small\bfseries] at (4.4, \yc-0.9) {(c) 非自回归解码};
 \end{tikzpicture}
