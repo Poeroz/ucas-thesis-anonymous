@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  12 MAR 2026 15:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.3)  15 MAR 2026 02:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2003,14 +2003,7 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 1.
 [1
 
-] [2] [3] [4]
-Overfull \hbox (7.99078pt too wide) in paragraph at lines 65--66
-\TU/entextsf/m/n/12.045 rected Acyclic Graph, DAG\TU/FandolSong-Regular(0)/m/n/
-12.045 ）| \TU/entextsf/m/n/12.045 Transformer \TU/FandolSong-Regular(0)/m/n/12.
-045 的 非 自 回 归 语 音 到 语 音 翻 译 方 法。| \TU/entextsf/m/n/12.045 DASpeech
- []
-
-[5]) (./Tex/Chap_RelatedWork.tex [6] [7]
+] [2] [3] [4] [5] [6]) (./Tex/Chap_RelatedWork.tex [7]
 第2章
 [8
 
@@ -2170,26 +2163,36 @@ File: Img/LLaMA_Omni2.pdf Graphic file (type pdf)
 ) [67] [68] [69] [70] [71]
 (./Tables/llamaomni2_main.tex) [72] (./Tables/llamaomni2_ablation.tex) [73]
 (./Tables/llamaomni2_pretrain.tex) (./Tables/llamaomni2_readwrite.tex)
-(./Tables/llamaomni2_latency.tex) [74] (./Tables/llamaomni2_data.tex [75]))
-(./Tex/Chap_FullDuplex.tex [76]
+(./Tables/llamaomni2_latency.tex) [74] [75] (./Tables/llamaomni2_data.tex))
+(./Tex/Chap_FullDuplex.tex [76] [77]
 第7章
-[77
+[78
 
-] [78] [79] [80] [81] [82] [83]) (./Tex/Chap_Conclusion.tex [84]
+] [79] (./Img/figure_duplex.tex
+File: Img/duplex.pdf Graphic file (type pdf)
+<use Img/duplex.pdf>
+) [80] [81] [82] [83] [84] [85]
+Overfull \hbox (8.42238pt too wide) in paragraph at lines 181--182
+[]\TU/FandolSong-Regular(0)/m/n/12.045 轮 替 场 景 的 测 试 集 复 用 第[][]\TU/entexttt/m/
+n/12.045 5[][]\TU/FandolSong-Regular(0)/m/n/12.045 章 构 建 的 \TU/entexttt/m/n/12.
+045 InstructS2S-Eval\TU/FandolSong-Regular(0)/m/n/12.045 ，|  该 测 试 集 包 含 从 \TU/
+entexttt/m/n/12.045 Alpaca-
+ []
+
+[86]) (./Tex/Chap_Conclusion.tex [87]
 第8章
-)) [85
+)) [88
 
-] [86
+] (Tmp/Thesis.bbl [89
 
-] (Tmp/Thesis.bbl [87
 
-] [88] [89] [90] [91] [92] [93] [94]
+] [90] [91] [92] [93] [94] [95] [96]
 Underfull \hbox (badness 1859) in paragraph at lines 1097--1100
 []\TU/entexttt/m/n/10.53937 Chu Y, Xu J, Yang Q, et al.  Qwen2-audio technical 
 report [J].  arXiv preprint
  []
 
-[95]
+[97]
 Underfull \hbox (badness 1189) in paragraph at lines 1302--1310
 []\TU/entexttt/m/n/10.53937 Kong J, Kim J, Bae J.  Hifi-gan: Generative adversa
 rial networks for efficient and
@@ -2214,35 +2217,35 @@ Underfull \hbox (badness 1242) in paragraph at lines 1312--1317
  acyclic transformer for non-
  []
 
-[96]
+[98]
 Underfull \hbox (badness 1990) in paragraph at lines 1448--1452
 []\TU/entexttt/m/n/10.53937 Ito K, Johnson L.  The lj speech dataset [EB/OL].  
 2017.  [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
  []
 
-[97]) [98] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [99
+[99]) [100] (./Tex/Appendix.tex) (./Tex/Backmatter.tex [101
 
 
 
-] [100
+] [102
 
-] [101] [102
+] [103]
+[104
 
-])
-(Tmp/Thesis.aux)
+]) (Tmp/Thesis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 506F5CFEBC987EE6F21D3EF6B2371616;13218.
+(rerunfilecheck)             Checksum: 95884EDC457EBC2979F49BE92B9B4224;12990.
  ) 
 Here is how much of TeX's memory you used:
- 44416 strings out of 478671
- 948850 string characters out of 5848460
- 1885018 words of memory out of 6000000
- 63601 multiletter control sequences out of 15000+600000
+ 44447 strings out of 478671
+ 950019 string characters out of 5848460
+ 1888018 words of memory out of 6000000
+ 63628 multiletter control sequences out of 15000+600000
  523713 words of font info for 170 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  103i,14n,130p,1225b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Tmp/Thesis.pdf (120 pages).
+Output written on Tmp/Thesis.pdf (122 pages).
