@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 词元权重消融实验结果}{\enspace Ablation results with different token weights}
+    \label{tab:fullduplex_weight}
+    \centering
+    \small
+    \begin{tabular}{cc|cc|ccc}
+        \toprule
+        \multirow{2}{*}{$\omega_{\text{role}}$} & \multirow{2}{*}{$\omega_{\text{sil}}$} & \multicolumn{2}{c|}{\textbf{轮替场景}} & \multicolumn{3}{c}{\textbf{打断场景}} \\
+        \cmidrule{3-4} \cmidrule{5-7}
+        & & \textbf{SR@3s$\uparrow$} & \textbf{S2S Score$\uparrow$} & \textbf{Overlap$\downarrow$} & \textbf{ISR@2s$\uparrow$} & \textbf{Q2 S2S$\uparrow$} \\
+        \midrule
+        1 & 1 & 60.3 & 3.19 & 1.79 & \textbf{100.0} & - \\
+        1 & 0.1 & 82.4 & 3.13 & 1.53 & 89.6 & 2.78 \\
+        10 & 1 & 73.9 & 3.02 & 1.53 & 88.5 & 2.81 \\
+        10 & 0.1 & \textbf{88.9} & \textbf{3.23} & \textbf{1.51} & 91.4 & \textbf{2.95} \\
+        \bottomrule
+        \multicolumn{7}{l}{\scriptsize 注：$\omega_{\text{role}}$为\texttt{[ASSISTANT]}和\texttt{[EPAD]}的权重，$\omega_{\text{sil}}$为\texttt{[SILENCE]}的权重。}
+    \end{tabular}
+\end{table}
