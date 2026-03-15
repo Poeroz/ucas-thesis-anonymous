@@ -1,30 +1,33 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace CVSS法语到英语数据集上的实验结果\relax }}{35}{table.caption.23}%
-\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace CVSS-C多语言数据集上的实验结果\relax }}{36}{table.caption.24}%
-\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace 期望路径训练与最优路径训练的对比\relax }}{37}{table.caption.25}%
-\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace 各模型的说话人相似度对比\relax }}{39}{table.caption.29}%
+\contentsline {table}{\numberline {3-1}{\ignorespaces \enspace CVSS法语到英语数据集上的实验结果\relax }}{35}{table.caption.22}%
+\contentsline {table}{\numberline {3-2}{\ignorespaces \enspace CVSS-C多语言数据集上的实验结果\relax }}{36}{table.caption.23}%
+\contentsline {table}{\numberline {3-3}{\ignorespaces \enspace 期望路径训练与最优路径训练的对比\relax }}{37}{table.caption.24}%
+\contentsline {table}{\numberline {3-4}{\ignorespaces \enspace 各模型的说话人相似度对比\relax }}{39}{table.caption.28}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace CVSS数据集上的实验结果\relax }}{48}{table.caption.32}%
-\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace S2TT与S2ST的性能差距对比\relax }}{49}{table.caption.33}%
-\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace BLASER 2.0评估结果\relax }}{49}{table.caption.34}%
-\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace 不同对齐训练目标的实验结果\relax }}{50}{table.caption.35}%
-\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace 不同预训练和微调策略的实验结果\relax }}{51}{table.caption.36}%
-\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace 词表适配器超参数实验结果\relax }}{51}{table.caption.37}%
+\contentsline {table}{\numberline {4-1}{\ignorespaces \enspace CVSS数据集上的实验结果\relax }}{48}{table.caption.31}%
+\contentsline {table}{\numberline {4-2}{\ignorespaces \enspace S2TT与S2ST的性能差距对比\relax }}{49}{table.caption.32}%
+\contentsline {table}{\numberline {4-3}{\ignorespaces \enspace BLASER 2.0评估结果\relax }}{49}{table.caption.33}%
+\contentsline {table}{\numberline {4-4}{\ignorespaces \enspace 不同对齐训练目标的实验结果\relax }}{50}{table.caption.34}%
+\contentsline {table}{\numberline {4-5}{\ignorespaces \enspace 不同预训练和微调策略的实验结果\relax }}{51}{table.caption.35}%
+\contentsline {table}{\numberline {4-6}{\ignorespaces \enspace 词表适配器超参数实验结果\relax }}{51}{table.caption.36}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace InstructS2S-200K数据集统计\relax }}{59}{table.caption.40}%
-\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace 离线场景下的实验结果\relax }}{61}{table.caption.41}%
-\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace LLaMA-Omni在不同流式配置下的实验结果\relax }}{63}{table.caption.43}%
-\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace 平均解码时间对比\relax }}{64}{table.caption.44}%
+\contentsline {table}{\numberline {5-1}{\ignorespaces \enspace InstructS2S-200K数据集统计\relax }}{59}{table.caption.39}%
+\contentsline {table}{\numberline {5-2}{\ignorespaces \enspace 离线场景下的实验结果\relax }}{61}{table.caption.40}%
+\contentsline {table}{\numberline {5-3}{\ignorespaces \enspace LLaMA-Omni在不同流式配置下的实验结果\relax }}{63}{table.caption.42}%
+\contentsline {table}{\numberline {5-4}{\ignorespaces \enspace 平均解码时间对比\relax }}{64}{table.caption.43}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace 语音问答和语音指令遵循任务的主要结果\relax }}{72}{table.caption.47}%
-\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace 门控融合机制的消融实验\relax }}{73}{table.caption.48}%
-\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace TTS预训练策略的消融实验\relax }}{74}{table.caption.49}%
-\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace 读写策略的消融实验\relax }}{74}{table.caption.50}%
-\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace LLaMA-Omni 2系列模型的延迟分解\relax }}{75}{table.caption.51}%
-\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace 训练数据规模的影响\relax }}{76}{table.caption.52}%
+\contentsline {table}{\numberline {6-1}{\ignorespaces \enspace 语音问答和语音指令遵循任务的主要结果\relax }}{72}{table.caption.46}%
+\contentsline {table}{\numberline {6-2}{\ignorespaces \enspace 门控融合机制的消融实验\relax }}{73}{table.caption.47}%
+\contentsline {table}{\numberline {6-3}{\ignorespaces \enspace TTS预训练策略的消融实验\relax }}{74}{table.caption.48}%
+\contentsline {table}{\numberline {6-4}{\ignorespaces \enspace 读写策略的消融实验\relax }}{74}{table.caption.49}%
+\contentsline {table}{\numberline {6-5}{\ignorespaces \enspace LLaMA-Omni 2系列模型的延迟分解\relax }}{75}{table.caption.50}%
+\contentsline {table}{\numberline {6-6}{\ignorespaces \enspace 训练数据规模的影响\relax }}{76}{table.caption.51}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {7-1}{\ignorespaces \enspace 全双工语音交互模型的主要实验结果\relax }}{87}{table.caption.53}%
+\contentsline {table}{\numberline {7-2}{\ignorespaces \enspace 词元权重消融实验结果\relax }}{88}{table.caption.54}%
+\contentsline {table}{\numberline {7-3}{\ignorespaces \enspace DPO超参数消融实验结果\relax }}{89}{table.caption.55}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,4 +1,4 @@
-\begin{thebibliography}{190}
+\begin{thebibliography}{192}
 \providecommand{\biband}{和}
 \providecommand{\bibetal}{等}
 \providecommand{\natexlab}[1]{#1}
@@ -34,17 +34,17 @@ Kubin~G, Kacic~Z.
 \newblock {ISCA}, 2019{\natexlab{a}}: 1123-1127.
 \newblock \url{https://doi.org/10.21437/Interspeech.2019-1951}.
 
-\bibitem[Lee {\bibetal}(2022{\natexlab{a}})Lee, Gong, Duquenne, Schwenk, Chen,
-  Wang, Popuri, Adi, Pino, Gu, and Hsu]{lee-etal-2022-textless}
-Lee~A, Gong~H, Duquenne~P~A, et~al.
-\newblock Textless speech-to-speech translation on real data
+\bibitem[Lee {\bibetal}(2022{\natexlab{a}})Lee, Chen, Wang, Gu, Popuri, Ma,
+  Polyak, Adi, He, Tang, Pino, and Hsu]{s2ut}
+Lee~A, Chen~P~J, Wang~C, et~al.
+\newblock Direct speech-to-speech translation with discrete units
   [C/OL]//\allowbreak
-Proceedings of the 2022 Conference of the North American Chapter of the
-  Association for Computational Linguistics: Human Language Technologies.
-\newblock Seattle, United States: Association for Computational Linguistics,
-  2022{\natexlab{a}}: 860-872.
-\newblock \url{https://aclanthology.org/2022.naacl-main.63}.
-\newblock DOI: \doi{10.18653/v1/2022.naacl-main.63}.
+Proceedings of the 60th Annual Meeting of the Association for Computational
+  Linguistics (Volume 1: Long Papers).
+\newblock Dublin, Ireland: Association for Computational Linguistics,
+  2022{\natexlab{a}}: 3327-3339.
+\newblock \url{https://aclanthology.org/2022.acl-long.235}.
+\newblock DOI: \doi{10.18653/v1/2022.acl-long.235}.
 
 \bibitem[Jia {\bibetal}(2022{\natexlab{a}})Jia, Ramanovich, Remez, and
   Pomerantz]{translatotron2}
@@ -935,17 +935,17 @@ Zhang~C, Tan~X, Ren~Y, et~al.
 \newblock \url{https://ojs.aaai.org/index.php/AAAI/article/view/17684}.
 \newblock DOI: \doi{10.1609/aaai.v35i16.17684}.
 
-\bibitem[Lee {\bibetal}(2022{\natexlab{b}})Lee, Chen, Wang, Gu, Popuri, Ma,
-  Polyak, Adi, He, Tang, Pino, and Hsu]{s2ut}
-Lee~A, Chen~P~J, Wang~C, et~al.
-\newblock Direct speech-to-speech translation with discrete units
+\bibitem[Lee {\bibetal}(2022{\natexlab{b}})Lee, Gong, Duquenne, Schwenk, Chen,
+  Wang, Popuri, Adi, Pino, Gu, and Hsu]{lee-etal-2022-textless}
+Lee~A, Gong~H, Duquenne~P~A, et~al.
+\newblock Textless speech-to-speech translation on real data
   [C/OL]//\allowbreak
-Proceedings of the 60th Annual Meeting of the Association for Computational
-  Linguistics (Volume 1: Long Papers).
-\newblock Dublin, Ireland: Association for Computational Linguistics,
-  2022{\natexlab{b}}: 3327-3339.
-\newblock \url{https://aclanthology.org/2022.acl-long.235}.
-\newblock DOI: \doi{10.18653/v1/2022.acl-long.235}.
+Proceedings of the 2022 Conference of the North American Chapter of the
+  Association for Computational Linguistics: Human Language Technologies.
+\newblock Seattle, United States: Association for Computational Linguistics,
+  2022{\natexlab{b}}: 860-872.
+\newblock \url{https://aclanthology.org/2022.naacl-main.63}.
+\newblock DOI: \doi{10.18653/v1/2022.naacl-main.63}.
 
 \bibitem[Popuri {\bibetal}(2022)Popuri, Chen, Wang, Pino, Adi, Gu, Hsu, and
   Lee]{DBLP:conf/interspeech/PopuriCWPAGHL22}
@@ -1497,7 +1497,7 @@ The Thirteenth International Conference on Learning Representations.
 \newblock 2025.
 \newblock \url{https://openreview.net/forum?id=3tukjsVyrE}.
 
-\bibitem[Team(2024)]{qwen2.5}
+\bibitem[Team(2024{\natexlab{a}})]{qwen2.5}
 Team~Q.
 \newblock Qwen2.5: A party of foundation models [EB/OL].
 \newblock 2024.
@@ -1571,5 +1571,21 @@ Proc. of NeurIPS.
 \newblock Chatglm: A family of large language models from glm-130b to glm-4 all
   tools [J].
 \newblock arXiv preprint arXiv:2406.12793, 2024.
+
+\bibitem[Zheng {\bibetal}(2024)Zheng, Zhang, Zhang, Ye, Luo, Feng, and
+  Ma]{zheng2024llamafactory}
+Zheng~Y, Zhang~R, Zhang~J, et~al.
+\newblock Llamafactory: Unified efficient fine-tuning of 100+ language models
+  [C]//\allowbreak
+Proceedings of the 62nd Annual Meeting of the Association for Computational
+  Linguistics (Volume 3: System Demonstrations).
+\newblock 2024.
+
+\bibitem[Team(2024{\natexlab{b}})]{silerovad}
+Team~S.
+\newblock Silero vad: pre-trained enterprise-grade voice activity detector
+  [EB/OL].
+\newblock 2024.
+\newblock \url{https://github.com/snakers4/silero-vad}.
 
 \end{thebibliography}

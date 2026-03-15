@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+    \bicaption{\enspace 全双工场景下的语音问答准确率}{\enspace Speech question answering accuracy under full-duplex setting}
+    \label{tab:fullduplex_qa}
+    \centering
+    \small
+    \begin{tabular}{l|cc}
+        \toprule
+        \multirow{2}{*}{\textbf{模型}} & \textbf{Llama Questions} & \textbf{Web Questions} \\
+        & ($N=300$) & ($N=2032$) \\
+        \midrule
+        Moshi & 21.0 & 9.2 \\
+        LLaMA-Omni-Duplex（SFT） & 44.3 & 18.0 \\
+        LLaMA-Omni-Duplex（+DPO） & \textbf{46.0} & \textbf{18.1} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
