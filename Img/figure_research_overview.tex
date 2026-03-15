@@ -15,24 +15,24 @@
 ]
 
 % ===== 顶层：研究主题 =====
-\node[theme] (top) at (9.5, 9) {语音到语音生成模型结构研究};
+\node[theme] (top) at (10, 9) {语音到语音生成模型结构研究};
 
 % ===== 第二层：架构分类 =====
 \node[arch] (enc) at (4, 7) {\textbf{编码器-解码器架构}\\[-1pt]{\footnotesize 语音到语音翻译}};
-\node[arch] (dec) at (15, 7) {\textbf{仅解码器架构}\\[-1pt]{\footnotesize 语音交互大模型}};
+\node[arch] (dec) at (16, 7) {\textbf{仅解码器架构}\\[-1pt]{\footnotesize 语音交互大模型}};
 
 % ===== 第三层：科学问题 =====
 \node[prob] (p1) at (2, 4.5) {\textbf{科学问题一}\\[2pt]序列生成中建模能力\\与解码效率的矛盾};
 \node[prob] (p2) at (6, 4.5) {\textbf{科学问题二}\\[2pt]预训练模型的\\组合利用};
-\node[prob] (p3) at (12.5, 4.5) {\textbf{科学问题三}\\[2pt]多模态输出序列的\\同步流式生成};
-\node[prob] (p4) at (17.5, 4.5) {\textbf{科学问题四}\\[2pt]双向语音流的\\统一序列建模};
+\node[prob] (p3) at (13, 4.5) {\textbf{科学问题三}\\[2pt]多模态输出序列的\\同步流式生成};
+\node[prob] (p4) at (19, 4.5) {\textbf{科学问题四}\\[2pt]双向语音流的\\统一序列建模};
 
 % ===== 底层：研究工作（章节） =====
 \node[chap] (c3) at (2, 1.5) {DASpeech\\[2pt]{\scriptsize（第三章）}};
 \node[chap] (c4) at (6, 1.5) {ComSpeech\\[2pt]{\scriptsize（第四章）}};
-\node[chap] (c5) at (10.5, 1.5) {LLaMA-Omni\\[2pt]{\scriptsize（第五章）}};
-\node[chap] (c6) at (14, 1.5) {LLaMA-Omni 2\\[2pt]{\scriptsize（第六章）}};
-\node[chap] (c7) at (17.5, 1.5) {全双工模型\\[2pt]{\scriptsize（第七章）}};
+\node[chap] (c5) at (11, 1.5) {LLaMA-Omni\\[2pt]{\scriptsize（第五章）}};
+\node[chap] (c6) at (14.5, 1.5) {LLaMA-Omni 2\\[2pt]{\scriptsize（第六章）}};
+\node[chap] (c7) at (19, 1.5) {全双工模型\\[2pt]{\scriptsize（第七章）}};
 
 % ===== 应用方向分组（虚线框） =====
 \begin{scope}[on background layer]
