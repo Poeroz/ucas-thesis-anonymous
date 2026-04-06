@@ -79,14 +79,7 @@
 
 针对上述四个关键科学问题，本文展开系统性研究，共完成五项具体工作。如图\ref{fig:research_overview}所示，本文首先在语音翻译任务上，通过组合预训练模型证明端到端方法的可行性（ComSpeech），并通过非自回归方法提升解码效率（DASpeech）；随后将研究范围拓展到通用语音对话，探索文本与语音的同步流式生成以实现低延迟的实时交互（LLaMA-Omni和LLaMA-Omni 2）；最终迈向全双工交互，使模型能够在持续接收音频的同时自主决策回复时机（LLaMA-Omni-Duplex）。各项研究的具体内容如下。
 
-%\input{Img/figure_research_overview}
-% TODO: 替换为手绘的研究内容概览图
-\begin{figure}[htbp]
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm}{\large 研究内容概览图（待替换）}\vspace{3cm}}}
-\bicaption{\enspace 本文研究内容概览}{\enspace Overview of the research content}
-\label{fig:research_overview}
-\end{figure}
+\input{Img/figure_research_overview}
 
 \subsection{基于模块化组合的端到端语音到语音翻译模型}
 

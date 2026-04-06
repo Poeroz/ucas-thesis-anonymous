@@ -1,68 +1,67 @@
-\usetikzlibrary{arrows.meta, fit, backgrounds, positioning}
+\usetikzlibrary{arrows.meta, fit, backgrounds, positioning, calc}
 \begin{figure}[htbp]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
     >=Stealth,
-    base/.style={draw, rounded corners=3pt, align=center, inner sep=5pt},
-    theme/.style={base, font=\large\bfseries, inner sep=8pt, minimum height=1.1cm},
-    prob/.style={base, inner sep=6pt, text width=4.0cm, minimum height=1.8cm, font=\small},
-    chap/.style={base, inner sep=5pt, font=\small, minimum width=3.0cm},
-    conn/.style={->, thick, draw=black!35},
-    grp/.style={draw, dashed, rounded corners=6pt, inner sep=12pt, draw=black!25},
-    grplbl/.style={font=\footnotesize, text=black!60, align=center, fill=white, inner sep=2pt},
-    steplbl/.style={font=\footnotesize\bfseries, text=black!50},
+    % 科学问题
+    prob/.style={draw, rounded corners=4pt, minimum width=3.6cm, minimum height=1.6cm,
+        align=center, font=\small, inner sep=6pt, thick,
+        fill=#1!10, draw=#1!70!black},
+    % 研究工作
+    work/.style={draw, rounded corners=3pt, minimum width=3.2cm, minimum height=1.0cm,
+        align=center, font=\small, inner sep=5pt, thick,
+        fill=#1!12, draw=#1!70!black},
+    % 核心关注标签
+    tag/.style={rounded corners=2pt, font=\footnotesize\bfseries,
+        inner sep=3pt, fill=#1!20, draw=#1!50},
+    % 箭头
+    arr/.style={->, thick, draw=black!40},
+    prog/.style={->, very thick, draw=black!30, dashed},
+    % 分组虚线框
+    grp/.style={draw, dashed, rounded corners=6pt, inner sep=10pt, draw=black!20},
+    grplbl/.style={font=\small, text=black!55, fill=white, inner sep=2pt},
 ]
 
-% ===== 顶层：研究主题 =====
-\node[theme] (top) at (10, 9) {端到端语音到语音生成方法研究};
+% ===== 科学问题行 =====
+\node[prob=blue] (p1) at (0, 0) {\textbf{科学问题一}\\[3pt]预训练模型的\\组合与利用};
+\node[prob=blue] (p2) at (5.2, 0) {\textbf{科学问题二}\\[3pt]建模能力与\\解码效率的矛盾};
+\node[prob=orange] (p3) at (10.4, 0) {\textbf{科学问题三}\\[3pt]多模态序列的\\同步流式生成};
+\node[prob=red] (p4) at (15.6, 0) {\textbf{科学问题四}\\[3pt]双向语音流的\\统一序列建模};
 
-% ===== 第二层：四个科学问题（渐进排列） =====
-\node[prob] (p1) at (2, 6) {\textbf{科学问题一}\\[2pt]预训练模型的\\组合与利用};
-\node[prob] (p2) at (7, 6) {\textbf{科学问题二}\\[2pt]建模能力\\与解码效率的矛盾};
-\node[prob] (p3) at (12.5, 6) {\textbf{科学问题三}\\[2pt]多模态序列的\\同步流式生成};
-\node[prob] (p4) at (18, 6) {\textbf{科学问题四}\\[2pt]双向语音流的\\统一序列建模};
+% ===== 递进箭头 =====
+\draw[prog] (p1.east) -- (p2.west);
+\draw[prog] (p2.east) -- (p3.west);
+\draw[prog] (p3.east) -- (p4.west);
 
-% ===== 底层：研究工作（章节） =====
-\node[chap] (c3) at (2, 2.5) {ComSpeech\\[2pt]{\scriptsize（第三章）}};
-\node[chap] (c4) at (7, 2.5) {DASpeech\\[2pt]{\scriptsize（第四章）}};
-\node[chap] (c5) at (11, 2.5) {LLaMA-Omni\\[2pt]{\scriptsize（第五章）}};
-\node[chap] (c6) at (14.5, 2.5) {LLaMA-Omni 2\\[2pt]{\scriptsize（第六章）}};
-\node[chap] (c7) at (18, 2.5) {LLaMA-Omni-Duplex\\[2pt]{\scriptsize（第七章）}};
+% ===== 研究工作行 =====
+\node[work=blue] (w1) at (0, -3.5) {ComSpeech\\{\scriptsize（第三章）}};
+\node[work=blue] (w2) at (5.2, -3.5) {DASpeech\\{\scriptsize（第四章）}};
+\node[work=orange] (w3) at (8.8, -3.5) {LLaMA-Omni\\{\scriptsize（第五章）}};
+\node[work=orange] (w4) at (12.0, -3.5) {LLaMA-Omni 2\\{\scriptsize（第六章）}};
+\node[work=red] (w5) at (15.6, -3.5) {LLaMA-Omni-\\Duplex\\{\scriptsize（第七章）}};
 
-% ===== 渐进步骤标注 =====
-\node[steplbl] at (2, 4.3) {质量};
-\node[steplbl] at (7, 4.3) {速度};
-\node[steplbl] at (12.5, 4.3) {实时交互};
-\node[steplbl] at (18, 4.3) {全双工};
+% ===== 核心关注标签 =====
+\node[tag=blue] at (w1.south) [below=4pt] {质量};
+\node[tag=blue] at (w2.south) [below=4pt] {解码速度};
+\node[tag=orange] at (w3.south) [below=4pt] {低延迟};
+\node[tag=orange] at (w4.south) [below=4pt] {高质量};
+\node[tag=red] at (w5.south) [below=4pt] {全双工};
 
-% ===== 应用方向分组（虚线框） =====
+% ===== 科学问题到工作的连线 =====
+\draw[arr] (p1.south) -- (w1.north);
+\draw[arr] (p2.south) -- (w2.north);
+\draw[arr] (p3.south) -- (w3.north);
+\draw[arr] (p3.south) -- (w4.north);
+\draw[arr] (p4.south) -- (w5.north);
+
+% ===== 应用方向分组 =====
 \begin{scope}[on background layer]
-    \node[grp, fit=(c3)(c4)] (g1) {};
-    \node[grp, fit=(c5)(c6)] (g2) {};
-    \node[grp, fit=(c7)] (g3) {};
+    \node[grp, fit=(w1)(w2), inner ysep=14pt] (g1) {};
+    \node[grp, fit=(w3)(w4), inner ysep=14pt] (g2) {};
 \end{scope}
-\node[grplbl] at (g1.south) [below=2pt] {编码器-解码器架构：语音到语音翻译};
-\node[grplbl] at (g2.south) [below=2pt] {仅解码器架构：实时语音交互};
-\node[grplbl] at (g3.south) [below=2pt] {仅解码器架构：全双工语音交互};
-
-% ===== 连接线 =====
-% 章节 → 科学问题
-\draw[conn] (c3.north) -- (p1.south);
-\draw[conn] (c4.north) -- (p2.south);
-\draw[conn] (c5.north) -- (p3.south);
-\draw[conn] (c6.north) -- (p3.south);
-\draw[conn] (c7.north) -- (p4.south);
-% 科学问题 → 主题
-\draw[conn] (p1.north) -- (top.south);
-\draw[conn] (p2.north) -- (top.south);
-\draw[conn] (p3.north) -- (top.south);
-\draw[conn] (p4.north) -- (top.south);
-
-% ===== 渐进箭头（问题之间） =====
-\draw[conn, dashed, draw=black!25] (p1.east) -- (p2.west);
-\draw[conn, dashed, draw=black!25] (p2.east) -- (p3.west);
-\draw[conn, dashed, draw=black!25] (p3.east) -- (p4.west);
+\node[grplbl] at (g1.south) [below=1pt] {语音翻译};
+\node[grplbl] at (g2.south) [below=1pt] {语音对话};
 
 \end{tikzpicture}%
 }
