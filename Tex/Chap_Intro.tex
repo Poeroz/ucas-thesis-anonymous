@@ -70,9 +70,9 @@
 
 在编码器-解码器架构下，端到端语音到语音翻译面临科学问题一（\textit{预训练模型的组合与利用}）和科学问题二（\textit{建模能力与解码效率的矛盾}）两个结构性瓶颈：其一，端到端模型需要稀缺的平行语音翻译数据从头训练，无法复用已有的语音到文本翻译和语音合成预训练模型；其二，自回归解码的翻译质量高但速度慢，非自回归方法虽快但质量显著下降，建模能力与解码效率之间存在难以调和的矛盾。本文针对这两个问题分别提出了解决方案。
 
-针对科学问题一，本文第\ref{chap:comspeech}章提出ComSpeech，一种基于模块化组合的端到端语音到语音翻译模型（Modular End-to-End Speech-to-Speech Translation Model, ComSpeech）。ComSpeech提出基于连接时序分类（Connectionist Temporal Classification, CTC）的词表转换器，打通了S2TT模型与TTS模型之间的接口壁垒，使任意预训练的S2TT和TTS模型可以组合为完整的S2ST系统。ComSpeech还支持零样本模式，无需平行语音翻译数据即可构建S2ST系统。相关成果已发表于ACL 2024\citep{fang2024comspeech}。
+针对科学问题一，本文第\ref{chap:comspeech}章提出ComSpeech，一种基于模块化组合的端到端语音到语音翻译模型ComSpeech。ComSpeech提出基于连接时序分类（Connectionist Temporal Classification, CTC）的词表转换器，打通了S2TT模型与TTS模型之间的接口壁垒，使任意预训练的S2TT和TTS模型可以组合为完整的S2ST系统。ComSpeech还支持零样本模式，无需平行语音翻译数据即可构建S2ST系统。相关成果已发表于ACL 2024\citep{fang2024comspeech}。
 
-针对科学问题二，本文第\ref{chap:daspeech}章提出DASpeech，一种基于有向无环图的语音到语音翻译模型（Directed Acyclic Graph Based Speech-to-Speech Translation Model, DASpeech）。DASpeech采用两阶段非自回归解码框架，以有向无环图结构建模目标序列的多种可能路径，在翻译质量上达到甚至超过了自回归模型的水平，同时实现了高达18.53倍的解码加速。相关成果已发表于NeurIPS 2023\citep{fang2023daspeech}。
+针对科学问题二，本文第\ref{chap:daspeech}章提出DASpeech，一种基于有向无环图的语音到语音翻译模型DASpeech。DASpeech采用两阶段非自回归解码框架，以有向无环图结构建模目标序列的多种可能路径，在翻译质量上达到甚至超过了自回归模型的水平，同时实现了高达18.53倍的解码加速。相关成果已发表于NeurIPS 2023\citep{fang2023daspeech}。
 
 \subsection{仅解码器架构下低延迟高质量的实时语音交互}
 
