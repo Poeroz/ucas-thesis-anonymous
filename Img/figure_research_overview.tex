@@ -4,52 +4,55 @@
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
     >=Stealth,
-    % 顶部标题
-    title/.style={draw, rounded corners=5pt, minimum height=1.2cm,
-        align=center, font=\large\bfseries, inner sep=8pt, thick,
-        fill=violet!10, draw=violet!70!black},
-    % 科学问题
-    prob/.style={draw, rounded corners=4pt, minimum width=3.8cm, minimum height=1.3cm,
+    % 科学问题（统一尺寸）
+    prob/.style={draw, rounded corners=3pt, minimum width=4.0cm, minimum height=1.2cm,
         align=center, font=\small, inner sep=5pt, thick,
-        fill=blue!10, draw=blue!70!black},
-    % 研究工作
-    work/.style={draw, rounded corners=3pt, minimum width=8.2cm, minimum height=1.0cm,
+        fill=blue!8, draw=blue!60!black},
+    % 研究工作（统一尺寸）
+    work/.style={draw, rounded corners=3pt, minimum width=9.0cm, minimum height=1.0cm,
         align=center, font=\small, inner sep=5pt, thick,
-        fill=teal!10, draw=teal!70!black},
+        fill=teal!8, draw=teal!60!black},
     % 箭头
-    arr/.style={->, thick, draw=black!35},
-    prog/.style={->, very thick, draw=black!25, dashed},
-    % 箭头标签
-    arrlbl/.style={font=\footnotesize, fill=white, inner sep=1.5pt},
+    arr/.style={->, thick, draw=black!40},
+    prog/.style={->, thick, draw=black!30, dashed},
+    % 标签
+    lbl/.style={font=\footnotesize, fill=white, inner sep=1.5pt, text=black!60},
 ]
 
-% 列位置
-\def\probX{0}
-\def\workX{8.5}
+% === 列位置 ===
+\def\probX{2.8}
+\def\workX{10.8}
+% === 行位置（等间距 1.8cm） ===
+\def\rA{0}
+\def\rB{-1.8}
+\def\rC{-3.6}
+\def\rD{-5.4}
+\def\rE{-7.2}
 
-% ===== 顶部标题（横跨两列） =====
-\node[title] (top) at (4.2, 1.8) {端到端语音到语音生成\quad{\normalsize\normalfont 目标：高质量、低延迟}};
+% ===== 左侧竖版大标题 =====
+\node[rotate=90, font=\large\bfseries, text=violet!80!black] (titletext)
+    at (-1.2, -2.7) {端到端语音到语音生成};
+\node[rotate=90, font=\normalsize, text=black!50]
+    at (-0.2, -2.7) {目标：高质量、低延迟};
 
-% ===== 科学问题列（从上到下） =====
-\node[prob] (p1) at (\probX, 0) {\textbf{科学问题一}\\预训练模型的组合与利用};
-\node[prob] (p2) at (\probX, -2.4) {\textbf{科学问题二}\\建模能力与解码效率的矛盾};
-\node[prob] (p3) at (\probX, -5.4) {\textbf{科学问题三}\\多模态序列的同步流式生成};
-\node[prob] (p4) at (\probX, -8.4) {\textbf{科学问题四}\\双向语音流的统一序列建模};
+% ===== 科学问题列 =====
+\node[prob] (p1) at (\probX, \rA) {\textbf{科学问题一}\\预训练模型的组合与利用};
+\node[prob] (p2) at (\probX, \rB) {\textbf{科学问题二}\\建模能力与解码效率的矛盾};
+% P3 居中于 rC 和 rD 之间
+\node[prob] (p3) at (\probX, {0.5*\rC+0.5*\rD}) {\textbf{科学问题三}\\多模态序列的同步流式生成};
+\node[prob] (p4) at (\probX, \rE) {\textbf{科学问题四}\\双向语音流的统一序列建模};
 
-% ===== 标题到第一个问题 =====
-\draw[arr] (top.south) -- (p1.north);
-
-% ===== 科学问题递进箭头（带标签） =====
-\draw[prog] (p1.south) -- node[arrlbl, right=2pt] {解码加速} (p2.north);
-\draw[prog] (p2.south) -- node[arrlbl, right=2pt] {同步生成} node[arrlbl, left=2pt] {大模型} (p3.north);
-\draw[prog] (p3.south) -- node[arrlbl, right=2pt] {全双工} (p4.north);
+% ===== 科学问题递进箭头 =====
+\draw[prog] (p1.south) -- node[lbl, right=2pt] {解码加速} (p2.north);
+\draw[prog] (p2.south) -- node[lbl, left=2pt] {大模型} node[lbl, right=2pt] {同步生成} (p3.north);
+\draw[prog] (p3.south) -- node[lbl, right=2pt] {全双工} (p4.north);
 
 % ===== 研究工作列 =====
-\node[work] (w1) at (\workX, 0) {基于模块化组合的端到端语音到语音翻译模型（第三章）};
-\node[work] (w2) at (\workX, -2.4) {基于有向无环图的语音到语音翻译模型（第四章）};
-\node[work] (w3) at (\workX, -4.8) {基于非自回归流式解码的实时语音对话大模型（第五章）};
-\node[work] (w4) at (\workX, -6.0) {基于自回归流式解码的高质量语音对话大模型（第六章）};
-\node[work] (w5) at (\workX, -8.4) {基于多信道交织的全双工语音对话模型（第七章）};
+\node[work] (w1) at (\workX, \rA) {基于模块化组合的端到端语音到语音翻译模型（第三章）};
+\node[work] (w2) at (\workX, \rB) {基于有向无环图的语音到语音翻译模型（第四章）};
+\node[work] (w3) at (\workX, \rC) {基于非自回归流式解码的实时语音对话大模型（第五章）};
+\node[work] (w4) at (\workX, \rD) {基于自回归流式解码的高质量语音对话大模型（第六章）};
+\node[work] (w5) at (\workX, \rE) {基于多信道交织的全双工语音对话模型（第七章）};
 
 % ===== 科学问题到工作的连线 =====
 \draw[arr] (p1.east) -- (w1.west);
