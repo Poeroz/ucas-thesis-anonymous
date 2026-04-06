@@ -32,7 +32,7 @@
 
 \textbf{3. 基于非自回归流式解码的实时语音交互大模型}
 
-针对多模态序列的同步流式生成问题，进入以大语言模型为核心的仅解码器架构后，语音交互要求在大语言模型生成文本的同时同步产生语音输出，而非自回归解码器延迟低但生成质量不足。本文提出基于非自回归流式解码的实时语音交互大模型LLaMA-Omni。LLaMA-Omni设计了基于连接时序分类的非自回归流式语音解码器，在大语言模型生成文本的同时并行预测离散语音单元，实现文本与语音的同步流式生成。实验结果表明，LLaMA-Omni的响应延迟低至226毫秒，显著优于级联系统和同类基线模型。
+针对多模态序列的同步流式生成问题，进入以大语言模型为核心的仅解码器架构后，实现语音交互最直接的方式是串行地先由大语言模型生成文本再通过语音合成模块转换为语音，但这种方式延迟过高，难以满足实时交互的需求。本文提出基于非自回归流式解码的实时语音交互大模型LLaMA-Omni。LLaMA-Omni设计了基于连接时序分类的非自回归流式语音解码器，在大语言模型生成文本的同时并行预测离散语音单元，实现文本与语音的同步流式生成。实验结果表明，LLaMA-Omni的响应延迟低至226毫秒，显著优于级联系统和同类基线模型。
 
 \textbf{4. 基于自回归流式解码的高质量语音交互大模型}
 
@@ -62,7 +62,7 @@ To address the contradiction between modeling capacity and decoding efficiency, 
 
 \textbf{3. Real-Time Speech Interaction Model Based on Non-Autoregressive Streaming Decoding}
 
-To address the problem of synchronous streaming generation of multimodal sequences, moving to decoder-only architectures centered on large language models, speech interaction requires synchronous streaming generation of text and speech while the large language model generates text, yet non-autoregressive decoders offer low latency but limited generation quality. We propose LLaMA-Omni, a real-time speech interaction model based on non-autoregressive streaming decoding. LLaMA-Omni designs a CTC-based non-autoregressive streaming speech decoder that predicts discrete speech units in parallel while the large language model generates text, enabling synchronous streaming generation of text and speech. Experimental results show that LLaMA-Omni achieves response latency as low as 226 milliseconds, significantly outperforming cascaded systems and comparable baseline models.
+To address the problem of synchronous streaming generation of multimodal sequences, moving to decoder-only architectures centered on large language models, the most straightforward approach to speech interaction is to first generate text with the large language model and then convert it to speech via a synthesis module, but this sequential process leads to excessive latency that cannot meet real-time interaction requirements. We propose LLaMA-Omni, a real-time speech interaction model based on non-autoregressive streaming decoding. LLaMA-Omni designs a CTC-based non-autoregressive streaming speech decoder that predicts discrete speech units in parallel while the large language model generates text, enabling synchronous streaming generation of text and speech. Experimental results show that LLaMA-Omni achieves response latency as low as 226 milliseconds, significantly outperforming cascaded systems and comparable baseline models.
 
 \textbf{4. High-Quality Speech Interaction Model Based on Autoregressive Streaming Decoding}
 
