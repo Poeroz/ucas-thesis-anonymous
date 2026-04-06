@@ -154,7 +154,7 @@ S2TT和S2ST数据的批大小为320000源语音帧，TTS数据的批大小为512
     \item \textbf{Translatotron 2}\citep{translatotron2}：二阶段自回归S2ST模型，其S2TT部分与ComSpeech相同，在S2TT解码器之上使用2层Transformer编码器和6层解码器生成目标梅尔谱。
     \item \textbf{UnitY}\citep{inaguma-etal-2023-unity}：二阶段自回归S2ST模型，其S2TT部分与ComSpeech相同，在S2TT解码器之上使用2层Transformer编码器和2层解码器生成目标离散单元。
     \item \textbf{S2UT}\citep{s2ut}：一阶段自回归S2ST模型，直接从源语音生成目标离散单元。
-    \item \textbf{DASpeech}\citep{fang-etal-2023-daspeech}：非自回归二阶段S2ST模型，采用音素词表以兼容FastSpeech 2。
+    \item \textbf{DASpeech}\citep{fang2023daspeech}：非自回归二阶段S2ST模型，采用音素词表以兼容FastSpeech 2。
     \item \textbf{S2TT + G2P + TTS}：级联系统，由S2TT模型、字素到音素转换（Grapheme-to-Phoneme, G2P）模块和TTS模型组成。其中S2TT和TTS模型与ComSpeech-ZS的初始化模型相同。
 \end{itemize}
 
