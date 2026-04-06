@@ -9,26 +9,28 @@
         align=center, font=\large\bfseries, inner sep=8pt, thick,
         fill=violet!10, draw=violet!70!black},
     % 科学问题
-    prob/.style={draw, rounded corners=4pt, minimum width=3.6cm, minimum height=1.6cm,
+    prob/.style={draw, rounded corners=4pt, minimum width=3.4cm, minimum height=1.6cm,
         align=center, font=\small, inner sep=6pt, thick,
         fill=blue!10, draw=blue!70!black},
     % 研究工作
-    work/.style={draw, rounded corners=3pt, minimum width=3.6cm, minimum height=1.2cm,
-        align=center, font=\small, inner sep=5pt, thick,
+    work/.style={draw, rounded corners=3pt, minimum width=2.6cm, minimum height=1.8cm,
+        align=center, font=\small, inner sep=4pt, thick,
         fill=teal!10, draw=teal!70!black},
     % 箭头
     arr/.style={->, thick, draw=black!35},
     prog/.style={->, very thick, draw=black!25, dashed},
+    % 箭头标签
+    arrlbl/.style={font=\footnotesize, fill=white, inner sep=1.5pt},
 ]
 
 % ===== 顶部标题 =====
-\node[title] (top) at (7.8, 4) {端到端语音到语音生成\\[-1pt]{\normalsize\normalfont 目标：高质量\enspace$\cdot$\enspace 低延迟}};
+\node[title] (top) at (8, 4.5) {端到端语音到语音生成\\[-1pt]{\normalsize\normalfont 目标：高质量、低延迟}};
 
 % ===== 科学问题行 =====
 \node[prob] (p1) at (0, 0) {\textbf{科学问题一}\\[3pt]预训练模型的\\组合与利用};
-\node[prob] (p2) at (5.2, 0) {\textbf{科学问题二}\\[3pt]建模能力与\\解码效率的矛盾};
-\node[prob] (p3) at (10.4, 0) {\textbf{科学问题三}\\[3pt]多模态序列的\\同步流式生成};
-\node[prob] (p4) at (15.6, 0) {\textbf{科学问题四}\\[3pt]双向语音流的\\统一序列建模};
+\node[prob] (p2) at (4.8, 0) {\textbf{科学问题二}\\[3pt]建模能力与\\解码效率的矛盾};
+\node[prob] (p3) at (10.8, 0) {\textbf{科学问题三}\\[3pt]多模态序列的\\同步流式生成};
+\node[prob] (p4) at (16, 0) {\textbf{科学问题四}\\[3pt]双向语音流的\\统一序列建模};
 
 % ===== 标题到科学问题的连线 =====
 \draw[arr] (top.south) -- (p1.north);
@@ -36,17 +38,17 @@
 \draw[arr] (top.south) -- (p3.north);
 \draw[arr] (top.south) -- (p4.north);
 
-% ===== 递进箭头 =====
-\draw[prog] (p1.east) -- (p2.west);
-\draw[prog] (p2.east) -- (p3.west);
-\draw[prog] (p3.east) -- (p4.west);
+% ===== 递进箭头（带标签） =====
+\draw[prog] (p1.east) -- node[arrlbl, above] {解码加速} (p2.west);
+\draw[prog] (p2.east) -- node[arrlbl, above] {同步生成} node[arrlbl, below] {大模型} (p3.west);
+\draw[prog] (p3.east) -- node[arrlbl, above] {全双工} (p4.west);
 
 % ===== 研究工作行 =====
-\node[work] (w1) at (0, -3.8) {基于模块化组合的端到端\\语音到语音翻译模型\\{\scriptsize（第三章）}};
-\node[work] (w2) at (5.2, -3.8) {基于有向无环图的\\语音到语音翻译模型\\{\scriptsize（第四章）}};
-\node[work] (w3) at (8.8, -3.8) {基于非自回归流式解码的\\实时语音对话大模型\\{\scriptsize（第五章）}};
-\node[work] (w4) at (12.4, -3.8) {基于自回归流式解码的\\高质量语音对话大模型\\{\scriptsize（第六章）}};
-\node[work] (w5) at (15.6, -3.8) {基于多信道交织的\\全双工语音对话模型\\{\scriptsize（第七章）}};
+\node[work] (w1) at (0, -4.2) {基于模块化组合的\\端到端语音到\\语音翻译模型\\{\scriptsize（第三章）}};
+\node[work] (w2) at (4.8, -4.2) {基于有向无环图的\\语音到语音\\翻译模型\\{\scriptsize（第四章）}};
+\node[work] (w3) at (9.2, -4.2) {基于非自回归\\流式解码的实时\\语音对话大模型\\{\scriptsize（第五章）}};
+\node[work] (w4) at (12.6, -4.2) {基于自回归\\流式解码的高质量\\语音对话大模型\\{\scriptsize（第六章）}};
+\node[work] (w5) at (16, -4.2) {基于多信道交织的\\全双工语音\\对话模型\\{\scriptsize（第七章）}};
 
 % ===== 科学问题到工作的连线 =====
 \draw[arr] (p1.south) -- (w1.north);
