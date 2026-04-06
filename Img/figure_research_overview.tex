@@ -4,30 +4,37 @@
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
     >=Stealth,
+    % 顶部标题
+    title/.style={draw, rounded corners=5pt, minimum width=6cm, minimum height=1.4cm,
+        align=center, font=\large\bfseries, inner sep=8pt, thick,
+        fill=violet!10, draw=violet!70!black},
     % 科学问题
     prob/.style={draw, rounded corners=4pt, minimum width=3.6cm, minimum height=1.6cm,
         align=center, font=\small, inner sep=6pt, thick,
-        fill=#1!10, draw=#1!70!black},
+        fill=blue!10, draw=blue!70!black},
     % 研究工作
-    work/.style={draw, rounded corners=3pt, minimum width=3.2cm, minimum height=1.0cm,
+    work/.style={draw, rounded corners=3pt, minimum width=3.6cm, minimum height=1.2cm,
         align=center, font=\small, inner sep=5pt, thick,
-        fill=#1!12, draw=#1!70!black},
-    % 核心关注标签
-    tag/.style={rounded corners=2pt, font=\footnotesize\bfseries,
-        inner sep=3pt, fill=#1!20, draw=#1!50},
+        fill=teal!10, draw=teal!70!black},
     % 箭头
-    arr/.style={->, thick, draw=black!40},
-    prog/.style={->, very thick, draw=black!30, dashed},
-    % 分组虚线框
-    grp/.style={draw, dashed, rounded corners=6pt, inner sep=10pt, draw=black!20},
-    grplbl/.style={font=\small, text=black!55, fill=white, inner sep=2pt},
+    arr/.style={->, thick, draw=black!35},
+    prog/.style={->, very thick, draw=black!25, dashed},
 ]
 
+% ===== 顶部标题 =====
+\node[title] (top) at (7.8, 4) {端到端语音到语音生成\\[-1pt]{\normalsize\normalfont 目标：高质量\enspace$\cdot$\enspace 低延迟}};
+
 % ===== 科学问题行 =====
-\node[prob=blue] (p1) at (0, 0) {\textbf{科学问题一}\\[3pt]预训练模型的\\组合与利用};
-\node[prob=blue] (p2) at (5.2, 0) {\textbf{科学问题二}\\[3pt]建模能力与\\解码效率的矛盾};
-\node[prob=orange] (p3) at (10.4, 0) {\textbf{科学问题三}\\[3pt]多模态序列的\\同步流式生成};
-\node[prob=red] (p4) at (15.6, 0) {\textbf{科学问题四}\\[3pt]双向语音流的\\统一序列建模};
+\node[prob] (p1) at (0, 0) {\textbf{科学问题一}\\[3pt]预训练模型的\\组合与利用};
+\node[prob] (p2) at (5.2, 0) {\textbf{科学问题二}\\[3pt]建模能力与\\解码效率的矛盾};
+\node[prob] (p3) at (10.4, 0) {\textbf{科学问题三}\\[3pt]多模态序列的\\同步流式生成};
+\node[prob] (p4) at (15.6, 0) {\textbf{科学问题四}\\[3pt]双向语音流的\\统一序列建模};
+
+% ===== 标题到科学问题的连线 =====
+\draw[arr] (top.south) -- (p1.north);
+\draw[arr] (top.south) -- (p2.north);
+\draw[arr] (top.south) -- (p3.north);
+\draw[arr] (top.south) -- (p4.north);
 
 % ===== 递进箭头 =====
 \draw[prog] (p1.east) -- (p2.west);
@@ -35,18 +42,11 @@
 \draw[prog] (p3.east) -- (p4.west);
 
 % ===== 研究工作行 =====
-\node[work=blue] (w1) at (0, -3.5) {ComSpeech\\{\scriptsize（第三章）}};
-\node[work=blue] (w2) at (5.2, -3.5) {DASpeech\\{\scriptsize（第四章）}};
-\node[work=orange] (w3) at (8.8, -3.5) {LLaMA-Omni\\{\scriptsize（第五章）}};
-\node[work=orange] (w4) at (12.0, -3.5) {LLaMA-Omni 2\\{\scriptsize（第六章）}};
-\node[work=red] (w5) at (15.6, -3.5) {LLaMA-Omni-\\Duplex\\{\scriptsize（第七章）}};
-
-% ===== 核心关注标签 =====
-\node[tag=blue] at (w1.south) [below=4pt] {质量};
-\node[tag=blue] at (w2.south) [below=4pt] {解码速度};
-\node[tag=orange] at (w3.south) [below=4pt] {低延迟};
-\node[tag=orange] at (w4.south) [below=4pt] {高质量};
-\node[tag=red] at (w5.south) [below=4pt] {全双工};
+\node[work] (w1) at (0, -3.8) {基于模块化组合的端到端\\语音到语音翻译模型\\{\scriptsize（第三章）}};
+\node[work] (w2) at (5.2, -3.8) {基于有向无环图的\\语音到语音翻译模型\\{\scriptsize（第四章）}};
+\node[work] (w3) at (8.8, -3.8) {基于非自回归流式解码的\\实时语音对话大模型\\{\scriptsize（第五章）}};
+\node[work] (w4) at (12.4, -3.8) {基于自回归流式解码的\\高质量语音对话大模型\\{\scriptsize（第六章）}};
+\node[work] (w5) at (15.6, -3.8) {基于多信道交织的\\全双工语音对话模型\\{\scriptsize（第七章）}};
 
 % ===== 科学问题到工作的连线 =====
 \draw[arr] (p1.south) -- (w1.north);
@@ -54,14 +54,6 @@
 \draw[arr] (p3.south) -- (w3.north);
 \draw[arr] (p3.south) -- (w4.north);
 \draw[arr] (p4.south) -- (w5.north);
-
-% ===== 应用方向分组 =====
-\begin{scope}[on background layer]
-    \node[grp, fit=(w1)(w2), inner ysep=14pt] (g1) {};
-    \node[grp, fit=(w3)(w4), inner ysep=14pt] (g2) {};
-\end{scope}
-\node[grplbl] at (g1.south) [below=1pt] {语音翻译};
-\node[grplbl] at (g2.south) [below=1pt] {语音对话};
 
 \end{tikzpicture}%
 }
