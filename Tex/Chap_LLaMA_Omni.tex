@@ -47,7 +47,7 @@
 
 \noindent 大语言模型基于语音指令自回归地生成文本响应$Y^T = [y^T_1, \ldots, y^T_M]$，训练时采用交叉熵损失：
 \begin{equation}
-    \mathcal{L}_{\text{LLM}} = -\sum_{i=1}^{M} \log P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i})
+    \mathcal{L}_{\text{LLM}} = -\sum_{i=1}^{M} \log P(y^T_i \mid \mathcal{P}(\mathbf{S}), Y^T_{<i}).
     \label{eq:llm_loss}
 \end{equation}
 
@@ -57,11 +57,11 @@
 
 本章使用连接时序分类（CTC）\citep{ctc}将$\mathbf{O}$与离散单元序列$Y^U$进行对齐。在扩展词表$\{0, 1, \ldots, K-1\} \cup \{\epsilon\}$（$\epsilon$为空白标记）上建模对齐概率。对于序列$\mathbf{O}$中的每个元素，计算其在扩展词表上的概率分布：
 \begin{equation}
-    P(a_i \mid \mathbf{O}) = \text{softmax}(\mathbf{W}\mathbf{o}_i + \mathbf{b})[a_i], \quad \forall a_i \in \{0, 1, \ldots, K-1, \epsilon\}
+    P(a_i \mid \mathbf{O}) = \text{softmax}(\mathbf{W}\mathbf{o}_i + \mathbf{b})[a_i], \quad \forall a_i \in \{0, 1, \ldots, K-1, \epsilon\},
 \end{equation}
 其中$\mathbf{W} \in \mathbb{R}^{(K+1) \times d}$和$\mathbf{b} \in \mathbb{R}^{K+1}$分别为线性层的权重和偏置，$A = [a_1, \ldots, a_{\lambda \cdot M}]$表示一条对齐路径。CTC引入折叠函数$\beta(A)$，依次合并对齐中的连续重复标记并移除空白标记。CTC的训练目标为边际化所有可能的对齐路径：
 \begin{equation}
-    \mathcal{L}_{\text{CTC}} = -\log P(Y^U \mid \mathbf{O}) = -\log \sum_{A \in \beta^{-1}(Y^U)} \prod_{i=1}^{\lambda \cdot M} P(a_i \mid \mathbf{O})
+    \mathcal{L}_{\text{CTC}} = -\log P(Y^U \mid \mathbf{O}) = -\log \sum_{A \in \beta^{-1}(Y^U)} \prod_{i=1}^{\lambda \cdot M} P(a_i \mid \mathbf{O}),
     \label{eq:ctc_loss}
 \end{equation}
 其中$\beta^{-1}(Y^U)$表示所有长度为$\lambda \cdot M$且经折叠后等于$Y^U$的对齐路径集合。由于对齐以非自回归方式建模，推理时选择最优对齐$A^* = \arg\max_A P(A \mid \mathbf{O})$，并应用折叠函数得到离散单元序列$\beta(A^*)$，再送入声码器合成语音波形。
