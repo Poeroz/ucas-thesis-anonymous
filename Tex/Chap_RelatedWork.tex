@@ -99,7 +99,7 @@
     box/.default=blue,
 ]
     \node[box=violet, minimum width=3.0cm] (root) at (5.5, 0) {语音到语音生成};
-    \node[box=blue, minimum width=3.2cm] (encdec) at (2.5, -1.5) {语音到语音翻译\\[-2pt]{\scriptsize 编码器-解码器（\S\ref{sec:rw_encdec_all}）}};
+    \node[box=blue, minimum width=3.2cm] (encdec) at (2.5, -1.5) {语音翻译\\[-2pt]{\scriptsize 编码器-解码器（\S\ref{sec:rw_encdec_all}）}};
     \node[box=orange, minimum width=3.2cm] (deconly) at (8.5, -1.5) {语音对话\\[-2pt]{\scriptsize 大语言模型（\S\ref{sec:rw_deconly_all}）}};
     \node[box=blue, inner xsep=6pt] (s2tt) at (0.0, -3.8) {语音到文本\\[-2pt]{\scriptsize（\S\ref{sec:rw_encdec_s2tt} 语音到文本翻译）}};
     \node[box=blue, inner xsep=6pt] (s2st) at (3.7, -3.8) {语音到语音\\[-2pt]{\scriptsize（\S\ref{sec:rw_encdec_s2st} 语音到语音翻译）}};
@@ -155,9 +155,9 @@
 %===========================================================================
 % 2.3 基于编码器-解码器的语音到语音生成
 %===========================================================================
-\section{基于编码器-解码器的语音到语音翻译}\label{sec:rw_encdec_all}
+\section{基于编码器-解码器的语音翻译}\label{sec:rw_encdec_all}
 
-编码器-解码器架构是端到端语音到语音翻译研究的核心架构。本节首先介绍编码器-解码器架构的基础知识，随后分别介绍基于该架构的语音到文本翻译和语音到语音翻译的相关研究。
+编码器-解码器架构是端到端语音翻译研究的核心架构。本节首先介绍编码器-解码器架构的基础知识，随后分别介绍基于该架构的语音到文本翻译和语音到语音翻译的相关研究。
 
 \subsection{编码器-解码器架构基础}\label{sec:rw_encdec}
 
