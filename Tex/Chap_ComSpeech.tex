@@ -15,7 +15,7 @@
 
 \section{方法介绍}
 
-本节介绍ComSpeech的模型架构和训练方法。ComSpeech由三个模块组成：语音到文本翻译模型$\mathcal{F}$、词表适配器（Vocabulary Adaptor）$\mathcal{A}$和语音合成模型$\mathcal{G}$。其中，$\mathcal{F}$可以是任意的S2TT模型，$\mathcal{G}$可以是任意的TTS模型，$\mathcal{A}$是本章提出的核心组件，用于将S2TT模型的子词表示转换为TTS模型的音素表示，从而连接两个采用不同词表的模型。$\mathcal{F}$采用子词词表$\mathbb{W}$，$\mathcal{G}$采用音素词表$\mathbb{V}$。目标文本$Y$在两种词表下的分词结果分别表示为$Y^{\mathbb{W}} = (y^{\mathbb{W}}_1, ..., y^{\mathbb{W}}_N)$和$Y^{\mathbb{V}} = (y^{\mathbb{V}}_1, ..., y^{\mathbb{V}}_M)$。
+本节介绍ComSpeech的模型架构和训练方法。ComSpeech由三个模块组成：语音到文本翻译模型$\mathcal{F}$、词表适配器（Vocabulary Adaptor）$\mathcal{A}$和语音合成模型$\mathcal{G}$。其中，$\mathcal{F}$可以是任意的S2TT模型，$\mathcal{G}$可以是任意的TTS模型，$\mathcal{A}$是本章提出的核心组件，用于将S2TT模型的子词表示转换为TTS模型的音素表示，从而连接两个采用不同词表的模型。$\mathcal{F}$采用子词词表$\mathbb{W}$，$\mathcal{G}$采用音素词表$\mathbb{V}$。目标文本$Y$在两种词表下的分词结果分别表示为$Y^{\mathbb{W}} = (y^{\mathbb{W}}_1, \ldots, y^{\mathbb{W}}_N)$和$Y^{\mathbb{V}} = (y^{\mathbb{V}}_1, \ldots, y^{\mathbb{V}}_M)$。
 
 \subsection{模型架构}\label{sec:comspeech_arch}
 
@@ -23,12 +23,12 @@
 
 \input{Img/figure_comspeech}
 
-\textbf{语音到文本翻译模型}\quad 本章采用基于Conformer\citep{conformer}编码器和Transformer\citep{transformer}解码器的自回归S2TT模型作为$\mathcal{F}$。编码器以源语音的梅尔滤波器组特征作为输入，解码器采用子词词表$\mathbb{W}$自回归地生成目标文本。解码器的输出隐状态表示为$\mathbf{H}^{\mathbb{W}}=(\mathbf{h}^{\mathbb{W}}_1, ..., \mathbf{h}^{\mathbb{W}}_N)$，其中$\mathbf{h}^{\mathbb{W}}_i = \mathcal{F}(S, Y^{\mathbb{W}}_{<i})$。S2TT模型的训练目标为最小化交叉熵损失：
+\textbf{语音到文本翻译模型}\quad 本章采用基于Conformer\citep{conformer}编码器和Transformer\citep{transformer}解码器的自回归S2TT模型作为$\mathcal{F}$。编码器以源语音的梅尔滤波器组特征作为输入，解码器采用子词词表$\mathbb{W}$自回归地生成目标文本。解码器的输出隐状态表示为$\mathbf{H}^{\mathbb{W}}=(\mathbf{h}^{\mathbb{W}}_1, \ldots, \mathbf{h}^{\mathbb{W}}_N)$，其中$\mathbf{h}^{\mathbb{W}}_i = \mathcal{F}(S, Y^{\mathbb{W}}_{<i})$。S2TT模型的训练目标为最小化交叉熵损失：
 \begin{equation}
     \mathcal{L}_{\text{S2TT}} = -\sum_{i=1}^{N}\log P(y^{\mathbb{W}}_i | \mathcal{F}(S, Y^{\mathbb{W}}_{<i})).
 \end{equation}
 
-\textbf{语音合成模型}\quad 本章采用FastSpeech 2\citep{ren2021fastspeech2}作为TTS模型$\mathcal{G}$，其结构与上一章中DASpeech的声学解码器类似，由编码器、方差适配器和梅尔谱解码器组成。FastSpeech 2采用音素词表$\mathbb{V}$。在独立的TTS模型中，编码器以目标文本的音素嵌入$\textsc{Emb}(Y^{\mathbb{V}})$作为输入。在ComSpeech框架中，TTS编码器不再接收音素嵌入，而是接收词表适配器的输出表示$\mathbf{H}^{\mathbb{V}}$。FastSpeech 2的训练目标为：
+\textbf{语音合成模型}\quad 本章采用FastSpeech 2\citep{ren2021fastspeech2}作为TTS模型$\mathcal{G}$，其结构与上一章中DASpeech的声学解码器类似，由编码器、方差适配器和梅尔谱解码器组成。FastSpeech 2采用音素词表$\mathbb{V}$。在独立的TTS模型中，编码器以目标文本的音素嵌入$\text{\textsc{Emb}}(Y^{\mathbb{V}})$作为输入。在ComSpeech框架中，TTS编码器不再接收音素嵌入，而是接收词表适配器的输出表示$\mathbf{H}^{\mathbb{V}}$。FastSpeech 2的训练目标为：
 \begin{equation}
     \mathcal{L}_{\text{TTS}} = \mathcal{L}_{\text{L1}} + \mathcal{L}_{\text{dur}} + \mathcal{L}_{\text{pitch}} + \mathcal{L}_{\text{energy}},
 \end{equation}
@@ -36,19 +36,19 @@
 
 \textbf{CTC词表适配器}\quad 当S2TT模型与TTS模型组合时，S2TT解码器的输出隐状态$\mathbf{H}^{\mathbb{W}}$对应子词序列$Y^{\mathbb{W}}$，而TTS编码器期望接收的是对应音素序列$Y^{\mathbb{V}}$的表示。由于子词序列和音素序列在长度和粒度上都不同，两者无法直接对接。因此，本章引入基于CTC的词表适配器$\mathcal{A}$来实现变长序列的跨词表转换。词表适配器的转换过程包含以下四个步骤：
 
-（1）上采样：将S2TT解码器输出$\mathbf{H}^{\mathbb{W}}$中的每个隐状态重复$\lambda$次，得到长度为$\lambda\cdot N$的上采样序列$\widehat{\mathbf{H}}^{\mathbb{W}}=(\widehat{\mathbf{h}}^{\mathbb{W}}_1, ..., \widehat{\mathbf{h}}^{\mathbb{W}}_{\lambda\cdot N})$，其中$\widehat{\mathbf{h}}^{\mathbb{W}}_i = \mathbf{h}^{\mathbb{W}}_{\lfloor i/\lambda\rfloor}$。
+（1）上采样：将S2TT解码器输出$\mathbf{H}^{\mathbb{W}}$中的每个隐状态重复$\lambda$次，得到长度为$\lambda\cdot N$的上采样序列$\widehat{\mathbf{H}}^{\mathbb{W}}=(\widehat{\mathbf{h}}^{\mathbb{W}}_1, \ldots, \widehat{\mathbf{h}}^{\mathbb{W}}_{\lambda\cdot N})$，其中$\widehat{\mathbf{h}}^{\mathbb{W}}_i = \mathbf{h}^{\mathbb{W}}_{\lfloor i/\lambda\rfloor}$。
 
 （2）Transformer编码：对上采样序列加入正弦位置编码后，使用$L$层Transformer编码器$\mathcal{E}$进行编码，得到输出隐状态序列$\mathbf{O} = (\mathbf{o}_1, \ldots, \mathbf{o}_{\lambda \cdot N})$：
 \begin{equation}
-    \mathbf{O} = \mathcal{E} (\widehat{\mathbf{H}}^{\mathbb{W}} + \textsc{Pos} (\widehat{\mathbf{H}}^{\mathbb{W}})),
+    \mathbf{O} = \mathcal{E} (\widehat{\mathbf{H}}^{\mathbb{W}} + \text{\textsc{Pos}} (\widehat{\mathbf{H}}^{\mathbb{W}})),
 \end{equation}
-其中$\textsc{Pos}(\cdot)$表示正弦位置编码。
+其中$\text{\textsc{Pos}}(\cdot)$表示正弦位置编码。
 
 （3）CTC对齐：在扩展词表$\mathbb{V}\cup\{\epsilon\}$（$\epsilon$为空白标记）上建模对齐概率。对于序列$\mathbf{O}$中的每个元素，计算其在扩展词表上的概率分布：
 \begin{equation}
     P(a_i | \mathbf{O}) = \text{softmax} (\mathbf{W}\mathbf{o}_i + \mathbf{b})[a_i]\quad \forall a_i\in \mathbb{V}\cup\{\epsilon\},
 \end{equation}
-其中$\mathbf{W}\in\mathbb{R}^{(|\mathbb{V}| + 1)\times d}$和$\mathbf{b}\in\mathbb{R}^{|\mathbb{V}| + 1}$分别为线性层的权重和偏置，$A=(a_1, ..., a_{\lambda\cdot N})$表示一条对齐路径。CTC引入折叠函数$\beta(A)$，依次合并对齐中的连续重复标记并移除空白标记。CTC的训练目标为边际化所有可能的对齐路径：
+其中$\mathbf{W}\in\mathbb{R}^{(|\mathbb{V}| + 1)\times d}$和$\mathbf{b}\in\mathbb{R}^{|\mathbb{V}| + 1}$分别为线性层的权重和偏置，$A=(a_1, \ldots, a_{\lambda\cdot N})$表示一条对齐路径。CTC引入折叠函数$\beta(A)$，依次合并对齐中的连续重复标记并移除空白标记。CTC的训练目标为边际化所有可能的对齐路径：
 \begin{equation}
 \begin{aligned}
     \mathcal{L}_{\text{CTC}} &= -\log P(Y^{\mathbb{V}} | \mathbf{O}) \\
@@ -57,14 +57,14 @@
 \end{equation}
 其中$\beta^{-1}(Y^{\mathbb{V}})$表示所有长度为$\lambda\cdot N$且经折叠后等于$Y^{\mathbb{V}}$的对齐路径集合。
 
-（4）压缩：通过CTC学习到的对齐将长度为$\lambda\cdot N$的序列$\mathbf{O}$压缩为长度为$M$的序列$\mathbf{H}^{\mathbb{V}}$。在训练阶段，使用Viterbi算法\citep{viterbi}找到最优强制对齐$A^* = \mathop{\arg\max}_{A} P(A|\mathbf{O}, Y^{\mathbb{V}})$，将对齐中每个非空白标记的连续重复划分为一个片段。每个目标音素$y^{\mathbb{V}}_i$对应一个片段$[a^*_{l_i}, ..., a^*_{r_i}]$，片段内的表示按CTC预测置信度进行加权平均：
+（4）压缩：通过CTC学习到的对齐将长度为$\lambda\cdot N$的序列$\mathbf{O}$压缩为长度为$M$的序列$\mathbf{H}^{\mathbb{V}}$。在训练阶段，使用Viterbi算法\citep{viterbi}找到最优强制对齐$A^* = \mathop{\arg\max}_{A} P(A|\mathbf{O}, Y^{\mathbb{V}})$，将对齐中每个非空白标记的连续重复划分为一个片段。每个目标音素$y^{\mathbb{V}}_i$对应一个片段$[a^*_{l_i}, \ldots, a^*_{r_i}]$，片段内的表示按CTC预测置信度进行加权平均：
 \begin{equation}
     \mathbf{h}^{\mathbb{V}}_i = \sum_{j=l_i}^{r_i} p_j\cdot \mathbf{o}_j,
 \end{equation}
 \begin{equation}
     p_j = \frac{\exp(P(a^*_j | \mathbf{O}))}{\sum_{k=l_i}^{r_i} \exp(P(a^*_{k} | \mathbf{O}))}.
 \end{equation}
-空白标记对应的表示被丢弃。最终得到的表示序列$\mathbf{H}^{\mathbb{V}} = (\mathbf{h}^{\mathbb{V}}_1, ..., \mathbf{h}^{\mathbb{V}}_M)$被输入TTS编码器进行后续的语音合成。在推理阶段，使用Argmax解码$a^*_i = \mathop{\arg\max}_{a_i} P(a_i | \mathbf{O})$替代Viterbi强制对齐，压缩方式与训练时相同。
+空白标记对应的表示被丢弃。最终得到的表示序列$\mathbf{H}^{\mathbb{V}} = (\mathbf{h}^{\mathbb{V}}_1, \ldots, \mathbf{h}^{\mathbb{V}}_M)$被输入TTS编码器进行后续的语音合成。在推理阶段，使用Argmax解码$a^*_i = \mathop{\arg\max}_{a_i} P(a_i | \mathbf{O})$替代Viterbi强制对齐，压缩方式与训练时相同。
 
 
 \subsection{有监督训练}\label{sec:comspeech_supervised}
@@ -84,11 +84,11 @@
 
 \subsubsection{表示对齐}
 
-如图\ref{fig:comspeech_training}所示，在TTS模型的训练过程中，TTS编码器$\mathcal{G}_{\text{enc}}$以目标文本的音素嵌入$\textsc{Emb}(Y^{\mathbb{V}})$作为输入；而在语音到语音翻译的推理过程中，TTS编码器接收的是词表适配器的输出表示$\mathbf{H}^{\mathbb{V}}$。如果能使这两种不同输入在经过TTS编码器后产生一致的输出表示，那么TTS模型在语音合成数据上训练得到的合成能力就可以直接应用于语音到语音翻译的推理。因此，零样本训练的关键在于在TTS编码器的输出空间中对齐这两种表示。
+如图\ref{fig:comspeech_training}所示，在TTS模型的训练过程中，TTS编码器$\mathcal{G}_{\text{enc}}$以目标文本的音素嵌入$\text{\textsc{Emb}}(Y^{\mathbb{V}})$作为输入；而在语音到语音翻译的推理过程中，TTS编码器接收的是词表适配器的输出表示$\mathbf{H}^{\mathbb{V}}$。如果能使这两种不同输入在经过TTS编码器后产生一致的输出表示，那么TTS模型在语音合成数据上训练得到的合成能力就可以直接应用于语音到语音翻译的推理。因此，零样本训练的关键在于在TTS编码器的输出空间中对齐这两种表示。
 
-形式化地，$\mathbf{C}^H = (\mathbf{c}^H_1, ..., \mathbf{c}^H_M)$和$\mathbf{C}^E = (\mathbf{c}^E_1, ..., \mathbf{c}^E_M)$分别表示TTS编码器以词表适配器输出和音素嵌入为输入时的输出表示：
+形式化地，$\mathbf{C}^H = (\mathbf{c}^H_1, \ldots, \mathbf{c}^H_M)$和$\mathbf{C}^E = (\mathbf{c}^E_1, \ldots, \mathbf{c}^E_M)$分别表示TTS编码器以词表适配器输出和音素嵌入为输入时的输出表示：
 \begin{equation}
-    \mathbf{C}^H = \mathcal{G}_{\text{enc}} (\mathbf{H}^{\mathbb{V}}), \quad \mathbf{C}^E = \mathcal{G}_{\text{enc}} (\textsc{Emb}(Y^{\mathbb{V}})).
+    \mathbf{C}^H = \mathcal{G}_{\text{enc}} (\mathbf{H}^{\mathbb{V}}), \quad \mathbf{C}^E = \mathcal{G}_{\text{enc}} (\text{\textsc{Emb}}(Y^{\mathbb{V}})).
 \end{equation}
 本章使用均方误差（Mean Squared Error, MSE）损失和对比学习损失来对齐这两组表示。MSE损失直接最小化对应位置表示之间的距离：
 \begin{equation}

@@ -1,4 +1,4 @@
-\chapter{基于多信道交织的全双工语音大模型}\label{chap:full-duplex}
+\chapter{基于多信道交织的全双工语音对话模型}\label{chap:full-duplex}
 
 \section{引言}
 
@@ -41,7 +41,7 @@
 
 一段全双工对话被表示为$K$个发话段的有序集合：
 \begin{equation}
-    \mathcal{D} = \{(s_k, e_k, r_k, \mathbf{w}_k)\}_{k=1}^{K}
+    \mathcal{D} = \{(s_k, e_k, r_k, \mathbf{w}_k)\}_{k=1}^{K},
 \end{equation}
 其中$s_k$和$e_k$分别为第$k$个发话段的起始和结束时间，$r_k \in \{\text{user}, \text{assistant}\}$为说话人角色，$\mathbf{w}_k = (w_k^1, w_k^2, \ldots, w_k^{L_k})$为该段的文本词元序列，$L_k$为其长度。各发话段按时间排列，但相邻发话段之间允许时间重叠以支持打断等全双工场景。
 
@@ -49,11 +49,11 @@
 
 构建训练序列的第一步是将对话的各个发话段合成为时间对齐的双声道音频。如上节所述，本章将对话按固定时间窗口划分为连续的块。设每块包含$N$个语音词元，则每块对应的时间窗口为$\Delta t = N / f_s$。设所有发话段的最晚结束时间为$e_{\max} = \max_k e_k$，将对话总时长对齐到$\Delta t$的整数倍：
 \begin{equation}
-    T = \left\lceil \frac{e_{\max}}{\Delta t} \right\rceil \cdot \Delta t
+    T = \left\lceil \frac{e_{\max}}{\Delta t} \right\rceil \cdot \Delta t.
 \end{equation}
 随后构造两条长度均为$T$的单声道音频：用户声道在每个$r_k = \text{user}$的发话段$[s_k, e_k)$内填入对应语音，其余时段填充静音；助手声道同理处理$r_k = \text{assistant}$的发话段。两条音频分别经语音分词器进行词元化，得到等长的语音词元序列：
 \begin{equation}
-    \mathbf{X} = (x_1, x_2, \ldots, x_{T_s}), \quad \mathbf{Y} = (y_1, y_2, \ldots, y_{T_s})
+    \mathbf{X} = (x_1, x_2, \ldots, x_{T_s}), \quad \mathbf{Y} = (y_1, y_2, \ldots, y_{T_s}),
 \end{equation}
 其中$T_s = T \cdot f_s$为语音词元总数。静音段的语音词元由分词器对静音音频编码得到，而非人为填充特定词元，以保证语音词元序列在时间轴上的连续性和编码的一致性。
 
@@ -61,7 +61,7 @@
 
 训练序列按块组织，每个块包含三个信道的词元，比例为$N:M:N$，其中$N$为语音词元数，$M$为文本词元数。总块数为$B = T_s / N$。第$b$个块的结构如下：
 \begin{equation}
-    \text{Block } b: \quad \underbrace{x_{bN+1}, \ldots, x_{(b+1)N}}_{\text{用户语音信道}} \;\; \underbrace{z_{bM+1}, \ldots, z_{(b+1)M}}_{\text{文本信道}} \;\; \underbrace{y_{bN+1}, \ldots, y_{(b+1)N}}_{\text{助手语音信道}}
+    \text{Block } b: \quad \underbrace{x_{bN+1}, \ldots, x_{(b+1)N}}_{\text{用户语音信道}} \;\; \underbrace{z_{bM+1}, \ldots, z_{(b+1)M}}_{\text{文本信道}} \;\; \underbrace{y_{bN+1}, \ldots, y_{(b+1)N}}_{\text{助手语音信道}},
 \end{equation}
 其中$b = 0, 1, \ldots, B-1$。三个信道的含义分别为：用户语音信道$\mathbf{X}$包含用户声道的语音词元，每块$N$个，作为模型的输入条件，训练时不计算损失；文本信道$\mathbf{Z}$包含对话状态标记和助手回复的文本内容，每块$M$个词元，是模型进行轮替决策和内容规划的核心信道；助手语音信道$\mathbf{Y}$包含助手声道的语音词元，每块$N$个，模型需学习在适当时机生成语音回复，同时在不需要说话时保持静默。
 
@@ -83,7 +83,7 @@
 \begin{align}
     j_k^{\text{ast}} &= \left\lfloor (s_k - \Delta t) \cdot f_s \right\rfloor \cdot \frac{M}{N} - 1 \\
     j_k^{\text{content}} &= j_k^{\text{ast}} + 1 \\
-    j_k^{\text{epad}} &= \left\lceil (e_k - \Delta t) \cdot f_s \right\rceil \cdot \frac{M}{N}
+    j_k^{\text{epad}} &= \left\lceil (e_k - \Delta t) \cdot f_s \right\rceil \cdot \frac{M}{N},
 \end{align}
 其中$j_k^{\text{ast}}$为\texttt{[ASSISTANT]}的放置位置，$j_k^{\text{content}}$为文本内容的起始位置，$j_k^{\text{epad}}$为\texttt{[EPAD]}的放置位置。
 
@@ -156,11 +156,11 @@
 
 \textbf{训练损失}\quad 设正例序列为$\mathbf{s}^+$，负例序列为$\mathbf{s}^-$，当前策略模型为$\pi_\theta$，参考模型为监督微调阶段得到的检查点$\pi_{\text{ref}}$。DPO损失定义为：
 \begin{equation}
-    \mathcal{L}_{\text{DPO}} = -\log \sigma \left( \beta \left[ \log \frac{\pi_\theta(\mathbf{s}^+)}{\pi_{\text{ref}}(\mathbf{s}^+)} - \log \frac{\pi_\theta(\mathbf{s}^-)}{\pi_{\text{ref}}(\mathbf{s}^-)} \right] \right)
+    \mathcal{L}_{\text{DPO}} = -\log \sigma \left( \beta \left[ \log \frac{\pi_\theta(\mathbf{s}^+)}{\pi_{\text{ref}}(\mathbf{s}^+)} - \log \frac{\pi_\theta(\mathbf{s}^-)}{\pi_{\text{ref}}(\mathbf{s}^-)} \right] \right),
 \end{equation}
 其中$\beta$为KL散度正则化系数，控制策略模型偏离参考模型的惩罚强度，$\sigma$为Sigmoid函数。为防止模型在DPO训练过程中遗忘监督微调阶段习得的生成能力，加入辅助损失：
 \begin{equation}
-    \mathcal{L} = \mathcal{L}_{\text{DPO}} + \lambda_{\text{ftx}} \cdot \mathcal{L}_{\text{SFT}}(\mathbf{s}^+)
+    \mathcal{L} = \mathcal{L}_{\text{DPO}} + \lambda_{\text{ftx}} \cdot \mathcal{L}_{\text{SFT}}(\mathbf{s}^+),
 \end{equation}
 其中$\lambda_{\text{ftx}}$控制辅助损失的强度，$\mathcal{L}_{\text{SFT}}(\mathbf{s}^+)$在正例上计算标准的加权交叉熵损失。
 

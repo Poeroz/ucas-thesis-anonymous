@@ -141,15 +141,15 @@
 
 \subsection{用于生成的语音表征}\label{sec:rw_repr_gen}
 
-语音生成模型需要一种目标表征来定义生成的输出。根据表征形式的不同，用于生成的语音表征可分为连续表征（梅尔频谱和VAE潜在特征）和离散表征（单码本和多码本离散token）两大类。
+语音生成模型需要一种目标表征来定义生成的输出。根据表征形式的不同，用于生成的语音表征可分为连续表征（梅尔频谱和VAE潜在特征）和离散表征（单码本和多码本离散词元）两大类。
 
-\textbf{连续频谱特征}\quad 梅尔频谱（Mel Spectrogram）是语音生成中最基础的表征形式。它将原始波形通过短时傅里叶变换转为频谱，再经梅尔滤波器组映射到梅尔标度上，得到一个时间-频率的二维矩阵。梅尔频谱保留了语音信号的频谱包络信息，能够反映音素、音高和音色等声学特性，同时梅尔标度与人耳的感知特性近似匹配，使得基于梅尔频谱的生成结果具有较好的感知质量。梅尔频谱是早期端到端语音合成模型（如Tacotron\citep{wang2017tacotron}、Tacotron 2\citep{shen2018tacotron2}和FastSpeech\citep{ren2019fastspeech}）和语音到语音翻译模型（如Translatotron\citep{translatotron}）的默认生成目标。由于梅尔频谱本身不包含相位信息，无法直接还原为语音波形，因此需要通过声码器进行波形重建。Griffin-Lim\citep{griffin1984signal}算法是最早采用的相位估计方法，但生成质量有限。随后，基于神经网络的声码器逐渐成为主流，WaveNet\citep{oord2016wavenet}以自回归方式逐采样点生成波形，生成质量极高但推理速度慢。HiFi-GAN\citep{kong2020hifi}采用生成对抗网络架构，通过多周期判别器和多尺度判别器实现了高保真度和快速推理的平衡，成为目前最广泛使用的声码器之一。
+\textbf{连续频谱特征}\quad 梅尔频谱（Mel Spectrogram）是语音生成中最基础的表征形式。它将原始波形通过短时傅里叶变换转为频谱，再经梅尔滤波器组映射到梅尔标度上，得到一个时间-频率的二维矩阵。梅尔频谱保留了语音信号的频谱包络信息，能够反映音素、音高和音色等声学特性，同时梅尔标度与人耳的感知特性近似匹配，使得基于梅尔频谱的生成结果具有较好的感知质量。梅尔频谱是早期端到端语音合成模型（如Tacotron\citep{wang2017tacotron}、Tacotron 2\citep{shen2018tacotron2}和FastSpeech\citep{ren2019fastspeech}）和语音到语音翻译模型（如Translatotron\citep{translatotron}）的默认生成目标。由于梅尔频谱本身不包含相位信息，无法直接还原为语音波形，因此需要通过声码器进行波形重建。Griffin-Lim\citep{griffin1984signal}算法是最早采用的相位估计方法，但生成质量有限。随后，基于神经网络的声码器逐渐成为主流，WaveNet\citep{oord2016wavenet}以自回归方式逐采样点生成波形，生成质量极高但推理速度慢。HiFi-GAN\citep{hifigan}采用生成对抗网络架构，通过多周期判别器和多尺度判别器实现了高保真度和快速推理的平衡，成为目前最广泛使用的声码器之一。
 
 \textbf{连续VAE潜在特征}\quad 近年来，基于变分自编码器（Variational Autoencoder, VAE）的连续潜在表征逐渐成为语音和音频生成的新范式。VAE编码器将波形或频谱压缩到低维潜在空间中，解码器则将潜在表示还原为波形。相比梅尔频谱，VAE潜在特征维度更低、更紧凑，降低了下游生成模型的建模负担，且其连续且平滑的潜在空间天然适合与扩散模型结合进行高质量生成。AudioLDM\citep{liu2023audioldm}借鉴图像生成中潜在扩散模型（Latent Diffusion Model）的思想，在梅尔频谱的VAE潜在空间上运行扩散模型，以文本提示引导音频生成，在文本到音频生成任务上取得了优异的效果。NaturalSpeech 2\citep{shen2024naturalspeech2}将扩散模型应用于神经编解码器的连续潜在向量，通过时长和音高预测器实现了零样本语音合成。NaturalSpeech 3\citep{ju2024naturalspeech3}进一步提出分解式扩散方法，将语音分解为内容、韵律、音色和声学细节等子空间，分别建模以提升合成的可控性和质量。Stable Audio\citep{evans2024stableaudio}采用全卷积VAE与扩散Transformer的组合，以时间和文本条件引导长时音频的生成，支持高达44.1kHz采样率的高保真音频生成。Ming-UniAudio\citep{liang2025mingtok}将VAE连续潜在表征作为语音大语言模型的统一表示，使单一模型能够同时完成语音理解、生成和编辑任务。
 
-\textbf{离散单码本token}\quad 单码本表示将每帧语音映射为一个离散token，一段语音在给定帧率下产生一维的token序列。单码本离散token主要有两种获取方式。第一种是自监督模型加聚类的方式：利用HuBERT等自监督模型提取中间层特征，再经K-Means聚类产生语义离散单元，该方法以50 Hz帧率广泛应用于语音到语音翻译中的离散单元预测。第二种是基于单码本神经编解码器的方式：CosyVoice\citep{du2024cosyvoice}的S3 Tokenizer在预训练语音识别模型的编码器中插入向量量化层，通过语音识别损失进行监督训练，产生语义丰富的单码本token。CosyVoice 2\citep{du2024cosyvoice2}进一步采用有限标量量化（Finite Scalar Quantization, FSQ）替代向量量化，实现了接近100\%的码本利用率。GLM-4-Voice\citep{glm4voice}在Whisper编码器中插入向量量化瓶颈，以12.5 Hz的超低帧率实现了语义token的高效提取。WavTokenizer\citep{ji2024wavtokenizer}和BigCodec\citep{xin2024bigcodec}则从编解码器架构出发设计单码本方案，分别在重建质量和极低比特率上取得了优异的表现。Single-Codec\citep{li2024singlecodec}通过解耦说话人嵌入和语音内容实现了单码本下的高质量语音重建。RepCodec\citep{huang2023repcodec}则从语音表征压缩的角度出发，通过对预训练语音模型的表征进行向量量化，构建了面向语音分词的表征编解码器。
+\textbf{离散单码本词元}\quad 单码本表示将每帧语音映射为一个离散词元，一段语音在给定帧率下产生一维的词元序列。单码本离散词元主要有两种获取方式。第一种是自监督模型加聚类的方式：利用HuBERT等自监督模型提取中间层特征，再经K-Means聚类产生语义离散单元，该方法以50 Hz帧率广泛应用于语音到语音翻译中的离散单元预测。第二种是基于单码本神经编解码器的方式：CosyVoice\citep{du2024cosyvoice}的S3 Tokenizer在预训练语音识别模型的编码器中插入向量量化层，通过语音识别损失进行监督训练，产生语义丰富的单码本词元。CosyVoice 2\citep{du2024cosyvoice2}进一步采用有限标量量化（Finite Scalar Quantization, FSQ）替代向量量化，实现了接近100\%的码本利用率。GLM-4-Voice\citep{glm4voice}在Whisper编码器中插入向量量化瓶颈，以12.5 Hz的超低帧率实现了语义词元的高效提取。WavTokenizer\citep{ji2024wavtokenizer}和BigCodec\citep{xin2024bigcodec}则从编解码器架构出发设计单码本方案，分别在重建质量和极低比特率上取得了优异的表现。Single-Codec\citep{li2024singlecodec}通过解耦说话人嵌入和语音内容实现了单码本下的高质量语音重建。RepCodec\citep{huang2023repcodec}则从语音表征压缩的角度出发，通过对预训练语音模型的表征进行向量量化，构建了面向语音分词的表征编解码器。
 
-\textbf{离散多码本token}\quad 多码本表示通过残差向量量化（Residual Vector Quantization, RVQ）将每帧语音映射为多个离散token，通常第一层编码语义信息，后续层逐步编码声学细节。SoundStream\citep{zeghidour2021soundstream}提出了基于RVQ和对抗训练的神经音频编解码器框架。EnCodec\citep{defossez2022encodec}在此基础上实现了多码率的高保真音频压缩，被VALL-E\citep{wang-etal-2023-valle}和AudioLM\citep{borsos2023audiolm}等语音语言模型广泛采用。DAC\citep{kumar2023dac}通过改进的RVQGAN架构实现了44.1kHz音频的约90倍压缩。SpeechTokenizer\citep{zhang2024speechtokenizer}通过HuBERT蒸馏将RVQ第一层解耦为语义层，后续层编码声学信息，实现了语义和声学信息的显式分离。SNAC\citep{siuzdak2024snac}提出了多尺度RVQ架构，以12/24/48 Hz三个层级的不同帧率编码语音信息。Mimi\citep{kyutai2024moshi}同样实现了语义与声学的解耦，以12.5 Hz的低帧率支持实时对话建模。X-Codec\citep{ye2024xcodec}则通过语义增强策略提升了编解码器对语义信息的保留能力。SemantiCodec\citep{liu2024semanticodec}将语义信息编码与声学信息编码分离，在极低比特率（约0.31 kbps）下实现了通用音频的高质量编解码。XY-Tokenizer\citep{xiao2025xytokenizer}针对低比特率编解码器中语义信息和声学信息之间的冲突问题，提出了语义-声学解耦的双码本架构，在低比特率条件下同时保持了语义完整性和声学质量。
+\textbf{离散多码本词元}\quad 多码本表示通过残差向量量化（Residual Vector Quantization, RVQ）将每帧语音映射为多个离散词元，通常第一层编码语义信息，后续层逐步编码声学细节。SoundStream\citep{zeghidour2021soundstream}提出了基于RVQ和对抗训练的神经音频编解码器框架。EnCodec\citep{defossez2022encodec}在此基础上实现了多码率的高保真音频压缩，被VALL-E\citep{wang-etal-2023-valle}和AudioLM\citep{borsos2023audiolm}等语音语言模型广泛采用。DAC\citep{kumar2023dac}通过改进的RVQGAN架构实现了44.1kHz音频的约90倍压缩。SpeechTokenizer\citep{zhang2024speechtokenizer}通过HuBERT蒸馏将RVQ第一层解耦为语义层，后续层编码声学信息，实现了语义和声学信息的显式分离。SNAC\citep{siuzdak2024snac}提出了多尺度RVQ架构，以12/24/48 Hz三个层级的不同帧率编码语音信息。Mimi\citep{kyutai2024moshi}同样实现了语义与声学的解耦，以12.5 Hz的低帧率支持实时对话建模。X-Codec\citep{ye2024xcodec}则通过语义增强策略提升了编解码器对语义信息的保留能力。SemantiCodec\citep{liu2024semanticodec}将语义信息编码与声学信息编码分离，在极低比特率（约0.31 kbps）下实现了通用音频的高质量编解码。XY-Tokenizer\citep{xiao2025xytokenizer}针对低比特率编解码器中语义信息和声学信息之间的冲突问题，提出了语义-声学解耦的双码本架构，在低比特率条件下同时保持了语义完整性和声学质量。
 
 
 %===========================================================================
@@ -426,7 +426,7 @@ Translatotron 2\citep{translatotron2}是首个采用两阶段架构的端到端S
 
 \subsubsection{非自回归S2ST}\label{sec:rw_s2st_nar}
 
-上述一阶段和两阶段S2ST方法均采用自回归解码，对于长语音序列而言解码速度较慢，难以满足实时交互的需求。非自回归（Non-Autoregressive, NAR）方法通过打破逐步解码的依赖，实现并行生成以大幅提升推理速度。文本领域的非自回归翻译研究为NAR S2ST提供了重要的技术基础，代表性方法包括NAT\citep{gu2018nat}、CMLM\citep{cmlm}、GLAT\citep{qian-etal-2021-glancing}、DA-Transformer\citep{huang2022DATransformer}和CTC\citep{graves2006connectionist}等。
+上述一阶段和两阶段S2ST方法均采用自回归解码，对于长语音序列而言解码速度较慢，难以满足实时交互的需求。非自回归（Non-Autoregressive, NAR）方法通过打破逐步解码的依赖，实现并行生成以大幅提升推理速度。文本领域的非自回归翻译研究为NAR S2ST提供了重要的技术基础，代表性方法包括NAT\citep{gu2018nat}、CMLM\citep{cmlm}、GLAT\citep{qian-etal-2021-glancing}、DA-Transformer\citep{huang2022DATransformer}和CTC\citep{ctc}等。
 
 在NAR S2ST方面，TranSpeech\citep{huang2023transpeech}是该方向的开创性工作，采用CMLM进行并行解码。TranSpeech首先通过双边扰动（Bilateral Perturbation）对语音进行风格归一化和信息增强，降低离散单元的声学多峰性，使相同语义内容对应更确定的离散表示，然后利用CMLM在多轮迭代中逐步生成完整序列，在保持翻译质量的同时实现了21.4倍的解码加速。DiffS2UT\citep{diffs2ut}将扩散模型引入S2ST任务，在离散单元的连续嵌入空间上执行扩散过程，通过迭代去噪实现非自回归生成。\citet{wu-2023-duplex}提出了双工扩散模型用于S2ST，采用双向扩散过程分别建模源到目标和目标到源的翻译，进一步提升了扩散方法在该任务上的表现。DiffNorm\citep{tan2024diffnorm}从简化训练目标的角度出发，通过扩散归一化将离散单元的不规则分布转换为近似高斯分布，使非自回归模型更容易拟合目标分布，降低了训练难度。NAST-S2x\citep{ma2024nasts2x}则将非自回归方法与同声传译相结合，基于CTC实现了端到端的非自回归同时语音到语音翻译，在翻译延迟和翻译质量上取得了良好的平衡。
 
@@ -473,11 +473,11 @@ Translatotron 2\citep{translatotron2}是首个采用两阶段架构的端到端S
 \label{fig:rw_decoderonly}
 \end{figure}
 
-GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言模型的开创性工作。GPT以标准语言建模为训练目标，即自回归地预测下一个token，在大规模无标注文本上进行预训练，然后通过在下游任务上微调来适配具体应用。GPT提出的"预训练-微调"范式证明了单向语言模型可以学习到丰富的语言表示，为后续大语言模型的发展奠定了基础。GPT-2\citep{radford2019language}将模型规模扩展到15亿参数，并在WebText等大规模语料上训练，展示了大规模语言模型在不进行任何微调的情况下完成多种任务的零样本能力。GPT-3\citep{brown2020gpt3}进一步将参数量扩大至1750亿，首次系统性地验证了上下文学习（In-Context Learning）能力——仅通过在提示中提供少量示例，模型即可完成翻译、问答和推理等多种任务，无需更新模型参数。这些工作共同确立了仅解码器架构在语言生成领域的主导地位。
+GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言模型的开创性工作。GPT以标准语言建模为训练目标，即自回归地预测下一个词元，在大规模无标注文本上进行预训练，然后通过在下游任务上微调来适配具体应用。GPT提出的"预训练-微调"范式证明了单向语言模型可以学习到丰富的语言表示，为后续大语言模型的发展奠定了基础。GPT-2\citep{radford2019language}将模型规模扩展到15亿参数，并在WebText等大规模语料上训练，展示了大规模语言模型在不进行任何微调的情况下完成多种任务的零样本能力。GPT-3\citep{brown2020gpt3}进一步将参数量扩大至1750亿，首次系统性地验证了上下文学习（In-Context Learning）能力——仅通过在提示中提供少量示例，模型即可完成翻译、问答和推理等多种任务，无需更新模型参数。这些工作共同确立了仅解码器架构在语言生成领域的主导地位。
 
 后续的大语言模型延续了仅解码器架构和自回归语言建模的技术路线，并在此基础上不断扩大模型规模和训练数据。LLaMA\citep{touvron2023llama}系列是推动开源大语言模型发展的重要力量，LLaMA初始版本覆盖7B至65B参数规模，LLaMA 2\citep{touvron2023llama2}进一步扩展至70B并引入基于人类反馈的强化学习（RLHF），LLaMA 3\citep{dubey2024llama3}则达到8B/70B/405B参数，训练数据规模超过15万亿token。Qwen2\citep{yang2024qwen2}和Qwen2.5\citep{yang2025qwen25}是阿里通义千问系列的代表，在中英双语和多语言任务上表现突出。
 
-仅解码器架构的训练目标为标准语言建模，即最小化下一个token的负对数似然：
+仅解码器架构的训练目标为标准语言建模，即最小化下一个词元的负对数似然：
 \begin{equation}
 \mathcal{L}(\theta)=-\sum_{i=1}^{M}\log P_\theta(y_i|Y_{<i}),
 \end{equation}
@@ -518,7 +518,7 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
 
 \textbf{Q-Former适配器}\quad Q-Former是一种基于可学习查询和交叉注意力的适配器结构，最初由BLIP-2\citep{li2023blip2}提出并应用于视觉-语言对齐。其核心思想是使用一组固定数量的可学习查询向量，通过交叉注意力从编码器输出中提取信息，从而将变长的编码器输出压缩为固定长度的表示。SALMONN\citep{tang2024salmonn}采用双编码器架构（Whisper和BEATs），使用窗口级Q-Former将两个编码器的输出融合后连接至Vicuna-13B大语言模型，实现了听觉感知和理解的统一。\citet{yu2024connecting}系统地对比了全连接层、交叉注意力和Q-Former三种连接方式，发现Q-Former在固定长度压缩上表现优异但对变长输入适应性不足，进而提出了段级Q-Former，将语音编码器输出分段后分别进行Q-Former压缩再拼接，以更好地适配语音的可变长度特性。
 
-\textbf{CTC适配器}\quad CTC适配器利用CTC的对齐信息对语音编码器的输出进行压缩和下采样，将变长的语音特征序列转换为与文本长度更接近的紧凑表示后送入大语言模型。与MLP和Q-Former相比，CTC适配器能够利用语音内容信息自适应地确定压缩位置，更有效地去除语音中的冗余帧（如静音和重复帧），使得压缩后的表示序列长度接近文本token长度。Speech-LLaMA\citep{wu2023decoder}采用CTC压缩将变长语音编码器输出压缩为定长序列，在低资源条件下的语音识别任务上表现优异。\citet{hono-etal-2024-integrating}系统对比了卷积下采样、CTC移除（丢弃CTC空白帧）和CTC平均（将相邻同标签帧取平均）三种桥接方式，发现CTC平均在语音识别任务上表现最优，因为它在有效压缩序列的同时保留了更多的声学信息。
+\textbf{CTC适配器}\quad CTC适配器利用CTC的对齐信息对语音编码器的输出进行压缩和下采样，将变长的语音特征序列转换为与文本长度更接近的紧凑表示后送入大语言模型。与MLP和Q-Former相比，CTC适配器能够利用语音内容信息自适应地确定压缩位置，更有效地去除语音中的冗余帧（如静音和重复帧），使得压缩后的表示序列长度接近文本词元长度。Speech-LLaMA\citep{wu2023decoder}采用CTC压缩将变长语音编码器输出压缩为定长序列，在低资源条件下的语音识别任务上表现优异。\citet{hono-etal-2024-integrating}系统对比了卷积下采样、CTC移除（丢弃CTC空白帧）和CTC平均（将相邻同标签帧取平均）三种桥接方式，发现CTC平均在语音识别任务上表现最优，因为它在有效压缩序列的同时保留了更多的声学信息。
 
 除上述适配器外，部分工作采用了混合策略。WavLLM\citep{hu2024wavllm}结合双编码器（Whisper和WavLM）与卷积-瓶颈-线性复合适配器，并引入提示感知的LoRA实现了对不同语音任务的自适应处理。
 
@@ -543,7 +543,7 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
     \def\ya{0}
     \node[blk=violet, minimum width=5.0cm, minimum height=1.2cm] (native) at (4.4, \ya) {
         语音-语言模型\\
-        {\scriptsize 统一词表：文本 token + 语音 token}
+        {\scriptsize 统一词表：文本词元 + 语音词元}
     };
     \node[font=\small] at (\xleft, \ya) {语音};
     \node[font=\small] at (\xright, \ya) {语音};
@@ -579,15 +579,15 @@ GPT\citep{gpt1}是基于仅解码器Transformer架构的生成式预训练语言
 
 \subsubsection{原生式语音大模型}\label{sec:rw_s2s_native}
 
-原生式语音大模型在大语言模型内部统一建模文本和语音token，使模型具备直接生成语音的能力。
+原生式语音大模型在大语言模型内部统一建模文本和语音词元，使模型具备直接生成语音的能力。
 
-最早将文本大语言模型扩展到语音模态的工作采用离散token同时表示语音的输入和输出。TWIST\citep{twist}利用文本大语言模型（如LLaMA）的参数初始化语音语言模型，将文本词表替换为语音离散token词表后继续在语音数据上训练，验证了文本预训练知识向语音模态迁移的可行性，发现文本预训练能够显著提升语音语言模型的语义理解能力。SpeechGPT\citep{zhang-etal-2023-speechgpt}将HuBERT离散语音token扩展到LLaMA的词表中，通过跨模态指令微调使模型具备了语音输入和语音输出的对话能力，是跨模态语音对话大语言模型的开创性工作。SpeechGPT采用三阶段训练策略：先进行模态适配预训练，再进行跨模态指令微调，最后通过思维链微调提升推理能力。AudioPaLM\citep{rubenstein2023audiopalm}将PaLM-2大语言模型与AudioLM的语音生成能力相融合，保留PaLM-2的语言知识同时赋予其处理音频的能力，支持语音识别、语音翻译和语音到语音翻译等多种任务。
+最早将文本大语言模型扩展到语音模态的工作采用离散词元同时表示语音的输入和输出。TWIST\citep{twist}利用文本大语言模型（如LLaMA）的参数初始化语音语言模型，将文本词表替换为语音离散词元词表后继续在语音数据上训练，验证了文本预训练知识向语音模态迁移的可行性，发现文本预训练能够显著提升语音语言模型的语义理解能力。SpeechGPT\citep{zhang-etal-2023-speechgpt}将HuBERT离散语音词元扩展到LLaMA的词表中，通过跨模态指令微调使模型具备了语音输入和语音输出的对话能力，是跨模态语音对话大语言模型的开创性工作。SpeechGPT采用三阶段训练策略：先进行模态适配预训练，再进行跨模态指令微调，最后通过思维链微调提升推理能力。AudioPaLM\citep{rubenstein2023audiopalm}将PaLM-2大语言模型与AudioLM的语音生成能力相融合，保留PaLM-2的语言知识同时赋予其处理音频的能力，支持语音识别、语音翻译和语音到语音翻译等多种任务。
 
-离散语音token与文本token之间存在粒度差异：相同语义内容的语音token序列通常远长于对应的文本token序列。为解决这一问题，研究者探索了多种语音-文本对齐方案。SpiRit-LM\citep{nguyen2024spirit}通过在训练数据中交错（Interleave）排列语音token和文本token，使模型学习两种模态之间的对齐关系。GLM-4-Voice\citep{glm4voice}同样采用语音-文本交错的训练策略，并通过监督微调增强模型的对话能力。SpeechGPT-Gen\citep{zhang2024speechgptgen}引入链式信息生成策略，通过分组对齐降低语音和文本之间的粒度差异。IntrinsicVoice\citep{zhang2024intrinsicvoice}设计了GroupFormer模块对语音token进行分组压缩，同样实现了语音-文本粒度的匹配。
+离散语音词元与文本词元之间存在粒度差异：相同语义内容的语音词元序列通常远长于对应的文本词元序列。为解决这一问题，研究者探索了多种语音-文本对齐方案。SpiRit-LM\citep{nguyen2024spirit}通过在训练数据中交错（Interleave）排列语音词元和文本词元，使模型学习两种模态之间的对齐关系。GLM-4-Voice\citep{glm4voice}同样采用语音-文本交错的训练策略，并通过监督微调增强模型的对话能力。SpeechGPT-Gen\citep{zhang2024speechgptgen}引入链式信息生成策略，通过分组对齐降低语音和文本之间的粒度差异。IntrinsicVoice\citep{zhang2024intrinsicvoice}设计了GroupFormer模块对语音词元进行分组压缩，同样实现了语音-文本粒度的匹配。
 
-上述离散输入方案在将语音转换为离散token的过程中不可避免地损失部分信息。为此，一些工作采用连续语音特征作为输入以保留更完整的声学信息，同时使用离散token作为输出以利用自回归语言模型的生成能力。Mini-Omni\citep{xie2024mini}是较早的开源实时语音对话模型，采用Whisper编码器提取连续语音特征作为输入，通过并行的文本头和语音头使大语言模型能够同时生成文本token和语音token，实现了端到端的语音到语音对话。Kimi-Audio\citep{moonshot2025kimiaudio}构建了通用的音频基础模型，采用大规模音频-文本交错预训练策略，以连续语音特征为输入、离散音频token为输出，同时支持语音理解、音频理解、语音对话和音频生成等多种任务。
+上述离散输入方案在将语音转换为离散词元的过程中不可避免地损失部分信息。为此，一些工作采用连续语音特征作为输入以保留更完整的声学信息，同时使用离散词元作为输出以利用自回归语言模型的生成能力。Mini-Omni\citep{xie2024mini}是较早的开源实时语音对话模型，采用Whisper编码器提取连续语音特征作为输入，通过并行的文本头和语音头使大语言模型能够同时生成文本词元和语音词元，实现了端到端的语音到语音对话。Kimi-Audio\citep{moonshot2025kimiaudio}构建了通用的音频基础模型，采用大规模音频-文本交错预训练策略，以连续语音特征为输入、离散音频词元为输出，同时支持语音理解、音频理解、语音对话和音频生成等多种任务。
 
-传统的语音对话遵循轮替（Turn-Taking）模式，即一方说完另一方再回复，这种模式无法处理打断、插话和同时说话等自然对话中的常见现象。全双工（Full-Duplex）对话使模型能够在说话的同时监听用户输入，实现更自然的交互体验。dGSLM\citep{nguyen2022dgslm}是全双工方向的开创性工作，提出了双通道对话语言模型，使用两个独立的Transformer分别建模对话双方的语音流，并通过交叉注意力实现通道间的交互。虽非仅解码器架构，但dGSLM首次验证了建模双向语音流的可行性，奠定了全双工语音对话的研究方向。Moshi\citep{kyutai2024moshi}是实时全双工语音对话大语言模型的代表性工作，其核心是一个自回归的Helium语言模型，通过Inner Monologue机制同时生成文本token和Mimi编解码器的多层级语音token，利用深度RQ-Transformer架构并行预测多个RVQ层级，在仅200毫秒理论延迟的条件下实现了流畅的全双工对话。工业界也在积极推进语音到语音生成技术，GPT-4o\citep{gpt4o}是OpenAI发布的原生多模态大模型，能够直接以语音为输入和输出进行交互，在语音响应的自然度和情感表现力上达到了接近人类对话的水平。Gemini Live\citep{google2024gemini}是Google推出的实时语音对话系统，支持自然的多轮语音对话和打断功能。
+传统的语音对话遵循轮替（Turn-Taking）模式，即一方说完另一方再回复，这种模式无法处理打断、插话和同时说话等自然对话中的常见现象。全双工（Full-Duplex）对话使模型能够在说话的同时监听用户输入，实现更自然的交互体验。dGSLM\citep{nguyen2022dgslm}是全双工方向的开创性工作，提出了双通道对话语言模型，使用两个独立的Transformer分别建模对话双方的语音流，并通过交叉注意力实现通道间的交互。虽非仅解码器架构，但dGSLM首次验证了建模双向语音流的可行性，奠定了全双工语音对话的研究方向。Moshi\citep{kyutai2024moshi}是实时全双工语音对话大语言模型的代表性工作，其核心是一个自回归的Helium语言模型，通过Inner Monologue机制同时生成文本词元和Mimi编解码器的多层级语音词元，利用深度RQ-Transformer架构并行预测多个RVQ层级，在仅200毫秒理论延迟的条件下实现了流畅的全双工对话。工业界也在积极推进语音到语音生成技术，GPT-4o\citep{gpt4o}是OpenAI发布的原生多模态大模型，能够直接以语音为输入和输出进行交互，在语音响应的自然度和情感表现力上达到了接近人类对话的水平。Gemini Live\citep{google2024gemini}是Google推出的实时语音对话系统，支持自然的多轮语音对话和打断功能。
 
 \subsubsection{组合式语音大模型}\label{sec:rw_s2s_composite}
 
