@@ -41,7 +41,9 @@
   title={{FunAudioLLM}: Voice Understanding and Generation Foundation Models for Natural Interaction Between Humans and {LLMs}},
   author={An, Keyu and Chen, Qian and Deng, Chong and Du, Zhihao and Gao, Changfeng and Gao, Zhifu and Gu, Yue and He, Ting and Hu, Hangrui and Hu, Kai and others},
   journal={arXiv preprint arXiv:2407.04051},
-  year={2024}
+  year={2024},
+  doi = {10.48550/arXiv.2407.04051},
+  url = {https://doi.org/10.48550/arXiv.2407.04051}
 }
 
 @article{baevski2020wav2vec,
@@ -156,6 +158,8 @@ Goldwater, Sharon},
     url = "https://aclanthology.org/2024.emnlp-main.595",
     pages = "10652--10670",
     abstract = "Current instruction-tuned language models are exclusively trained with textual preference data and thus may not be aligned to the unique requirements of other modalities, such as speech. To better align language models with the speech domain, we explore i) prompting strategies based on radio-industry best practices and ii) preference learning using a novel speech-based preference data of 20K samples collected by annotators who listen to response pairs. Both human and automatic evaluation show that both prompting and preference learning increase the speech-suitability of popular instruction tuned LLMs. More interestingly, we show that these methods are additive; combining them achieves the best win rates in head-to-head comparison, resulting in responses that are preferred or tied to the base model in 76.2{\%} of comparisons on average. Lastly, we share lexical, syntactical, and qualitative analyses that elicit how our studied methods differ with baselines in generating more speech-suitable responses.",
+  doi = {10.18653/v1/2024.emnlp-main.595},
+  url = {https://doi.org/10.18653/v1/2024.emnlp-main.595}
 }
 
 @inproceedings{cmlm,
@@ -177,6 +181,8 @@ Goldwater, Sharon},
     doi = "10.18653/v1/D19-1633",
     pages = "6112--6121",
     abstract = "Most machine translation systems generate text autoregressively from left to right. We, instead, use a masked language modeling objective to train a model to predict any subset of the target words, conditioned on both the input text and a partially masked target translation. This approach allows for efficient iterative decoding, where we first predict all of the target words non-autoregressively, and then repeatedly mask out and regenerate the subset of words that the model is least confident about. By applying this strategy for a constant number of iterations, our model improves state-of-the-art performance levels for non-autoregressive and parallel decoding translation models by over 4 BLEU on average. It is also able to reach within about 1 BLEU point of a typical left-to-right transformer model, while decoding significantly faster.",
+  doi = {10.18653/v1/d19-1633},
+  url = {https://doi.org/10.18653/v1/d19-1633}
 }
 
 @misc{communication2023seamlessm4t,
@@ -261,14 +267,18 @@ series = {ICML '06}
   title={Listen, Understand and Translate: Triple Supervision Decouples End-to-end Speech-to-text Translation},
   author={Qianqian Dong and Rong Ye and Mingxuan Wang and Hao Zhou and Shuang Xu and Bo Xu and Lei Li},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
-  year={2021}
+  year={2021},
+  doi = {10.1609/aaai.v35i14.17509},
+  url = {https://doi.org/10.1609/aaai.v35i14.17509}
 }
 
 @article{du2024cosyvoice,
   title={{CosyVoice}: A Scalable Multilingual Zero-shot Text-to-speech Synthesizer based on Supervised Semantic Tokens},
   author={Du, Zhihao and Chen, Qian and Zhang, Shiliang and Hu, Kai and Lu, Heng and Yang, Yexin and Hu, Hangrui and Zheng, Siqi and Gu, Yue and Ma, Ziyang and others},
   journal={arXiv preprint arXiv:2407.05407},
-  year={2024}
+  year={2024},
+  doi = {10.48550/arXiv.2407.05407},
+  url = {https://doi.org/10.48550/arXiv.2407.05407}
 }
 
 @article{dubey2024llama3,
@@ -317,6 +327,8 @@ location = {Calgary, AB, Canada}
 	author = {Fang, Qingkai and Feng, Yang},
 	booktitle = {Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
 	year = {2023},
+  doi = {10.18653/v1/2023.acl-long.884},
+  url = {https://doi.org/10.18653/v1/2023.acl-long.884}
 }
 
 @inproceedings{fang-etal-2022-STEMM,
@@ -342,7 +354,9 @@ location = {Calgary, AB, Canada}
     url = "https://aclanthology.org/2023.acl-long.251/",
     doi = "10.18653/v1/2023.acl-long.251",
     pages = "4567--4587",
-    abstract = "The success of end-to-end speech-to-text translation (ST) is often achieved by utilizing source transcripts, e.g., by pre-training with automatic speech recognition (ASR) and machine translation (MT) tasks, or by introducing additional ASR and MT data. Unfortunately, transcripts are only sometimes available since numerous unwritten languages exist worldwide. In this paper, we aim to utilize large amounts of target-side monolingual data to enhance ST without transcripts. Motivated by the remarkable success of back translation in MT, we develop a back translation algorithm for ST (BT4ST) to synthesize pseudo ST data from monolingual target data. To ease the challenges posed by short-to-long generation and one-to-many mapping, we introduce self-supervised discrete units and achieve back translation by cascading a target-to-unit model and a unit-to-speech model. With our synthetic ST data, we achieve an average boost of 2.3 BLEU on MuST-C En-De, En-Fr, and En-Es datasets. More experiments show that our method is especially effective in low-resource scenarios."
+    abstract = "The success of end-to-end speech-to-text translation (ST) is often achieved by utilizing source transcripts, e.g., by pre-training with automatic speech recognition (ASR) and machine translation (MT) tasks, or by introducing additional ASR and MT data. Unfortunately, transcripts are only sometimes available since numerous unwritten languages exist worldwide. In this paper, we aim to utilize large amounts of target-side monolingual data to enhance ST without transcripts. Motivated by the remarkable success of back translation in MT, we develop a back translation algorithm for ST (BT4ST) to synthesize pseudo ST data from monolingual target data. To ease the challenges posed by short-to-long generation and one-to-many mapping, we introduce self-supervised discrete units and achieve back translation by cascading a target-to-unit model and a unit-to-speech model. With our synthetic ST data, we achieve an average boost of 2.3 BLEU on MuST-C En-De, En-Fr, and En-Es datasets. More experiments show that our method is especially effective in low-resource scenarios.",
+  doi = {10.18653/v1/2023.acl-long.251},
+  url = {https://doi.org/10.18653/v1/2023.acl-long.251}
 }
 
 @inproceedings{
@@ -351,14 +365,14 @@ title={{LL}a{MA}-Omni: Seamless Speech Interaction with Large Language Models},
 author={Qingkai Fang and Shoutao Guo and Yan Zhou and Zhengrui Ma and Shaolei Zhang and Yang Feng},
 booktitle={Proceedings of the International Conference on Learning Representations (ICLR)},
 year={2025},
-url={https://openreview.net/forum?id=PYmrUQmMEw}
+url={https://openreview.net/forum?id=PYmrUQmMEw},
 }
 
 @inproceedings{fang2025llamaomni2,
   title={{LLaMA}-Omni 2: {LLM}-based Real-time Spoken Chatbot with Autoregressive Streaming Speech Synthesis},
   author={Fang, Qingkai and Zhou, Yan and Guo, Shoutao and Zhang, Shaolei and Feng, Yang},
   booktitle={Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
-  year={2025}
+  year={2025},
 }
 
 @inproceedings{fathullah2024prompting,
@@ -367,7 +381,9 @@ url={https://openreview.net/forum?id=PYmrUQmMEw}
   booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   pages={13351--13355},
   year={2024},
-  organization={IEEE}
+  organization={IEEE},
+  doi = {10.1109/icassp48485.2024.10447605},
+  url = {https://doi.org/10.1109/icassp48485.2024.10447605}
 }
 
 @misc{fish-speech-v1.4,
@@ -461,6 +477,8 @@ url={https://openreview.net/forum?id=PYmrUQmMEw}
     url = "https://aclanthology.org/2021.findings-acl.195",
     doi = "10.18653/v1/2021.findings-acl.195",
     pages = "2214--2225",
+  doi = {10.18653/v1/2021.findings-acl.195},
+  url = {https://doi.org/10.18653/v1/2021.findings-acl.195}
 }
 
 @ARTICLE{hiddenmarkovmodel,
@@ -504,6 +522,8 @@ url={https://openreview.net/forum?id=PYmrUQmMEw}
     url = "https://aclanthology.org/2024.findings-acl.787",
     pages = "13289--13305",
     abstract = "Advances in machine learning have made it possible to perform various text and speech processing tasks, such as automatic speech recognition (ASR), in an end-to-end (E2E) manner. E2E approaches utilizing pre-trained models are gaining attention for conserving training data and resources. However, most of their applications in ASR involve only one of either a pre-trained speech or a language model. This paper proposes integrating a pre-trained speech representation model and a large language model (LLM) for E2E ASR. The proposed model enables the optimization of the entire ASR process, including acoustic feature extraction and acoustic and language modeling, by combining pre-trained models with a bridge network and also enables the application of remarkable developments in LLM utilization, such as parameter-efficient domain adaptation and inference optimization. Experimental results demonstrate that the proposed model achieves a performance comparable to that of modern E2E ASR models by utilizing powerful pre-training models with the proposed integrated approach.",
+  doi = {10.18653/v1/2024.findings-acl.787},
+  url = {https://doi.org/10.18653/v1/2024.findings-acl.787}
 }
 
 @inproceedings{hu2024wavllm,
@@ -613,7 +633,9 @@ numpages = {10}
   volume={9},
   pages={1336--1354},
   year={2021},
-  publisher={MIT Press One Rogers Street, Cambridge, MA 02142-1209, USA journals-info~…}
+  publisher={MIT Press One Rogers Street, Cambridge, MA 02142-1209, USA journals-info~…},
+  doi = {10.1162/tacl_a_00430},
+  url = {https://doi.org/10.1162/tacl_a_00430}
 }
 
 @inproceedings{lee-etal-2022-textless,
@@ -676,7 +698,9 @@ url={https://openreview.net/forum?id=PqvMRDCJT9t}
   title={End-to-end speech translation with knowledge distillation},
   author={Liu, Yuchen and Xiong, Hao and He, Zhongjun and Zhang, Jiajun and Wu, Hua and Wang, Haifeng and Zong, Chengqing},
   booktitle={Proceedings of the Annual Conference of the International Speech Communication Association (Interspeech)},
-  year={2019}
+  year={2019},
+  doi = {10.21437/interspeech.2019-2582},
+  url = {https://doi.org/10.21437/interspeech.2019-2582}
 }
 
 @article{liu2020_bridging,
@@ -750,7 +774,9 @@ url={https://openreview.net/forum?id=izrOLJov5y}
   volume={1},
   pages={517--520},
   year={1999},
-  organization={IEEE}
+  organization={IEEE},
+  doi = {10.1109/icassp.1999.758176},
+  url = {https://doi.org/10.1109/icassp.1999.758176}
 }
 
 @article{nguyen2024spirit,
@@ -767,6 +793,8 @@ url={https://openreview.net/forum?id=izrOLJov5y}
   author = {Myle Ott and Sergey Edunov and Alexei Baevski and Angela Fan and Sam Gross and Nathan Ng and David Grangier and Michael Auli},
   booktitle = {Proceedings of the Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)},
   year = {2019},
+  doi = {10.18653/v1/n19-4009},
+  url = {https://doi.org/10.18653/v1/n19-4009}
 }
 
 @inproceedings{ouyang-etal-2023-waco,
@@ -785,7 +813,7 @@ url={https://openreview.net/forum?id=izrOLJov5y}
     url = "https://aclanthology.org/2023.acl-long.216/",
     doi = "10.18653/v1/2023.acl-long.216",
     pages = "3891--3907",
-    abstract = "End-to-end Speech Translation (E2E ST) aims to directly translate source speech into target text. Existing ST methods perform poorly when only extremely small speech-text data are available for training. We observe that an ST model`s performance closely correlates with its embedding similarity between speech and source transcript. In this paper, we propose Word-Aligned COntrastive learning (WACO), a simple and effective method for extremely low-resource speech-to-text translation. Our key idea is bridging word-level representations for both speech and text modalities via contrastive learning. We evaluate WACO and other methods on the MuST-C dataset, a widely used ST benchmark, and on a low-resource direction Maltese-English from IWSLT 2023. Our experiments demonstrate that WACO outperforms the best baseline by 9+ BLEU points with only 1-hour parallel ST data. Code is available at \url{https://github.com/owaski/WACO}."
+    abstract = "End-to-end Speech Translation (E2E ST) aims to directly translate source speech into target text. Existing ST methods perform poorly when only extremely small speech-text data are available for training. We observe that an ST model`s performance closely correlates with its embedding similarity between speech and source transcript. In this paper, we propose Word-Aligned COntrastive learning (WACO), a simple and effective method for extremely low-resource speech-to-text translation. Our key idea is bridging word-level representations for both speech and text modalities via contrastive learning. We evaluate WACO and other methods on the MuST-C dataset, a widely used ST benchmark, and on a low-resource direction Maltese-English from IWSLT 2023. Our experiments demonstrate that WACO outperforms the best baseline by 9+ BLEU points with only 1-hour parallel ST data. Code is available at \url{https://github.com/owaski/WACO}.",
 }
 
 @inproceedings{papineni-etal-2002-bleu,
@@ -899,7 +927,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   title={{AudioPaLM}: A Large Language Model that Can Speak and Listen},
   author={Rubenstein, Paul K and Asawaroengchai, Chulayuth and Nguyen, Duc Dung and Bapna, Ankur and Borsos, Zal{\'a}n and Quitry, F{\'e}lix de Chaumont and Chen, Peter and Badawy, Dalia El and Han, Wei and Kharitonov, Eugene and others},
   journal={arXiv preprint arXiv:2306.12925},
-  year={2023}
+  year={2023},
+  doi = {10.48550/arXiv.2306.12925},
+  url = {https://doi.org/10.48550/arXiv.2306.12925}
 }
 
 @inproceedings{s2ut,
@@ -948,7 +978,7 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   title={{SLAM}: A unified encoder for speech and language modeling via speech-text joint pre-training},
   author={Bapna, Ankur and Chung, Yu-an and Wu, Nan and Gulati, Anmol and Jia, Ye and Clark, Jonathan H and Johnson, Melvin and Riesa, Jason and Conneau, Alexis and Zhang, Yu},
   journal={arXiv preprint arXiv:2110.10329},
-  year={2021}
+  year={2021},
 }
 
 @article{slam-asr,
@@ -974,6 +1004,8 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
     doi = "10.18653/v1/2021.acl-long.328",
     pages = "4252--4261",
     abstract = "Pretraining and multitask learning are widely used to improve the speech translation performance. In this study, we are interested in training a speech translation model along with an auxiliary text translation task. We conduct a detailed analysis to understand the impact of the auxiliary task on the primary task within the multitask learning framework. Our analysis confirms that multitask learning tends to generate similar decoder representations from different modalities and preserve more information from the pretrained text translation modules. We observe minimal negative transfer effect between the two tasks and sharing more parameters is helpful to transfer knowledge from the text task to the speech task. The analysis also reveals that the modality representation difference at the top decoder layers is still not negligible, and those layers are critical for the translation quality. Inspired by these findings, we propose three methods to improve translation quality. First, a parameter sharing and initialization strategy is proposed to enhance information sharing between the tasks. Second, a novel attention-based regularization is proposed for the encoders and pulls the representations from different modalities closer. Third, an online knowledge distillation is proposed to enhance the knowledge transfer from the text to the speech task. Our experiments show that the proposed approach improves translation performance by more than 2 BLEU over a strong baseline and achieves state-of-the-art results on the MuST-C English-German, English-French and English-Spanish language pairs.",
+  doi = {10.18653/v1/2021.acl-long.328},
+  url = {https://doi.org/10.18653/v1/2021.acl-long.328}
 }
 
 @inproceedings{tang-etal-2022-unified,
@@ -1000,7 +1032,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
     url = "https://aclanthology.org/2022.acl-long.105/",
     doi = "10.18653/v1/2022.acl-long.105",
     pages = "1488--1499",
-    abstract = "In this work, we describe a method to jointly pre-train speech and text in an encoder-decoder modeling framework for speech translation and recognition. The proposed method utilizes multi-task learning to integrate four self-supervised and supervised subtasks for cross modality learning. A self-supervised speech subtask, which leverages unlabelled speech data, and a (self-)supervised text to text subtask, which makes use of abundant text training data, take up the majority of the pre-training time. Two auxiliary supervised speech tasks are included to unify speech and text modeling space. Detailed analysis reveals learning interference among subtasks. In order to alleviate the subtask interference, two pre-training configurations are proposed for speech translation and speech recognition respectively. Our experiments show the proposed method can effectively fuse speech and text information into one model. It achieves between 1.7 and 2.3 BLEU improvement above the state of the art on the MuST-C speech translation dataset and comparable WERs to wav2vec 2.0 on the Librispeech speech recognition task."
+    abstract = "In this work, we describe a method to jointly pre-train speech and text in an encoder-decoder modeling framework for speech translation and recognition. The proposed method utilizes multi-task learning to integrate four self-supervised and supervised subtasks for cross modality learning. A self-supervised speech subtask, which leverages unlabelled speech data, and a (self-)supervised text to text subtask, which makes use of abundant text training data, take up the majority of the pre-training time. Two auxiliary supervised speech tasks are included to unify speech and text modeling space. Detailed analysis reveals learning interference among subtasks. In order to alleviate the subtask interference, two pre-training configurations are proposed for speech translation and speech recognition respectively. Our experiments show the proposed method can effectively fuse speech and text information into one model. It achieves between 1.7 and 2.3 BLEU improvement above the state of the art on the MuST-C speech translation dataset and comparable WERs to wav2vec 2.0 on the Librispeech speech recognition task.",
+  doi = {10.18653/v1/2022.acl-long.105},
+  url = {https://doi.org/10.18653/v1/2022.acl-long.105}
 }
 
 @inproceedings{
@@ -1067,14 +1101,16 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   author={Hassid, Michael and Remez, Tal and Nguyen, Tu Anh and Gat, Itai and Conneau, Alexis and Kreuk, Felix and Copet, Jade and Defossez, Alexandre and Synnaeve, Gabriel and Dupoux, Emmanuel and others},
   journal={Advances in Neural Information Processing Systems (NeurIPS)},
   volume={36},
-  year={2023}
+  year={2023},
 }
 
 @inproceedings{ultrachat,
   title={Enhancing Chat Language Models by Scaling High-quality Instructional Conversations},
   author={Ding, Ning and Chen, Yulin and Xu, Bokai and Qin, Yujia and Zheng, Zhi and Hu, Shengding and Liu, Zhiyuan and Sun, Maosong and Zhou, Bowen},
   booktitle={Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year={2023}
+  year={2023},
+  doi = {10.18653/v1/2023.emnlp-main.183},
+  url = {https://doi.org/10.18653/v1/2023.emnlp-main.183}
 }
 
 @article{uwspeech,
@@ -1090,7 +1126,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
 @inproceedings{Veaux2017CSTRVC,
     title        = {CSTR {VCTK} Corpus: {English} Multi-speaker Corpus for CSTR Voice Cloning Toolkit},
     author       = {Christophe Veaux and Junichi Yamagishi and Kirsten MacDonald},
-    year         = 2017
+    year         = 2017,
+  doi = {10.7488/DS/1495},
+  url = {https://doi.org/10.7488/DS/1495}
 }
 
 @ARTICLE{viterbi,
@@ -1108,7 +1146,7 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
     author={Changhan Wang and Anne Wu and Jiatao Gu and Juan Pino},
     booktitle={Proceedings of the Annual Conference of the International Speech Communication Association (Interspeech)},
     year={2021},
-    primaryClass={cs.CL}
+    primaryClass={cs.CL},
 }
 
 @article{wang2023viola,
@@ -1143,6 +1181,8 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
     doi = "10.18653/v1/2023.findings-acl.509",
     pages = "8035--8047",
     abstract = "Speech-to-speech translation is a typical sequence-to-sequence learning task that naturally has two directions. How to effectively leverage bidirectional supervision signals to produce high-fidelity audio for both directions? Existing approaches either train two separate models or a multitask-learned model with low efficiency and inferior performance. In this paper, we propose a duplex diffusion model that applies diffusion probabilistic models to both sides of a reversible duplex Conformer, so that either end can simultaneously input and output a distinct language{'}s speech. Our model enables reversible speech translation by simply flipping the input and output ends. Experiments show that our model achieves the first success of reversible speech translation with significant improvements of ASR-BLEU scores compared with a list of state-of-the-art baselines.",
+  doi = {10.18653/v1/2023.findings-acl.509},
+  url = {https://doi.org/10.18653/v1/2023.findings-acl.509}
 }
 
 @inproceedings{wu2023decoder,
@@ -1151,7 +1191,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   booktitle={Proceedings of the IEEE Automatic Speech Recognition and Understanding Workshop (ASRU)},
   pages={1--8},
   year={2023},
-  organization={IEEE}
+  organization={IEEE},
+  doi = {10.1109/asru57964.2023.10389705},
+  url = {https://doi.org/10.1109/asru57964.2023.10389705}
 }
 
 @article{xie2024mini,
@@ -1185,6 +1227,8 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
     doi = "10.18653/v1/2022.naacl-main.376",
     pages = "5099--5113",
     abstract = "How can we learn unified representations for spoken utterances and their written text? Learning similar representations for semantically similar speech and text is important for speech translation. To this end, we propose ConST, a cross-modal contrastive learning method for end-to-end speech-to-text translation. We evaluate ConST and a variety of previous baselines on a popular benchmark MuST-C. Experiments show that the proposed ConST consistently outperforms the previous methods, and achieves an average BLEU of 29.4. The analysis further verifies that ConST indeed closes the representation gap of different modalities {---} its learned representation improves the accuracy of cross-modal speech-text retrieval from 4{\%} to 88{\%}. Code and models are available at \url{https://github.com/ReneeYe/ConST}.",
+  doi = {10.18653/v1/2022.naacl-main.376},
+  url = {https://doi.org/10.18653/v1/2022.naacl-main.376}
 }
 
 @inproceedings{yu2024connecting,
@@ -1193,7 +1237,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   pages={12637--12641},
   year={2024},
-  organization={IEEE}
+  organization={IEEE},
+  doi = {10.1109/icassp48485.2024.10445874},
+  url = {https://doi.org/10.1109/icassp48485.2024.10445874}
 }
 
 
@@ -1239,7 +1285,9 @@ url={https://openreview.net/forum?id=piLPYqxtWuA}
   title={Rethinking and Improving Multi-task Learning for End-to-end Speech Translation},
   author={Zhang, Yuhao and Xu, Chen and Li, Bei and Chen, Hao and Xiao, Tong and Zhang, Chunliang and Zhu, Jingbo},
   booktitle={Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year={2023}
+  year={2023},
+  doi = {10.18653/v1/2023.emnlp-main.663},
+  url = {https://doi.org/10.18653/v1/2023.emnlp-main.663}
 }
 
 @article{zhang2024intrinsicvoice,
@@ -1758,14 +1806,16 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   author={Gong, Yuan and Lai, Cheng-I and Chung, Yu-An and Glass, James},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
   pages={10699--10709},
-  year={2022}
+  year={2022},
+  doi = {10.1609/aaai.v36i10.21315},
+  url = {https://doi.org/10.1609/aaai.v36i10.21315}
 }
 
 @inproceedings{huang2022audiomae,
   title={Masked Autoencoders that Listen},
   author={Huang, Po-Yao and Xu, Hu and Li, Juncheng and Baevski, Alexei and Auli, Michael and Galuba, Wojciech and Metze, Florian and Feichtenhofer, Christoph},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year={2022}
+  year={2022},
 }
 
 @inproceedings{liu2023dinosr,
@@ -1818,7 +1868,9 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   author={Rekesh, Dima and Koluguri, Nithin Rao and Kriman, Samuel and Majumdar, Somshubra and Noroozi, Vahid and Huang, He and Hrinchuk, Oleksii and Puvvada, Krishna C. and Kumar, Ankur and Balam, Jagadeesh and Ginsburg, Boris},
   booktitle={Proceedings of the IEEE Automatic Speech Recognition and Understanding Workshop (ASRU)},
   pages={1--8},
-  year={2023}
+  year={2023},
+  doi = {10.1109/ICASSP48485.2024.10445891},
+  url = {https://doi.org/10.1109/ICASSP48485.2024.10445891}
 }
 
 @inproceedings{huang2023repcodec,
@@ -1850,7 +1902,9 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   title={{Ming-UniAudio}: Speech {LLM} for Joint Understanding, Generation and Editing with Unified Representation},
   author={Yan, Canxiang and Jin, Chunxiang and Huang, Dawei and Yu, Haibing and Peng, Han and others},
   journal={arXiv preprint arXiv:2511.05516},
-  year={2025}
+  year={2025},
+  doi = {10.48550/arXiv.2511.05516},
+  url = {https://doi.org/10.48550/arXiv.2511.05516}
 }
 
 @inproceedings{cheng2023m3st,
@@ -1866,7 +1920,9 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   author={Zhang, Yuhao and Kou, Kaiqi and Li, Bei and Xu, Chen and Zhang, Chunliang and Xiao, Tong and Zhu, Jingbo},
   booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   pages={11041--11045},
-  year={2024}
+  year={2024},
+  doi = {10.1109/icassp48485.2024.10447494},
+  url = {https://doi.org/10.1109/icassp48485.2024.10447494}
 }
 
 @inproceedings{han2023tab,
@@ -1874,7 +1930,9 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   author={Han, Yuchen and Xu, Chen and Xiao, Tong and Zhu, Jingbo},
   booktitle={Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
   pages={1340--1348},
-  year={2023}
+  year={2023},
+  doi = {10.18653/v1/2023.acl-short.115},
+  url = {https://doi.org/10.18653/v1/2023.acl-short.115}
 }
 
 @article{glm2024chatglm,
@@ -1888,7 +1946,7 @@ url={https://openreview.net/forum?id=3tukjsVyrE}
   title={Direct Preference Optimization: Your Language Model is Secretly a Reward Model},
   author={Rafael Rafailov and Archit Sharma and Eric Mitchell and Stefano Ermon and Christopher D. Manning and Chelsea Finn},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year={2023}
+  year={2023},
 }
 
 @inproceedings{fang2023daspeech,
