@@ -196,12 +196,6 @@ LLaMA-Omni在$\Omega = 10$时可实现最低236毫秒的响应延迟，甚至低
 
 相比之下，LLaMA-Omni的流式语音生成在端到端模型内部以离散单元为粒度完成，仅需外接声码器进行流式的单元到波形转换。由于离散单元的粒度远细于词，且CTC对齐已在模型内部学习了合理的时长分配，语音的整体韵律和节奏在不同延迟水平下几乎不受影响，WPS始终稳定在2.73至2.76之间。这体现了端到端模型相比基于流式TTS的级联系统的优势。
 
-\subsection{解码效率分析}
-
-\input{Tables/llamaomni_decode_time}
-
-表\ref{tab:llamaomni_decode_time}对比了各模型的平均解码时间。LLaMA-Omni同时生成文本和语音响应（S2SIF）的解码时间为1.92秒，仅比仅生成文本响应（S2TIF）的1.49秒慢29\%，充分验证了非自回归语音解码器的高效性。而SpeechGPT的S2SIF解码时间高达25.60秒，是其S2TIF解码时间的近6倍。
-
 \subsection{人工评估}
 
 \input{Img/figure_llamaomni_humaneval}
