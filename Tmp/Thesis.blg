@@ -9,49 +9,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 11912 items from 5000.
+Reallocated field_info (elt_size=4) to 11804 items from 5000.
 Database file #1: Biblio/ref.bib
-Warning--empty journal in gpt1
+Warning--I didn't find a database entry for "fang-etal-2023-daspeech"
 Warning--empty booktitle in Veaux2017CSTRVC
-You've used 192 entries,
+You've used 188 entries,
             4948 wiz_defined-function locations,
-            1951 strings with 57187 characters,
-and the built_in function-call counts, 2081362 in all, are:
-= -- 36991
-> -- 249795
-< -- 308174
-+ -- 83703
-- -- 17061
-* -- 11085
-:= -- 288948
-add.period$ -- 695
-call.type$ -- 192
-change.case$ -- 384
-chr.to.int$ -- 76034
-cite$ -- 194
-duplicate$ -- 4132
-empty$ -- 13660
-format.name$ -- 7971
-if$ -- 539022
-int.to.chr$ -- 33
-int.to.str$ -- 193
+            1995 strings with 57835 characters,
+and the built_in function-call counts, 1972724 in all, are:
+= -- 33541
+> -- 237525
+< -- 295067
++ -- 80621
+- -- 15562
+* -- 10154
+:= -- 274376
+add.period$ -- 766
+call.type$ -- 188
+change.case$ -- 366
+chr.to.int$ -- 73153
+cite$ -- 189
+duplicate$ -- 4119
+empty$ -- 11221
+format.name$ -- 7744
+if$ -- 510632
+int.to.chr$ -- 20
+int.to.str$ -- 189
 missing$ -- 0
-newline$ -- 1201
-num.names$ -- 604
-pop$ -- 107769
+newline$ -- 1263
+num.names$ -- 590
+pop$ -- 102033
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 188
 quote$ -- 0
-skip$ -- 222759
+skip$ -- 210010
 stack$ -- 0
-substring$ -- 96474
-swap$ -- 262
-text.length$ -- 4059
+substring$ -- 89344
+swap$ -- 231
+text.length$ -- 3908
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2278
-warning$ -- 2
-while$ -- 4799
+type$ -- 2232
+warning$ -- 1
+while$ -- 4651
 width$ -- 0
-write$ -- 2695
+write$ -- 2839
 (There were 2 warnings)

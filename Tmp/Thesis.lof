@@ -1,35 +1,33 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1-1}{\ignorespaces \enspace 本文研究内容概览\relax }}{6}{figure.caption.12}%
+\contentsline {figure}{\numberline {1-1}{\ignorespaces \enspace 本文研究内容概览\relax }}{7}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace 语音到语音生成的三种建模范式\relax }}{9}{figure.caption.13}%
-\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 语音到语音生成研究现状的分类概览\relax }}{11}{figure.caption.14}%
-\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace Transformer编码器-解码器架构\relax }}{15}{figure.caption.15}%
-\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 语音到文本翻译的三种模型结构\relax }}{16}{figure.caption.16}%
-\contentsline {figure}{\numberline {2-5}{\ignorespaces \enspace 语音到语音翻译的三种方法\relax }}{19}{figure.caption.17}%
-\contentsline {figure}{\numberline {2-6}{\ignorespaces \enspace 仅解码器架构\relax }}{21}{figure.caption.18}%
-\contentsline {figure}{\numberline {2-7}{\ignorespaces \enspace 基于大语言模型的语音到文本生成架构\relax }}{22}{figure.caption.19}%
-\contentsline {figure}{\numberline {2-8}{\ignorespaces \enspace 语音到语音生成的两种架构：原生式与组合式\relax }}{24}{figure.caption.20}%
+\contentsline {figure}{\numberline {2-1}{\ignorespaces \enspace 语音到语音生成的三种建模范式\relax }}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {2-2}{\ignorespaces \enspace 语音到语音生成研究现状的分类概览\relax }}{13}{figure.caption.14}%
+\contentsline {figure}{\numberline {2-3}{\ignorespaces \enspace Transformer编码器-解码器架构\relax }}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {2-4}{\ignorespaces \enspace 语音到文本翻译的三种模型结构\relax }}{18}{figure.caption.16}%
+\contentsline {figure}{\numberline {2-5}{\ignorespaces \enspace 语音到语音翻译的三种方法\relax }}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {2-6}{\ignorespaces \enspace 仅解码器架构\relax }}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {2-7}{\ignorespaces \enspace 基于大语言模型的语音到文本生成架构\relax }}{24}{figure.caption.19}%
+\contentsline {figure}{\numberline {2-8}{\ignorespaces \enspace 语音到语音生成的两种架构：原生式与组合式\relax }}{25}{figure.caption.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{29}{figure.caption.21}%
-\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{32}{figure.caption.22}%
-\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{39}{figure.caption.29}%
-\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{39}{figure.caption.29}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces \enspace ComSpeech模型架构\relax }}{31}{figure.caption.21}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces \enspace ComSpeech-ZS的训练与推理流程\relax }}{33}{figure.caption.22}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces \enspace TTS数据规模对翻译质量的影响\relax }}{40}{figure.caption.29}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces \enspace S2TT数据规模对翻译质量的影响\relax }}{40}{figure.caption.29}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{43}{figure.caption.30}%
-\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{50}{figure.caption.34}%
-\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{51}{figure.caption.35}%
-\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{51}{figure.caption.35}%
-\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{51}{figure.caption.36}%
-\contentsline {figure}{\numberline {4-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{51}{figure.caption.36}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces \enspace DASpeech模型架构\relax }}{45}{figure.caption.30}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces \enspace 不同源语音长度下的翻译延迟对比\relax }}{52}{figure.caption.34}%
+\contentsline {figure}{\numberline {4-3}{\ignorespaces \enspace 翻译质量与解码速度的权衡\relax }}{53}{figure.caption.35}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces \enspace 不同批次大小下的解码加速比\relax }}{53}{figure.caption.35}%
+\contentsline {figure}{\numberline {4-5}{\ignorespaces \enspace 不同图尺寸下S2TT模型的翻译质量\relax }}{53}{figure.caption.36}%
+\contentsline {figure}{\numberline {4-6}{\ignorespaces \enspace 不同图尺寸下DASpeech的翻译质量\relax }}{53}{figure.caption.36}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace LLaMA-Omni模型架构与训练策略\relax }}{55}{figure.caption.38}%
-\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{62}{figure.caption.41}%
-\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{64}{figure.caption.44}%
-\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace 自然性人工评估结果\relax }}{64}{figure.caption.44}%
+\contentsline {figure}{\numberline {5-1}{\ignorespaces \enspace LLaMA-Omni模型架构与训练策略\relax }}{57}{figure.caption.38}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces \enspace 流式场景下各模型在不同延迟条件下的实验结果\relax }}{64}{figure.caption.41}%
+\contentsline {figure}{\numberline {5-3}{\ignorespaces \enspace 帮助性人工评估结果\relax }}{66}{figure.caption.43}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces \enspace 自然性人工评估结果\relax }}{66}{figure.caption.43}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace LLaMA-Omni 2模型架构与训练策略\relax }}{67}{figure.caption.45}%
+\contentsline {figure}{\numberline {6-1}{\ignorespaces \enspace LLaMA-Omni 2模型架构与训练策略\relax }}{69}{figure.caption.44}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7-1}{\ignorespaces \enspace 基于多信道交织的全双工语音交互模型\relax }}{81}{figure.caption.52}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7-1}{\ignorespaces \enspace 基于多信道交织的全双工语音对话模型\relax }}{82}{figure.caption.51}%
 \addvspace {10\p@ }
